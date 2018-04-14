@@ -1,0 +1,344 @@
+0000000000000000000000000000000000000000 ccecbbb41daa89ecba1a47b6ad4c0cc1eb863437 kyrlouca <kyrlouca@gmail.com> 1509610921 +0200	commit (initial): first
+ccecbbb41daa89ecba1a47b6ad4c0cc1eb863437 3fc6da4dd7c372f509ee15556ae149c3be32f173 kyrlouca <kyrlouca@gmail.com> 1509635369 +0200	commit: params
+3fc6da4dd7c372f509ee15556ae149c3be32f173 3e032aab17f492046731865d28ed9a924e752f79 kyrlouca <kyrlouca@gmail.com> 1509635711 +0200	commit: params 2
+3e032aab17f492046731865d28ed9a924e752f79 61c5ac215cadcd4336a6f3199080278f8db230e7 kyrlouca <kyrlouca@gmail.com> 1509651104 +0200	commit: comapny
+61c5ac215cadcd4336a6f3199080278f8db230e7 af6b1161c28d8f8a98cc60b57e68b4da1aca723e kyrlouca <kyrlouca@gmail.com> 1509651129 +0200	commit: comapny
+af6b1161c28d8f8a98cc60b57e68b4da1aca723e 7e52486cf3c89c1c46e8ccfd42c3d1594ebfc79c kyrlouca <kyrlouca@gmail.com> 1509652716 +0200	commit: student
+7e52486cf3c89c1c46e8ccfd42c3d1594ebfc79c e7e04b6c4deef70f2020851fc2ae0f0aa550b6d8 kyrlouca <kyrlouca@gmail.com> 1509694489 +0200	commit: tables
+e7e04b6c4deef70f2020851fc2ae0f0aa550b6d8 59875525bfdcaf70cad7b41b22f244315713314b kyrlouca <kyrlouca@gmail.com> 1509696288 +0200	commit: list seminar
+59875525bfdcaf70cad7b41b22f244315713314b 9a1bf0deb76de40e14225d7a91e6f4c8f31ff964 kyrlouca <kyrlouca@gmail.com> 1509704798 +0200	commit: STARTED ON SEMINAR
+9a1bf0deb76de40e14225d7a91e6f4c8f31ff964 4cbdfdd04fc2e2c1d9ceffbd8212da0c682426a7 kyrlouca <kyrlouca@gmail.com> 1509723020 +0200	commit: working ON SEMINAR
+4cbdfdd04fc2e2c1d9ceffbd8212da0c682426a7 26dbfdfb69b37fa02e2ffc680b01524467ea3a55 kyrlouca <kyrlouca@gmail.com> 1509726918 +0200	commit: working ON attendance
+26dbfdfb69b37fa02e2ffc680b01524467ea3a55 85ac02a5a393fc35c5f7b56be6764d7ce2766b8e kyrlouca <kyrlouca@gmail.com> 1509731092 +0200	commit: working ON attendance
+85ac02a5a393fc35c5f7b56be6764d7ce2766b8e 15d92ff6245f5d426dd0431bde9090d2f133b3d6 kyrlouca <kyrlouca@gmail.com> 1509748599 +0200	commit: attendance clos to finish
+15d92ff6245f5d426dd0431bde9090d2f133b3d6 b126fdb5828ff83058a923b81ff2f4ed48f9672a kyrlouca <kyrlouca@gmail.com> 1509776389 +0200	commit: attendance clos to finish
+b126fdb5828ff83058a923b81ff2f4ed48f9672a e710d13048516be9daad1e0d1f454cde6d815130 kyrlouca <kyrlouca@gmail.com> 1509780531 +0200	commit: subjects
+e710d13048516be9daad1e0d1f454cde6d815130 daf1fb0d34887371af37907cfa86ef4b7bce37fa kyrlouca <kyrlouca@gmail.com> 1509780597 +0200	commit: database
+daf1fb0d34887371af37907cfa86ef4b7bce37fa ed55ce829df33959cc7af70c7e3bd73a47db2f10 kyrlouca <kyrlouca@gmail.com> 1509788840 +0200	commit: days
+ed55ce829df33959cc7af70c7e3bd73a47db2f10 6dbdecb8d578f3963554c40744d36e574eb6e4e1 kyrlouca <kyrlouca@gmail.com> 1509788911 +0200	commit: days database
+6dbdecb8d578f3963554c40744d36e574eb6e4e1 a6859ca3cb94c1524c9d2d5f2b021877dd532d78 kyrlouca <kyrlouca@gmail.com> 1509808743 +0200	commit: days database
+a6859ca3cb94c1524c9d2d5f2b021877dd532d78 bc982e8c030b063e7cee80f43d58cbff2b415913 kyrlouca <kyrlouca@gmail.com> 1509883443 +0200	commit: woring on presence
+bc982e8c030b063e7cee80f43d58cbff2b415913 c3d40a3d22d82927bf20275325cfbb5fad3796a8 kyrlouca <kyrlouca@gmail.com> 1510051403 +0200	commit: presence working
+c3d40a3d22d82927bf20275325cfbb5fad3796a8 b5dfe9875092ee5a8cb395145da9652b5170d71c kyrlouca <kyrlouca@gmail.com> 1510052232 +0200	commit: presence working
+b5dfe9875092ee5a8cb395145da9652b5170d71c b25f10417b816339db7c52f6d5f1de01936d2009 kyrlouca <kyrlouca@gmail.com> 1510077376 +0200	commit: cost
+b25f10417b816339db7c52f6d5f1de01936d2009 034e1a1d14247691724257a4bab96a6f01aa7ed6 kyrlouca <kyrlouca@gmail.com> 1510132788 +0200	commit: reminders
+034e1a1d14247691724257a4bab96a6f01aa7ed6 a916e63be034bcf4c7f5fd92a0f2aa3d9f022d3e kyrlouca <kyrlouca@gmail.com> 1510148194 +0200	commit: reminders
+a916e63be034bcf4c7f5fd92a0f2aa3d9f022d3e 708189c5e9383476224ca8619a9bfd7d7d8b2a87 kyrlouca <kyrlouca@gmail.com> 1510159007 +0200	commit: reminders works
+708189c5e9383476224ca8619a9bfd7d7d8b2a87 5db3027dc97840c35f77437cabc3d9f11b38c09a kyrlouca <kyrlouca@gmail.com> 1510211617 +0200	commit: reminders works
+5db3027dc97840c35f77437cabc3d9f11b38c09a 86d2764aeb5f0e7ed50f7f8b222cb8fc16013a44 kyrlouca <kyrlouca@gmail.com> 1510218150 +0200	commit: reminders
+86d2764aeb5f0e7ed50f7f8b222cb8fc16013a44 a8679c280d483116820686c35f4bdc13b90ffb8d kyrlouca <kyrlouca@gmail.com> 1510218851 +0200	commit: reminders
+a8679c280d483116820686c35f4bdc13b90ffb8d 6ff3035417339b61b7ee37953d3008e219c83c1d kyrlouca <kyrlouca@gmail.com> 1510218866 +0200	commit: reminders
+6ff3035417339b61b7ee37953d3008e219c83c1d af1e08b69fc242769856d93fe8f6e57358f0c0b9 kyrlouca <kyrlouca@gmail.com> 1510219034 +0200	commit: database
+af1e08b69fc242769856d93fe8f6e57358f0c0b9 38598864d04a1b6dabbeea69236873970ee896e3 kyrlouca <kyrlouca@gmail.com> 1510245873 +0200	commit: working on sorting
+38598864d04a1b6dabbeea69236873970ee896e3 4d1f65a96b9688cbe78a0f65c204a5b8cd8e4271 kyrlouca <kyrlouca@gmail.com> 1510250849 +0200	commit: working on sorting
+4d1f65a96b9688cbe78a0f65c204a5b8cd8e4271 d18fa0ebef3e532984cbca01877a62714e70eb98 kyrlouca <kyrlouca@gmail.com> 1510252758 +0200	commit: working on sorting 2
+d18fa0ebef3e532984cbca01877a62714e70eb98 d3bda1aa75c20daa168456df0ae1c6b9a59ad718 kyrlouca <kyrlouca@gmail.com> 1510296680 +0200	commit: reminders 2
+d3bda1aa75c20daa168456df0ae1c6b9a59ad718 7521a60b1c66ad8024a4e7419aaf7c5060e4c83e kyrlouca <kyrlouca@gmail.com> 1510327794 +0200	commit: invoices
+7521a60b1c66ad8024a4e7419aaf7c5060e4c83e bff1a9b64b39376319c5d9d688bf6755079d41dc kyrlouca <kyrlouca@gmail.com> 1510327809 +0200	commit: invoices
+bff1a9b64b39376319c5d9d688bf6755079d41dc a4be9f0abeffe912f29257c2e27a7018145b015f kyrlouca <kyrlouca@gmail.com> 1510421141 +0200	commit: invoices 2
+a4be9f0abeffe912f29257c2e27a7018145b015f 949a06388962624ce5f4b50bb5b88c91a25ab6ec kyrlouca <kyrlouca@gmail.com> 1510421330 +0200	commit: invoices 2
+949a06388962624ce5f4b50bb5b88c91a25ab6ec bff1a9b64b39376319c5d9d688bf6755079d41dc kyrlouca <kyrlouca@gmail.com> 1510421349 +0200	checkout: moving from master to bff1a9b
+bff1a9b64b39376319c5d9d688bf6755079d41dc 7521a60b1c66ad8024a4e7419aaf7c5060e4c83e kyrlouca <kyrlouca@gmail.com> 1510421415 +0200	checkout: moving from bff1a9b64b39376319c5d9d688bf6755079d41dc to 7521a60
+7521a60b1c66ad8024a4e7419aaf7c5060e4c83e 949a06388962624ce5f4b50bb5b88c91a25ab6ec kyrlouca <kyrlouca@gmail.com> 1510421466 +0200	checkout: moving from 7521a60b1c66ad8024a4e7419aaf7c5060e4c83e to master
+949a06388962624ce5f4b50bb5b88c91a25ab6ec b68a859545ff873bcceef1735a9b98aa0d306704 kyrlouca <kyrlouca@gmail.com> 1510425526 +0200	commit: invoices 3
+b68a859545ff873bcceef1735a9b98aa0d306704 ba63d452f6d6c8b01da90b85695812affd704c14 kyrlouca <kyrlouca@gmail.com> 1510474653 +0200	commit: company
+ba63d452f6d6c8b01da90b85695812affd704c14 93850c51e564623b1b947eaa322c5befa689d12f kyrlouca <kyrlouca@gmail.com> 1510497297 +0200	commit: list comapnies
+93850c51e564623b1b947eaa322c5befa689d12f a164c1c23013546556fd2f289c5b619a11ba1e1c kyrlouca <kyrlouca@gmail.com> 1510500331 +0200	commit: list comapnies
+a164c1c23013546556fd2f289c5b619a11ba1e1c 4e135b7d8f83b445d091767d1b7ab12a304ca35a kyrlouca <kyrlouca@gmail.com> 1510572502 +0200	commit: list comapnies
+4e135b7d8f83b445d091767d1b7ab12a304ca35a 48bfc0a30a7c6e033c9deb7034c133cb0fb43d1a kyrlouca <kyrlouca@gmail.com> 1510669495 +0200	commit: invoice cancel
+48bfc0a30a7c6e033c9deb7034c133cb0fb43d1a 8bc2b2ff195478af42fdf22698a3f2587db55d2c kyrlouca <kyrlouca@gmail.com> 1510669508 +0200	commit: invoice cancel
+8bc2b2ff195478af42fdf22698a3f2587db55d2c c810cfea9fb8892b77d7aff8c9d110726849538e kyrlouca <kyrlouca@gmail.com> 1510691940 +0200	commit: invoice cancel
+c810cfea9fb8892b77d7aff8c9d110726849538e 7e872ba942dd985683b7bc1e5998538d89b269cd kyrlouca <kyrlouca@gmail.com> 1510745491 +0200	commit: finished invoicing
+7e872ba942dd985683b7bc1e5998538d89b269cd cf9f13491d130b75ab9899b63991ef608ef2cb1c kyrlouca <kyrlouca@gmail.com> 1510747955 +0200	commit: finished rep
+cf9f13491d130b75ab9899b63991ef608ef2cb1c 7954693fba9c5fcd0e29f9dc045951726e53815f kyrlouca <kyrlouca@gmail.com> 1510748926 +0200	commit: stages
+7954693fba9c5fcd0e29f9dc045951726e53815f 5e209d71ad00a0c646ed5d6e3c8438a348c89e22 kyrlouca <kyrlouca@gmail.com> 1510820497 +0200	commit: certificates
+5e209d71ad00a0c646ed5d6e3c8438a348c89e22 abd05f45d9a408de5e5b89c058d2c4ad04c98b9c kyrlouca <kyrlouca@gmail.com> 1510826574 +0200	commit: fixed presents
+abd05f45d9a408de5e5b89c058d2c4ad04c98b9c 132bc91df9a2142fa7c47644890bc8410626a22d kyrlouca <kyrlouca@gmail.com> 1510851708 +0200	commit: fixed presents
+132bc91df9a2142fa7c47644890bc8410626a22d 2cae7c6702113462ceb842b37e14b75a4d2e2a21 kyrlouca <kyrlouca@gmail.com> 1510862713 +0200	commit: fixed presents
+2cae7c6702113462ceb842b37e14b75a4d2e2a21 b8ab3b2c9d3e4c7e72141e1553c1d93b1d42136e kyrlouca <kyrlouca@gmail.com> 1510927656 +0200	commit: reports presents
+b8ab3b2c9d3e4c7e72141e1553c1d93b1d42136e a7c9d6935488401369e83ee97cc51e9e8a797bf1 kyrlouca <kyrlouca@gmail.com> 1510927714 +0200	commit: db
+a7c9d6935488401369e83ee97cc51e9e8a797bf1 dbd6c9fc82bac18bcc45c76161212ad58dce46d2 kyrlouca <kyrlouca@gmail.com> 1510989485 +0200	commit: cert
+dbd6c9fc82bac18bcc45c76161212ad58dce46d2 a99275303710d1d1121742ab27ab37a19edc2acb kyrlouca <kyrlouca@gmail.com> 1510995050 +0200	commit: cert
+a99275303710d1d1121742ab27ab37a19edc2acb 9b1e6bd664af540ef2bf40dab92948560d62d96e kyrlouca <kyrlouca@gmail.com> 1511027229 +0200	commit: cert fails
+9b1e6bd664af540ef2bf40dab92948560d62d96e a7c9d6935488401369e83ee97cc51e9e8a797bf1 kyrlouca <kyrlouca@gmail.com> 1511027301 +0200	checkout: moving from master to a7c9d69
+a7c9d6935488401369e83ee97cc51e9e8a797bf1 9b1e6bd664af540ef2bf40dab92948560d62d96e kyrlouca <kyrlouca@gmail.com> 1511027364 +0200	checkout: moving from a7c9d6935488401369e83ee97cc51e9e8a797bf1 to master
+9b1e6bd664af540ef2bf40dab92948560d62d96e a99275303710d1d1121742ab27ab37a19edc2acb kyrlouca <kyrlouca@gmail.com> 1511081030 +0200	checkout: moving from master to a992753
+a99275303710d1d1121742ab27ab37a19edc2acb a99275303710d1d1121742ab27ab37a19edc2acb kyrlouca <kyrlouca@gmail.com> 1511081077 +0200	checkout: moving from a99275303710d1d1121742ab27ab37a19edc2acb to Cert
+a99275303710d1d1121742ab27ab37a19edc2acb 9b1e6bd664af540ef2bf40dab92948560d62d96e kyrlouca <kyrlouca@gmail.com> 1511081211 +0200	checkout: moving from Cert to master
+9b1e6bd664af540ef2bf40dab92948560d62d96e a7c9d6935488401369e83ee97cc51e9e8a797bf1 kyrlouca <kyrlouca@gmail.com> 1511081241 +0200	checkout: moving from master to a7c9d69
+a7c9d6935488401369e83ee97cc51e9e8a797bf1 a7c9d6935488401369e83ee97cc51e9e8a797bf1 kyrlouca <kyrlouca@gmail.com> 1511081253 +0200	checkout: moving from a7c9d6935488401369e83ee97cc51e9e8a797bf1 to Cert2
+a7c9d6935488401369e83ee97cc51e9e8a797bf1 4ee49f44126aa250a6c90a3adf42c98805aa6b65 kyrlouca <kyrlouca@gmail.com> 1511087156 +0200	commit: works
+4ee49f44126aa250a6c90a3adf42c98805aa6b65 86be6fbb90ec28d40e580a1a3b3a8c9a66a3f374 kyrlouca <kyrlouca@gmail.com> 1511087274 +0200	commit: works2
+86be6fbb90ec28d40e580a1a3b3a8c9a66a3f374 9b1e6bd664af540ef2bf40dab92948560d62d96e kyrlouca <kyrlouca@gmail.com> 1511087279 +0200	checkout: moving from Cert2 to master
+9b1e6bd664af540ef2bf40dab92948560d62d96e e79c95920f280c7c3f5d27e88738e89e513ad01d kyrlouca <kyrlouca@gmail.com> 1511087808 +0200	commit: almost here
+e79c95920f280c7c3f5d27e88738e89e513ad01d 86be6fbb90ec28d40e580a1a3b3a8c9a66a3f374 kyrlouca <kyrlouca@gmail.com> 1511087817 +0200	checkout: moving from master to cert2
+86be6fbb90ec28d40e580a1a3b3a8c9a66a3f374 e79c95920f280c7c3f5d27e88738e89e513ad01d kyrlouca <kyrlouca@gmail.com> 1511087937 +0200	checkout: moving from cert2 to master
+e79c95920f280c7c3f5d27e88738e89e513ad01d 840b51e7f6193ab8ef6fe640dac5162069e92a5a kyrlouca <kyrlouca@gmail.com> 1511088178 +0200	commit: last commit
+840b51e7f6193ab8ef6fe640dac5162069e92a5a 840b51e7f6193ab8ef6fe640dac5162069e92a5a kyrlouca <kyrlouca@gmail.com> 1511089071 +0200	reset: moving to HEAD
+840b51e7f6193ab8ef6fe640dac5162069e92a5a 8260d89ed0e1e5ec2ced160860d9b96eba6f40a1 kyrlouca <kyrlouca@gmail.com> 1511089287 +0200	commit: not know what is
+8260d89ed0e1e5ec2ced160860d9b96eba6f40a1 86be6fbb90ec28d40e580a1a3b3a8c9a66a3f374 kyrlouca <kyrlouca@gmail.com> 1511089307 +0200	checkout: moving from master to cert2
+86be6fbb90ec28d40e580a1a3b3a8c9a66a3f374 8260d89ed0e1e5ec2ced160860d9b96eba6f40a1 kyrlouca <kyrlouca@gmail.com> 1511089388 +0200	checkout: moving from cert2 to master
+8260d89ed0e1e5ec2ced160860d9b96eba6f40a1 ad007b40642c7d06e905254b4bcae246e369a1ad kyrlouca <kyrlouca@gmail.com> 1511093318 +0200	commit: working again cert
+ad007b40642c7d06e905254b4bcae246e369a1ad 23a5a923dde38368a89c886a30a4ddf1808a6763 kyrlouca <kyrlouca@gmail.com> 1511106433 +0200	commit: guest works
+23a5a923dde38368a89c886a30a4ddf1808a6763 43b22a4c6e3b09968c0fcb599c142812af48990c kyrlouca <kyrlouca@gmail.com> 1511106520 +0200	commit: database views
+43b22a4c6e3b09968c0fcb599c142812af48990c c7f39d59d55734abcee1692346a3feef5e81ce1c kyrlouca <kyrlouca@gmail.com> 1511113979 +0200	commit: cert report
+c7f39d59d55734abcee1692346a3feef5e81ce1c f9104c8c4a6978115a9dfd6aa8eced2e32eea156 kyrlouca <kyrlouca@gmail.com> 1511178631 +0200	commit: cert report
+f9104c8c4a6978115a9dfd6aa8eced2e32eea156 d050ec3994256c0740fd79a93cbff662702d5f56 kyrlouca <kyrlouca@gmail.com> 1511191080 +0200	commit: before reminders
+d050ec3994256c0740fd79a93cbff662702d5f56 033cc8b9dc1e236a38ed69a3a95676c584be1d60 kyrlouca <kyrlouca@gmail.com> 1511201410 +0200	commit: first reminders
+033cc8b9dc1e236a38ed69a3a95676c584be1d60 1e269261a6e323d7526fa60973842bd1b7fee10c kyrlouca <kyrlouca@gmail.com> 1511203235 +0200	commit: filter reminders
+1e269261a6e323d7526fa60973842bd1b7fee10c bee048b5f4518329e86147d88346ae2ddf857a11 kyrlouca <kyrlouca@gmail.com> 1511280739 +0200	commit: finished report reminders
+bee048b5f4518329e86147d88346ae2ddf857a11 afdec02dd3668b5e90761a438f435b4ed415a99a kyrlouca <kyrlouca@gmail.com> 1511352473 +0200	commit: starting expiry
+afdec02dd3668b5e90761a438f435b4ed415a99a 06e0abdd6aa7c5058a0a889e3a2b86ecdbeec0d1 kyrlouca <kyrlouca@gmail.com> 1511355960 +0200	commit: starting expiry 2
+06e0abdd6aa7c5058a0a889e3a2b86ecdbeec0d1 0fab623697ada45f032341a5c4aa60875b7abbe4 kyrlouca <kyrlouca@gmail.com> 1511370889 +0200	commit: starting expiry 3
+0fab623697ada45f032341a5c4aa60875b7abbe4 aaedebbef9b74edbb04707649ab1db06ea89dcbb kyrlouca <kyrlouca@gmail.com> 1511371367 +0200	commit: db
+aaedebbef9b74edbb04707649ab1db06ea89dcbb 95f4dd7005c21ce229c2a08824e28955f6a6cc81 kyrlouca <kyrlouca@gmail.com> 1511371438 +0200	commit: db de
+95f4dd7005c21ce229c2a08824e28955f6a6cc81 9cb641e0d189efad8a795a901044f58a05958662 kyrlouca <kyrlouca@gmail.com> 1511371515 +0200	commit: db ad
+9cb641e0d189efad8a795a901044f58a05958662 1da6473aba6e36c5348429b3273fb3f0d04454f6 kyrlouca <kyrlouca@gmail.com> 1511374201 +0200	commit: inv
+1da6473aba6e36c5348429b3273fb3f0d04454f6 a15f93536dff3534dd8a09d52cda3675439f1ef3 kyrlouca <kyrlouca@gmail.com> 1511381614 +0200	commit: before finish
+a15f93536dff3534dd8a09d52cda3675439f1ef3 2321f0a2cd77f02db7dc58d48fb1cf73025babd8 kyrlouca <kyrlouca@gmail.com> 1511416605 +0200	commit: tasks
+2321f0a2cd77f02db7dc58d48fb1cf73025babd8 97c47560829a36093811f47b205f532775546e51 kyrlouca <kyrlouca@gmail.com> 1511418324 +0200	commit: reps
+97c47560829a36093811f47b205f532775546e51 e34bfa5e644839dd703f86e6b45fdb79c3086f7e kyrlouca <kyrlouca@gmail.com> 1511451405 +0200	commit: changes
+e34bfa5e644839dd703f86e6b45fdb79c3086f7e 32034ea4b7769eeb0bb0cd31275a7928be3ed907 kyrlouca <kyrlouca@gmail.com> 1511516205 +0200	commit: logos
+32034ea4b7769eeb0bb0cd31275a7928be3ed907 d5ea7ffacada4d784692e4edbf9d70074c3dae7c kyrlouca <kyrlouca@gmail.com> 1511602846 +0200	commit: timage works
+d5ea7ffacada4d784692e4edbf9d70074c3dae7c aa13acde76e4fbbf3ae868943094533a3a762d8c kyrlouca <kyrlouca@gmail.com> 1511882500 +0200	commit: start image
+aa13acde76e4fbbf3ae868943094533a3a762d8c 99f10ba4d24232a973cbb53ce44c04f459d716eb kyrlouca <kyrlouca@gmail.com> 1511885447 +0200	commit: created picture type
+99f10ba4d24232a973cbb53ce44c04f459d716eb 4d9d9c3ce9206b5cc7ee1a3a1de291f04e638027 kyrlouca <kyrlouca@gmail.com> 1511893225 +0200	commit: created picture type
+4d9d9c3ce9206b5cc7ee1a3a1de291f04e638027 2c552362f1bc4847ca39dc7a4c4da805c83de4cf kyrlouca <kyrlouca@gmail.com> 1511895668 +0200	commit: seminar picture works
+2c552362f1bc4847ca39dc7a4c4da805c83de4cf 78e7d8099eb5e261970820987bb9b421338150a9 kyrlouca <kyrlouca@gmail.com> 1511946936 +0200	commit: seminar copy picture works
+78e7d8099eb5e261970820987bb9b421338150a9 17747d31350e2db362b4ee12573990b71f226493 kyrlouca <kyrlouca@gmail.com> 1511958688 +0200	commit: language
+17747d31350e2db362b4ee12573990b71f226493 451d28a7de8079744bccb6d5b5a4f9c4b23ff203 kyrlouca <kyrlouca@gmail.com> 1511973451 +0200	commit: language picture
+451d28a7de8079744bccb6d5b5a4f9c4b23ff203 b41db155cd736ed2e30ecc3463dee1b43817c091 kyrlouca <kyrlouca@gmail.com> 1512023732 +0200	commit: seminar type works
+b41db155cd736ed2e30ecc3463dee1b43817c091 a1a9b3629a5278b4c64834886d97a1da14bbe96b kyrlouca <kyrlouca@gmail.com> 1512026091 +0200	commit: seminar picture works
+a1a9b3629a5278b4c64834886d97a1da14bbe96b 9b7168fae7a425a10a810b48baf1530ea03f6f7b kyrlouca <kyrlouca@gmail.com> 1512027067 +0200	commit: seminar picture works
+9b7168fae7a425a10a810b48baf1530ea03f6f7b 03b6b6b563db4287fe786ff8d21360be06861c7b kyrlouca <kyrlouca@gmail.com> 1512033513 +0200	commit: started printing
+03b6b6b563db4287fe786ff8d21360be06861c7b aa2089f456c04e156e4b9f9df5ef3f87df286c75 kyrlouca <kyrlouca@gmail.com> 1512033611 +0200	commit: db
+aa2089f456c04e156e4b9f9df5ef3f87df286c75 b09f4372a3354dba91eb1963499be44499ef6236 kyrlouca <kyrlouca@gmail.com> 1512041789 +0200	commit: working on replace
+b09f4372a3354dba91eb1963499be44499ef6236 0bfe950a422a8617abcd874190b9b9bbe4043188 kyrlouca <kyrlouca@gmail.com> 1512058283 +0200	commit: working on replace
+0bfe950a422a8617abcd874190b9b9bbe4043188 828bbd7e5dd4cd7a7f24d672c585f25e7c348e18 kyrlouca <kyrlouca@gmail.com> 1512061585 +0200	commit: version print 0,5
+828bbd7e5dd4cd7a7f24d672c585f25e7c348e18 64f2362cb5794fc057a00c3ca224b56177f06129 kyrlouca <kyrlouca@gmail.com> 1512061594 +0200	commit: version print 0,5
+64f2362cb5794fc057a00c3ca224b56177f06129 77455b03906434bbaf18de7c5b36b6446766e090 kyrlouca <kyrlouca@gmail.com> 1512134053 +0200	commit: version print 0,6
+77455b03906434bbaf18de7c5b36b6446766e090 756df7154c351c7fb2d2b1461f5d924c5425751e kyrlouca <kyrlouca@gmail.com> 1512138030 +0200	commit: version print 0,9
+756df7154c351c7fb2d2b1461f5d924c5425751e 8e8382be710a687bb2bd0c37dec9d1051cbbbaa8 kyrlouca <kyrlouca@gmail.com> 1512139198 +0200	commit: version print 0,91
+8e8382be710a687bb2bd0c37dec9d1051cbbbaa8 63724698afc576fee861901d511030e5578a0ce6 kyrlouca <kyrlouca@gmail.com> 1512140094 +0200	commit: version print works
+63724698afc576fee861901d511030e5578a0ce6 822a4b7a8bbebbfbc9732e53dc982f22ddb25a1d kyrlouca <kyrlouca@gmail.com> 1512154423 +0200	commit: help
+822a4b7a8bbebbfbc9732e53dc982f22ddb25a1d a5a61bea21cde15aa3b40da279fd66c6482547d6 kyrlouca <kyrlouca@gmail.com> 1512201070 +0200	commit: many pictures
+a5a61bea21cde15aa3b40da279fd66c6482547d6 64bd5c40a3c35977ad7cc11e71bff9d6f62f9834 kyrlouca <kyrlouca@gmail.com> 1512201223 +0200	commit: db
+64bd5c40a3c35977ad7cc11e71bff9d6f62f9834 b14e8383438ea6c36672fa445496a07443f34795 kyrlouca <kyrlouca@gmail.com> 1512302014 +0200	commit: works pictures
+b14e8383438ea6c36672fa445496a07443f34795 d44b72d2dbdd5999d69228d0512ee45a97c2a50c kyrlouca <kyrlouca@gmail.com> 1512304888 +0200	commit: started on type
+d44b72d2dbdd5999d69228d0512ee45a97c2a50c 46d8899bf8fa155712b1a68515755140dbc09109 kyrlouca <kyrlouca@gmail.com> 1512307753 +0200	commit: started on type
+46d8899bf8fa155712b1a68515755140dbc09109 e4b314482b52bb47d7d3557b48d0d337546d3f08 kyrlouca <kyrlouca@gmail.com> 1512331373 +0200	commit: finished copy type
+e4b314482b52bb47d7d3557b48d0d337546d3f08 1bedf18df9912f3d7272f11f568d4b26a7c8f8c1 kyrlouca <kyrlouca@gmail.com> 1512335149 +0200	commit: finished copy type
+1bedf18df9912f3d7272f11f568d4b26a7c8f8c1 cdde29215e8135e2ed0024d2b67aecb9c0c698d1 kyrlouca <kyrlouca@gmail.com> 1512335368 +0200	commit: finished copy type
+cdde29215e8135e2ed0024d2b67aecb9c0c698d1 74e11922878d64324b8a3caab790fdc05e6d59aa kyrlouca <kyrlouca@gmail.com> 1512371519 +0200	commit: copy template WORKS
+74e11922878d64324b8a3caab790fdc05e6d59aa 6bcefacd8eac74bff9a32a6560c92c57c1fdb073 kyrlouca <kyrlouca@gmail.com> 1512371607 +0200	commit: db
+6bcefacd8eac74bff9a32a6560c92c57c1fdb073 63724698afc576fee861901d511030e5578a0ce6 kyrlouca <kyrlouca@gmail.com> 1512371708 +0200	checkout: moving from master to 6372469
+63724698afc576fee861901d511030e5578a0ce6 6bcefacd8eac74bff9a32a6560c92c57c1fdb073 kyrlouca <kyrlouca@gmail.com> 1512371805 +0200	checkout: moving from 63724698afc576fee861901d511030e5578a0ce6 to master
+6bcefacd8eac74bff9a32a6560c92c57c1fdb073 677ccce8957b6bb09474206d86091365ffbc0fc5 kyrlouca <kyrlouca@gmail.com> 1512375580 +0200	commit: working
+677ccce8957b6bb09474206d86091365ffbc0fc5 e8ca89edea77ff665d1f396b16826e153d13146c kyrlouca <kyrlouca@gmail.com> 1512377310 +0200	commit: working
+e8ca89edea77ff665d1f396b16826e153d13146c 6350869038161ac6cca7301798ff361cbbe3954f kyrlouca <kyrlouca@gmail.com> 1512380422 +0200	commit: working
+6350869038161ac6cca7301798ff361cbbe3954f 82ad5c8975e42c47add5634f0da9b6635e9da471 kyrlouca <kyrlouca@gmail.com> 1512388591 +0200	commit: working
+82ad5c8975e42c47add5634f0da9b6635e9da471 6b211e3df447931df8f37099631edf345d496958 kyrlouca <kyrlouca@gmail.com> 1512410170 +0200	commit: working
+6b211e3df447931df8f37099631edf345d496958 9bc4cfb2199bb5432334f84fe0da2953e316dce3 kyrlouca <kyrlouca@gmail.com> 1512469936 +0200	commit: working
+9bc4cfb2199bb5432334f84fe0da2953e316dce3 79047de6f9500f7c68d862622e6efb88162f5ed2 kyrlouca <kyrlouca@gmail.com> 1512479785 +0200	commit: working
+79047de6f9500f7c68d862622e6efb88162f5ed2 f0c37c36a8538199aa00ea157892530562289d4c kyrlouca <kyrlouca@gmail.com> 1512484251 +0200	commit: working
+f0c37c36a8538199aa00ea157892530562289d4c e4a0a77cd38dd7bce4e356e1b85df1d81067f0d6 kyrlouca <kyrlouca@gmail.com> 1512554936 +0200	commit: working
+e4a0a77cd38dd7bce4e356e1b85df1d81067f0d6 f9fc36a3f1313631d267b5e27b01ac8f3a150cb8 kyrlouca <kyrlouca@gmail.com> 1512555005 +0200	commit: working
+f9fc36a3f1313631d267b5e27b01ac8f3a150cb8 bc6b1b13558eb4af13011647be6f657ae4e14d26 kyrlouca <kyrlouca@gmail.com> 1512555037 +0200	commit: db
+bc6b1b13558eb4af13011647be6f657ae4e14d26 bc2294c83c04c761304d73dae96fc9b954b243ba kyrlouca <kyrlouca@gmail.com> 1512567098 +0200	commit: checking
+bc2294c83c04c761304d73dae96fc9b954b243ba faae287695a2888c47468d8d7e189b5f8d2a1e5d kyrlouca <kyrlouca@gmail.com> 1512575758 +0200	commit: checking
+faae287695a2888c47468d8d7e189b5f8d2a1e5d 45608f69c71c7712b1ba41b62f5386158c5362e0 kyrlouca <kyrlouca@gmail.com> 1512640448 +0200	commit: cert
+45608f69c71c7712b1ba41b62f5386158c5362e0 4b3c7cf9768c00c0d44bd2d7c6d54397cf0e9d20 kyrlouca <kyrlouca@gmail.com> 1512661914 +0200	commit: cert
+4b3c7cf9768c00c0d44bd2d7c6d54397cf0e9d20 ae8b23a754dd9ffad95dbaa5c7d52e797fdba8cf kyrlouca <kyrlouca@gmail.com> 1512732187 +0200	commit: separate created
+ae8b23a754dd9ffad95dbaa5c7d52e797fdba8cf 839b0235ba88ed8db296d68c83b76906ffae3516 kyrlouca <kyrlouca@gmail.com> 1512732880 +0200	commit: sheet deleted
+839b0235ba88ed8db296d68c83b76906ffae3516 7e24b04691bdd17369bb4a18acc9196ae92a7a66 kyrlouca <kyrlouca@gmail.com> 1512736061 +0200	commit: sheet deleted
+7e24b04691bdd17369bb4a18acc9196ae92a7a66 558fe59bef8be098a8c11e2a7850590c0b7093c3 kyrlouca <kyrlouca@gmail.com> 1512739248 +0200	commit: started sec
+558fe59bef8be098a8c11e2a7850590c0b7093c3 5ca99b9062a5bbcaf425ec223330a084ba3ded3f kyrlouca <kyrlouca@gmail.com> 1512739310 +0200	commit: db
+5ca99b9062a5bbcaf425ec223330a084ba3ded3f 0fe3868bc123921d5d0abfceca4587e81add1e92 kyrlouca <kyrlouca@gmail.com> 1512739328 +0200	commit: db
+0fe3868bc123921d5d0abfceca4587e81add1e92 1e5c12afddda05cb260c8fbe19d64f7035015982 kyrlouca <kyrlouca@gmail.com> 1512740262 +0200	commit: sec 2
+1e5c12afddda05cb260c8fbe19d64f7035015982 919ce309ff3d5b277471fecf47f472559d008f44 kyrlouca <kyrlouca@gmail.com> 1512755473 +0200	commit: working on reminders
+919ce309ff3d5b277471fecf47f472559d008f44 4c37dec9cd8a0d82012f44222bea7860e05b0c68 kyrlouca <kyrlouca@gmail.com> 1512823619 +0200	commit: working on invoices
+4c37dec9cd8a0d82012f44222bea7860e05b0c68 a8925c12b35dabb90bf91433012a252c33dd1eda kyrlouca <kyrlouca@gmail.com> 1512823664 +0200	commit: db
+a8925c12b35dabb90bf91433012a252c33dd1eda 4d6f8f7d4f9ff1bf6b05d2fef3224bc68e81d853 kyrlouca <kyrlouca@gmail.com> 1512823712 +0200	commit: db
+4d6f8f7d4f9ff1bf6b05d2fef3224bc68e81d853 f63a3c4b2e7ec74c3ae22aedde56a6cb827cd01c kyrlouca <kyrlouca@gmail.com> 1512838701 +0200	commit: inv subject
+f63a3c4b2e7ec74c3ae22aedde56a6cb827cd01c 3304754b22691c54e0fbbf84a423361828b5d304 kyrlouca <kyrlouca@gmail.com> 1512844483 +0200	commit: inv subject
+3304754b22691c54e0fbbf84a423361828b5d304 b8e1bcf508502e79ddfd6faae9e169ab49e99080 kyrlouca <kyrlouca@gmail.com> 1512845486 +0200	commit: inv works
+b8e1bcf508502e79ddfd6faae9e169ab49e99080 b6e753fd87f8f8bb87dac609f266025e351b9f8c kyrlouca <kyrlouca@gmail.com> 1512845551 +0200	commit: db
+b6e753fd87f8f8bb87dac609f266025e351b9f8c f382694ee8b107445413f32850f57f837c43672b kyrlouca <kyrlouca@gmail.com> 1512895807 +0200	commit: pay
+f382694ee8b107445413f32850f57f837c43672b a169970326abd88bad97ec4c7e673d16fb891a5b kyrlouca <kyrlouca@gmail.com> 1512895815 +0200	commit: pay
+a169970326abd88bad97ec4c7e673d16fb891a5b 6df789c664d4587e8ec12a9249b1dd5f4d3be464 kyrlouca <kyrlouca@gmail.com> 1512895867 +0200	commit: db pay
+6df789c664d4587e8ec12a9249b1dd5f4d3be464 444b69bd88856334b9e5127698fac5caba4087cb kyrlouca <kyrlouca@gmail.com> 1512895894 +0200	commit: db pay
+444b69bd88856334b9e5127698fac5caba4087cb 58dc6a25054ae3193832ee0807ce9bb81944ae12 kyrlouca <kyrlouca@gmail.com> 1512898833 +0200	commit: pay
+58dc6a25054ae3193832ee0807ce9bb81944ae12 a670db0501b53e02e2b2398d6e26d4f2eab50945 kyrlouca <kyrlouca@gmail.com> 1512902720 +0200	commit: pay f1
+a670db0501b53e02e2b2398d6e26d4f2eab50945 fcd9a9e7c5772c663a4ad78c82ea3dd118f42169 kyrlouca <kyrlouca@gmail.com> 1512903798 +0200	commit: pay f1
+fcd9a9e7c5772c663a4ad78c82ea3dd118f42169 939212d18aabe515d2eb9ff062b468ce58726175 kyrlouca <kyrlouca@gmail.com> 1512905279 +0200	commit: pay f1
+939212d18aabe515d2eb9ff062b468ce58726175 b2f62d0fcbb0a8468c8fffa8920de9735ca9eff6 kyrlouca <kyrlouca@gmail.com> 1512940864 +0200	commit: pay f1
+b2f62d0fcbb0a8468c8fffa8920de9735ca9eff6 5a27c443c15a4e264bb002b6ff42de8954021c57 kyrlouca <kyrlouca@gmail.com> 1512972933 +0200	commit: pay f1
+5a27c443c15a4e264bb002b6ff42de8954021c57 e2eb974bb78144b23cff18da97f6e89974e20170 kyrlouca <kyrlouca@gmail.com> 1512973278 +0200	commit: pay f1
+e2eb974bb78144b23cff18da97f6e89974e20170 593422980afb033a39698e123bf3fdf2e758fa20 kyrlouca <kyrlouca@gmail.com> 1512975207 +0200	commit: pay f1
+593422980afb033a39698e123bf3fdf2e758fa20 4b73d96eff383a2612e7922ceb59aed071588676 kyrlouca <kyrlouca@gmail.com> 1512977046 +0200	commit: pay f1
+4b73d96eff383a2612e7922ceb59aed071588676 2939a9f95633b98e47848fe8c51bddf92ce8a837 kyrlouca <kyrlouca@gmail.com> 1512982454 +0200	commit: pay f1
+2939a9f95633b98e47848fe8c51bddf92ce8a837 3e7387f6b8c990cb7a3059750ebcc54e680d34aa kyrlouca <kyrlouca@gmail.com> 1512985571 +0200	commit: print cert
+3e7387f6b8c990cb7a3059750ebcc54e680d34aa 464c8829458b1283eb2e50755e235cc8c3a178a3 kyrlouca <kyrlouca@gmail.com> 1512996715 +0200	commit: printing works
+464c8829458b1283eb2e50755e235cc8c3a178a3 ae10403267bf83060f29bca8e82ea3a7a6e33bea kyrlouca <kyrlouca@gmail.com> 1513006345 +0200	commit: presence
+ae10403267bf83060f29bca8e82ea3a7a6e33bea 9aab1f330ec3164d1956f511c690ba529a69534e kyrlouca <kyrlouca@gmail.com> 1513026208 +0200	commit: presence
+9aab1f330ec3164d1956f511c690ba529a69534e 0085604f125529b14f75e45119f4a9671b5e8840 kyrlouca <kyrlouca@gmail.com> 1513026253 +0200	commit: presence
+0085604f125529b14f75e45119f4a9671b5e8840 90c178ec97fff6fcf99142b871959fe75ec59e9a kyrlouca <kyrlouca@gmail.com> 1513026298 +0200	commit: db
+90c178ec97fff6fcf99142b871959fe75ec59e9a c18182d62fced851a3089847688223c475eecf9a kyrlouca <kyrlouca@gmail.com> 1513057533 +0200	commit: cert
+c18182d62fced851a3089847688223c475eecf9a 32149f3ffb1d70a20b65c9fa3d94986a87a84c89 kyrlouca <kyrlouca@gmail.com> 1513058668 +0200	commit: cert
+32149f3ffb1d70a20b65c9fa3d94986a87a84c89 5d3b1d35eeafff1c55e9a0d2636e367658c16c5b kyrlouca <kyrlouca@gmail.com> 1513064826 +0200	commit: cert
+5d3b1d35eeafff1c55e9a0d2636e367658c16c5b 7ff28b941ed2ca9778c4512efee33c9a2a7a0b00 kyrlouca <kyrlouca@gmail.com> 1513068844 +0200	commit: cert report
+7ff28b941ed2ca9778c4512efee33c9a2a7a0b00 f58122f05fe4b1aeaf9d5014efd6bec1fdd5c198 kyrlouca <kyrlouca@gmail.com> 1513102893 +0200	commit: cert report
+f58122f05fe4b1aeaf9d5014efd6bec1fdd5c198 b67b1834979452350289eb5535b24e9141a8f53d kyrlouca <kyrlouca@gmail.com> 1513109010 +0200	commit: cert report
+b67b1834979452350289eb5535b24e9141a8f53d de73b2af9fe8d9aae8f7ed18a2c61e9f8cce98fb kyrlouca <kyrlouca@gmail.com> 1513162285 +0200	commit: stages
+de73b2af9fe8d9aae8f7ed18a2c61e9f8cce98fb 8618ab7b8b8598526a03c361e9fb9b04195d5f02 kyrlouca <kyrlouca@gmail.com> 1513162321 +0200	commit: db
+8618ab7b8b8598526a03c361e9fb9b04195d5f02 8618ab7b8b8598526a03c361e9fb9b04195d5f02 kyrlouca <kyrlouca@gmail.com> 1513162626 +0200	checkout: moving from master to testSem
+8618ab7b8b8598526a03c361e9fb9b04195d5f02 8618ab7b8b8598526a03c361e9fb9b04195d5f02 kyrlouca <kyrlouca@gmail.com> 1513167470 +0200	checkout: moving from testSem to master
+8618ab7b8b8598526a03c361e9fb9b04195d5f02 8618ab7b8b8598526a03c361e9fb9b04195d5f02 kyrlouca <kyrlouca@gmail.com> 1513167482 +0200	checkout: moving from master to test2
+8618ab7b8b8598526a03c361e9fb9b04195d5f02 68aa6993ee4c90012d34ea3f5d91be2b1d8ba5a8 kyrlouca <kyrlouca@gmail.com> 1513170550 +0200	commit: sss
+68aa6993ee4c90012d34ea3f5d91be2b1d8ba5a8 8618ab7b8b8598526a03c361e9fb9b04195d5f02 kyrlouca <kyrlouca@gmail.com> 1513170562 +0200	checkout: moving from test2 to master
+8618ab7b8b8598526a03c361e9fb9b04195d5f02 8618ab7b8b8598526a03c361e9fb9b04195d5f02 kyrlouca <kyrlouca@gmail.com> 1513170711 +0200	checkout: moving from master to test3
+8618ab7b8b8598526a03c361e9fb9b04195d5f02 42ef47ccf6464b0890e6a053330c22468965932a kyrlouca <kyrlouca@gmail.com> 1513173073 +0200	commit: there
+42ef47ccf6464b0890e6a053330c22468965932a 9de7f29311d051ee1b73a3e6a6217971d0e49995 kyrlouca <kyrlouca@gmail.com> 1513173953 +0200	commit: work
+9de7f29311d051ee1b73a3e6a6217971d0e49995 04453ada4f20eb3fd0462c8b973681c4d64d7fdd kyrlouca <kyrlouca@gmail.com> 1513174313 +0200	commit: work
+04453ada4f20eb3fd0462c8b973681c4d64d7fdd 31308936acb63b7ace6234e9d19a3f2f4043275a kyrlouca <kyrlouca@gmail.com> 1513174381 +0200	commit: work
+31308936acb63b7ace6234e9d19a3f2f4043275a 8618ab7b8b8598526a03c361e9fb9b04195d5f02 kyrlouca <kyrlouca@gmail.com> 1513174391 +0200	checkout: moving from test3 to master
+8618ab7b8b8598526a03c361e9fb9b04195d5f02 31308936acb63b7ace6234e9d19a3f2f4043275a kyrlouca <kyrlouca@gmail.com> 1513174409 +0200	merge test3: Fast-forward
+31308936acb63b7ace6234e9d19a3f2f4043275a 5efac552abe99423a982450fa36d3e87caf67308 kyrlouca <kyrlouca@gmail.com> 1513175076 +0200	commit: working 1
+5efac552abe99423a982450fa36d3e87caf67308 ae9f8925f970634fb26edf62ca98d9ce3a317476 kyrlouca <kyrlouca@gmail.com> 1513177024 +0200	commit: working 91
+ae9f8925f970634fb26edf62ca98d9ce3a317476 7ee9b4bc0f90a267e023a1073267ea084bd8c71b kyrlouca <kyrlouca@gmail.com> 1513242061 +0200	commit: report
+7ee9b4bc0f90a267e023a1073267ea084bd8c71b 04f2dd3bdbf874a1078ef4522d982dbccf0dbd4f kyrlouca <kyrlouca@gmail.com> 1513331811 +0200	commit: multi report
+04f2dd3bdbf874a1078ef4522d982dbccf0dbd4f 59d4ac395eaf5e8e2969d1fddc4f00857deb0a73 kyrlouca <kyrlouca@gmail.com> 1513347963 +0200	commit: finished REPORTS
+59d4ac395eaf5e8e2969d1fddc4f00857deb0a73 e8a4d01de4c2a5269f7f3c7bc96c14fdef4d04eb kyrlouca <kyrlouca@gmail.com> 1513422133 +0200	commit: strarting
+e8a4d01de4c2a5269f7f3c7bc96c14fdef4d04eb 5ed6b3277d12d79dff37b32874e2196a40e977fb kyrlouca <kyrlouca@gmail.com> 1513422937 +0200	commit: strarting
+5ed6b3277d12d79dff37b32874e2196a40e977fb 454648c050a9ab0b7da4f2c99d13fcf08edbf91e kyrlouca <kyrlouca@gmail.com> 1513423782 +0200	commit: strarting
+454648c050a9ab0b7da4f2c99d13fcf08edbf91e c216984fdb538b89208b1fe4ad929e4475908c8d kyrlouca <kyrlouca@gmail.com> 1513446350 +0200	commit: db changes
+c216984fdb538b89208b1fe4ad929e4475908c8d ae026b33949acd032999e46e3dc4229909e719a4 kyrlouca <kyrlouca@gmail.com> 1513446414 +0200	commit: db backup
+ae026b33949acd032999e46e3dc4229909e719a4 1fdebbde0c56eb4a47c32faad065e4a375374f1b kyrlouca <kyrlouca@gmail.com> 1513447155 +0200	commit: comp2
+1fdebbde0c56eb4a47c32faad065e4a375374f1b 454648c050a9ab0b7da4f2c99d13fcf08edbf91e kyrlouca <kyrlouca@gmail.com> 1513447184 +0200	checkout: moving from master to 454648c
+454648c050a9ab0b7da4f2c99d13fcf08edbf91e 1fdebbde0c56eb4a47c32faad065e4a375374f1b kyrlouca <kyrlouca@gmail.com> 1513447253 +0200	checkout: moving from 454648c050a9ab0b7da4f2c99d13fcf08edbf91e to master
+1fdebbde0c56eb4a47c32faad065e4a375374f1b 809ea796d2c14e9da8078697e1f9ce8622a86404 kyrlouca <kyrlouca@gmail.com> 1513447712 +0200	commit: comp wor
+809ea796d2c14e9da8078697e1f9ce8622a86404 0b80fe982abad688d2288412ff8c9b8c1fd67c6b kyrlouca <kyrlouca@gmail.com> 1513511530 +0200	commit: comp wor
+0b80fe982abad688d2288412ff8c9b8c1fd67c6b d7d1bfae1ff4442c2fc4c102aab0612f7d6291c9 kyrlouca <kyrlouca@gmail.com> 1513514164 +0200	commit: comp wor
+d7d1bfae1ff4442c2fc4c102aab0612f7d6291c9 1bebd6285142cce0b0c3c3af75164f716ef459c5 kyrlouca <kyrlouca@gmail.com> 1513521023 +0200	commit: details
+1bebd6285142cce0b0c3c3af75164f716ef459c5 531a15fdb79ed3db67e418767e0f9fd953e17817 kyrlouca <kyrlouca@gmail.com> 1513536814 +0200	commit: details
+531a15fdb79ed3db67e418767e0f9fd953e17817 482816d9588aca83e2b7b83a954c643652e52aa7 kyrlouca <kyrlouca@gmail.com> 1513539472 +0200	commit: details
+482816d9588aca83e2b7b83a954c643652e52aa7 f06ff8eeb6da48cb785328453197d68ab10128df kyrlouca <kyrlouca@gmail.com> 1513546295 +0200	commit: geting there
+f06ff8eeb6da48cb785328453197d68ab10128df 66266e30f931ef219f5d35a6ff527e66f0c00596 kyrlouca <kyrlouca@gmail.com> 1513546332 +0200	commit: db
+66266e30f931ef219f5d35a6ff527e66f0c00596 ad247be707cdbf579ab79b0b6d8ed6b8bf613615 kyrlouca <kyrlouca@gmail.com> 1513547771 +0200	commit: ver 1
+ad247be707cdbf579ab79b0b6d8ed6b8bf613615 362d4190bf8b364627992555a5ef59de11147cb3 kyrlouca <kyrlouca@gmail.com> 1513575206 +0200	commit: ver 98
+362d4190bf8b364627992555a5ef59de11147cb3 1d8cbf41fd14830f25aefc0c877df8a9bd16a014 kyrlouca <kyrlouca@gmail.com> 1513575241 +0200	commit: ver 98
+1d8cbf41fd14830f25aefc0c877df8a9bd16a014 abdc8d522b4a5b9adbbe415ec9921618cd552515 kyrlouca <kyrlouca@gmail.com> 1513575266 +0200	commit: db
+abdc8d522b4a5b9adbbe415ec9921618cd552515 896bbc3010479cabdf423848779c9b5ac530eb7e kyrlouca <kyrlouca@gmail.com> 1513671075 +0200	commit: instructors
+896bbc3010479cabdf423848779c9b5ac530eb7e c3f64e671c71ce4d4177eba11b3434b8212830d0 kyrlouca <kyrlouca@gmail.com> 1513673520 +0200	commit: instructors
+c3f64e671c71ce4d4177eba11b3434b8212830d0 9bf580916430e3f3010f638c273b0d3c981bace9 kyrlouca <kyrlouca@gmail.com> 1513673952 +0200	commit: instructors
+9bf580916430e3f3010f638c273b0d3c981bace9 0b70864e80fe8b48d674a8e60fba9d661edd935b kyrlouca <kyrlouca@gmail.com> 1513680237 +0200	commit: extra
+0b70864e80fe8b48d674a8e60fba9d661edd935b 5e33fe09791e52db930358b56e220d6df5fa274a kyrlouca <kyrlouca@gmail.com> 1513688295 +0200	commit: commit
+5e33fe09791e52db930358b56e220d6df5fa274a 32c2948e178a11d5451d8653867a79b0aa03bda6 kyrlouca <kyrlouca@gmail.com> 1513712609 +0200	commit: before cache updates
+32c2948e178a11d5451d8653867a79b0aa03bda6 32c2948e178a11d5451d8653867a79b0aa03bda6 kyrlouca <kyrlouca@gmail.com> 1513712784 +0200	checkout: moving from master to transactions
+32c2948e178a11d5451d8653867a79b0aa03bda6 32c2948e178a11d5451d8653867a79b0aa03bda6 kyrlouca <kyrlouca@gmail.com> 1513765808 +0200	checkout: moving from transactions to master
+32c2948e178a11d5451d8653867a79b0aa03bda6 bbf4c7650abe0fa1d3e67d7735132af3f575f12b kyrlouca <kyrlouca@gmail.com> 1513772140 +0200	commit: approved
+bbf4c7650abe0fa1d3e67d7735132af3f575f12b 51cfd36f5ff1f7a86835e265811f63c1cc67b8e1 kyrlouca <kyrlouca@gmail.com> 1513783629 +0200	commit: complete
+51cfd36f5ff1f7a86835e265811f63c1cc67b8e1 e79e0e38f9a073753911995038a1394edd2ec2e4 kyrlouca <kyrlouca@gmail.com> 1513788469 +0200	commit: on stages
+e79e0e38f9a073753911995038a1394edd2ec2e4 c72e9c3ed416d693575b19fabb655b2af6e20132 kyrlouca <kyrlouca@gmail.com> 1513856405 +0200	commit: review
+c72e9c3ed416d693575b19fabb655b2af6e20132 1c722004c2b0de8637ad6a1ff74345d74ae13cc6 kyrlouca <kyrlouca@gmail.com> 1513878118 +0200	commit: review
+1c722004c2b0de8637ad6a1ff74345d74ae13cc6 01abd9153661e99b27b15008ff0a49ff5ee73651 kyrlouca <kyrlouca@gmail.com> 1513879405 +0200	commit: review 3
+01abd9153661e99b27b15008ff0a49ff5ee73651 94b11097e400083d39996e47a3653e6f59b8b544 kyrlouca <kyrlouca@gmail.com> 1513879431 +0200	commit: review db
+94b11097e400083d39996e47a3653e6f59b8b544 94b11097e400083d39996e47a3653e6f59b8b544 kyrlouca <kyrlouca@gmail.com> 1513879494 +0200	checkout: moving from master to richview
+94b11097e400083d39996e47a3653e6f59b8b544 cc7d08acb991a367024d15a98b4d2b6f0d1bf837 kyrlouca <kyrlouca@gmail.com> 1514110396 +0200	commit: finished fastreport
+cc7d08acb991a367024d15a98b4d2b6f0d1bf837 94b11097e400083d39996e47a3653e6f59b8b544 kyrlouca <kyrlouca@gmail.com> 1514110456 +0200	checkout: moving from richview to master
+94b11097e400083d39996e47a3653e6f59b8b544 d0bc205e7cd27e336c50510eaa3922918e8bf5f7 kyrlouca <kyrlouca@gmail.com> 1514110468 +0200	commit: finished fastreport
+d0bc205e7cd27e336c50510eaa3922918e8bf5f7 d0bc205e7cd27e336c50510eaa3922918e8bf5f7 kyrlouca <kyrlouca@gmail.com> 1514110480 +0200	checkout: moving from master to master
+d0bc205e7cd27e336c50510eaa3922918e8bf5f7 8481e9b5884741113b23c69141fb150c3435f986 kyrlouca <kyrlouca@gmail.com> 1514110515 +0200	merge richview: Merge made by the 'recursive' strategy.
+8481e9b5884741113b23c69141fb150c3435f986 f58846896289090238e4efd9ee94e07bdde4707e kyrlouca <kyrlouca@gmail.com> 1514118715 +0200	commit: no good
+f58846896289090238e4efd9ee94e07bdde4707e d0bc205e7cd27e336c50510eaa3922918e8bf5f7 kyrlouca <kyrlouca@gmail.com> 1514118728 +0200	checkout: moving from master to d0bc205
+d0bc205e7cd27e336c50510eaa3922918e8bf5f7 cfce3fc172c332a4b7c09fc506f4ffa151713943 kyrlouca <kyrlouca@gmail.com> 1514118906 +0200	commit: aa
+cfce3fc172c332a4b7c09fc506f4ffa151713943 f58846896289090238e4efd9ee94e07bdde4707e kyrlouca <kyrlouca@gmail.com> 1514118910 +0200	checkout: moving from cfce3fc172c332a4b7c09fc506f4ffa151713943 to master
+f58846896289090238e4efd9ee94e07bdde4707e cc7d08acb991a367024d15a98b4d2b6f0d1bf837 kyrlouca <kyrlouca@gmail.com> 1514118955 +0200	checkout: moving from master to cc7d08a
+cc7d08acb991a367024d15a98b4d2b6f0d1bf837 f58846896289090238e4efd9ee94e07bdde4707e kyrlouca <kyrlouca@gmail.com> 1514119116 +0200	checkout: moving from cc7d08acb991a367024d15a98b4d2b6f0d1bf837 to master
+f58846896289090238e4efd9ee94e07bdde4707e cc7d08acb991a367024d15a98b4d2b6f0d1bf837 kyrlouca <kyrlouca@gmail.com> 1514119196 +0200	checkout: moving from master to cc7d08a
+cc7d08acb991a367024d15a98b4d2b6f0d1bf837 cc7d08acb991a367024d15a98b4d2b6f0d1bf837 kyrlouca <kyrlouca@gmail.com> 1514119247 +0200	checkout: moving from cc7d08acb991a367024d15a98b4d2b6f0d1bf837 to w_new
+cc7d08acb991a367024d15a98b4d2b6f0d1bf837 bc190f4994caec5d20cd6199bc9f9a98b67cc06d kyrlouca <kyrlouca@gmail.com> 1514119325 +0200	commit: aaac
+bc190f4994caec5d20cd6199bc9f9a98b67cc06d f58846896289090238e4efd9ee94e07bdde4707e kyrlouca <kyrlouca@gmail.com> 1514119338 +0200	checkout: moving from w_new to master
+f58846896289090238e4efd9ee94e07bdde4707e 360e51fe9f5672943f7945f6a9a2ef610ccfd44f kyrlouca <kyrlouca@gmail.com> 1514119352 +0200	merge w_new: Merge made by the 'recursive' strategy.
+360e51fe9f5672943f7945f6a9a2ef610ccfd44f 9af5cb30f59658eec8a989e60f68e594bd88cc52 kyrlouca <kyrlouca@gmail.com> 1514119655 +0200	commit: ok now
+9af5cb30f59658eec8a989e60f68e594bd88cc52 9d280bb5a979aab34923f1b16aa104b852c010a3 kyrlouca <kyrlouca@gmail.com> 1514125798 +0200	commit: companies added
+9d280bb5a979aab34923f1b16aa104b852c010a3 fa216fd2ab8e6e8c95e1ef6b73091a3f68df59db kyrlouca <kyrlouca@gmail.com> 1514127325 +0200	commit: companies added
+fa216fd2ab8e6e8c95e1ef6b73091a3f68df59db 781fa25d4f1aea5ecd48a482c82a3487e805f48d kyrlouca <kyrlouca@gmail.com> 1514136516 +0200	commit: started on file
+781fa25d4f1aea5ecd48a482c82a3487e805f48d 99dd82c0d76669b0d0847d5ed3024c20c6dade9a kyrlouca <kyrlouca@gmail.com> 1514136766 +0200	commit: first print ok
+99dd82c0d76669b0d0847d5ed3024c20c6dade9a 93c7f644dc4c12fd2d88966e85145f9d03d0afbe kyrlouca <kyrlouca@gmail.com> 1514193103 +0200	commit: print request
+93c7f644dc4c12fd2d88966e85145f9d03d0afbe 53b6c9ab0bd5c27c43a4cc44a1d10405958fef00 kyrlouca <kyrlouca@gmail.com> 1514277634 +0200	commit: started copy file
+53b6c9ab0bd5c27c43a4cc44a1d10405958fef00 89d41a5e1099914fdbe9e6e5ce702dabbfdfa3ed kyrlouca <kyrlouca@gmail.com> 1514361490 +0200	commit: copy working
+89d41a5e1099914fdbe9e6e5ce702dabbfdfa3ed 9c198bfba5404a4eab655f1a49e773304247bd4c kyrlouca <kyrlouca@gmail.com> 1514442726 +0200	commit: start copy
+9c198bfba5404a4eab655f1a49e773304247bd4c e103e01268baf115ed86eb2b5f861bfd46692059 kyrlouca <kyrlouca@gmail.com> 1514445507 +0200	commit: start 2
+e103e01268baf115ed86eb2b5f861bfd46692059 21463639a169e6f5cc1be73252a2a57c4b6ce306 kyrlouca <kyrlouca@gmail.com> 1514445551 +0200	commit: db
+21463639a169e6f5cc1be73252a2a57c4b6ce306 2bfdaadf5729bf9db2c0cf6a7cb975845278cd82 kyrlouca <kyrlouca@gmail.com> 1514449523 +0200	commit: start wr
+2bfdaadf5729bf9db2c0cf6a7cb975845278cd82 711e3c713dec8f57399c8668bdffd40555992004 kyrlouca <kyrlouca@gmail.com> 1514451650 +0200	commit: start poly
+711e3c713dec8f57399c8668bdffd40555992004 9b77c1170d290cc76fdcb3bbce34340b3ff49fa5 kyrlouca <kyrlouca@gmail.com> 1514452677 +0200	commit: start mono
+9b77c1170d290cc76fdcb3bbce34340b3ff49fa5 ce73e5d3b2878bf1aeb7cfbc406ec940cc57ad87 kyrlouca <kyrlouca@gmail.com> 1514453587 +0200	commit: start mono
+ce73e5d3b2878bf1aeb7cfbc406ec940cc57ad87 4d312fcda2e100e9a962b80a74841ae144a77172 kyrlouca <kyrlouca@gmail.com> 1514454774 +0200	commit: docs fiinished
+4d312fcda2e100e9a962b80a74841ae144a77172 29acf6a7a3fdf00bf9852af85ab6dde8ab713b38 kyrlouca <kyrlouca@gmail.com> 1514479096 +0200	commit: started checking
+29acf6a7a3fdf00bf9852af85ab6dde8ab713b38 a970fdee2a0a44a74e3d876d51e195b1bf9de5f5 kyrlouca <kyrlouca@gmail.com> 1514563934 +0200	commit: testing
+a970fdee2a0a44a74e3d876d51e195b1bf9de5f5 2e87c5be98ba590a8228e0efbe18bdc759cba24a kyrlouca <kyrlouca@gmail.com> 1514567617 +0200	commit: testing
+2e87c5be98ba590a8228e0efbe18bdc759cba24a aef8ed4558b7b3c2f9a366e6faa9dce398786e3e kyrlouca <kyrlouca@gmail.com> 1514572940 +0200	commit: testing
+aef8ed4558b7b3c2f9a366e6faa9dce398786e3e 8fecbbb4237ffc2fa1dc0815ad4c4127fa696655 kyrlouca <kyrlouca@gmail.com> 1514627072 +0200	commit: seminar messed
+8fecbbb4237ffc2fa1dc0815ad4c4127fa696655 d3acefc271a08b7897482f5c3c1b55098fb767e3 kyrlouca <kyrlouca@gmail.com> 1514628373 +0200	commit: fixed invoice
+d3acefc271a08b7897482f5c3c1b55098fb767e3 43705bba87d3a6687c2bd253952801cc2de58758 kyrlouca <kyrlouca@gmail.com> 1514633692 +0200	commit: fixings
+43705bba87d3a6687c2bd253952801cc2de58758 fe68b6faea18309f352e2660e05ce7c5b2375022 kyrlouca <kyrlouca@gmail.com> 1514636454 +0200	commit: fixings 2
+fe68b6faea18309f352e2660e05ce7c5b2375022 d40cf84bc38f1cb365aa666b65522ed5500ec99b kyrlouca <kyrlouca@gmail.com> 1514654330 +0200	commit: fixings 3
+d40cf84bc38f1cb365aa666b65522ed5500ec99b 65e48e4b171c059ded8182354be1f77462c97775 kyrlouca <kyrlouca@gmail.com> 1514655682 +0200	commit: working on certificates
+65e48e4b171c059ded8182354be1f77462c97775 9e84ff6e9b3d4015f38cac608caafc50181f26c2 kyrlouca <kyrlouca@gmail.com> 1514709905 +0200	commit: fixings1
+9e84ff6e9b3d4015f38cac608caafc50181f26c2 d4933e4b2db3e5fef0de079ba40501c4076600c1 kyrlouca <kyrlouca@gmail.com> 1514711848 +0200	commit: fixings1
+d4933e4b2db3e5fef0de079ba40501c4076600c1 6b4537f0e203e277a83963aeb57ab2e5eefff8e0 kyrlouca <kyrlouca@gmail.com> 1514719556 +0200	commit: fixings1
+6b4537f0e203e277a83963aeb57ab2e5eefff8e0 0d0b956bc4a2678dac271af3f963ea2e496dcc40 kyrlouca <kyrlouca@gmail.com> 1514727314 +0200	commit: almost complte
+0d0b956bc4a2678dac271af3f963ea2e496dcc40 f696187bee1643d1dd49dce7c67e9378b3ed8abc kyrlouca <kyrlouca@gmail.com> 1514727335 +0200	commit: almost complte
+f696187bee1643d1dd49dce7c67e9378b3ed8abc 1ab34c3959600938f6f57a727b1066a2ff919dad kyrlouca <kyrlouca@gmail.com> 1514737473 +0200	commit: almost complte 3
+1ab34c3959600938f6f57a727b1066a2ff919dad 971da19f8079dfdd0efa6a6b2446956599de4496 kyrlouca <kyrlouca@gmail.com> 1514738952 +0200	commit: almost complte 3
+971da19f8079dfdd0efa6a6b2446956599de4496 69e81479fb3df15503db288c454976bb9561379f kyrlouca <kyrlouca@gmail.com> 1514739163 +0200	commit: ver 99
+69e81479fb3df15503db288c454976bb9561379f 9e3d5c7e6905300368d8606113d33b827a230847 kyrlouca <kyrlouca@gmail.com> 1514739193 +0200	commit: ver 99 DB
+9e3d5c7e6905300368d8606113d33b827a230847 f78b9c035bf0d57137b5b9734de67cb1353dbb1f kyrlouca <kyrlouca@gmail.com> 1514875401 +0200	commit: docs
+f78b9c035bf0d57137b5b9734de67cb1353dbb1f e08d3e1e1fd54362942590e4b1a5cf7283c13197 kyrlouca <kyrlouca@gmail.com> 1514890389 +0200	commit: docs
+e08d3e1e1fd54362942590e4b1a5cf7283c13197 cec16859d8934d72a3a3acb17ceac32fbd21aee8 kyrlouca <kyrlouca@gmail.com> 1514980597 +0200	commit: changes made
+cec16859d8934d72a3a3acb17ceac32fbd21aee8 c9994ca08ac5dfb6a21cea8bfa62bd0a5217461e kyrlouca <kyrlouca@gmail.com> 1514980648 +0200	commit: changes made
+c9994ca08ac5dfb6a21cea8bfa62bd0a5217461e b8156cf1417ce8e07d326dd340bd213f63660ea0 kyrlouca <kyrlouca@gmail.com> 1514980687 +0200	commit: db
+b8156cf1417ce8e07d326dd340bd213f63660ea0 7912ee60c06dc7500f500918f32304459c969098 kyrlouca <kyrlouca@gmail.com> 1515693954 +0200	commit: data ready
+7912ee60c06dc7500f500918f32304459c969098 c710d2eb68aeaf2b92321d50154b3db78abccb17 kyrlouca <kyrlouca@gmail.com> 1515694006 +0200	commit: db with real data
+c710d2eb68aeaf2b92321d50154b3db78abccb17 f730bf1e4cfa333588ab1322ffd7d8fbf24b6504 kyrlouca <kyrlouca@gmail.com> 1515696815 +0200	commit: first commit
+f730bf1e4cfa333588ab1322ffd7d8fbf24b6504 d158946cd26ea75750bf78eec5862062e840f86c kyrlouca <kyrlouca@gmail.com> 1515739754 +0200	commit: with customers
+d158946cd26ea75750bf78eec5862062e840f86c cb6a8f1fb0309f74d33b192051f1804c1a6e802f kyrlouca <kyrlouca@gmail.com> 1515755120 +0200	commit: fixing
+cb6a8f1fb0309f74d33b192051f1804c1a6e802f 78f5d630b855345e0d096b22c695afede51a7208 kyrlouca <kyrlouca@gmail.com> 1515834369 +0200	commit: png
+78f5d630b855345e0d096b22c695afede51a7208 7177ab958eec7bb891f7dd4d8a2060ed2542d7f5 kyrlouca <kyrlouca@gmail.com> 1515867421 +0200	commit: started pdfs
+7177ab958eec7bb891f7dd4d8a2060ed2542d7f5 114ec7ac19e33d4a3cdf6f65fb26a220a3eeea39 kyrlouca <kyrlouca@gmail.com> 1515923012 +0200	commit: m release 1
+114ec7ac19e33d4a3cdf6f65fb26a220a3eeea39 5754a30913cd79d3bcb2501a729325dee225ad10 kyrlouca <kyrlouca@gmail.com> 1515923407 +0200	commit: Database v100
+5754a30913cd79d3bcb2501a729325dee225ad10 8ee3f32f2051027c169a730e53dcc326760a3553 kyrlouca <kyrlouca@gmail.com> 1515933511 +0200	commit: fixing
+8ee3f32f2051027c169a730e53dcc326760a3553 7ac075cd363f72284f318f39d67aa1c65ebcd643 kyrlouca <kyrlouca@gmail.com> 1516091686 +0200	commit: started test
+7ac075cd363f72284f318f39d67aa1c65ebcd643 91e932153e78a4bf08a0ca3a69f75523969d2326 kyrlouca <kyrlouca@gmail.com> 1516093673 +0200	commit: PRINT TEST WORKING
+91e932153e78a4bf08a0ca3a69f75523969d2326 45d36073d2b72c5367c2e81f76094105bd11a443 kyrlouca <kyrlouca@gmail.com> 1516094287 +0200	commit: PRINT TEST WORKING
+45d36073d2b72c5367c2e81f76094105bd11a443 810e1662575687197b883644a604c93121df921c kyrlouca <kyrlouca@gmail.com> 1516097514 +0200	commit: expiry working
+810e1662575687197b883644a604c93121df921c 0576f8fe7bf96cdd63b52b615129b633a7b8b8ed kyrlouca <kyrlouca@gmail.com> 1516107279 +0200	commit: send 101
+0576f8fe7bf96cdd63b52b615129b633a7b8b8ed c46a16b4c6f1cc6810f617a27a05aa0a0cea748c kyrlouca <kyrlouca@gmail.com> 1516176138 +0200	commit: copy tempplate
+c46a16b4c6f1cc6810f617a27a05aa0a0cea748c 16d9e63b051afdae3e903fdf5947e709b99c3055 kyrlouca <kyrlouca@gmail.com> 1516290279 +0200	commit: version 2.0 ready
+16d9e63b051afdae3e903fdf5947e709b99c3055 e45c8b4c9f412cb5bb7254ffce1bb42059f2b30c kyrlouca <kyrlouca@gmail.com> 1516370238 +0200	commit: Reports working
+e45c8b4c9f412cb5bb7254ffce1bb42059f2b30c 04068033195f7e79160598552e51f49e0a3d72c7 kyrlouca <kyrlouca@gmail.com> 1516519198 +0200	commit: backup working
+04068033195f7e79160598552e51f49e0a3d72c7 e537e6baf85c577e165bdaeebf39ab1bf8fa5a8d kyrlouca <kyrlouca@gmail.com> 1516527018 +0200	commit: backup complete
+e537e6baf85c577e165bdaeebf39ab1bf8fa5a8d 1f447928594b9a00fabd9316e58bff01bd9aa230 kyrlouca <kyrlouca@gmail.com> 1517835449 +0200	commit: with database changes
+1f447928594b9a00fabd9316e58bff01bd9aa230 1f447928594b9a00fabd9316e58bff01bd9aa230 kyrlouca <kyrlouca@gmail.com> 1517835493 +0200	checkout: moving from master to demo
+1f447928594b9a00fabd9316e58bff01bd9aa230 b4ddf5e0580d2772d9137d81456501b7ae8c6bc7 kyrlouca <kyrlouca@gmail.com> 1517903808 +0200	commit: demo
+b4ddf5e0580d2772d9137d81456501b7ae8c6bc7 1f447928594b9a00fabd9316e58bff01bd9aa230 kyrlouca <kyrlouca@gmail.com> 1517903820 +0200	checkout: moving from demo to master
+1f447928594b9a00fabd9316e58bff01bd9aa230 c649520d53a3abb1da268194d9968fe8e215afa6 kyrlouca <kyrlouca@gmail.com> 1517949093 +0200	commit: textfiles
+c649520d53a3abb1da268194d9968fe8e215afa6 45d31dd7e452cdb585b173d86b55b7824ff8443d kyrlouca <kyrlouca@gmail.com> 1518004367 +0200	commit: mono rep
+45d31dd7e452cdb585b173d86b55b7824ff8443d 13ffc2d9f6a254e75922c073cb75b91d526a85d6 kyrlouca <kyrlouca@gmail.com> 1518013636 +0200	commit: finished reps
+13ffc2d9f6a254e75922c073cb75b91d526a85d6 175841987eff0cf02056f5dc26bd728bd5582fb7 kyrlouca <kyrlouca@gmail.com> 1518074402 +0200	commit: working on 110
+175841987eff0cf02056f5dc26bd728bd5582fb7 2dd36383144673aa61161a35391c51354f9248fa kyrlouca <kyrlouca@gmail.com> 1518106687 +0200	commit: finished 110
+2dd36383144673aa61161a35391c51354f9248fa 95ab7da8b7b8f239a74cccb3d2936eadea11929e kyrlouca <kyrlouca@gmail.com> 1518370737 +0200	commit: version 110
+95ab7da8b7b8f239a74cccb3d2936eadea11929e c167a098d5f880a9c485196573a71cd6cc2178e8 kyrlouca <kyrlouca@gmail.com> 1518370909 +0200	commit: db
+c167a098d5f880a9c485196573a71cd6cc2178e8 7ea2a7bae9f019580de3be08d68b2fb9b6c39500 kyrlouca <kyrlouca@gmail.com> 1518430831 +0200	commit: start new
+7ea2a7bae9f019580de3be08d68b2fb9b6c39500 a3ac4bf3e871cec1c948f1f5d6bd3d09fc9b4b7e kyrlouca <kyrlouca@gmail.com> 1519726573 +0200	commit: ver 111 sent
+a3ac4bf3e871cec1c948f1f5d6bd3d09fc9b4b7e 44ade068e3151ce1f1911b5ff8a12fd96bb948a6 kyrlouca <kyrlouca@gmail.com> 1519809908 +0200	commit: cosmetik
+44ade068e3151ce1f1911b5ff8a12fd96bb948a6 325ee56a3603d349ea236e7bf6cdf240bd2b1093 kyrlouca <kyrlouca@gmail.com> 1519809961 +0200	commit: cosmetik
+325ee56a3603d349ea236e7bf6cdf240bd2b1093 374a6141153f30d7ec239d35c7dfa455ea763b4d kyrlouca <kyrlouca@gmail.com> 1521023495 +0200	commit: vers 112
+374a6141153f30d7ec239d35c7dfa455ea763b4d 91d0b45dcd7ea07ae34f6436d917017ddb9c48a0 kyrlouca <kyrlouca@gmail.com> 1521200385 +0200	commit: sorting
+91d0b45dcd7ea07ae34f6436d917017ddb9c48a0 649ab7fcaa6c8519f34a9e6a2b1e205f4494fbba kyrlouca <kyrlouca@gmail.com> 1521201101 +0200	commit: working
+649ab7fcaa6c8519f34a9e6a2b1e205f4494fbba 649ab7fcaa6c8519f34a9e6a2b1e205f4494fbba kyrlouca <kyrlouca@gmail.com> 1521201133 +0200	checkout: moving from master to pres
+649ab7fcaa6c8519f34a9e6a2b1e205f4494fbba 8e82e8e2819a13e533fec2dc396c0be415e516f3 kyrlouca <kyrlouca@gmail.com> 1521202575 +0200	commit: all done
+8e82e8e2819a13e533fec2dc396c0be415e516f3 93da14acd7436b2ea12916a5a8cb9610d1ce4ceb kyrlouca <kyrlouca@gmail.com> 1521210323 +0200	commit: 184
+93da14acd7436b2ea12916a5a8cb9610d1ce4ceb 4f475d8c9dd72ac94d1dde96192c29df64abd20c kyrlouca <kyrlouca@gmail.com> 1523723664 +0300	commit: fixed test print in template

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<TfrxReport Version="5.6.8" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="4095" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="43091,7435790278" ReportOptions.Description.Text="" ReportOptions.LastChange="43092,3386066435" ScriptLanguage="PascalScript" ScriptText.Text="&#13;&#10;procedure Page1OnBeforePrint(Sender: TfrxComponent);&#13;&#10;begin&#13;&#10;&#13;&#10;end;&#13;&#10;&#13;&#10;procedure Page1OnAfterPrint(Sender: TfrxComponent);&#13;&#10;begin&#13;&#10;&#13;&#10;end;&#13;&#10;&#13;&#10;procedure Memo2OnBeforePrint(Sender: TfrxComponent);&#13;&#10;begin&#13;&#10;       memo2.Color:=clRed;&#13;&#10;end;&#13;&#10;&#13;&#10;begin&#13;&#10;&#13;&#10;end.">
+  <Datasets>
+    <item DataSet="PersonDX" DataSetName="PersonDX"/>
+    <item DataSet="PircturesDRX" DataSetName="PicturesPRX"/>
+    <item DataSet="SeminarDRX" DataSetName="SeminarDRX"/>
+    <item DataSet="SeminarSubjectDRX" DataSetName="SeminarSubjectDRX"/>
+  </Datasets>
+  <Variables>
+    <item Name=" Seminar"/>
+    <item Name="Serial2" Value="&#60;SeminarDRX.&#34;Αριθμός&#34;&#62;*2"/>
+    <item Name="Serial3" Value="&#60;SeminarDRX.&#34;Αριθμός&#34;&#62;*3"/>
+    <item Name=" Subject"/>
+    <item Name="fee2" Value="&#60;SeminarSubjectDRX.&#34;FEE_NORMAL&#34;&#62;*2"/>
+    <item Name="fee3" Value="&#60;SeminarSubjectDRX.&#34;FEE_NORMAL&#34;&#62;*3"/>
+  </Variables>
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" DataSetName="PicturesDRX" EndlessWidth="True" HGuides.Text="" VGuides.Text="" OnAfterPrint="Page1OnAfterPrint" OnBeforePrint="Page1OnBeforePrint">
+    <TfrxReportTitle Name="ReportTitle1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Height="22,67718" Left="0" Top="18,89765" Width="718,1107"/>
+    <TfrxPageFooter Name="PageFooter1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Height="94,48825" Left="0" Top="234,33086" Width="718,1107">
+      <TfrxMemoView Name="Memo1" Left="642,5201" Top="0" Width="75,5906" Height="18,89765" HAlign="haRight" Text="[Page#]"/>
+      <TfrxPictureView Name="Picture2" Left="317,48052" Top="3,77953" Width="102,04731" Height="52,91342" DataField="PICTURE_TOP_L1" DataSet="PircturesDRX" DataSetName="PicturesPRX" HightQuality="False" Transparent="False" TransparentColor="16777215"/>
+    </TfrxPageFooter>
+    <TfrxPageHeader Name="PageHeader1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Height="22,67718" Left="0" Top="64,25201" Width="718,1107">
+      <TfrxSysMemoView Name="SysMemo1" Left="264,5671" Top="0" Width="94,48825" Height="18,89765" Text="[DATE]"/>
+    </TfrxPageHeader>
+    <TfrxMemoView Name="Memo2" Left="158,74026" Top="15,11812" Width="45,35436" Height="22,67718" OnBeforePrint="Memo2OnBeforePrint" Text="Hello"/>
+    <TfrxMasterData Name="MasterData1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Height="26,45671" Left="0" Top="147,40167" Width="718,1107" ColumnWidth="0" ColumnGap="0" DataSet="PersonDX" DataSetName="PersonDX" RowCount="0" Stretched="True">
+      <TfrxMemoView Name="PersonDXSERIAL_NUMBER" Left="18,89765" Top="3,77953" Width="79,37013" Height="18,89765" StretchMode="smMaxHeight" DataField="SERIAL_NUMBER" DataSet="PersonDX" DataSetName="PersonDX" Frame.Typ="14" Text="[PersonDX.&#34;SERIAL_NUMBER&#34;]"/>
+      <TfrxMemoView Name="PersonDXLAST_NAME" Left="97,60637" Top="3,77953" Width="60,47248" Height="18,89765" StretchMode="smMaxHeight" DataField="LAST_NAME" DataSet="PersonDX" DataSetName="PersonDX" Frame.Typ="12" Text="[PersonDX.&#34;LAST_NAME&#34;]"/>
+      <TfrxMemoView Name="PersonDXFIRST_NAME" Left="154,96073" Top="3,77953" Width="173,85838" Height="18,89765" StretchMode="smMaxHeight" DataField="FIRST_NAME" DataSet="PersonDX" DataSetName="PersonDX" Frame.Typ="14" Text="[PersonDX.&#34;FIRST_NAME&#34;]"/>
+    </TfrxMasterData>
+  </TfrxReportPage>
+</TfrxReport>
