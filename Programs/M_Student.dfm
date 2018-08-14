@@ -569,7 +569,7 @@ object M_StudentFRM: TM_StudentFRM
           CalendarAttributes.Font.Style = []
           DataField = 'DATE_BIRTH'
           DataSource = TableSRC
-          Date = 25074.000000000000000000
+          Date = 23806.000000000000000000
           Epoch = 1950
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -609,7 +609,7 @@ object M_StudentFRM: TM_StudentFRM
           Items.Strings = (
             'Male'#9'M'
             'Female'#9'F')
-          ItemIndex = 0
+          ItemIndex = 1
           LimitEditRect = True
           Sorted = False
           TabOrder = 5
@@ -652,8 +652,8 @@ object M_StudentFRM: TM_StudentFRM
       object GroupBox2: TGroupBox
         Left = 301
         Top = 49
-        Width = 234
-        Height = 221
+        Width = 260
+        Height = 288
         Caption = #917#960#953#954#959#953#957#969#957#943#945
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -716,7 +716,7 @@ object M_StudentFRM: TM_StudentFRM
         end
         object Label14: TLabel
           Left = 19
-          Top = 145
+          Top = 169
           Width = 58
           Height = 14
           Caption = #921#963#964#959#963#949#955#943#948#945
@@ -742,7 +742,7 @@ object M_StudentFRM: TM_StudentFRM
         end
         object Label18: TLabel
           Left = 31
-          Top = 170
+          Top = 194
           Width = 46
           Height = 14
           Caption = 'LinkedIn'
@@ -753,10 +753,23 @@ object M_StudentFRM: TM_StudentFRM
           Font.Style = []
           ParentFont = False
         end
+        object Label22: TLabel
+          Left = 1
+          Top = 146
+          Width = 76
+          Height = 14
+          Caption = 'Email Personal'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
         object wwDBEdit8: TwwDBEdit
           Left = 82
           Top = 18
-          Width = 121
+          Width = 145
           Height = 22
           DataField = 'PHONE_FIXED'
           DataSource = TableSRC
@@ -768,7 +781,7 @@ object M_StudentFRM: TM_StudentFRM
         object wwDBEdit9: TwwDBEdit
           Left = 82
           Top = 42
-          Width = 121
+          Width = 145
           Height = 22
           DataField = 'PHONE_MOBILE'
           DataSource = TableSRC
@@ -780,7 +793,7 @@ object M_StudentFRM: TM_StudentFRM
         object wwDBEdit10: TwwDBEdit
           Left = 82
           Top = 92
-          Width = 121
+          Width = 171
           Height = 22
           DataField = 'FAX'
           DataSource = TableSRC
@@ -792,7 +805,7 @@ object M_StudentFRM: TM_StudentFRM
         object wwDBEdit11: TwwDBEdit
           Left = 82
           Top = 117
-          Width = 121
+          Width = 171
           Height = 22
           DataField = 'EMAIL'
           DataSource = TableSRC
@@ -803,12 +816,12 @@ object M_StudentFRM: TM_StudentFRM
         end
         object wwDBEdit12: TwwDBEdit
           Left = 82
-          Top = 142
-          Width = 121
+          Top = 166
+          Width = 171
           Height = 22
           DataField = 'WEBSITE'
           DataSource = TableSRC
-          TabOrder = 5
+          TabOrder = 6
           UnboundDataType = wwDefault
           WantReturns = False
           WordWrap = False
@@ -816,7 +829,7 @@ object M_StudentFRM: TM_StudentFRM
         object wwDBEdit5: TwwDBEdit
           Left = 82
           Top = 67
-          Width = 121
+          Width = 145
           Height = 22
           DataField = 'PHONE_MOBILE_2'
           DataSource = TableSRC
@@ -827,12 +840,24 @@ object M_StudentFRM: TM_StudentFRM
         end
         object wwDBEdit6: TwwDBEdit
           Left = 82
-          Top = 167
-          Width = 121
+          Top = 191
+          Width = 171
           Height = 22
           DataField = 'LINKED_IN'
           DataSource = TableSRC
-          TabOrder = 6
+          TabOrder = 7
+          UnboundDataType = wwDefault
+          WantReturns = False
+          WordWrap = False
+        end
+        object wwDBEdit3: TwwDBEdit
+          Left = 82
+          Top = 142
+          Width = 171
+          Height = 22
+          DataField = 'EMAIL_2'
+          DataSource = TableSRC
+          TabOrder = 5
           UnboundDataType = wwDefault
           WantReturns = False
           WordWrap = False
@@ -980,9 +1005,9 @@ object M_StudentFRM: TM_StudentFRM
         end
       end
       object GroupBox3: TGroupBox
-        Left = 301
-        Top = 279
-        Width = 234
+        Left = 295
+        Top = 343
+        Width = 266
         Height = 175
         Caption = #916#953#949#973#952#965#957#963#951
         Font.Charset = DEFAULT_CHARSET
@@ -1060,7 +1085,7 @@ object M_StudentFRM: TM_StudentFRM
         object wwDBEdit18: TwwDBEdit
           Left = 82
           Top = 19
-          Width = 140
+          Width = 177
           Height = 22
           DataField = 'ADDRESS'
           DataSource = TableSRC
@@ -1072,7 +1097,7 @@ object M_StudentFRM: TM_StudentFRM
         object wwDBEdit19: TwwDBEdit
           Left = 82
           Top = 44
-          Width = 140
+          Width = 177
           Height = 22
           DataField = 'ADDRESS_STREET'
           DataSource = TableSRC
@@ -1084,7 +1109,7 @@ object M_StudentFRM: TM_StudentFRM
         object wwDBEdit20: TwwDBEdit
           Left = 82
           Top = 69
-          Width = 140
+          Width = 177
           Height = 22
           DataField = 'ADDRESS_POST_CODE'
           DataSource = TableSRC
@@ -1096,7 +1121,7 @@ object M_StudentFRM: TM_StudentFRM
         object wwDBEdit21: TwwDBEdit
           Left = 82
           Top = 94
-          Width = 140
+          Width = 177
           Height = 22
           DataField = 'ADDRESS_CITY'
           DataSource = TableSRC
@@ -1108,7 +1133,7 @@ object M_StudentFRM: TM_StudentFRM
         object wwDBEdit4: TwwDBEdit
           Left = 82
           Top = 119
-          Width = 140
+          Width = 177
           Height = 22
           DataField = 'ADDRESS_DISTRICT'
           DataSource = TableSRC
@@ -1218,34 +1243,9 @@ object M_StudentFRM: TM_StudentFRM
     GeneratorMode = gmInsert
     SQLInsert.Strings = (
       'INSERT INTO PERSON'
-      
-        '  (SERIAL_NUMBER, SERIAL_QB, FK_COMPANY_SERIAL, NATIONAL_ID, NIC' +
-        'KNAME, OCCUPATION, PHONE_MOBILE, PHONE_FIXED, PHONE_ALTERNATE, F' +
-        'AX, EMAIL, EMAIL_2, ADDRESS, ADDRESS_STREET, ADDRESS_POST_CODE, ' +
-        'ADDRESS_CITY, ADDRESS_DISTRICT, DATE_STARTED, DATE_BIRTH, DATE_U' +
-        'SER, LIST_SOURCE, FACEBOOK, WEBSITE, TWITTER, STATUS_ACTIVE, SEX' +
-        ', IS_COMPANY, COMPANY_OWNER, COMPANY_CONTACT, COMPANY_REGISTRATI' +
-        'ON_DATE, PHONE_CONTACT, COMPANY_OWNER_REG, COMPANY_CONTACT_PHONE' +
-        ', COMPANY_CONTACT_EMAIL, COMPANY_CONTACT_FAX, COMPANY_SOCIAL_SEC' +
-        ', COMPANY_EMPLOYEES, PHONE_MOBILE_2, LINKED_IN, JOB, IS_SAFE_COM' +
-        'PANY, COMPANY_OWNER_ID, U_LAST_NAME, U_FIRST_NAME, U_COMPANY_CON' +
-        'TACT_FIRST, U_COMPANY_CONTACT_LAST, LAST_NAME, FIRST_NAME, COMPA' +
-        'NY_CONTACT_LAST, COMPANY_CONTACT_FIRST)'
+      '  (SERIAL_NUMBER, LAST_NAME)'
       'VALUES'
-      
-        '  (:SERIAL_NUMBER, :SERIAL_QB, :FK_COMPANY_SERIAL, :NATIONAL_ID,' +
-        ' :NICKNAME, :OCCUPATION, :PHONE_MOBILE, :PHONE_FIXED, :PHONE_ALT' +
-        'ERNATE, :FAX, :EMAIL, :EMAIL_2, :ADDRESS, :ADDRESS_STREET, :ADDR' +
-        'ESS_POST_CODE, :ADDRESS_CITY, :ADDRESS_DISTRICT, :DATE_STARTED, ' +
-        ':DATE_BIRTH, :DATE_USER, :LIST_SOURCE, :FACEBOOK, :WEBSITE, :TWI' +
-        'TTER, :STATUS_ACTIVE, :SEX, :IS_COMPANY, :COMPANY_OWNER, :COMPAN' +
-        'Y_CONTACT, :COMPANY_REGISTRATION_DATE, :PHONE_CONTACT, :COMPANY_' +
-        'OWNER_REG, :COMPANY_CONTACT_PHONE, :COMPANY_CONTACT_EMAIL, :COMP' +
-        'ANY_CONTACT_FAX, :COMPANY_SOCIAL_SEC, :COMPANY_EMPLOYEES, :PHONE' +
-        '_MOBILE_2, :LINKED_IN, :JOB, :IS_SAFE_COMPANY, :COMPANY_OWNER_ID' +
-        ', :U_LAST_NAME, :U_FIRST_NAME, :U_COMPANY_CONTACT_FIRST, :U_COMP' +
-        'ANY_CONTACT_LAST, :LAST_NAME, :FIRST_NAME, :COMPANY_CONTACT_LAST' +
-        ', :COMPANY_CONTACT_FIRST)')
+      '  (:SERIAL_NUMBER, :LAST_NAME)')
     SQLDelete.Strings = (
       'DELETE FROM PERSON'
       'WHERE'
@@ -1253,48 +1253,11 @@ object M_StudentFRM: TM_StudentFRM
     SQLUpdate.Strings = (
       'UPDATE PERSON'
       'SET'
-      
-        '  SERIAL_NUMBER = :SERIAL_NUMBER, SERIAL_QB = :SERIAL_QB, FK_COM' +
-        'PANY_SERIAL = :FK_COMPANY_SERIAL, NATIONAL_ID = :NATIONAL_ID, NI' +
-        'CKNAME = :NICKNAME, OCCUPATION = :OCCUPATION, PHONE_MOBILE = :PH' +
-        'ONE_MOBILE, PHONE_FIXED = :PHONE_FIXED, PHONE_ALTERNATE = :PHONE' +
-        '_ALTERNATE, FAX = :FAX, EMAIL = :EMAIL, EMAIL_2 = :EMAIL_2, ADDR' +
-        'ESS = :ADDRESS, ADDRESS_STREET = :ADDRESS_STREET, ADDRESS_POST_C' +
-        'ODE = :ADDRESS_POST_CODE, ADDRESS_CITY = :ADDRESS_CITY, ADDRESS_' +
-        'DISTRICT = :ADDRESS_DISTRICT, DATE_STARTED = :DATE_STARTED, DATE' +
-        '_BIRTH = :DATE_BIRTH, DATE_USER = :DATE_USER, LIST_SOURCE = :LIS' +
-        'T_SOURCE, FACEBOOK = :FACEBOOK, WEBSITE = :WEBSITE, TWITTER = :T' +
-        'WITTER, STATUS_ACTIVE = :STATUS_ACTIVE, SEX = :SEX, IS_COMPANY =' +
-        ' :IS_COMPANY, COMPANY_OWNER = :COMPANY_OWNER, COMPANY_CONTACT = ' +
-        ':COMPANY_CONTACT, COMPANY_REGISTRATION_DATE = :COMPANY_REGISTRAT' +
-        'ION_DATE, PHONE_CONTACT = :PHONE_CONTACT, COMPANY_OWNER_REG = :C' +
-        'OMPANY_OWNER_REG, COMPANY_CONTACT_PHONE = :COMPANY_CONTACT_PHONE' +
-        ', COMPANY_CONTACT_EMAIL = :COMPANY_CONTACT_EMAIL, COMPANY_CONTAC' +
-        'T_FAX = :COMPANY_CONTACT_FAX, COMPANY_SOCIAL_SEC = :COMPANY_SOCI' +
-        'AL_SEC, COMPANY_EMPLOYEES = :COMPANY_EMPLOYEES, PHONE_MOBILE_2 =' +
-        ' :PHONE_MOBILE_2, LINKED_IN = :LINKED_IN, JOB = :JOB, IS_SAFE_CO' +
-        'MPANY = :IS_SAFE_COMPANY, COMPANY_OWNER_ID = :COMPANY_OWNER_ID, ' +
-        'U_LAST_NAME = :U_LAST_NAME, U_FIRST_NAME = :U_FIRST_NAME, U_COMP' +
-        'ANY_CONTACT_FIRST = :U_COMPANY_CONTACT_FIRST, U_COMPANY_CONTACT_' +
-        'LAST = :U_COMPANY_CONTACT_LAST, LAST_NAME = :LAST_NAME, FIRST_NA' +
-        'ME = :FIRST_NAME, COMPANY_CONTACT_LAST = :COMPANY_CONTACT_LAST, ' +
-        'COMPANY_CONTACT_FIRST = :COMPANY_CONTACT_FIRST'
+      '  SERIAL_NUMBER = :SERIAL_NUMBER, LAST_NAME = :LAST_NAME'
       'WHERE'
       '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
     SQLRefresh.Strings = (
-      
-        'SELECT SERIAL_NUMBER, SERIAL_QB, FK_COMPANY_SERIAL, NATIONAL_ID,' +
-        ' NICKNAME, OCCUPATION, PHONE_MOBILE, PHONE_FIXED, PHONE_ALTERNAT' +
-        'E, FAX, EMAIL, EMAIL_2, ADDRESS, ADDRESS_STREET, ADDRESS_POST_CO' +
-        'DE, ADDRESS_CITY, ADDRESS_DISTRICT, DATE_STARTED, DATE_BIRTH, DA' +
-        'TE_USER, LIST_SOURCE, FACEBOOK, WEBSITE, TWITTER, STATUS_ACTIVE,' +
-        ' SEX, IS_COMPANY, COMPANY_OWNER, COMPANY_CONTACT, COMPANY_REGIST' +
-        'RATION_DATE, PHONE_CONTACT, COMPANY_OWNER_REG, COMPANY_CONTACT_P' +
-        'HONE, COMPANY_CONTACT_EMAIL, COMPANY_CONTACT_FAX, COMPANY_SOCIAL' +
-        '_SEC, COMPANY_EMPLOYEES, PHONE_MOBILE_2, LINKED_IN, JOB, IS_SAFE' +
-        '_COMPANY, COMPANY_OWNER_ID, U_LAST_NAME, U_FIRST_NAME, U_COMPANY' +
-        '_CONTACT_FIRST, U_COMPANY_CONTACT_LAST, LAST_NAME, FIRST_NAME, C' +
-        'OMPANY_CONTACT_LAST, COMPANY_CONTACT_FIRST FROM PERSON'
+      'SELECT SERIAL_NUMBER, LAST_NAME FROM PERSON'
       'WHERE'
       '  SERIAL_NUMBER = :SERIAL_NUMBER')
     SQLLock.Strings = (
@@ -1322,7 +1285,6 @@ object M_StudentFRM: TM_StudentFRM
       'where per.is_company='#39'N'#39
       'order by per.Last_name')
     Active = True
-    Constraints = <>
     OnNewRecord = TableSQLNewRecord
     Left = 49
     Top = 5
@@ -1433,18 +1395,6 @@ object M_StudentFRM: TM_StudentFRM
     end
     object TableSQLADDRESS_POST_CODE: TWideStringField
       FieldName = 'ADDRESS_POST_CODE'
-      Visible = False
-      FixedChar = True
-      Size = 30
-    end
-    object TableSQLADDRESS_CITY: TWideStringField
-      FieldName = 'ADDRESS_CITY'
-      Visible = False
-      FixedChar = True
-      Size = 30
-    end
-    object TableSQLADDRESS_DISTRICT: TWideStringField
-      FieldName = 'ADDRESS_DISTRICT'
       Visible = False
       FixedChar = True
       Size = 30
@@ -1616,6 +1566,16 @@ object M_StudentFRM: TM_StudentFRM
       FieldName = 'COMPANY_SERIAL'
       ReadOnly = True
       Visible = False
+    end
+    object TableSQLADDRESS_CITY: TWideStringField
+      FieldName = 'ADDRESS_CITY'
+      Visible = False
+      Size = 160
+    end
+    object TableSQLADDRESS_DISTRICT: TWideStringField
+      FieldName = 'ADDRESS_DISTRICT'
+      Visible = False
+      Size = 160
     end
   end
   object WriteTrans: TIBCTransaction

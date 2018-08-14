@@ -4,8 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  System.IOUtils,
-  StdCtrls, Mask, DBCtrls, Db, wwSpeedButton, wwDBNavigator,
+  System.IOUtils,    System.DateUtils,
+  StdCtrls, Mask,  Db, wwSpeedButton, wwDBNavigator,
   wwclearpanel, Buttons, ExtCtrls, wwdblook, Wwkeycb, Grids,
   DBAccess, IBC, MemDS, Wwdbigrd, Wwdbgrid, wwdbedit, vcl.Wwdotdot, vcl.Wwdbcomb,
   G_KyrSQL, RzButton, RzPanel, vcl.wwcheckbox, Vcl.ExtDlgs, vcl.wwbutton,
@@ -473,13 +473,16 @@ var
   fTExtName:string;
   fname:string;
   IsPoly:string;
+  PolyName:string;
   IsSendToAll:String;
   CompId:String;
   CompName:String;
   MonoCompanySerial:Integer;
+  MonoCompanyName:string;
   CompSerial:Integer;
   temp:String;
-
+  StartDateStr:String;
+SeminarYear:Integer;
 begin
 
   //for every document
@@ -495,7 +498,15 @@ begin
   end;
 
 
-  qr:=TksQuery.Create(cn,'select * from Seminar where serial_number = :SeminarSerial');
+  temp:=
+  'select per.last_name as Company_name,sem.* from Seminar sem '
+  +'  left outer join person per'
+  +'  on sem.fk_company_person_serial = per.serial_number'
+  +'  where'
+  +'  sem.type_mono_poly =''M'' and'
+  +'  sem.serial_number = :SeminarSerial' ;
+
+  qr:=TksQuery.Create(cn,temp);
   try
     qr.ParamByName('seminarSerial').Value:=SeminarSerial;
     qr.Open;
@@ -504,8 +515,18 @@ begin
       exit;
     end;
     SeminarName:=trim(qr.FieldByName('Seminar_name').AsString);
+    SeminarYear:= system.DateUtils.YearOf(qr.FieldByName('Date_started').AsDateTime);
+    monoCompanyName:=Trim(qr.FieldByName('Company_name').AsString);
+    StartDateStr:=FormatDateTime('dd_mmm_yyyy',qr.FieldByName('date_started').AsDateTime);
     IsPoly:=qr.FieldByName('Type_mono_poly').AsString;
+    if isPoly='P' then
+      PolyName:='Poly'
+    else if isPoly='M' then
+      PolyName:='Mono'
+    else PolyName:='';
+
     MonoCompanySerial:= qr.FieldByName('FK_COMPANY_PERSON_SERIAL').AsInteger;
+
     qr.Close;
 
   finally
@@ -515,8 +536,11 @@ begin
   temp:= stringreplace(SeminarName, '\', '_', [rfReplaceAll, rfIgnoreCase]);
   temp:= stringreplace(temp, '/', '_', [rfReplaceAll, rfIgnoreCase]);
   temp:= stringreplace(temp, '.', '_', [rfReplaceAll, rfIgnoreCase]);
-  SeminarFolder:=baseFOlder+'\'+SeminarName+'_'+IntToStr(SeminarSerial);
 
+  SeminarFolder:=baseFOlder+'\'+IntToStr(SeminarYear)+'_'+PolyName+'__'+temp+
+  '__'+MonoCompanyName+'_'+StartDateStr+'_'+IntToStr(SeminarSerial);
+//  showMessage(SeminarFOlder);
+//  exit;
 
   if  DirectoryExists(SeminarFOlder) then begin
 //    MessageDlg('Directory to write the Files already EXISTS. Delete first', mtError, [mbOK], 0);

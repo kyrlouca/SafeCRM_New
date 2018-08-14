@@ -62,7 +62,6 @@ type
     CertificateSQLINSTRUCTOR_NAME: TWideStringField;
     CertificateSQLINSTRUCTOR_JOB_TITLE: TWideStringField;
     CertificateSQLHAS_ANOTHER_DATE: TWideStringField;
-    ppFooterBand1: TppFooterBand;
     LanguageRGP: TwwRadioGroup;
     SeminarPicturesSQL: TIBCQuery;
     SeminarPictureSRC: TDataSource;

@@ -1121,7 +1121,6 @@ object L_SeminarFRM: TL_SeminarFRM
       ''
       '')
     Active = True
-    Constraints = <>
     OnNewRecord = TableSQLNewRecord
     Left = 49
     Top = 5

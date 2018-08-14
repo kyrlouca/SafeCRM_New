@@ -2,7 +2,7 @@ object M_mainFRM: TM_mainFRM
   Left = 0
   Top = 0
   Caption = 'EnaSimple'
-  ClientHeight = 406
+  ClientHeight = 403
   ClientWidth = 837
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -26,7 +26,7 @@ object M_mainFRM: TM_mainFRM
     Margins.Bottom = 0
     Align = alTop
     BorderOuter = fsGroove
-    Caption = 'Safe CRM - V1.15'
+    Caption = 'Safe CRM - V1.16'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 3947580
     Font.Height = -48
@@ -36,7 +36,6 @@ object M_mainFRM: TM_mainFRM
     RealTimeDrag = True
     SizeBarWidth = 1
     TabOrder = 0
-    ExplicitTop = 5
     object PanelButtonsBTN: TPanel
       Left = 2
       Top = 2
@@ -180,7 +179,7 @@ object M_mainFRM: TM_mainFRM
   end
   object ButtonsPNL: TPanel
     Left = 0
-    Top = 361
+    Top = 358
     Width = 837
     Height = 45
     Align = alBottom
@@ -276,7 +275,7 @@ object M_mainFRM: TM_mainFRM
     Left = 0
     Top = 83
     Width = 837
-    Height = 278
+    Height = 275
     Margins.Top = 0
     Margins.Bottom = 0
     Align = alClient
@@ -287,7 +286,7 @@ object M_mainFRM: TM_mainFRM
       Left = 0
       Top = 0
       Width = 837
-      Height = 278
+      Height = 275
       Align = alClient
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D494844520000033C0000

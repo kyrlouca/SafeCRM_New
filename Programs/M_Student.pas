@@ -113,8 +113,6 @@ type
     TableSQLADDRESS: TWideStringField;
     TableSQLADDRESS_STREET: TWideStringField;
     TableSQLADDRESS_POST_CODE: TWideStringField;
-    TableSQLADDRESS_CITY: TWideStringField;
-    TableSQLADDRESS_DISTRICT: TWideStringField;
     TableSQLDATE_STARTED: TDateField;
     TableSQLDATE_BIRTH: TDateField;
     TableSQLDATE_USER: TDateField;
@@ -150,6 +148,10 @@ type
     TableSQLCOMPANY_CONTACT_FIRST: TWideStringField;
     TableSQLCOMPANY_SERIAL: TIntegerField;
     TableSQLCOMPANY_NAME: TWideStringField;
+    Label22: TLabel;
+    wwDBEdit3: TwwDBEdit;
+    TableSQLADDRESS_CITY: TWideStringField;
+    TableSQLADDRESS_DISTRICT: TWideStringField;
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure TableSRCStateChange(Sender: TObject);
