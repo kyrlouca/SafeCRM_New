@@ -289,7 +289,7 @@ end;
 procedure TR_certificateFRM.DurationFLDCalc(Sender: TObject;
   var Value: Variant);
 begin
-            value:='Διάρκειας: '+CertificateSQL.FieldByName('seminar_duration').AsString + ' ωρών';
+            value:='Ξ”ΞΉΞ¬ΟΞΊΞµΞΉΞ±Ο‚: '+CertificateSQL.FieldByName('seminar_duration').AsString + ' Ο‰ΟΟΞ½';
 
 end;
 
@@ -501,19 +501,18 @@ end;
 
 procedure TR_certificateFRM.IdFLDCalc(Sender: TObject; var Value: Variant);
 begin
-    value:='(Αρ. Ταυτότητας: '+Trim(CertificateSQL.FieldByName('National_id').AsString)+ ')' ;
+    value:='(Ξ‘Ο. Ξ¤Ξ±Ο…Ο„ΟΟ„Ξ·Ο„Ξ±Ο‚: '+Trim(CertificateSQL.FieldByName('National_id').AsString)+ ')' ;
 
 end;
 
 
 function TR_certificateFRM.ReplaceText(picFIeldName:String):String;
-// the report has several fields with RTF text (header, left, right , etc) .
-// for the specified field replace each of the tokens with real data
+// the report has several dbRichText fields with RTF text (Top, left, right , ...) .
+// replace the tokens in the text of the specified field with real data
+//
 
 const
   ReplaceArray : array of String= ['[NAME]','[SEX]','[ID]','[HOURS]','[DATE]','[ANAD]','[SERIAL]' ];
-//  ReplaceArray : array of String= ['[NAME]'];
-
 var
   SelPos: Integer;
   txt:String;
@@ -560,9 +559,9 @@ begin
 
             temp:=CertificateSQL.FieldByName('SEX').AsString;
             if temp='M' then
-              temp:='Ο'
+              temp:='Ξ'
             else
-              temp:='Η';
+              temp:='Ξ—';
 
              if isAllUpper then begin
                 temp:= ToUpper(temp);
