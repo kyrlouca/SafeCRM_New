@@ -2,7 +2,7 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
   Left = 365
   Top = 153
   Caption = '--'
-  ClientHeight = 701
+  ClientHeight = 749
   ClientWidth = 1027
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -21,12 +21,13 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
   TextHeight = 13
   object Panel4: TRzPanel
     Left = 0
-    Top = 658
+    Top = 706
     Width = 1027
     Height = 43
     Align = alBottom
     BorderOuter = fsFlatRounded
     TabOrder = 1
+    ExplicitTop = 658
     object RzPanel1: TRzPanel
       Left = 925
       Top = 2
@@ -275,29 +276,33 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
     Left = 0
     Top = 53
     Width = 1027
-    Height = 605
+    Height = 653
     Align = alClient
     BorderOuter = fsNone
     TabOrder = 2
+    ExplicitHeight = 605
     object PageCtl: TPageControl
       Left = 0
       Top = 0
       Width = 1027
-      Height = 605
+      Height = 653
       ActivePage = PictTS
       Align = alClient
       TabOrder = 0
+      ExplicitHeight = 605
       object PictTS: TTabSheet
         Caption = 'Template'
         OnShow = PictTSShow
+        ExplicitHeight = 577
         object RzPanel7: TRzPanel
           Left = 0
           Top = 0
           Width = 1019
-          Height = 577
+          Height = 625
           Align = alClient
           BorderOuter = fsNone
           TabOrder = 0
+          ExplicitHeight = 577
           object LanguageRGP: TwwRadioGroup
             Left = 18
             Top = 3
@@ -998,7 +1003,7 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
               end
             end
             object RzPanel6: TRzPanel
-              Left = 864
+              Left = 880
               Top = 440
               Width = 82
               Height = 79
@@ -1016,14 +1021,14 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
                 Stretch = True
                 OnDblClick = PICTURE_TOP_L1DblClick
                 OnMouseDown = PICTURE_TOP_L1MouseDown
-                ExplicitLeft = 10
+                ExplicitLeft = 26
                 ExplicitTop = 4
               end
             end
             object wwDBEdit1: TwwDBEdit
-              Left = 516
-              Top = 79
-              Width = 25
+              Left = 504
+              Top = 108
+              Width = 37
               Height = 22
               DataField = 'TR_Y'
               DataSource = SeminarPictureSRC
@@ -1033,9 +1038,9 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
               WordWrap = False
             end
             object wwDBEdit3: TwwDBEdit
-              Left = 547
+              Left = 561
               Top = 162
-              Width = 25
+              Width = 46
               Height = 22
               DataField = 'TR_X'
               DataSource = SeminarPictureSRC
@@ -1045,9 +1050,9 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
               WordWrap = False
             end
             object wwDBEdit2: TwwDBEdit
-              Left = 372
-              Top = 79
-              Width = 25
+              Left = 360
+              Top = 108
+              Width = 39
               Height = 22
               DataField = 'TL_Y'
               DataSource = SeminarPictureSRC
@@ -1057,9 +1062,9 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
               WordWrap = False
             end
             object wwDBEdit4: TwwDBEdit
-              Left = 405
-              Top = 164
-              Width = 25
+              Left = 419
+              Top = 162
+              Width = 44
               Height = 22
               DataField = 'TL_X'
               DataSource = SeminarPictureSRC
@@ -1069,9 +1074,9 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
               WordWrap = False
             end
             object wwDBEdit5: TwwDBEdit
-              Left = 16
-              Top = 442
-              Width = 25
+              Left = 8
+              Top = 466
+              Width = 33
               Height = 22
               DataField = 'BL_Y'
               DataSource = SeminarPictureSRC
@@ -1081,9 +1086,9 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
               WordWrap = False
             end
             object wwDBEdit6: TwwDBEdit
-              Left = 50
+              Left = 66
               Top = 520
-              Width = 25
+              Width = 39
               Height = 22
               DataField = 'BL_X'
               DataSource = SeminarPictureSRC
@@ -1093,9 +1098,9 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
               WordWrap = False
             end
             object wwDBEdit7: TwwDBEdit
-              Left = 833
-              Top = 442
-              Width = 25
+              Left = 832
+              Top = 466
+              Width = 42
               Height = 22
               DisableThemes = True
               DataField = 'BR_Y'
@@ -1106,9 +1111,9 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
               WordWrap = False
             end
             object wwDBEdit8: TwwDBEdit
-              Left = 866
+              Left = 903
               Top = 523
-              Width = 25
+              Width = 39
               Height = 22
               DataField = 'BR_X'
               DataSource = SeminarPictureSRC
@@ -1278,7 +1283,6 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
       
         'where stp.FK_SEMINAR_SERIAL = :SeminarSerial  and stp.LANGUAGE_G' +
         'REEK_OR_ENGLISH = :language')
-    Constraints = <>
     Left = 65
     Top = 185
     ParamData = <

@@ -295,9 +295,10 @@ end;
 
 procedure TR_certificateFRM.ppReport1BeforePrint(Sender: TObject);
 const
-// the names of the tppImageFields on the report ppReport1 are placed in the array imgNames
-// for each fieldName find the corresponing offsets
-// for example, for PICTURE_TOP_L1 the offsets are in fields TL_X, TL_Y
+// for each dbImage find the corresponing offsets based on its DATA_FIELD
+// for example for field with datafield PICTURE_TOP_L1 => TL_X and TL_Y
+// the dataFIELD names of the tppImageFields on the report ppReport1 are placed in the array imgNames
+// place in each array element, datafield name, and OFFSET DATAFIELD names
    imgNames :TArray<String> =[ 'PICTURE_TOP_L1', 'PICTURE_TOP_R1' ,'PICTURE_BOT_L1', 'PICTURE_BOT_R1'];
 var
   I:integer;
@@ -305,12 +306,14 @@ var
    imgPos:TImgPos;
    ndx:Integer;
 begin
+    Setlength(imgPosArray,0); //clear the array
     for i := 0 to ComponentCount - 1 do    begin
       if  (Components[i] is TppdbImage) then begin
         img:=TppdbImage(Components[i]);
         imgPos.fName:=img.DataField;
         ImgPos.Left:=img.Left;
         ImgPos.Top:=Img.Top;
+        //showMessage(imgPos.fname);
 
         Case  IndexStr(imgPos.fName,imgNames ) of
           0:begin imgPos.FieldForLeft:='TL_X';imgPos.FieldForRIght:='TL_Y' end;
@@ -376,6 +379,7 @@ var
   strLeft:string;
   strRight:String;
 begin
+   ShowMessage('SubmectCalc');
     strLeft:=char(left);
     strright:=char(right);
   value:= strLeft +CertificateSQL.FieldByName('Seminar_subject').AsString+StrRight;
@@ -507,13 +511,12 @@ end;
 
 
 function TR_certificateFRM.ReplaceText(picFIeldName:String):String;
-// the report has several fields with RTF text (header, left, right , etc) .
-// for the specified field replace each of the tokens with real data
+// the report has several dbRichText fields with RTF text (Top, left, right , ...) .
+// replace the tokens in the text of the specified field with real data
+//
 
 const
   ReplaceArray : array of String= ['[NAME]','[SEX]','[ID]','[HOURS]','[DATE]','[ANAD]','[SERIAL]' ];
-//  ReplaceArray : array of String= ['[NAME]'];
-
 var
   SelPos: Integer;
   txt:String;
@@ -652,7 +655,7 @@ begin
 //    img.Left:=ImgFound.Left+  SeminarPicturesSQL.FieldByName(imgFound.FieldForLeft).AsFloat/10.0;
 //    img.Top:= ImgFound.Top+ SeminarPicturesSQL.FieldByName(imgFOund.FieldForRIght).AsFloat/10;
     img.Left:=ImgFound.Left+  SeminarPictureSRC.DataSet.FieldByName(imgFound.FieldForLeft).AsFloat/10.0;
-    img.Top:= ImgFound.Top+ SeminarPictureSRC.DataSet.FieldByName(imgFOund.FieldForRIght).AsFloat/10;
+    img.Top:= ImgFound.Top+ SeminarPictureSRC.DataSet.FieldByName(imgFOund.FieldForRIght).AsFloat/10.0;
   end;
 
 end;
