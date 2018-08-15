@@ -249,8 +249,9 @@ type
     IN_certificate_serial:Integer;
     IN_Language:String;
     procedure PrintSeminar(Const SeminarSerial,CertificateSerial:Integer;Const language:String);
-    procedure PrintTestSeminar(Const SeminarSerial,SeminarTypeSerial,CertificateSerial:Integer;Const Language:String);
     procedure PrintTheSeminar();
+    procedure PrintTestSeminar(Const SeminarSerial, CertificateSerial, PictureSerial:Integer; Const Language:String);
+//    procedure PrintTestSeminar(Const SeminarSerial,SeminarTypeSerial,CertificateSerial:Integer;Const Language:String);
 
 
   end;
@@ -465,6 +466,7 @@ begin
   CertificateSQL.RestoreSQL;
 
   with CertificateSQL do begin
+    //if certificateSerial is zero it will print ALL the certs of the seminar
     if CertificateSerial>0 then begin
         CertificateSQL.AddWhere('serial_number = :CertificateSerial');
         CertificateSQL.ParamByName('CertificateSerial').Value:=CertificateSerial;
@@ -674,7 +676,7 @@ end;
 
 
 
-procedure TR_certificateFRM.PrintTestSeminar(Const SeminarSerial,SeminarTypeSerial,CertificateSerial:Integer;Const Language:String);
+procedure TR_certificateFRM.PrintTestSeminar(Const SeminarSerial, CertificateSerial, PictureSerial:Integer; Const Language:String);
 //will print a certificate using pictures from the TEMPLATE
 Var
    FromDate:TDateTime;
@@ -698,7 +700,7 @@ begin
 
     with TestTypePicturesSQL do begin
     TestTypePicturesSQL.Close ;
-    TestTypePicturesSQL.ParamByName('SeminarTypeSerial').Value:=SeminarTypeSerial;
+    TestTypePicturesSQL.ParamByName('pictureSerial').Value:=PictureSerial;
     TestTypePicturesSQL.ParamByName('Language').Value:=Language;
     TestTypePicturesSQL.Open ;
     if     TestTypePicturesSQL.IsEmpty then begin

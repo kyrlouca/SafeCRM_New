@@ -2,7 +2,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
   Left = 365
   Top = 153
   Caption = '--'
-  ClientHeight = 728
+  ClientHeight = 801
   ClientWidth = 1028
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -24,7 +24,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
     Left = 0
     Top = 0
     Width = 1028
-    Height = 685
+    Height = 758
     Align = alClient
     BorderOuter = fsNone
     Font.Charset = DEFAULT_CHARSET
@@ -55,8 +55,6 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
       Transparent = True
       VisualStyle = vsClassic
       WordWrap = False
-      ExplicitLeft = 4
-      ExplicitTop = 0
       object certificatesHelpRE: TwwDBRichEdit
         Left = 702
         Top = -1
@@ -293,8 +291,8 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
       Left = 0
       Top = 67
       Width = 1028
-      Height = 618
-      ActivePage = CertificationTS
+      Height = 691
+      ActivePage = TabSheet1
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -312,7 +310,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
           Left = 0
           Top = 0
           Width = 1020
-          Height = 587
+          Height = 660
           Align = alClient
           BorderOuter = fsNone
           TabOrder = 0
@@ -330,7 +328,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               Top = 11
               Width = 128
               Height = 22
-              DataSource = TableSRC
+              DataSource = SeminarTypeSRC
               ShowMatchText = True
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
@@ -345,7 +343,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Left = 0
             Top = 51
             Width = 361
-            Height = 536
+            Height = 609
             Align = alLeft
             BorderOuter = fsNone
             TabOrder = 1
@@ -362,7 +360,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               Left = 0
               Top = 17
               Width = 361
-              Height = 519
+              Height = 592
               ControlType.Strings = (
                 'ANAD_APPROVED;CheckBox;Y;N'
                 'TYPE_MONO_POLY;CheckBox;P;M')
@@ -379,7 +377,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               Align = alLeft
               BorderStyle = bsNone
               Color = 12713983
-              DataSource = TableSRC
+              DataSource = SeminarTypeSRC
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
               Font.Height = -11
@@ -405,7 +403,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Left = 393
             Top = 51
             Width = 627
-            Height = 536
+            Height = 609
             Align = alClient
             TabOrder = 2
             object GroupBox1: TGroupBox
@@ -456,7 +454,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 BorderOuter = fsFlat
                 BorderWidth = 1
                 DataField = 'SERIAL_NUMBER'
-                DataSource = TableSRC
+                DataSource = SeminarTypeSRC
               end
               object Label7: TLabel
                 Left = 77
@@ -516,7 +514,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 Width = 219
                 Height = 22
                 DataField = 'SEMINAR_NAME'
-                DataSource = TableSRC
+                DataSource = SeminarTypeSRC
                 TabOrder = 1
                 UnboundDataType = wwDefault
                 WantReturns = False
@@ -528,7 +526,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 Width = 219
                 Height = 49
                 DataField = 'COMMENTS'
-                DataSource = TableSRC
+                DataSource = SeminarTypeSRC
                 Font.Charset = GREEK_CHARSET
                 Font.Color = clWindowText
                 Font.Height = -12
@@ -551,7 +549,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 DisplayValueUnchecked = 'M'
                 NullAndBlankState = cbUnchecked
                 DataField = 'TYPE_MONO_POLY'
-                DataSource = TableSRC
+                DataSource = SeminarTypeSRC
                 ShowText = False
                 TabOrder = 2
               end
@@ -570,7 +568,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 NullAndBlankState = cbUnchecked
                 Checked = True
                 DataField = 'ANAD_APPROVED'
-                DataSource = TableSRC
+                DataSource = SeminarTypeSRC
                 ShowText = False
                 State = cbChecked
                 TabOrder = 4
@@ -581,7 +579,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 Width = 75
                 Height = 22
                 DataField = 'SPECIFICATION_NUMBER'
-                DataSource = TableSRC
+                DataSource = SeminarTypeSRC
                 TabOrder = 0
                 UnboundDataType = wwDefault
                 WantReturns = False
@@ -685,7 +683,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 Width = 59
                 Height = 22
                 DataField = 'DURATION_HOURS'
-                DataSource = TableSRC
+                DataSource = SeminarTypeSRC
                 TabOrder = 1
                 UnboundDataType = wwDefault
                 WantReturns = False
@@ -697,7 +695,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 Width = 59
                 Height = 22
                 DataField = 'MAX_CAPACITY'
-                DataSource = TableSRC
+                DataSource = SeminarTypeSRC
                 TabOrder = 2
                 UnboundDataType = wwDefault
                 WantReturns = False
@@ -716,7 +714,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 DisplayValueUnchecked = 'N'
                 NullAndBlankState = cbUnchecked
                 DataField = 'HAS_EXPIRY'
-                DataSource = TableSRC
+                DataSource = SeminarTypeSRC
                 ShowText = False
                 TabOrder = 4
               end
@@ -726,7 +724,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 Width = 59
                 Height = 22
                 DataField = 'EXPIRY_PERIOD'
-                DataSource = TableSRC
+                DataSource = SeminarTypeSRC
                 TabOrder = 5
                 UnboundDataType = wwDefault
                 WantReturns = False
@@ -738,7 +736,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 Width = 59
                 Height = 22
                 DataField = 'PASS_PERCENTAGE'
-                DataSource = TableSRC
+                DataSource = SeminarTypeSRC
                 TabOrder = 3
                 UnboundDataType = wwDefault
                 WantReturns = False
@@ -750,7 +748,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 Width = 59
                 Height = 22
                 DataField = 'DURATION_DAYS'
-                DataSource = TableSRC
+                DataSource = SeminarTypeSRC
                 TabOrder = 0
                 UnboundDataType = wwDefault
                 WantReturns = False
@@ -771,7 +769,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 Width = 207
                 Height = 23
                 AutosizeStyle = asSizeNavButtons
-                DataSource = TableSRC
+                DataSource = SeminarTypeSRC
                 RepeatInterval.InitialDelay = 500
                 RepeatInterval.Interval = 100
                 Align = alLeft
@@ -938,11 +936,18 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Left = 361
             Top = 51
             Width = 32
-            Height = 536
+            Height = 609
             Align = alLeft
             BorderOuter = fsNone
             TabOrder = 4
           end
+        end
+        object RzPanel33: TRzPanel
+          Left = 416
+          Top = 312
+          Width = 185
+          Height = 41
+          TabOrder = 1
         end
       end
       object SubjectTS: TTabSheet
@@ -953,7 +958,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
           Left = 0
           Top = 0
           Width = 1020
-          Height = 587
+          Height = 660
           Align = alClient
           BorderOuter = fsNone
           TabOrder = 0
@@ -961,7 +966,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Left = 0
             Top = 12
             Width = 473
-            Height = 575
+            Height = 648
             Align = alLeft
             BorderOuter = fsNone
             TabOrder = 0
@@ -1024,7 +1029,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Left = 473
             Top = 12
             Width = 56
-            Height = 575
+            Height = 648
             Align = alLeft
             BorderOuter = fsNone
             TabOrder = 1
@@ -1033,7 +1038,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Left = 529
             Top = 12
             Width = 369
-            Height = 575
+            Height = 648
             Align = alLeft
             BorderOuter = fsNone
             TabOrder = 2
@@ -1360,7 +1365,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
           Left = 0
           Top = 0
           Width = 1020
-          Height = 587
+          Height = 660
           Align = alClient
           BorderOuter = fsNone
           TabOrder = 0
@@ -1394,7 +1399,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Left = 0
             Top = 56
             Width = 469
-            Height = 531
+            Height = 604
             Align = alLeft
             Caption = #933#960#949#957#952#965#956#943#963#949#953#962
             Ctl3D = False
@@ -1419,7 +1424,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               Left = 1
               Top = 33
               Width = 467
-              Height = 497
+              Height = 570
               ControlType.Strings = (
                 'AFTER_OR_BEFORE;CustomEdit;AfterFLD;F'
                 'DAYS_OR_MONTHS;CustomEdit;NamePersonFLD;F'
@@ -1519,7 +1524,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Left = 469
             Top = 56
             Width = 461
-            Height = 531
+            Height = 604
             Align = alLeft
             BorderOuter = fsNone
             TabOrder = 2
@@ -2024,7 +2029,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
           Left = 0
           Top = 0
           Width = 1020
-          Height = 587
+          Height = 660
           Align = alClient
           BorderOuter = fsNone
           TabOrder = 0
@@ -2041,7 +2046,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Left = 0
             Top = 169
             Width = 369
-            Height = 418
+            Height = 491
             Align = alLeft
             BorderSides = [sdLeft, sdTop, sdRight]
             Caption = #916#951#955#969#956#941#957#959#953
@@ -2064,7 +2069,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               Left = 1
               Top = 27
               Width = 367
-              Height = 390
+              Height = 463
               ControlType.Strings = (
                 'IS_GUEST;CheckBox;Y;N')
               Selected.Strings = (
@@ -2099,7 +2104,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Left = 369
             Top = 169
             Width = 94
-            Height = 418
+            Height = 491
             Align = alLeft
             BorderOuter = fsNone
             TabOrder = 2
@@ -2252,7 +2257,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Left = 463
             Top = 169
             Width = 391
-            Height = 418
+            Height = 491
             Align = alLeft
             Caption = #922#945#964#940#955#959#947#959#962
             Font.Charset = DEFAULT_CHARSET
@@ -2266,7 +2271,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               Left = 1
               Top = 98
               Width = 389
-              Height = 319
+              Height = 392
               Selected.Strings = (
                 'SERIAL_NUMBER'#9'10'#9'A/A'
                 'LAST_NAME'#9'21'#9#917#960#943#952#949#964#959
@@ -2443,7 +2448,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
           Left = 0
           Top = 0
           Width = 1020
-          Height = 587
+          Height = 660
           Align = alClient
           BorderOuter = fsNone
           TabOrder = 0
@@ -3304,8 +3309,8 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               end
             end
             object RzPanel11: TRzPanel
-              Left = 864
-              Top = 440
+              Left = 883
+              Top = 438
               Width = 82
               Height = 79
               BorderOuter = fsGroove
@@ -3322,14 +3327,13 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 Stretch = True
                 OnDblClick = PICTURE_TOP_L1DblClick
                 OnMouseDown = PICTURE_TOP_L1MouseDown
-                ExplicitLeft = 10
-                ExplicitTop = 4
+                ExplicitLeft = 33
               end
             end
             object wwDBEdit5: TwwDBEdit
-              Left = 516
-              Top = 79
-              Width = 25
+              Left = 504
+              Top = 102
+              Width = 37
               Height = 22
               DataField = 'TR_Y'
               DataSource = SeminarPictureSRC
@@ -3339,9 +3343,9 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               WordWrap = False
             end
             object wwDBEdit6: TwwDBEdit
-              Left = 547
+              Left = 563
               Top = 162
-              Width = 25
+              Width = 46
               Height = 22
               DataField = 'TR_X'
               DataSource = SeminarPictureSRC
@@ -3351,9 +3355,9 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               WordWrap = False
             end
             object wwDBEdit7: TwwDBEdit
-              Left = 372
-              Top = 79
-              Width = 25
+              Left = 352
+              Top = 108
+              Width = 45
               Height = 22
               DataField = 'TL_Y'
               DataSource = SeminarPictureSRC
@@ -3363,9 +3367,9 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               WordWrap = False
             end
             object wwDBEdit10: TwwDBEdit
-              Left = 405
+              Left = 419
               Top = 164
-              Width = 25
+              Width = 44
               Height = 22
               DataField = 'TL_X'
               DataSource = SeminarPictureSRC
@@ -3375,9 +3379,9 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               WordWrap = False
             end
             object wwDBEdit11: TwwDBEdit
-              Left = 16
-              Top = 442
-              Width = 25
+              Left = 0
+              Top = 458
+              Width = 41
               Height = 22
               DataField = 'BL_Y'
               DataSource = SeminarPictureSRC
@@ -3387,9 +3391,9 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               WordWrap = False
             end
             object wwDBEdit12: TwwDBEdit
-              Left = 50
-              Top = 520
-              Width = 25
+              Left = 66
+              Top = 522
+              Width = 47
               Height = 22
               DataField = 'BL_X'
               DataSource = SeminarPictureSRC
@@ -3399,9 +3403,9 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               WordWrap = False
             end
             object wwDBEdit13: TwwDBEdit
-              Left = 833
-              Top = 442
-              Width = 25
+              Left = 837
+              Top = 466
+              Width = 42
               Height = 22
               DisableThemes = True
               DataField = 'BR_Y'
@@ -3412,9 +3416,9 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               WordWrap = False
             end
             object wwDBEdit14: TwwDBEdit
-              Left = 866
+              Left = 905
               Top = 523
-              Width = 25
+              Width = 47
               Height = 22
               DataField = 'BR_X'
               DataSource = SeminarPictureSRC
@@ -3426,11 +3430,105 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
           end
         end
       end
+      object TabSheet1: TTabSheet
+        Caption = 'TabSheet1'
+        ImageIndex = 5
+        object RzPanel35: TRzPanel
+          Left = 0
+          Top = 0
+          Width = 1020
+          Height = 660
+          Align = alClient
+          TabOrder = 0
+          ExplicitLeft = 126
+          ExplicitTop = -16
+          ExplicitWidth = 660
+          ExplicitHeight = 441
+          object RzBitBtn3: TRzBitBtn
+            Left = 331
+            Top = 176
+            Width = 125
+            Height = 37
+            Alignment = taLeftJustify
+            Caption = 'Edit Certificate Template'
+            DoubleBuffered = True
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            LightTextStyle = True
+            ParentDoubleBuffered = False
+            ParentFont = False
+            TabOrder = 0
+            OnClick = RzBitBtn1Click
+            Glyph.Data = {
+              F6060000424DF606000000000000360000002800000018000000180000000100
+              180000000000C006000000000000000000000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFBC8A57BC8A57BC8A57BC8A57BC8A57BC8A57BC8A57BC8A57BC8A57
+              BC8A57BC8A57BC8A57BC8A57BC8A57BC8A57BC8A57BC8A57BC8A57BC8A57BC8A
+              57BC8A57BC8A57FFFFFFBC8A57BC8A57BC8B58BC8B58BC8B58BC8B58BC8B58BC
+              8B58BC8B58BC8B58BD8B58BD8C59BD8C59BD8C59BD8C59BD8C59BD8C59BD8C59
+              BD8C59BD8C59BD8C58BC8B57BC8B57BC8A57B8844CDAC2A8F6F6F3F6F6F3F6F6
+              F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6
+              F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3DECBB5B8844CBA8750E0CDB8
+              F6F6F3F6F6F3F6F8F6F6F8F5F6F8F6F6F6F3F6F6F3F6F6F3949190DCDBDCFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6F6F3E6D8C8BA
+              8750BB8851DDCAB3F6F6F3F6F6F38A56308A56308A56308A5630F6F6F3F6F6F3
+              949190D9D6D6FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFF6F6F3E3D4C3BB8851BB8853DDC9B3F6F6F3F6F6F38A56308A56308A56308A
+              5630F6F6F3F6F6F3949190DBD9D9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFF6F6F3E3D6C4BB8853BB8B54DFCBB6F6F6F3F6F6F3F4F3
+              F0F4F3F0F4F3F0F3F2EEF6F6F3F6F6F394919094919096949296939296949296
+              9492969492969492969492928F8E949190F6F6F3E4D6C4BB8B54BC8C56DFCCB6
+              F5F7F6F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F39491909491909491
+              90949190949190949190949190949190949190949190949190F6F6F3E4D6C5BC
+              8C56BE8D58DFCCB6F3F1ECF6F6F3F3F1ECF3F1ECF3F1ECF6F6F3F6F6F3F6F6F3
+              F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6
+              F3F6F6F3E3D6C4BE8D58BE8F59DECDB7F3F1ECF6F6F3F6F6F3F6F6F3F6F6F3F6
+              F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3
+              F6F6F3F6F6F3F6F6F3F6F6F3E4D7C5BE8F59BF905ADFCEB8F6F6F3F6F6F3F6F6
+              F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3949190DCDBDCFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6F6F3E5D8C6BF905AC0915CDFCDB7
+              F6F6F3F6F6F38A56308A56308A56308A5630F6F6F3F6F6F3949190D9D6D6FFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6F6F3E5D7C7C0
+              915CC0915EDECCB7F6F6F3F6F6F38A56308A56308A56308A5630F6F6F3F6F6F3
+              949190DBD9D9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFF6F6F3E5D8C7C0915EC1925FDFCEB9F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6
+              F6F3F6F6F3F6F6F3949190949190949190949190949190949190949190949190
+              949190949190949190F6F6F3E5D7C7C1925FC29461E0CEB9F6F6F3F6F6F3F6F6
+              F3F6F6F3F6F6F3F6F6F3F4F2EEF6F6F394919094919094919094919094919094
+              9190949190949190949190949190949190F6F6F3E5D7C6C29461C29461E3D4C1
+              F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6
+              F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3F6F6F3E8DECFC2
+              9461C79D6ED4B797E5D8C7E5D8C7E5D8C7E5D8C7E5D8C7E5D8C7E5D8C7E5D8C7
+              E5D8C7E5D8C7E5D8C7E5D8C7E5D8C7E5D8C7E5D8C7E5D8C7E5D8C7E5D8C7E5D8
+              C7E5D8C7D7BC9DC79D6EC8A377D5AF86E0BD97DDBA94DEBB95DEBB95DEBB95DE
+              BB95DEBB95DEBB95DEBB95DEBB95DEBB95DEBB95DEBB95DEBB95DEBB95DEBB95
+              DEBB95DEBB95DDBA94E0BD97D5AF85C8A377C9A479D5AF84DDB992DCB890DCB8
+              90DCB890DCB890DCB890DCB890DCB890DCB890DCB890DCB890DCB890DCB890DC
+              B890DCB890DCB890DCB890DCB890DCB890DEBA93D4AE84C9A479C7A275D5AF84
+              DFBB95DDB991DEBA93DEBA93DEBA93DEBA93DEBA93DEBA93DEBA93DEBA93DEBA
+              93DEBA93DEBA93DEBA93DEBA93DEBA93DEBA93DEBA93DDB991E0BC97D4AF84C7
+              A275CDA679CFA97DD3AE82D3AE82D2AD81D3AD82D3AD82D3AD82D3AD82D3AD82
+              D3AD82D3AD82D3AD82D3AD82D3AD82D3AD82D3AD82D3AD82D3AD82D2AD81D3AE
+              82D4AE83CDA87BCDA679FFFFFFC6A172CBA87DCCAA80CCA97ECCA97ECCA97ECC
+              A97ECCA97ECCA97ECCA97ECCA97ECCA97ECCA97ECCA97ECCA97ECCA97ECCA97E
+              CCA97ECCA97ECCAA80CBA87CD4B792FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            Margin = -1
+            Spacing = 8
+          end
+        end
+      end
     end
   end
   object Panel4: TRzPanel
     Left = 0
-    Top = 685
+    Top = 758
     Width = 1028
     Height = 43
     Align = alBottom
@@ -3738,12 +3836,12 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
     end
   end
-  object TableSRC: TDataSource
-    DataSet = TableSQL
-    Left = 112
+  object SeminarTypeSRC: TDataSource
+    DataSet = SeminarTypeSQL
+    Left = 120
     Top = 9
   end
-  object TableSQL: TIBCQuery
+  object SeminarTypeSQL: TIBCQuery
     KeyFields = 'SERIAL_NUMBER'
     KeyGenerator = 'GEN_SEMINAR_TYPE'
     SQLInsert.Strings = (
@@ -3804,23 +3902,23 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
       'FROM'
       'SEMINAR_type ORDER BY SEMINAR_NAME')
     Active = True
-    AfterScroll = TableSQLAfterScroll
-    OnNewRecord = TableSQLNewRecord
-    Left = 49
+    AfterScroll = SeminarTypeSQLAfterScroll
+    OnNewRecord = SeminarTypeSQLNewRecord
+    Left = 25
     Top = 5
-    object TableSQLSERIAL_NUMBER: TIntegerField
+    object SeminarTypeSQLSERIAL_NUMBER: TIntegerField
       DisplayLabel = 'A/A'
       DisplayWidth = 4
       FieldName = 'SERIAL_NUMBER'
     end
-    object TableSQLSEMINAR_NAME: TWideStringField
+    object SeminarTypeSQLSEMINAR_NAME: TWideStringField
       DisplayLabel = #928#949#961#953#947#961#945#966#942
       DisplayWidth = 28
       FieldName = 'SEMINAR_NAME'
       Required = True
       Size = 160
     end
-    object TableSQLANAD_APPROVED: TWideStringField
+    object SeminarTypeSQLANAD_APPROVED: TWideStringField
       DisplayLabel = #913#925#913#916
       DisplayWidth = 6
       FieldName = 'ANAD_APPROVED'
@@ -3828,7 +3926,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
       FixedChar = True
       Size = 1
     end
-    object TableSQLTYPE_MONO_POLY: TWideStringField
+    object SeminarTypeSQLTYPE_MONO_POLY: TWideStringField
       DisplayLabel = #928#959#955#965#917#960#967
       DisplayWidth = 9
       FieldName = 'TYPE_MONO_POLY'
@@ -3836,55 +3934,55 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
       FixedChar = True
       Size = 1
     end
-    object TableSQLSEMINAR_COST: TFloatField
+    object SeminarTypeSQLSEMINAR_COST: TFloatField
       DisplayLabel = #922#972#963#964#959#962
       FieldName = 'SEMINAR_COST'
       Visible = False
       DisplayFormat = '0.00'
     end
-    object TableSQLSEMINAR_CATEGORY: TWideStringField
+    object SeminarTypeSQLSEMINAR_CATEGORY: TWideStringField
       FieldName = 'SEMINAR_CATEGORY'
       Visible = False
       FixedChar = True
       Size = 30
     end
-    object TableSQLDURATION_HOURS: TIntegerField
+    object SeminarTypeSQLDURATION_HOURS: TIntegerField
       DisplayLabel = #911#961#949#962
       FieldName = 'DURATION_HOURS'
       Required = True
       Visible = False
     end
-    object TableSQLDURATION_DAYS: TIntegerField
+    object SeminarTypeSQLDURATION_DAYS: TIntegerField
       DisplayLabel = #924#941#961#949#962
       FieldName = 'DURATION_DAYS'
       Visible = False
     end
-    object TableSQLCOMMENTS: TWideStringField
+    object SeminarTypeSQLCOMMENTS: TWideStringField
       FieldName = 'COMMENTS'
       Visible = False
       Size = 160
     end
-    object TableSQLMAX_CAPACITY: TIntegerField
+    object SeminarTypeSQLMAX_CAPACITY: TIntegerField
       FieldName = 'MAX_CAPACITY'
       Required = True
       Visible = False
     end
-    object TableSQLHAS_EXPIRY: TWideStringField
+    object SeminarTypeSQLHAS_EXPIRY: TWideStringField
       FieldName = 'HAS_EXPIRY'
       Required = True
       Visible = False
       FixedChar = True
       Size = 1
     end
-    object TableSQLEXPIRY_PERIOD: TIntegerField
+    object SeminarTypeSQLEXPIRY_PERIOD: TIntegerField
       FieldName = 'EXPIRY_PERIOD'
       Visible = False
     end
-    object TableSQLPASS_PERCENTAGE: TIntegerField
+    object SeminarTypeSQLPASS_PERCENTAGE: TIntegerField
       FieldName = 'PASS_PERCENTAGE'
       Visible = False
     end
-    object TableSQLSPECIFICATION_NUMBER: TWideStringField
+    object SeminarTypeSQLSPECIFICATION_NUMBER: TWideStringField
       FieldName = 'SPECIFICATION_NUMBER'
       Visible = False
       Size = 10
@@ -3953,10 +4051,10 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
       'order by subject')
     MasterFields = 'SERIAL_NUMBER'
     DetailFields = 'FK_SEMINAR_TYPE_SERIAL'
-    MasterSource = TableSRC
+    MasterSource = SeminarTypeSRC
     Active = True
-    Left = 361
-    Top = 13
+    Left = 369
+    Top = 65525
     ParamData = <
       item
         DataType = ftInteger
@@ -3995,8 +4093,8 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
   end
   object SeminarSubjectSRC: TDataSource
     DataSet = seminarSubjectSQL
-    Left = 256
-    Top = 17
+    Left = 264
+    Top = 65521
   end
   object SeminarReminderSRC: TDataSource
     DataSet = SeminarReminderSQL
@@ -4062,7 +4160,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
       'order by Description')
     MasterFields = 'SERIAL_NUMBER'
     DetailFields = 'FK_SEMINAR_TYPE_SERIAL'
-    MasterSource = TableSRC
+    MasterSource = SeminarTypeSRC
     Active = True
     OnNewRecord = SeminarReminderSQLNewRecord
     Left = 385
@@ -4209,8 +4307,8 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
       
         'where stp.FK_SEMINAR_TYPE_SERIAL = :SeminarSerial and stp.LANGUA' +
         'GE_GREEK_OR_ENGLISH = :language')
-    Left = 689
-    Top = 157
+    Left = 673
+    Top = 197
     ParamData = <
       item
         DataType = ftUnknown
@@ -4302,8 +4400,8 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
   end
   object SeminarPictureSRC: TDataSource
     DataSet = SeminarPictureSQL
-    Left = 760
-    Top = 121
+    Left = 768
+    Top = 201
   end
   object OpenPictureDialog1: TOpenPictureDialog
     Left = 696

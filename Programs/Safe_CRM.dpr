@@ -29,7 +29,6 @@ uses
   M_CompanyNew in 'M_CompanyNew.pas' {M_companyNewFRM},
   L_Companies in 'L_Companies.pas' {L_companiesFRM},
   M_reminderComplete in 'M_reminderComplete.pas' {M_ReminderCompleteFRM},
-  v_SeminarPictureTemplate in 'v_SeminarPictureTemplate.pas' {V_SeminarPictureTemplateFRM},
   SN_Login in 'SN_Login.pas' {SN_LoginFRm},
   SN_User in 'SN_User.pas' {SN_UserFRM},
   SN_SecurityAccess in 'SN_SecurityAccess.pas' {SN_SecurityAccessFRM},
@@ -55,7 +54,9 @@ uses
   S_LoadPDF in 'S_LoadPDF.pas' {S_loadPdfFRM},
   S_LoadDocs in 'S_LoadDocs.pas' {S_LoadDocsFRM},
   S_backupData in 'S_backupData.pas' {M_backupDataFRM},
-  t_test2 in 't_test2.pas' {T_test2FRM};
+  t_test2 in 't_test2.pas' {T_test2FRM},
+  V_SeminarTypeCertificate in 'V_SeminarTypeCertificate.pas' {V_SeminarTypeCertificateFRM},
+  v_SeminarPictureTemplate in 'v_SeminarPictureTemplate.pas' {V_SeminarPictureTemplateFRM};
 
 //  R_PendingCertificates in 'R_PendingCertificates.pas' {R_PendingCertificatesFRM};
 
@@ -83,5 +84,7 @@ ReportMemoryLeaksOnShutdown := DebugHook <> 0;
   Application.CreateForm(TM_backupDataFRM, M_backupDataFRM);
   Application.CreateForm(TM_backupDataFRM, M_backupDataFRM);
   Application.CreateForm(TT_test2FRM, T_test2FRM);
+  Application.CreateForm(TV_SeminarTypeCertificateFRM, V_SeminarTypeCertificateFRM);
+  Application.CreateForm(TV_SeminarPictureTemplateFRM, V_SeminarPictureTemplateFRM);
   Application.Run;
 end.

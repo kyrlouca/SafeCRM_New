@@ -15,18 +15,18 @@ uses
 type
   TM_SeminarTypeFRM = class(TForm)
     Panel3: TRzPanel;
-    TableSRC: TDataSource;
-    TableSQL: TIBCQuery;
+    SeminarTypeSRC: TDataSource;
+    SeminarTypeSQL: TIBCQuery;
     WriteTrans: TIBCTransaction;
     ReadTrans: TIBCTransaction;
-    TableSQLSERIAL_NUMBER: TIntegerField;
-    TableSQLSEMINAR_NAME: TWideStringField;
-    TableSQLSEMINAR_COST: TFloatField;
-    TableSQLANAD_APPROVED: TWideStringField;
-    TableSQLSEMINAR_CATEGORY: TWideStringField;
-    TableSQLDURATION_HOURS: TIntegerField;
-    TableSQLDURATION_DAYS: TIntegerField;
-    TableSQLCOMMENTS: TWideStringField;
+    SeminarTypeSQLSERIAL_NUMBER: TIntegerField;
+    SeminarTypeSQLSEMINAR_NAME: TWideStringField;
+    SeminarTypeSQLSEMINAR_COST: TFloatField;
+    SeminarTypeSQLANAD_APPROVED: TWideStringField;
+    SeminarTypeSQLSEMINAR_CATEGORY: TWideStringField;
+    SeminarTypeSQLDURATION_HOURS: TIntegerField;
+    SeminarTypeSQLDURATION_DAYS: TIntegerField;
+    SeminarTypeSQLCOMMENTS: TWideStringField;
     seminarSubjectSQL: TIBCQuery;
     SeminarSubjectSRC: TDataSource;
     seminarSubjectSQLSERIAL_NUMBER: TIntegerField;
@@ -48,9 +48,9 @@ type
     SeminarReminderSQLSTART_OR_END: TWideStringField;
     SeminarReminderSQLDAYS_OR_MONTHS: TWideStringField;
     SeminarReminderSQLNUMBER_OF_DAYS_MONTHS: TIntegerField;
-    TableSQLMAX_CAPACITY: TIntegerField;
-    TableSQLHAS_EXPIRY: TWideStringField;
-    TableSQLEXPIRY_PERIOD: TIntegerField;
+    SeminarTypeSQLMAX_CAPACITY: TIntegerField;
+    SeminarTypeSQLHAS_EXPIRY: TWideStringField;
+    SeminarTypeSQLEXPIRY_PERIOD: TIntegerField;
     TitlePNL: TRzPanel;
     RzPanel8: TRzPanel;
     SeminarReminderSQLIS_HIGH: TWideStringField;
@@ -233,8 +233,8 @@ type
     RzPanel30: TRzPanel;
     Label23: TLabel;
     wwDBEdit15: TwwDBEdit;
-    TableSQLPASS_PERCENTAGE: TIntegerField;
-    TableSQLTYPE_MONO_POLY: TWideStringField;
+    SeminarTypeSQLPASS_PERCENTAGE: TIntegerField;
+    SeminarTypeSQLTYPE_MONO_POLY: TWideStringField;
     InstructTS: TTabSheet;
     RzPanel31: TRzPanel;
     RzPanel32: TRzPanel;
@@ -268,7 +268,7 @@ type
     insSemInstructorsSQLNATIONAL_ID: TWideStringField;
     insSeminarAllInstructorsSQL: TIBCQuery;
     insSeminarAllInstructorsSRC: TDataSource;
-    TableSQLSPECIFICATION_NUMBER: TWideStringField;
+    SeminarTypeSQLSPECIFICATION_NUMBER: TWideStringField;
     Label24: TLabel;
     FirstFLD: TwwDBEdit;
     wwIncrementalSearch3: TwwIncrementalSearch;
@@ -286,6 +286,10 @@ type
     Label27: TLabel;
     wwDBEdit16: TwwDBEdit;
     RzBitBtn2: TRzBitBtn;
+    TabSheet1: TTabSheet;
+    RzPanel33: TRzPanel;
+    RzPanel35: TRzPanel;
+    RzBitBtn3: TRzBitBtn;
     procedure BitBtn1Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);
@@ -295,13 +299,13 @@ type
     procedure RzBitBtn1Click(Sender: TObject);
     procedure Nav1InsertClick(Sender: TObject);
     procedure Grid1TitleButtonClick(Sender: TObject; AFieldName: string);
-    procedure TableSQLNewRecord(DataSet: TDataSet);
+    procedure SeminarTypeSQLNewRecord(DataSet: TDataSet);
     procedure SubjectTSShow(Sender: TObject);
     procedure ReminderTSShow(Sender: TObject);
     procedure wwNavButton5Click(Sender: TObject);
     procedure CertificationTSShow(Sender: TObject);
     procedure CertificationTSExit(Sender: TObject);
-    procedure TableSQLAfterScroll(DataSet: TDataSet);
+    procedure SeminarTypeSQLAfterScroll(DataSet: TDataSet);
     procedure PICTURE_TOP_L1DblClick(Sender: TObject);
     procedure PICTURE_TOP_L1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -356,7 +360,8 @@ var
 
 implementation
 
-uses   U_Database, G_generalProcs, G_SFCommonProcs, H_Help, R_Certificate;
+uses   U_Database, G_generalProcs, G_SFCommonProcs, H_Help, R_Certificate,
+  V_SeminarTypeCertificate;
 
 
 {$R *.DFM}
@@ -368,7 +373,7 @@ begin
  end;
 end;
 
-procedure TM_SeminarTypeFRM.TableSQLAfterScroll(DataSet: TDataSet);
+procedure TM_SeminarTypeFRM.SeminarTypeSQLAfterScroll(DataSet: TDataSet);
 begin
          TitlePNL.Caption:='TEMPLATE for '+ Trim(Dataset.FieldByName('seminar_name').AsString);
 end;
@@ -380,7 +385,7 @@ begin
 end;
 
 
-procedure TM_SeminarTypeFRM.TableSQLNewRecord(DataSet: TDataSet);
+procedure TM_SeminarTypeFRM.SeminarTypeSQLNewRecord(DataSet: TDataSet);
 begin
 Dataset.FieldByName('ANAD_APPROVED').value:='Y';
 Dataset.FieldByName('type_mono_poly').value:='M';
@@ -402,7 +407,7 @@ procedure TM_SeminarTypeFRM.InstructTSShow(Sender: TObject);
 var
   subjectSerial:Integer;
 begin
- subjectSerial:= TableSQL.FieldByName('serial_number').AsInteger;
+ subjectSerial:= SeminarTypeSQL.FieldByName('serial_number').AsInteger;
 insSeminarSubjectSQL.Close;
 insSeminarSubjectSQL.ParamByName('SubjectSerial').Value:=subjectSerial;
 insSeminarSubjectSQL.Open;
@@ -433,14 +438,24 @@ var
   SeminarSerial:Integer;
 begin
 
-  SeminarSerial:= TableSQL.FieldByName('serial_number').AsInteger;
+  SeminarSerial:= SeminarTypeSQL.FieldByName('serial_number').AsInteger;
   ksOpenTables([SeminarReminderSQL]);
 
 end;
 
 procedure TM_SeminarTypeFRM.RzBitBtn1Click(Sender: TObject);
+var
+  Frm: TV_SeminarTypeCertificateFRM;
 begin
-close;
+  frm := TV_SeminarTypeCertificateFRM.Create(nil);
+  try
+
+    frm.IN_SeminarTypeSerial:=SeminarTypeSQL.FieldByName('serial_number').AsInteger;
+    frm.IN_allowModify:=true;
+    frm.ShowModal;
+  finally
+    frm.Free;
+  end;
 end;
 
 procedure TM_SeminarTypeFRM.RzBitBtn2Click(Sender: TObject);
@@ -460,7 +475,7 @@ var
   Frm:TR_certificateFRM;
 begin
 
-    TypeSerial:= TableSQL.FieldByName('serial_number').AsInteger;
+    TypeSerial:= SeminarTypeSQL.FieldByName('serial_number').AsInteger;
     PictureSerial:=SeminarPictureSQL.FieldByName('serial_number').AsInteger;
     Language:= SeminarPictureSQL.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').AsString;
 
@@ -476,27 +491,20 @@ str:=' Select first 1 sem.fk_seminar as type_serial, sem.serial_number as semina
       qr.ParamByName('typeSerial').Value:=TypeSerial;
       Qr.Open;
       if qr.IsEmpty then begin
-        ShowMessage('Cannot find an existing Certificate for this Type of Seminar');
+        ShowMessage('Cannot find an existing Certificate');
         exit;
       end;
 
       SeminarSerial:=qr.FieldByName('Seminar_Serial').AsInteger;
       CertificateSerial:=qr.FieldByName('Certificate_Serial').AsInteger;
-//     ShowMessage(qr.FieldByName('seminar_name').AsString);
-
     finally
       qr.Free;
     end;
 
 
-
-
   frm :=  TR_certificateFRM.Create(nil);
-//  frm.IN_seminar_serial :=seminarSerial;
-//  frm.IN_certificate_serial:=0;
-//  Language:='G';
   try
-    frm.PrintTestSeminar(SeminarSerial,TypeSerial,CertificateSerial,Language);
+    frm.PrintTestSeminar(SeminarSerial,CertificateSerial,PictureSerial,Language);
   finally
     frm.Free;
   end;
@@ -507,7 +515,7 @@ end;
 
 procedure TM_SeminarTypeFRM.CanelBTNClick(Sender: TObject);
 begin
-TableSQL.Cancel;
+SeminarTypeSQL.Cancel;
 close;
 end;
 
@@ -515,10 +523,10 @@ procedure TM_SeminarTypeFRM.SubjectTSShow(Sender: TObject);
 var
   SeminarSerial:Integer;
 begin
-  if TableSQL.State in [dsInsert,dsEdit] then
-    TableSQL.post;
+  if SeminarTypeSQL.State in [dsInsert,dsEdit] then
+    SeminarTypeSQL.post;
 
-  SeminarSerial:= TableSQL.FieldByName('serial_number').AsInteger;
+  SeminarSerial:= SeminarTypeSQL.FieldByName('serial_number').AsInteger;
   ksOpenTables([SeminarSubjectSQL]);
   subjectDescFLD.setFocus;
 
@@ -527,9 +535,9 @@ end;
 
 procedure TM_SeminarTypeFRM.FormActivate(Sender: TObject);
 begin
-ksOpenTables([TableSQL,SeminarSubjectSQL]);
+ksOpenTables([SeminarTypeSQL,SeminarSubjectSQL]);
 if IN_ACTION='INSERT' then begin
-   TableSQL.Insert;
+   SeminarTypeSQL.Insert;
 end;
   PageControlPC.ActivePageIndex := 0;
 
@@ -538,8 +546,8 @@ end;
 procedure TM_SeminarTypeFRM.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-if TableSQL.State in [dsInsert, dsEdit] then
-   TableSQL.Post;
+if SeminarTypeSQL.State in [dsInsert, dsEdit] then
+   SeminarTypeSQL.Post;
 if SeminarPictureSQL.State in [dsInsert, dsEdit] then
    SeminarPictureSQL.Post;
 end;
@@ -569,7 +577,7 @@ var
 begin
   if SeminarPictureSQL.State in [dsEdit,dsInsert] then
     SeminarPictureSQL.Post;
-  SeminarSerial:= TableSQL.FieldByName('serial_number').AsInteger;
+  SeminarSerial:= SeminarTypeSQL.FieldByName('serial_number').AsInteger;
   Language:=LanguageRGP.Value;
   ShowAll(seminarSerial,Language);
 
@@ -605,7 +613,7 @@ begin
   Try
 
     case PageControlPC.ActivePageIndex of
-    0: ksPostTables([TableSQL]);
+    0: ksPostTables([SeminarTypeSQL]);
     1: ksPostTables([seminarSubjectSQL]);
     2: ksPostTables([SeminarReminderSQL]);
 //    2: ksPostTables([AttendingSQL]);
@@ -626,14 +634,14 @@ End;
 
 procedure TM_SeminarTypeFRM.PICTURE_TOP_L1DblClick(Sender: TObject);
 begin
-  SelectAndSavePictureT(TableSQL.fieldbyName('serial_number').AsInteger,LanguageRGP.Values[LanguageRGP.ItemIndex],TImage(Sender));
+  SelectAndSavePictureT(SeminarTypeSQL.fieldbyName('serial_number').AsInteger,LanguageRGP.Values[LanguageRGP.ItemIndex],TImage(Sender));
 end;
 
 procedure TM_SeminarTypeFRM.PICTURE_TOP_L1MouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   if (ssCtrl in Shift) then begin
-    ClearPictureT(TableSQL.fieldbyName('serial_number').AsInteger,TImage(sender).name, LanguageRGP.Values[LanguageRGP.ItemIndex],TImage(Sender));
+    ClearPictureT(SeminarTypeSQL.fieldbyName('serial_number').AsInteger,TImage(sender).name, LanguageRGP.Values[LanguageRGP.ItemIndex],TImage(Sender));
   end;
 end;
 
@@ -665,7 +673,7 @@ var
   SeminarSerial:Integer;
   Language:String;
 begin
-  SeminarSerial:= TableSQL.FieldByName('serial_number').AsInteger;
+  SeminarSerial:= SeminarTypeSQL.FieldByName('serial_number').AsInteger;
   LanguageRGP.ItemIndex:=0;
 
 //  showMessage(LanguageRGP.Values[LanguageRGP.ItemIndex]);
@@ -812,8 +820,8 @@ end;
 
 procedure TM_SeminarTypeFRM.SeminarTSExit(Sender: TObject);
 begin
-if TableSQL.State in [dsEdit,dsInsert] then begin
-  tableSQL.Post;
+if SeminarTypeSQL.State in [dsEdit,dsInsert] then begin
+  SeminarTypeSQL.Post;
 end;
 
 
@@ -986,7 +994,7 @@ var
   Language:string;
 begin
 
-    SeminarSerial:= TableSQL.FieldByName('serial_number').AsInteger;
+    SeminarSerial:= SeminarTypeSQL.FieldByName('serial_number').AsInteger;
     PictureSerial:=SeminarPictureSQL.FieldByName('serial_number').AsInteger;
     Language:= SeminarPictureSQL.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').AsString;
     CopyFromDefault(PictureSerial,0,Language);
@@ -1035,9 +1043,7 @@ begin
   end;
 
 
-
 end;
-
 
 
 procedure TM_SeminarTypeFRM.CopyHardBTNClick(Sender: TObject);
@@ -1047,11 +1053,11 @@ var
   Language:string;
 begin
 
-    SeminarSerial:= TableSQL.FieldByName('serial_number').AsInteger;
+    SeminarSerial:= SeminarTypeSQL.FieldByName('serial_number').AsInteger;
     PictureSerial:=SeminarPictureSQL.FieldByName('serial_number').AsInteger;
     Language:= SeminarPictureSQL.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').AsString;
     CopyFromDefault(PictureSerial,-1,Language);
-    TableSQL.Refresh;
+    SeminarTypeSQL.Refresh;
     ShowAll(SeminarSerial,Language);
 end;
 
@@ -1115,5 +1121,9 @@ begin
   insSeminarAllInstructorsSQL.ParamByName('SubjectSerial').Value:=Dataset.FieldByName('serial_number').AsInteger;
   insSeminarAllInstructorsSQL.Open;
 end;
+
+
+
+
 
 End.
