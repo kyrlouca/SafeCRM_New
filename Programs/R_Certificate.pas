@@ -6,6 +6,9 @@
 // therefore, before printing EACH  TppImage, get and apply its offsets as specified in the live record
 // for example for field PICTURE_TOP_L1, find its offsets in fields TL_X, and TL_Y
 
+//Get the positions of the images on activating the form, to avoid "
+// moving the pictures every time the report is printed:
+
 unit R_Certificate;
 
 interface
@@ -36,7 +39,7 @@ type
     Left:double;
     Top:double;
     FieldForLeft:String;
-    FieldForRIght:String;
+    FieldForTop:String;
   end;
 
 
@@ -230,14 +233,15 @@ type
     procedure Button1Click(Sender: TObject);
     procedure PICTURE_TOP_L1Print(Sender: TObject);
     procedure TopFldGetRichText(Sender: TObject; var Text: string);
-    procedure ppReport1BeforePrint(Sender: TObject);
     procedure PrintOnexBTNClick(Sender: TObject);
+    procedure ppReport1BeforePrint(Sender: TObject);
   private
     { Private declarations }
     cn:TIBCConnection;
 
   function ReplaceText(picFIeldName:String):String;
   procedure MovePosition(img :TppDBImage);
+  procedure initReportPositions;
 
   public
     { Public declarations }
@@ -293,12 +297,12 @@ begin
 
 end;
 
-procedure TR_certificateFRM.ppReport1BeforePrint(Sender: TObject);
+procedure TR_certificateFRM.initReportPositions;
 const
-// for each dbImage find the corresponing offsets based on its DATA_FIELD
+// for each dbImage use the dbField to find the fields for the offsets based
 // for example for field with datafield PICTURE_TOP_L1 => TL_X and TL_Y
-// the dataFIELD names of the tppImageFields on the report ppReport1 are placed in the array imgNames
-// place in each array element, datafield name, and OFFSET DATAFIELD names
+// foor all tppImageFields on the report ppReport1 populate the array imgPosArray
+// place in each array element, datafield name, OFFSET DATAFIELD names, and current XPos and YPos
    imgNames :TArray<String> =[ 'PICTURE_TOP_L1', 'PICTURE_TOP_R1' ,'PICTURE_BOT_L1', 'PICTURE_BOT_R1'];
 var
   I:integer;
@@ -316,11 +320,11 @@ begin
         //showMessage(imgPos.fname);
 
         Case  IndexStr(imgPos.fName,imgNames ) of
-          0:begin imgPos.FieldForLeft:='TL_X';imgPos.FieldForRIght:='TL_Y' end;
-          1:begin imgPos.FieldForLeft:='TR_X';imgPos.FieldForRIght:='TR_Y' end;
-          2:begin imgPos.FieldForLeft:='BL_X';imgPos.FieldForRIght:='BL_Y' end;
-          3:begin imgPos.FieldForLeft:='BR_X';imgPos.FieldForRIght:='BR_Y' end;
-          -1:begin imgPos.FieldForLeft:='';imgPos.FieldForRIght:='' end;
+          0:begin imgPos.FieldForLeft:='TL_X';imgPos.FieldForTop:='TL_Y' end;
+          1:begin imgPos.FieldForLeft:='TR_X';imgPos.FieldForTop:='TR_Y' end;
+          2:begin imgPos.FieldForLeft:='BL_X';imgPos.FieldForTop:='BL_Y' end;
+          3:begin imgPos.FieldForLeft:='BR_X';imgPos.FieldForTop:='BR_Y' end;
+          -1:begin imgPos.FieldForLeft:='';imgPos.FieldForTop:='' end;
         else
           ShowMessage('FIeld NOT FOUND Option'); // present, but not handled above
         end;
@@ -329,6 +333,11 @@ begin
       end;
 
     end;
+end;
+
+procedure TR_certificateFRM.ppReport1BeforePrint(Sender: TObject);
+begin
+//initReportPositions();
 end;
 
 procedure TR_certificateFRM.ppReport1PreviewFormCreate(
@@ -478,7 +487,6 @@ begin
   end;
 
 
-
  PpReport1.Print;
 
 end;
@@ -493,7 +501,8 @@ TableSQL.Open;
 CertificateSQL.Close;
 CertificateSQL.ParamByName('seminarSerial').Value:=IN_Seminar_Serial;
 CertificateSQL.Open;
-
+//showMessage(ppReport1.Components[0].Name);
+initReportPositions();
 end;
 
 
@@ -630,8 +639,9 @@ var
 
 function findElement(const fFieldName:string):TImgPos;
 // this function is inside another function
+// delpending on the dbfieldName of tppDBimage will find the record in ImgPosArray
   const
-    NulRec : TImgPos =  	( Fname : ''; Left:0;TOp:0;FieldForLeft:'';FieldForRIght:'');
+    NulRec : TImgPos =  	( Fname : ''; Left:0;TOp:0;FieldForLeft:'';FieldForTop:'');
   var
   item:TImgPos;
   begin
@@ -652,10 +662,9 @@ begin
     exit;
 //  if (SeminarPicturesSQL.FindField(ImgFound.fName) <> nil ) then begin
   if (SeminarPictureSRC.DataSet.FindField(ImgFound.fName) <> nil ) then begin
-//    img.Left:=ImgFound.Left+  SeminarPicturesSQL.FieldByName(imgFound.FieldForLeft).AsFloat/10.0;
-//    img.Top:= ImgFound.Top+ SeminarPicturesSQL.FieldByName(imgFOund.FieldForRIght).AsFloat/10;
-    img.Left:=ImgFound.Left+  SeminarPictureSRC.DataSet.FieldByName(imgFound.FieldForLeft).AsFloat/10.0;
-    img.Top:= ImgFound.Top+ SeminarPictureSRC.DataSet.FieldByName(imgFOund.FieldForRIght).AsFloat/10.0;
+  //  shift the image (in mm)
+    img.Left:=ImgFound.Left+  SeminarPictureSRC.DataSet.FieldByName(imgFound.FieldForLeft).AsFloat/1.0;
+    img.Top:= ImgFound.Top+ SeminarPictureSRC.DataSet.FieldByName(imgFOund.FieldForTop).AsFloat/1.0;
   end;
 
 end;
