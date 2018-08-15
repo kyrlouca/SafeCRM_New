@@ -292,7 +292,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
       Top = 67
       Width = 1028
       Height = 691
-      ActivePage = TabSheet1
+      ActivePage = CertificationTS
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
