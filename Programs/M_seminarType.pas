@@ -286,9 +286,9 @@ type
     Label27: TLabel;
     wwDBEdit16: TwwDBEdit;
     TabSheet1: TTabSheet;
-    RzPanel33: TRzPanel;
     RzPanel35: TRzPanel;
     EditTemplateBTN: TRzBitBtn;
+    RzBitBtn1: TRzBitBtn;
     procedure BitBtn1Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);

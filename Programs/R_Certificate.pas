@@ -477,13 +477,14 @@ CertificatesShowSQL.ParamByName('seminarSerial').Value:=IN_Seminar_Serial;
 
 CertificatesShowSQL.Open;
 //showMessage(ppReport1.Components[0].Name);
-initReportPositions();
+
 end;
 
 
 procedure TR_certificateFRM.FormCreate(Sender: TObject);
 begin
   cn:=U_databaseFRM.DataConnection;
+  initReportPositions();
 end;
 
 
@@ -639,9 +640,9 @@ begin
   if (SeminarPictureSRC.DataSet.FindField(ImgFound.fName) <> nil ) then begin
   //  shift the image (in mm)
     img.Left:=ImgFound.Left+  SeminarPictureSRC.DataSet.FieldByName(imgFound.FieldForLeft).AsFloat/1.0;
-    img.Left:=min(0,img.Left);
+    img.Left:=max(0,img.Left);
     img.Top:= ImgFound.Top- SeminarPictureSRC.DataSet.FieldByName(imgFOund.FieldForTop).AsFloat/1.0;
-    img.Top:=min(0,img.Top);
+    img.Top:=max(0,img.Top);
   end;
 
 end;
