@@ -3,7 +3,7 @@ object L_SeminarFRM: TL_SeminarFRM
   Top = 153
   Caption = '--'
   ClientHeight = 588
-  ClientWidth = 1053
+  ClientWidth = 1138
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,7 +23,7 @@ object L_SeminarFRM: TL_SeminarFRM
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1053
+    Width = 1138
     Height = 53
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
@@ -33,11 +33,12 @@ object L_SeminarFRM: TL_SeminarFRM
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 1053
     object Label4: TRzLabel
       AlignWithMargins = True
       Left = 4
       Top = 4
-      Width = 1045
+      Width = 1130
       Height = 45
       Align = alClient
       Alignment = taCenter
@@ -57,18 +58,20 @@ object L_SeminarFRM: TL_SeminarFRM
   object Panel4: TPanel
     Left = 0
     Top = 545
-    Width = 1053
+    Width = 1138
     Height = 43
     Align = alBottom
     TabOrder = 3
+    ExplicitWidth = 1053
     object RzPanel1: TRzPanel
-      Left = 952
+      Left = 1037
       Top = 1
       Width = 100
       Height = 41
       Align = alRight
       BorderOuter = fsNone
       TabOrder = 0
+      ExplicitLeft = 952
       object RzBitBtn1: TRzBitBtn
         Left = 6
         Top = 3
@@ -149,10 +152,11 @@ object L_SeminarFRM: TL_SeminarFRM
   object Panel2: TPanel
     Left = 0
     Top = 53
-    Width = 1053
+    Width = 1138
     Height = 134
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 1053
     object RzGroupBox1: TRzGroupBox
       Left = 4
       Top = 6
@@ -398,19 +402,21 @@ object L_SeminarFRM: TL_SeminarFRM
   object Panel3: TPanel
     Left = 0
     Top = 187
-    Width = 1053
+    Width = 1138
     Height = 358
     Align = alClient
     TabOrder = 2
+    ExplicitWidth = 1053
     object Panel5: TPanel
-      Left = 849
+      Left = 1031
       Top = 1
-      Width = 224
+      Width = 201
       Height = 356
       Align = alLeft
       BevelOuter = bvNone
       Locked = True
       TabOrder = 1
+      ExplicitLeft = 872
       object InsertHawbBTN: TRzBitBtn
         Left = 6
         Top = 35
@@ -805,7 +811,7 @@ object L_SeminarFRM: TL_SeminarFRM
     object RzPanel2: TRzPanel
       Left = 25
       Top = 1
-      Width = 824
+      Width = 1006
       Height = 356
       Align = alLeft
       BorderOuter = fsNone
@@ -813,11 +819,12 @@ object L_SeminarFRM: TL_SeminarFRM
       object RzPanel3: TRzPanel
         Left = 0
         Top = 0
-        Width = 824
+        Width = 1006
         Height = 33
         Align = alTop
         BorderOuter = fsNone
         TabOrder = 0
+        ExplicitWidth = 824
         object Nav1: TwwDBNavigator
           Left = 1
           Top = 7
@@ -843,7 +850,6 @@ object L_SeminarFRM: TL_SeminarFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Button'
-            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 0
@@ -860,7 +866,6 @@ object L_SeminarFRM: TL_SeminarFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Prior'
-            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 1
@@ -936,7 +941,7 @@ object L_SeminarFRM: TL_SeminarFRM
       object Grid1: TwwDBGrid
         Left = 0
         Top = 33
-        Width = 818
+        Width = 1006
         Height = 323
         ControlType.Strings = (
           'SEMINAR_CORP_TYPE;CustomEdit;wwDBComboBox1;F'
@@ -944,11 +949,11 @@ object L_SeminarFRM: TL_SeminarFRM
           'SEM_CATEGORY;CustomEdit;CategoryShowFLD;F')
         Selected.Strings = (
           'SERIAL_NUMBER'#9'5'#9'A/A'
-          'SEMINAR_NAME'#9'18'#9#928#949#961#953#947#961#945#966#942
           'ANAD_NUMBER'#9'9'#9#913#925#913#916' '
+          'SEMINAR_NAME'#9'58'#9#928#949#961#953#947#961#945#966#942
           'SPECIFICATION_NUMBER'#9'10'#9#913#957#945#966#959#961#940
-          'SEM_CATEGORY'#9'14'#9#932#973#960#959#962
-          'STATUS'#9'11'#9#931#964#940#948#953#959
+          'SEM_CATEGORY'#9'10'#9#932#973#960#959#962
+          'STATUS'#9'8'#9#931#964#940#948#953#959
           'TYPE_MONO_POLY'#9'4'#9#917#960#967
           'LAST_NAME'#9'11'#9#917#964#945#953#961#949#943#945
           'DATE_STARTED'#9'11'#9#904#957#945#961#958#951
@@ -985,7 +990,7 @@ object L_SeminarFRM: TL_SeminarFRM
         object StatusShowFLD: TwwDBComboBox
           Left = 304
           Top = 176
-          Width = 70
+          Width = 52
           Height = 17
           ShowButton = False
           Style = csDropDown
@@ -1129,18 +1134,18 @@ object L_SeminarFRM: TL_SeminarFRM
       DisplayWidth = 5
       FieldName = 'SERIAL_NUMBER'
     end
-    object TableSQLSEMINAR_NAME: TWideStringField
-      DisplayLabel = #928#949#961#953#947#961#945#966#942
-      DisplayWidth = 18
-      FieldName = 'SEMINAR_NAME'
-      Size = 160
-    end
     object TableSQLANAD_NUMBER: TWideStringField
       DisplayLabel = #913#925#913#916' '
       DisplayWidth = 9
       FieldName = 'ANAD_NUMBER'
       FixedChar = True
       Size = 30
+    end
+    object TableSQLSEMINAR_NAME: TWideStringField
+      DisplayLabel = #928#949#961#953#947#961#945#966#942
+      DisplayWidth = 58
+      FieldName = 'SEMINAR_NAME'
+      Size = 160
     end
     object TableSQLSPECIFICATION_NUMBER: TWideStringField
       DisplayLabel = #913#957#945#966#959#961#940
@@ -1150,7 +1155,7 @@ object L_SeminarFRM: TL_SeminarFRM
     end
     object TableSQLSEM_CATEGORY: TWideStringField
       DisplayLabel = #932#973#960#959#962
-      DisplayWidth = 14
+      DisplayWidth = 10
       FieldName = 'SEM_CATEGORY'
       Required = True
       FixedChar = True
@@ -1158,7 +1163,7 @@ object L_SeminarFRM: TL_SeminarFRM
     end
     object TableSQLSTATUS: TWideStringField
       DisplayLabel = #931#964#940#948#953#959
-      DisplayWidth = 11
+      DisplayWidth = 8
       FieldName = 'STATUS'
       FixedChar = True
       Size = 1

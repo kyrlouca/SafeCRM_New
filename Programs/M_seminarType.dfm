@@ -342,7 +342,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
           object RzPanel2: TRzPanel
             Left = 0
             Top = 51
-            Width = 361
+            Width = 631
             Height = 609
             Align = alLeft
             BorderOuter = fsNone
@@ -350,23 +350,24 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             object RzPanel3: TRzPanel
               Left = 0
               Top = 0
-              Width = 361
+              Width = 631
               Height = 17
               Align = alTop
               BorderOuter = fsNone
               TabOrder = 0
+              ExplicitWidth = 361
             end
             object Grid1: TwwDBGrid
               Left = 0
               Top = 17
-              Width = 361
+              Width = 617
               Height = 592
               ControlType.Strings = (
                 'ANAD_APPROVED;CheckBox;Y;N'
                 'TYPE_MONO_POLY;CheckBox;P;M')
               Selected.Strings = (
                 'SERIAL_NUMBER'#9'4'#9'A/A'
-                'SEMINAR_NAME'#9'28'#9#928#949#961#953#947#961#945#966#942
+                'SEMINAR_NAME'#9'73'#9#928#949#961#953#947#961#945#966#942
                 'ANAD_APPROVED'#9'6'#9#913#925#913#916
                 'TYPE_MONO_POLY'#9'9'#9#928#959#955#965#917#960#967)
               IniAttributes.Delimiter = ';;'
@@ -397,17 +398,19 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               TitleLines = 1
               TitleButtons = True
               OnTitleButtonClick = Grid1TitleButtonClick
+              ExplicitTop = 23
+              ExplicitHeight = 586
             end
           end
           object RzPanel12: TRzPanel
-            Left = 393
+            Left = 631
             Top = 51
-            Width = 627
+            Width = 389
             Height = 609
             Align = alClient
             TabOrder = 2
-            ExplicitLeft = 374
-            ExplicitTop = 91
+            ExplicitLeft = 586
+            ExplicitWidth = 434
             object GroupBox1: TGroupBox
               Left = 34
               Top = 39
@@ -760,11 +763,12 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             object RzPanel13: TRzPanel
               Left = 2
               Top = 2
-              Width = 623
+              Width = 385
               Height = 23
               Align = alTop
               BorderOuter = fsNone
               TabOrder = 2
+              ExplicitWidth = 623
               object wwDBNavigator1: TwwDBNavigator
                 Left = 23
                 Top = 0
@@ -1013,13 +1017,16 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             TabOrder = 3
           end
           object RzPanel30: TRzPanel
-            Left = 361
+            Left = 631
             Top = 51
-            Width = 32
+            Width = 0
             Height = 609
             Align = alLeft
             BorderOuter = fsNone
             TabOrder = 4
+            ExplicitLeft = 481
+            ExplicitTop = 74
+            ExplicitHeight = 586
           end
         end
       end
@@ -3910,7 +3917,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
     end
     object SeminarTypeSQLSEMINAR_NAME: TWideStringField
       DisplayLabel = #928#949#961#953#947#961#945#966#942
-      DisplayWidth = 28
+      DisplayWidth = 73
       FieldName = 'SEMINAR_NAME'
       Required = True
       Size = 160
@@ -4095,8 +4102,8 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
   end
   object SeminarReminderSRC: TDataSource
     DataSet = SeminarReminderSQL
-    Left = 464
-    Top = 153
+    Left = 488
+    Top = 105
   end
   object SeminarReminderSQL: TIBCQuery
     KeyFields = 'SERIAL_NUMBER'
@@ -4160,8 +4167,8 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
     MasterSource = SeminarTypeSRC
     Active = True
     OnNewRecord = SeminarReminderSQLNewRecord
-    Left = 385
-    Top = 133
+    Left = 361
+    Top = 45
     ParamData = <
       item
         DataType = ftInteger
@@ -4569,8 +4576,8 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
       'where sty.serial_number= :subjectSerial')
     Active = True
     AfterScroll = insSeminarSubjectSQLAfterScroll
-    Left = 201
-    Top = 157
+    Left = 185
+    Top = 117
     ParamData = <
       item
         DataType = ftUnknown

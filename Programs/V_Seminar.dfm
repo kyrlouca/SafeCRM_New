@@ -117,7 +117,7 @@ object V_SeminarFRM: TV_SeminarFRM
       Width = 1073
       Height = 611
       Margins.Left = 30
-      ActivePage = PictureTS
+      ActivePage = SeminarTS
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -2861,7 +2861,7 @@ object V_SeminarFRM: TV_SeminarFRM
         end
       end
       object PictureTS: TTabSheet
-        Caption = #922#949#943#956#949#957#959'/'#917#953#954#972#957#949#962
+        Caption = #928#953#963#964#959#960#959#953#951#964#953#954#940
         ImageIndex = 5
         object RzPanel23: TRzPanel
           Left = 0
@@ -3413,7 +3413,7 @@ object V_SeminarFRM: TV_SeminarFRM
     Left = 210
     Top = 101
     Bitmap = {
-      494C010110008800980310001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101100088009C0310001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

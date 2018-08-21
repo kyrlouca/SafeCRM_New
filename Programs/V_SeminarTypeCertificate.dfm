@@ -1094,7 +1094,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
             end
             object wwDBEdit1: TwwDBEdit
               Left = 504
-              Top = 108
+              Top = 134
               Width = 37
               Height = 22
               DataField = 'TR_Y'
@@ -1105,7 +1105,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
               WordWrap = False
             end
             object wwDBEdit3: TwwDBEdit
-              Left = 561
+              Left = 547
               Top = 162
               Width = 46
               Height = 22
@@ -1118,7 +1118,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
             end
             object wwDBEdit2: TwwDBEdit
               Left = 360
-              Top = 108
+              Top = 134
               Width = 39
               Height = 22
               DataField = 'TL_Y'
@@ -1129,7 +1129,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
               WordWrap = False
             end
             object wwDBEdit4: TwwDBEdit
-              Left = 419
+              Left = 405
               Top = 162
               Width = 44
               Height = 22
@@ -1141,8 +1141,8 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
               WordWrap = False
             end
             object wwDBEdit5: TwwDBEdit
-              Left = 8
-              Top = 466
+              Left = 10
+              Top = 492
               Width = 33
               Height = 22
               DataField = 'BL_Y'
@@ -1153,7 +1153,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
               WordWrap = False
             end
             object wwDBEdit6: TwwDBEdit
-              Left = 66
+              Left = 49
               Top = 520
               Width = 39
               Height = 22
@@ -1165,8 +1165,8 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
               WordWrap = False
             end
             object wwDBEdit7: TwwDBEdit
-              Left = 832
-              Top = 466
+              Left = 834
+              Top = 492
               Width = 42
               Height = 22
               DisableThemes = True
@@ -1178,7 +1178,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
               WordWrap = False
             end
             object wwDBEdit8: TwwDBEdit
-              Left = 903
+              Left = 882
               Top = 523
               Width = 39
               Height = 22
@@ -1191,8 +1191,8 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
             end
           end
           object CopyFromTemplateBTN: TRzBitBtn
-            Left = 18
-            Top = 127
+            Left = 786
+            Top = 200
             Width = 121
             Height = 37
             Caption = 'Copy again from Template'
@@ -1205,6 +1205,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
             ParentDoubleBuffered = False
             ParentFont = False
             TabOrder = 3
+            Visible = False
             OnClick = CopyFromTemplateBTNClick
             Glyph.Data = {
               F6060000424DF606000000000000360000002800000018000000180000000100

@@ -256,7 +256,7 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
       TabOrder = 2
     end
   end
-  object Panel1: TRzPanel
+  object TitlePNL: TRzPanel
     Left = 0
     Top = 0
     Width = 1027

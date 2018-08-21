@@ -20,7 +20,7 @@ type
     CloseBTN: TRzBitBtn;
     BitBtn1: TBitBtn;
     CanelBTN: TBitBtn;
-    Panel1: TRzPanel;
+    TitlePNL: TRzPanel;
     SeminarPictureSRC: TDataSource;
     SeminarPictureSQL: TIBCQuery;
     SeminarPictureSQLSERIAL_NUMBER: TIntegerField;
@@ -169,13 +169,32 @@ end;
 
 
 procedure TV_SeminarPictureTemplateFRM.FormActivate(Sender: TObject);
+var
+  str:string;
+  qr:TksQuery;
 begin
  //Check onShow of TabSheet PictTS
+   str:='select stt.seminar_name from seminar stt where stt.serial_number = :serialNumber';
+  try
+      qr:=TksQuery.Create(cn,str);
+      qr.ParamByName('SerialNumber').value:=IN_SeminarSerial;
+      qr.Open;
+    TitlePNL.Caption:=qr.FieldByName('seminar_name').AsString;
+  finally
+    qr.Free;
+  end;
+
 end;
 
 procedure TV_SeminarPictureTemplateFRM.FormCreate(Sender: TObject);
+var
+  qr:TksQuery;
+  str:String;
 begin
   cn:=U_databaseFRM.DataConnection;
+
+
+
 end;
 
 procedure TV_SeminarPictureTemplateFRM.LanguageRGPChange(Sender: TObject);
@@ -383,12 +402,14 @@ procedure TV_SeminarPictureTemplateFRM.CopyFromTemplateBTNClick(Sender: TObject)
 var
  TypeSerial:integer;
  qr:TksQuery;
+ Language:string;
 begin
   if not IN_allowModify then
     exit;
 
-
+  Language:=   LanguageRGP.Values[LanguageRGP.ItemIndex]  ;
   qr:=TksQuery.Create(cn,'select serial_number,fk_seminar from seminar where serial_number= :SeminarSerial');
+
   try
     qr.ParamByName('SeminarSerial').Value:=IN_SeminarSerial;
     qr.Open;
@@ -400,8 +421,8 @@ begin
 
   if (IN_SeminarSerial >0) and (TypeSerial>0) then begin
    CopyTemplatePIctures(IN_SeminarSerial,TypeSerial);
-   LanguageRGP.ItemIndex:=0;
-   ShowAllData(IN_SeminarSerial,'G');
+//   LanguageRGP.ItemIndex:=0;
+   ShowAllData(IN_SeminarSerial,Language);
   end;
 end;
 
