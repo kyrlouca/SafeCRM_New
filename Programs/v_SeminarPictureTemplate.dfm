@@ -2,7 +2,7 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
   Left = 365
   Top = 153
   Caption = '--'
-  ClientHeight = 749
+  ClientHeight = 757
   ClientWidth = 1027
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -21,12 +21,13 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
   TextHeight = 13
   object Panel4: TRzPanel
     Left = 0
-    Top = 706
+    Top = 714
     Width = 1027
     Height = 43
     Align = alBottom
     BorderOuter = fsFlatRounded
     TabOrder = 1
+    ExplicitTop = 706
     object RzPanel1: TRzPanel
       Left = 925
       Top = 2
@@ -275,29 +276,33 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
     Left = 0
     Top = 53
     Width = 1027
-    Height = 653
+    Height = 661
     Align = alClient
     BorderOuter = fsNone
     TabOrder = 2
+    ExplicitHeight = 653
     object PageCtl: TPageControl
       Left = 0
       Top = 0
       Width = 1027
-      Height = 653
+      Height = 661
       ActivePage = PictTS
       Align = alClient
       TabOrder = 0
+      ExplicitHeight = 653
       object PictTS: TTabSheet
         Caption = 'Template'
         OnShow = PictTSShow
+        ExplicitHeight = 625
         object RzPanel7: TRzPanel
           Left = 0
           Top = 0
           Width = 1019
-          Height = 625
+          Height = 633
           Align = alClient
           BorderOuter = fsNone
           TabOrder = 0
+          ExplicitHeight = 625
           object LanguageRGP: TwwRadioGroup
             Left = 18
             Top = 3
@@ -1022,7 +1027,7 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
             end
             object wwDBEdit1: TwwDBEdit
               Left = 504
-              Top = 108
+              Top = 134
               Width = 37
               Height = 22
               DataField = 'TR_Y'
@@ -1033,7 +1038,7 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
               WordWrap = False
             end
             object wwDBEdit3: TwwDBEdit
-              Left = 561
+              Left = 547
               Top = 162
               Width = 46
               Height = 22
@@ -1046,7 +1051,7 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
             end
             object wwDBEdit2: TwwDBEdit
               Left = 360
-              Top = 108
+              Top = 134
               Width = 39
               Height = 22
               DataField = 'TL_Y'
@@ -1057,7 +1062,7 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
               WordWrap = False
             end
             object wwDBEdit4: TwwDBEdit
-              Left = 419
+              Left = 405
               Top = 162
               Width = 44
               Height = 22
@@ -1069,9 +1074,9 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
               WordWrap = False
             end
             object wwDBEdit5: TwwDBEdit
-              Left = 8
-              Top = 466
-              Width = 33
+              Left = 0
+              Top = 492
+              Width = 41
               Height = 22
               DataField = 'BL_Y'
               DataSource = SeminarPictureSRC
@@ -1081,7 +1086,7 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
               WordWrap = False
             end
             object wwDBEdit6: TwwDBEdit
-              Left = 66
+              Left = 47
               Top = 520
               Width = 39
               Height = 22
@@ -1093,8 +1098,8 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
               WordWrap = False
             end
             object wwDBEdit7: TwwDBEdit
-              Left = 832
-              Top = 466
+              Left = 834
+              Top = 492
               Width = 42
               Height = 22
               DisableThemes = True
@@ -1106,7 +1111,7 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
               WordWrap = False
             end
             object wwDBEdit8: TwwDBEdit
-              Left = 903
+              Left = 882
               Top = 523
               Width = 39
               Height = 22

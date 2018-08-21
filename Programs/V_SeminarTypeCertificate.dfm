@@ -15,6 +15,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
   OldCreateOrder = False
   Position = poScreenCenter
   WindowState = wsMaximized
+  OnActivate = FormActivate
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -254,7 +255,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
       TabOrder = 2
     end
     object RzBitBtn1: TRzBitBtn
-      Left = 226
+      Left = 450
       Top = 6
       Width = 179
       Height = 33
@@ -326,7 +327,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
     end
   end
-  object Panel1: TRzPanel
+  object TitlePNL: TRzPanel
     Left = 0
     Top = 0
     Width = 1027
@@ -1279,6 +1280,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
             ParentDoubleBuffered = False
             ParentFont = False
             TabOrder = 4
+            OnClick = CopyDefaultBTNClick
             Glyph.Data = {
               F6060000424DF606000000000000360000002800000018000000180000000100
               180000000000C006000000000000000000000000000000000000FFFFFFFFFFFF
@@ -1506,8 +1508,8 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
   end
   object SeminarPictureSRC: TDataSource
     DataSet = SeminarPictureSQL
-    Left = 200
-    Top = 97
+    Left = 272
+    Top = 41
   end
   object SeminarPictureSQL: TIBCQuery
     KeyFields = 'SERIAL_NUMBER'
@@ -1574,8 +1576,8 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
       
         'where FK_SEMINAR_TYPE_SERIAL= :SeminarSerial  and stp.LANGUAGE_G' +
         'REEK_OR_ENGLISH = :language')
-    Left = 129
-    Top = 89
+    Left = 193
+    Top = 1
     ParamData = <
       item
         DataType = ftUnknown

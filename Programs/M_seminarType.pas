@@ -34,7 +34,7 @@ type
     seminarSubjectSQLFK_SEMINAR_TYPE_SERIAL: TIntegerField;
     Panel4: TRzPanel;
     RzPanel1: TRzPanel;
-    RzBitBtn1: TRzBitBtn;
+    ClolseBTN: TRzBitBtn;
     BitBtn1: TBitBtn;
     CanelBTN: TBitBtn;
     SeminarReminderSRC: TDataSource;
@@ -285,18 +285,17 @@ type
     certificatesHelpRE: TwwDBRichEdit;
     Label27: TLabel;
     wwDBEdit16: TwwDBEdit;
-    RzBitBtn2: TRzBitBtn;
     TabSheet1: TTabSheet;
     RzPanel33: TRzPanel;
     RzPanel35: TRzPanel;
-    RzBitBtn3: TRzBitBtn;
+    EditTemplateBTN: TRzBitBtn;
     procedure BitBtn1Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure CanelBTNClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure RzBitBtn1Click(Sender: TObject);
+    procedure ClolseBTNClick(Sender: TObject);
     procedure Nav1InsertClick(Sender: TObject);
     procedure Grid1TitleButtonClick(Sender: TObject; AFieldName: string);
     procedure SeminarTypeSQLNewRecord(DataSet: TDataSet);
@@ -324,7 +323,7 @@ type
     procedure PageControlPCChanging(Sender: TObject; var AllowChange: Boolean);
     procedure SeminarReminderSQLNewRecord(DataSet: TDataSet);
     procedure SeminarTSShow(Sender: TObject);
-    procedure RzBitBtn2Click(Sender: TObject);
+    procedure EditTemplateBTNClick(Sender: TObject);
   private
     { Private declarations }
     cn:TIBCConnection;
@@ -443,72 +442,14 @@ begin
 
 end;
 
-procedure TM_SeminarTypeFRM.RzBitBtn1Click(Sender: TObject);
-var
-  Frm: TV_SeminarTypeCertificateFRM;
+procedure TM_SeminarTypeFRM.ClolseBTNClick(Sender: TObject);
 begin
-  frm := TV_SeminarTypeCertificateFRM.Create(nil);
-  try
-
-    frm.IN_SeminarTypeSerial:=SeminarTypeSQL.FieldByName('serial_number').AsInteger;
-    frm.IN_allowModify:=true;
-    frm.ShowModal;
-  finally
-    frm.Free;
-  end;
+  close;
 end;
 
-procedure TM_SeminarTypeFRM.RzBitBtn2Click(Sender: TObject);
-begin
-  PrintTestCertificate();
-end;
 
 procedure TM_SeminarTypeFRM.PrintTestCertificate();
-var
-  TypeSerial:Integer;
-  PictureSerial:Integer;
-  Language:string;
-  qr:TksQuery;
-  str:String;
-  SeminarSerial:Integer;
-  CertificateSerial:integer;
-  Frm:TR_certificateFRM;
 begin
-
-    TypeSerial:= SeminarTypeSQL.FieldByName('serial_number').AsInteger;
-    PictureSerial:=SeminarPictureSQL.FieldByName('serial_number').AsInteger;
-    Language:= SeminarPictureSQL.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').AsString;
-
-str:=' Select first 1 sem.fk_seminar as type_serial, sem.serial_number as seminar_serial, sc.serial_number as certificate_serial'
-  +'  from'
-  +'      Seminar sem  inner join'
-  +'      seminar_certificate sc on sem.serial_number=sc.fk_seminar_serial'
-  +'  where'
-  +'      sem.fk_seminar = :typeSerial';
-
-    qr:=TksQuery.Create(cn,str);
-    try
-      qr.ParamByName('typeSerial').Value:=TypeSerial;
-      Qr.Open;
-      if qr.IsEmpty then begin
-        ShowMessage('Cannot find an existing Certificate');
-        exit;
-      end;
-
-      SeminarSerial:=qr.FieldByName('Seminar_Serial').AsInteger;
-      CertificateSerial:=qr.FieldByName('Certificate_Serial').AsInteger;
-    finally
-      qr.Free;
-    end;
-
-
-  frm :=  TR_certificateFRM.Create(nil);
-  try
-    frm.PrintTestSeminar(SeminarSerial,CertificateSerial,PictureSerial,Language);
-  finally
-    frm.Free;
-  end;
-
 
 
 end;
@@ -988,7 +929,7 @@ end;
 
 
 procedure TM_SeminarTypeFRM.CopyDefaultBTNClick(Sender: TObject);
-var
+ var
   SeminarSerial:Integer;
   PictureSerial:Integer;
   Language:string;
@@ -1065,6 +1006,7 @@ end;
 ///
 ///
 ///
+
 procedure TM_SeminarTypeFRM.RemoveInstructor();
 var
   qr: TksQuery;
@@ -1084,6 +1026,22 @@ begin
 
   insSemInstructorsSQL.Refresh;
   insSeminarAllInstructorsSQL.Refresh;
+end;
+
+
+procedure TM_SeminarTypeFRM.EditTemplateBTNClick(Sender: TObject);
+var
+  Frm: TV_SeminarTypeCertificateFRM;
+begin
+ frm := TV_SeminarTypeCertificateFRM.Create(nil);
+  try
+
+    frm.IN_SeminarTypeSerial:=SeminarTypeSQL.FieldByName('serial_number').AsInteger;
+    frm.IN_allowModify:=true;
+    frm.ShowModal;
+  finally
+    frm.Free;
+  end;
 end;
 
 

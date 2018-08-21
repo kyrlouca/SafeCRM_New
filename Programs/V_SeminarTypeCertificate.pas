@@ -20,7 +20,7 @@ type
     CloseBTN: TRzBitBtn;
     BitBtn1: TBitBtn;
     CanelBTN: TBitBtn;
-    Panel1: TRzPanel;
+    TitlePNL: TRzPanel;
     SeminarPictureSRC: TDataSource;
     SeminarPictureSQL: TIBCQuery;
     OpenPictureDialog1: TOpenPictureDialog;
@@ -99,10 +99,12 @@ type
     procedure CopyHardBTNClick(Sender: TObject);
     procedure SaveHardBTNClick(Sender: TObject);
     procedure RzBitBtn1Click(Sender: TObject);
+    procedure CopyDefaultBTNClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
     cn:TIBCConnection;
-    procedure CheckPicturesX(const TypeSerial: Integer);
+    procedure InsertSeminarTypePictureRecord(const TypeSerial: Integer);
     procedure ShowAllData(const SeminarSerial: Integer; const Language: string);
 
     function SelectPictureX(var img: TImage): Boolean;
@@ -125,6 +127,7 @@ type
     { Public declarations }
     IN_SeminarTypeSerial:Integer;
     IN_allowModify:boolean;
+    IN_FormTitle:string;
 
   end;
 
@@ -172,6 +175,24 @@ begin
 end;
 
 
+
+procedure TV_SeminarTypeCertificateFRM.FormActivate(Sender: TObject);
+var
+  qr:TksQuery;
+  str:String;
+begin
+  str:='select stt.seminar_name from seminar_type stt where stt.serial_number = :serialNumber';
+  try
+      qr:=TksQuery.Create(cn,str);
+      qr.ParamByName('SerialNumber').value:=IN_SeminarTypeSerial;
+      qr.Open;
+    TitlePNL.Caption:=qr.FieldByName('seminar_name').AsString;
+  finally
+    qr.Free;
+  end;
+
+
+end;
 
 procedure TV_SeminarTypeCertificateFRM.FormCreate(Sender: TObject);
 begin
@@ -258,17 +279,17 @@ begin
 
 end;
 
-procedure TV_SeminarTypeCertificateFRM.CheckPicturesX(const TypeSerial: Integer);
+procedure TV_SeminarTypeCertificateFRM.InsertSeminarTypePictureRecord(const TypeSerial: Integer);
 var
   Serial: Integer;
   str: string;
   strIns: string;
 begin
-//create the records if not exist
   if TypeSerial < 1 then
     exit;
 
 
+//create the records if not exist
   strIns := 'insert into seminar_Type_pictures '
     + '(serial_number,FK_SEMINAR_TYPE_SERIAL, LANGUAGE_GREEK_OR_ENGLISH) values (:Serial, :typeSerial, :lang)';
 
@@ -377,7 +398,7 @@ end;
 
 procedure TV_SeminarTypeCertificateFRM.ShowAllData(const SeminarSerial: Integer; const Language: string);
 begin
-  CheckPicturesX(SeminarSerial);
+  InsertSeminarTypePictureRecord(SeminarSerial);
   SHowPictureX(SeminarSerial, Picture_top_l1.Name, Language, Picture_top_L1);
   SHowPictureX(SeminarSerial, Picture_top_R1.Name, Language, Picture_top_R1);
   SHowPictureX(SeminarSerial, Picture_bot_l1.Name, Language, Picture_bot_L1);
@@ -395,6 +416,7 @@ var
   BS: TStream;
   qr: TksQuery;
 //  imgTemp:TImage;
+str:string;
 
 begin
 
@@ -408,11 +430,12 @@ begin
 
   Img.Picture := nil;
 
-  qr := TksQuery.Create(cn,
-    'select * from seminar_pictures stp where stp.fk_seminar_serial= :seminarSerial and LANGUAGE_GREEK_OR_ENGLISH = :language');
+  str:='select * from seminar_Type_pictures stp where stp.fk_seminar_Type_serial= :seminarTypeSerial and LANGUAGE_GREEK_OR_ENGLISH = :language';
+  qr := TksQuery.Create(cn,str);
+
   try
       qr.close;
-      qr.ParamByName('seminarSerial').Value := TypeSerial;
+      qr.ParamByName('seminarTypeSerial').Value := TypeSerial;
       qr.ParamByName('LANGUAGE').Value := Language;
       qr.open;
       if qr.IsEmpty then
@@ -439,13 +462,13 @@ begin
           Img.Picture := nil;
       finally
       end;
-//     qr.Close;
-
+//     qr.Close; not yet
 
   finally
     bs.Free;
     qr.Free;
   end;
+
 
 end;
 //////////////////////////////////////////
@@ -468,6 +491,7 @@ var
   I: Integer;
 begin
 
+ showMessage('fix from type');
   ksExecSQLVar(cn,
     'delete from SEMINAR_pictures where fk_seminar_serial=:serial',
     [SeminarSerial]);
@@ -534,6 +558,21 @@ end;
 
 
 
+procedure TV_SeminarTypeCertificateFRM.CopyDefaultBTNClick(Sender: TObject);
+var
+  SeminarSerial:Integer;
+  PictureSerial:Integer;
+  Language:string;
+begin
+
+    SeminarSerial:= IN_SeminarTypeSerial;
+    PictureSerial:=SeminarPictureSQL.FieldByName('serial_number').AsInteger;
+    Language:= SeminarPictureSQL.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').AsString;
+    CopyFromDefault(PictureSerial,0,Language);
+    ShowAllData(SeminarSerial,Language);
+
+end;
+
 procedure TV_SeminarTypeCertificateFRM.CopyFromDefault(Const PictureSerial:Integer;Const DefaultPicSerial:Integer;Const Language:String);
 var
   DefaultQr:TksQuery;
@@ -547,8 +586,6 @@ begin
   PictQR:=TksQuery.Create(cn,'SELECT * FROM seminar_type_pictures where serial_number = :SerialNumber ');
 
   try
-//    PictureSerial:=SeminarPictureSQL.FieldByName('serial_number').AsInteger;
-
     DefaultQr.ParamByName('DefSerial').Value:=DefaultPicSerial;
     DefaultQr.ParamByName('Language').Value:=Language;
     DefaultQR.Open;
@@ -562,10 +599,11 @@ begin
     if PictQR.IsEmpty then
       exit;
 
-    Picture_FK:=SeminarPictureSQL.FieldByName('FK_SEMINAR_TYPE_SERIAL').AsInteger;
 
     pictQR.Edit;
     CopyDataRecord(DefaultQr,pictQR);
+
+    Picture_FK:=SeminarPictureSQL.FieldByName('FK_SEMINAR_TYPE_SERIAL').AsInteger;
     PictQr.FieldByName('FK_SEMINAR_TYPE_SERIAL').Value:=Picture_FK;
 
     PictQr.Post;
@@ -595,8 +633,8 @@ end;
 
 procedure TV_SeminarTypeCertificateFRM.SavePictureX(const SeminarSerial: Integer; const
   aFieldName: string; const Language: string; img: Timage);
-var
 //  BlobField: TField;
+var
   BlobField: TBlobField;
   BS: TStream;
   str2: string;
@@ -608,8 +646,10 @@ begin
   CodeSite.Send(afieldName);
   CodeSite.Send(Language);
   CodeSite.Send(img.Name);
-  str2 := 'select * from seminar_pictures stp '
-    + ' where stp.fk_seminar_serial= :seminarSerial and LANGUAGE_GREEK_OR_ENGLISH = :language';
+    str2:=
+    'select * from seminar_Type_pictures stp '
+    + ' where stp.fk_seminar_Type_serial= :seminarSerial and LANGUAGE_GREEK_OR_ENGLISH = :language';
+
   qr := TksQuery.Create(cn, str2);
   try
       qr.close;
@@ -638,7 +678,7 @@ begin
           BlobField.Clear;
         end;
         qr.Post;
-//        qr.close;
+//        qr.close;  //do not close yet
 
 
       finally
@@ -651,44 +691,51 @@ begin
     BS.Free;
     qr.Free;
   end;
+end;
 
+
+procedure TV_SeminarTypeCertificateFRM.RzBitBtn1Click(Sender: TObject);
+begin
+  PrintTestCertificate();
 end;
 
 
 
 procedure TV_SeminarTypeCertificateFRM.PrintTestCertificate();
 var
-  TypeSerial:Integer;
+  SeminarTypeSerial:Integer;
   PictureSerial:Integer;
   Language:string;
   qr:TksQuery;
   str:String;
-  SeminarSerial:Integer;
+//  SeminarSerial:Integer;
   CertificateSerial:integer;
   Frm:TR_certificateFRM;
 begin
 
-    TypeSerial:= IN_SeminarTypeSerial;
+//    SeminarTypeSerial:= IN_SeminarTypeSerial;
     PictureSerial:=SeminarPictureSQL.FieldByName('serial_number').AsInteger;
     Language:= SeminarPictureSQL.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').AsString;
 
 str:=' Select first 1 sem.fk_seminar as type_serial, sem.serial_number as seminar_serial, sc.serial_number as certificate_serial'
   +'  from'
   +'      Seminar sem  inner join'
-  +'      seminar_certificate sc on sem.serial_number=sc.fk_seminar_serial'
-  +'  where'
-  +'      sem.fk_seminar = :typeSerial';
+  +'      seminar_certificate sc on sem.serial_number=sc.fk_seminar_serial';
+
+
+//  +'  where'
+//  +'      sem.fk_seminar = :typeSerial';
 
     qr:=TksQuery.Create(cn,str);
     try
-      qr.ParamByName('typeSerial').Value:=TypeSerial;
+//      qr.ParamByName('typeSerial').Value:=TypeSerial;
       Qr.Open;
       if qr.IsEmpty then begin
         ShowMessage('Cannot find an existing Certificate');
         exit;
       end;
 
-      SeminarSerial:=qr.FieldByName('Seminar_Serial').AsInteger;
+//      SeminarSerial:=qr.FieldByName('Seminar_Serial').AsInteger;
       CertificateSerial:=qr.FieldByName('Certificate_Serial').AsInteger;
     finally
       qr.Free;
@@ -697,19 +744,16 @@ str:=' Select first 1 sem.fk_seminar as type_serial, sem.serial_number as semina
 
   frm :=  TR_certificateFRM.Create(nil);
   try
-    frm.PrintTestSeminar(SeminarSerial,CertificateSerial,PictureSerial,Language);
+    frm.PrintTestSeminar(CertificateSerial,PictureSerial,Language);
   finally
     frm.Free;
   end;
 
 
 
+
 end;
 
 
-procedure TV_SeminarTypeCertificateFRM.RzBitBtn1Click(Sender: TObject);
-begin
-PrintTestCertificate();
-end;
 
 End.

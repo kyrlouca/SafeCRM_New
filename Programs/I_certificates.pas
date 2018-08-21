@@ -9,7 +9,8 @@ uses
   DBAccess, IBC, MemDS, Wwdbigrd, Wwdbgrid, wwdbedit, vcl.Wwdotdot, vcl.Wwdbcomb,
   G_KyrSQL,G_kyriacosTypes, RzButton, RzPanel, RzLabel, RzDBLbl, vcl.Wwdbdatetimepicker,
   RzPopups, vcl.wwcheckbox, vcl.wwDialog, vcl.wwIDlg, vcl.wwmonthcalendar,
-  vcl.wwlocate, VirtualTable, Vcl.Menus, Vcl.ComCtrls, vcl.wwriched;
+  vcl.wwlocate, VirtualTable, Vcl.Menus, Vcl.ComCtrls, vcl.wwriched,
+  vcl.wwclearbuttongroup, vcl.wwradiogroup;
 type
 
   THoursRec= REcord
@@ -103,7 +104,6 @@ type
     CertificateSQLHAS_ANOTHER_DATE: TWideStringField;
     MainMenu1: TMainMenu;
     Reports1: TMenuItem;
-    N3: TMenuItem;
     TableSQLANAD_NUMBER: TWideStringField;
     TableSQLHAS_EXPIRY: TWideStringField;
     TableSQLEXPIRY_PERIOD: TIntegerField;
@@ -127,6 +127,9 @@ type
     RzDBLabel6: TRzDBLabel;
     TableSQLPASS_PERCENTAGE: TIntegerField;
     CertificateSQLSERIAL_MANUAL: TIntegerField;
+    PrintOneBTN: TRzBitBtn;
+    PrintAllBTN: TRzBitBtn;
+    LanguageRGP: TwwRadioGroup;
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -141,9 +144,10 @@ type
     procedure InvoiceSQLBeforePost(DataSet: TDataSet);
     procedure InvoiceGRDCalcCellColors(Sender: TObject; Field: TField;
       State: TGridDrawState; Highlight: Boolean; AFont: TFont; ABrush: TBrush);
-    procedure N3Click(Sender: TObject);
     procedure N1Click(Sender: TObject);
     procedure N2Click(Sender: TObject);
+    procedure PrintOneBTNClick(Sender: TObject);
+    procedure PrintAllBTNClick(Sender: TObject);
   private
     { Private declarations }
     VatRate:Double;
@@ -250,25 +254,6 @@ begin
   frm := TH_HelpFRM.Create(nil);
   try
     frm.IN_RichEdit:=MainHelpRE;
-    frm.ShowModal;
-  finally
-    frm.Free;
-  end;
-end;
-
-procedure TI_CertificatesFRM.N3Click(Sender: TObject);
-vAR
-  Frm:TR_certificateFRM;
-  seminarSerial:Integer;
-
-begin
-  seminarSerial:=TableSQL.FieldByName('serial_number').AsInteger;
-
-  frm :=  TR_certificateFRM.Create(nil);
-  frm.IN_seminar_serial :=seminarSerial;
-  frm.IN_certificate_serial:=0;
-//  frm.IN_Day_Serial :=0;
-  try
     frm.ShowModal;
   finally
     frm.Free;
@@ -801,5 +786,71 @@ begin
 
 end;
 
+
+procedure TI_CertificatesFRM.PrintAllBTNClick(Sender: TObject);
+var
+ Frm:TR_certificateFRM;
+  SeminarSerial:Integer;
+  language:string;
+
+begin
+  SeminarSerial:= TableSQL.FieldByName('serial_number').AsInteger;
+  if SeminarSerial<1 then  begin
+    ShowMessage('can not find Seminar');
+    exit;
+  end;
+
+  Language:=LanguageRGP.Values[LanguageRGP.ItemIndex];
+
+  frm :=  TR_certificateFRM.Create(nil);
+  try
+    frm.PrintSeminar(SeminarSerial,0,Language);
+  finally
+    frm.Free;
+  end;
+
+
+
+end;
+
+procedure TI_CertificatesFRM.PrintOneBTNClick(Sender: TObject);
+var
+ Frm:TR_certificateFRM;
+SeminarSerial:Integer;
+CertSerial:integer;
+language:string;
+isValid:Boolean;
+begin
+
+  SeminarSerial:= TableSQL.FieldByName('serial_number').AsInteger;
+  if SeminarSerial<1 then
+  begin
+    ShowMessage('can not find Seminar');
+    exit;
+  end;
+
+  certSerial:=CertificateSQL.FieldByName('serial_number').AsInteger;
+  if certSerial<1 then
+  begin
+    ShowMessage('can not find Certificate');
+    exit;
+  end;
+
+  isValid:=CertificateSQL.FieldByName('is_valid').AsString='Y';
+  if Not IsValid then begin
+    MessageDlg('Certificate is NOT valid. Canot be printed', mtWarning, [mbOK], 0);
+    exit;
+  end;
+  Language:=LanguageRGP.Values[LanguageRGP.ItemIndex];
+
+  frm :=  TR_certificateFRM.Create(nil);
+  try
+    frm.PrintSeminar(SeminarSerial,certSerial,Language);
+  finally
+    frm.Free;
+  end;
+
+
+end;
 
 End.

@@ -78,26 +78,6 @@ type
     SeminarPictureSRC: TDataSource;
     SeminarPIcturePIP: TppDBPipeline;
     TopFld: TppDBRichText;
-    ppReport2: TppReport;
-    ppDetailBand1: TppDetailBand;
-    ppDBText3: TppDBText;
-    ppDBText4: TppDBText;
-    ppLabel7: TppLabel;
-    ppVariable1: TppVariable;
-    ppLabel10: TppLabel;
-    ppLabel11: TppLabel;
-    ppLabel12: TppLabel;
-    ppLabel13: TppLabel;
-    ppLabel14: TppLabel;
-    ppVariable3: TppVariable;
-    ppVariable4: TppVariable;
-    ppVariable5: TppVariable;
-    ppDBRichText2: TppDBRichText;
-    ppFooterBand2: TppFooterBand;
-    ppLabel16: TppLabel;
-    ppDesignLayers1: TppDesignLayers;
-    ppDesignLayer1: TppDesignLayer;
-    ppParameterList1: TppParameterList;
     Button1: TButton;
     PICTURE_TOP_L1: TppDBImage;
     ppDBImage2: TppDBImage;
@@ -193,29 +173,52 @@ type
     TableSQLFK_COMPANY_INVOICED: TIntegerField;
     TableSQLPASS_PERCENTAGE: TIntegerField;
     TableSQLSPECIFICATION_NUMBER: TWideStringField;
-    TestTypePicturesSQL: TIBCQuery;
-    TestTypePicturesSQLSERIAL_NUMBER: TIntegerField;
-    TestTypePicturesSQLFK_SEMINAR_TYPE_SERIAL: TIntegerField;
-    TestTypePicturesSQLLANGUAGE_GREEK_OR_ENGLISH: TWideStringField;
-    TestTypePicturesSQLPICTURE_SEMINAR: TBlobField;
-    TestTypePicturesSQLLINE_A1: TWideStringField;
-    TestTypePicturesSQLLINE_A2: TWideStringField;
-    TestTypePicturesSQLLINE_B1: TWideStringField;
-    TestTypePicturesSQLLINE_B2: TWideStringField;
-    TestTypePicturesSQLLINE_B3: TWideStringField;
-    TestTypePicturesSQLTL_X: TIntegerField;
-    TestTypePicturesSQLTL_Y: TIntegerField;
-    TestTypePicturesSQLTR_X: TIntegerField;
-    TestTypePicturesSQLTR_Y: TIntegerField;
-    TestTypePicturesSQLBL_X: TIntegerField;
-    TestTypePicturesSQLBL_Y: TIntegerField;
-    TestTypePicturesSQLBR_X: TIntegerField;
-    TestTypePicturesSQLBR_Y: TIntegerField;
-    TestTypePicturesSQLPICTURE_TOP_L1: TBlobField;
-    TestTypePicturesSQLPICTURE_TOP_R1: TBlobField;
-    TestTypePicturesSQLPICTURE_BOT_L1: TBlobField;
-    TestTypePicturesSQLPICTURE_BOT_R1: TBlobField;
-    TestTypePicturesSQLLINE_C1: TWideStringField;
+    TestSeminarPictureSQL: TIBCQuery;
+    TestSeminarPictureSQLSERIAL_NUMBER: TIntegerField;
+    TestSeminarPictureSQLFK_SEMINAR_TYPE_SERIAL: TIntegerField;
+    TestSeminarPictureSQLLANGUAGE_GREEK_OR_ENGLISH: TWideStringField;
+    TestSeminarPictureSQLPICTURE_SEMINAR: TBlobField;
+    TestSeminarPictureSQLLINE_A1: TWideStringField;
+    TestSeminarPictureSQLLINE_A2: TWideStringField;
+    TestSeminarPictureSQLLINE_B1: TWideStringField;
+    TestSeminarPictureSQLLINE_B2: TWideStringField;
+    TestSeminarPictureSQLLINE_B3: TWideStringField;
+    TestSeminarPictureSQLTL_X: TIntegerField;
+    TestSeminarPictureSQLTL_Y: TIntegerField;
+    TestSeminarPictureSQLTR_X: TIntegerField;
+    TestSeminarPictureSQLTR_Y: TIntegerField;
+    TestSeminarPictureSQLBL_X: TIntegerField;
+    TestSeminarPictureSQLBL_Y: TIntegerField;
+    TestSeminarPictureSQLBR_X: TIntegerField;
+    TestSeminarPictureSQLBR_Y: TIntegerField;
+    TestSeminarPictureSQLPICTURE_TOP_L1: TBlobField;
+    TestSeminarPictureSQLPICTURE_TOP_R1: TBlobField;
+    TestSeminarPictureSQLPICTURE_BOT_L1: TBlobField;
+    TestSeminarPictureSQLPICTURE_BOT_R1: TBlobField;
+    TestSeminarPictureSQLLINE_C1: TWideStringField;
+    CertificatesShowSQL: TIBCQuery;
+    IntegerField1: TIntegerField;
+    IntegerField2: TIntegerField;
+    WideStringField1: TWideStringField;
+    WideStringField2: TWideStringField;
+    WideStringField3: TWideStringField;
+    DateField1: TDateField;
+    IntegerField3: TIntegerField;
+    IntegerField4: TIntegerField;
+    WideStringField4: TWideStringField;
+    IntegerField5: TIntegerField;
+    WideStringField5: TWideStringField;
+    WideStringField6: TWideStringField;
+    IntegerField6: TIntegerField;
+    WideStringField7: TWideStringField;
+    IntegerField7: TIntegerField;
+    WideStringField8: TWideStringField;
+    WideStringField9: TWideStringField;
+    IntegerField8: TIntegerField;
+    WideStringField10: TWideStringField;
+    WideStringField11: TWideStringField;
+    DateField2: TDateField;
+    CertificatesShowSRC: TDataSource;
     procedure BitBtn2Click(Sender: TObject);
     procedure ppReport1PreviewFormCreate(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -248,9 +251,10 @@ type
     IN_Seminar_Serial:Integer;
     IN_certificate_serial:Integer;
     IN_Language:String;
+    IN_PictureSerial:Integer;
     procedure PrintSeminar(Const SeminarSerial,CertificateSerial:Integer;Const language:String);
     procedure PrintTheSeminar();
-    procedure PrintTestSeminar(Const SeminarSerial, CertificateSerial, PictureSerial:Integer; Const Language:String);
+    procedure PrintTestSeminar(Const CertificateSerial, PictureSerial:Integer; Const Language:String);
 //    procedure PrintTestSeminar(Const SeminarSerial,SeminarTypeSerial,CertificateSerial:Integer;Const Language:String);
 
 
@@ -427,20 +431,26 @@ end;
 
 procedure TR_certificateFRM.PrintOnexBTNClick(Sender: TObject);
 var
-CertSerial:integer;
-language:string;
-isValid:Boolean;
+  CertSerial:integer;
+  language:string;
+  isValid:Boolean;
 begin
 
-  certSerial:=CertificateSQL.FieldByName('serial_number').AsInteger;
-  if certSerial<1 then exit;
-  isValid:=CertificateSQL.FieldByName('is_valid').AsString='Y';
+  certSerial:=CertificatesShowSQL.FieldByName('serial_number').AsInteger;
+  if certSerial<1 then
+  begin
+    ShowMessage('can not find Certificate');
+    exit;
+  end;
+
+  isValid:=CertificatesShowSQL.FieldByName('is_valid').AsString='Y';
   if Not IsValid then begin
     MessageDlg('Certificate is NOT valid. Canot be printed', mtWarning, [mbOK], 0);
     exit;
   end;
   Language:=LanguageRGP.Values[LanguageRGP.ItemIndex];
-  PrintSeminar(IN_Seminar_Serial,certSerial,Language);
+
+  PrintSeminar(IN_Seminar_Serial,CertSerial,Language);
 
 end;
 
@@ -449,49 +459,11 @@ end;
 procedure TR_certificateFRM.PrintTheSeminar();
 var
   Language:String;
-
 begin
   Language:=LanguageRGP.Values[LanguageRGP.ItemIndex];
   PrintSeminar(IN_Seminar_Serial,IN_certificate_serial,Language);
 end;
 
-procedure TR_certificateFRM.PrintSeminar(Const SeminarSerial,CertificateSerial:Integer;Const Language:String);
-Var
-   FromDate:TDateTime;
-   DaysLeft:integer;
-begin
-
-
-  CertificateSQL.Close;
-  CertificateSQL.RestoreSQL;
-
-  with CertificateSQL do begin
-    //if certificateSerial is zero it will print ALL the certs of the seminar
-    if CertificateSerial>0 then begin
-        CertificateSQL.AddWhere('serial_number = :CertificateSerial');
-        CertificateSQL.ParamByName('CertificateSerial').Value:=CertificateSerial;
-    end;
-    CertificateSQL.ParamByName('SeminarSerial').Value:=SeminarSerial;
-    CertificateSQL.Open ;
-    if CertificateSQL.IsEmpty then
-      exit;
-  end;
-
-    with SeminarPicturesSQL do begin
-    SeminarPicturesSQL.Close ;
-    SeminarPicturesSQL.ParamByName('SeminarSerial').Value:=SeminarSerial;
-    SeminarPicturesSQL.ParamByName('Language').Value:=Language;
-    SeminarPicturesSQL.Open ;
-    if     SeminarPicturesSQL.IsEmpty then begin
-      showMessage('error: missing seminar picture record');
-      exit;
-    end;
-  end;
-
-
- PpReport1.Print;
-
-end;
 
 procedure TR_certificateFRM.FormActivate(Sender: TObject);
 begin
@@ -500,9 +472,10 @@ TableSQL.Close;
 TableSQL.ParamByName('seminarSerial').Value:=IN_Seminar_Serial;
 TableSQL.Open;
 
-CertificateSQL.Close;
-CertificateSQL.ParamByName('seminarSerial').Value:=IN_Seminar_Serial;
-CertificateSQL.Open;
+CertificatesShowSQL.Close;
+CertificatesShowSQL.ParamByName('seminarSerial').Value:=IN_Seminar_Serial;
+
+CertificatesShowSQL.Open;
 //showMessage(ppReport1.Components[0].Name);
 initReportPositions();
 end;
@@ -666,21 +639,19 @@ begin
   if (SeminarPictureSRC.DataSet.FindField(ImgFound.fName) <> nil ) then begin
   //  shift the image (in mm)
     img.Left:=ImgFound.Left+  SeminarPictureSRC.DataSet.FieldByName(imgFound.FieldForLeft).AsFloat/1.0;
-    img.Top:= ImgFound.Top+ SeminarPictureSRC.DataSet.FieldByName(imgFOund.FieldForTop).AsFloat/1.0;
+    img.Left:=min(0,img.Left);
+    img.Top:= ImgFound.Top- SeminarPictureSRC.DataSet.FieldByName(imgFOund.FieldForTop).AsFloat/1.0;
+    img.Top:=min(0,img.Top);
   end;
 
 end;
 
 
 
+procedure TR_certificateFRM.PrintSeminar(Const SeminarSerial,CertificateSerial:Integer;Const language:String);
 
-
-
-procedure TR_certificateFRM.PrintTestSeminar(Const SeminarSerial, CertificateSerial, PictureSerial:Integer; Const Language:String);
-//will print a certificate using pictures from the TEMPLATE
 Var
-   FromDate:TDateTime;
-   DaysLeft:integer;
+   TheSeminarSerial:Integer;
 begin
 
 
@@ -688,33 +659,85 @@ begin
   CertificateSQL.RestoreSQL;
 
   with CertificateSQL do begin
-    if CertificateSerial>0 then begin
+    //if certificateSerial is zero it will print ALL the certs of the seminar
+    if CertificateSerial=0 then begin
+        CertificateSQL.AddWhere('fk_seminar_serial= :SeminarSerial');
+        CertificateSQL.ParamByName('SeminarSerial').Value:=SeminarSerial;
+    end else if CertificateSerial>0 then begin
+    //if certificateSerial greater than zero print only one certificate
         CertificateSQL.AddWhere('serial_number = :CertificateSerial');
         CertificateSQL.ParamByName('CertificateSerial').Value:=CertificateSerial;
     end;
-    CertificateSQL.ParamByName('SeminarSerial').Value:=SeminarSerial;
-    CertificateSQL.Open ;
+
+    CertificateSQL.Open;
     if CertificateSQL.IsEmpty then
       exit;
+    TheSeminarSerial:=CertificateSQL.FieldByName('fk_seminar_serial').AsInteger;
   end;
 
-    with TestTypePicturesSQL do begin
-    TestTypePicturesSQL.Close ;
-    TestTypePicturesSQL.ParamByName('pictureSerial').Value:=PictureSerial;
-    TestTypePicturesSQL.ParamByName('Language').Value:=Language;
-    TestTypePicturesSQL.Open ;
-    if     TestTypePicturesSQL.IsEmpty then begin
+    with SeminarPicturesSQL do begin
+      SeminarPicturesSQL.close ;
+      SeminarPicturesSQL.RestoreSQL;
+
+      SeminarPicturesSQL.AddWhere('stp.FK_SEMINAR_SERIAL = :SeminarSerial and stp.LANGUAGE_GREEK_OR_ENGLISH = :language');
+      SeminarPicturesSQL.ParamByName('SeminarSerial').Value:=TheSeminarSerial;
+      SeminarPicturesSQL.ParamByName('Language').Value:=Language;
+    end;
+
+
+    SeminarPicturesSQL.Open ;
+
+    if  SeminarPicturesSQL.IsEmpty then begin
       showMessage('error: missing seminar picture record');
       exit;
     end;
-  end;
-
-  SeminarPictureSRC.DataSet:=TestTypePicturesSQL;
-
-
- PpReport1.Print;
+  PpReport1.Print;
 
 end;
+
+
+
+procedure TR_certificateFRM.PrintTestSeminar(Const CertificateSerial, PictureSerial:Integer; Const Language:String);
+//will print a certificate using pictures from the TEMPLATE
+begin
+
+
+  CertificateSQL.Close;
+  CertificateSQL.RestoreSQL;
+
+    with CertificateSQL do begin
+        CertificateSQL.AddWhere('serial_number = :CertificateSerial');
+        CertificateSQL.ParamByName('CertificateSerial').Value:=CertificateSerial;
+
+      CertificateSQL.Open;
+      if CertificateSQL.IsEmpty then begin
+       showMessage('Certificate not found');
+        exit;
+      end;
+//      TheSeminarSerial:=CertificateSQL.FieldByName('fk_seminar_serial').AsInteger;
+
+  end;
+
+    with TestSeminarPictureSQL do begin
+      close ;
+      RestoreSQL;
+
+      ParamByName('PictureSerial').Value:=PictureSerial;
+      ParamByName('Language').Value:=Language;
+      Open ;
+      if  IsEmpty then begin
+       showMessage('error: missing seminar tYPE picture record');
+       exit;
+      end;
+
+    end;
+
+   SeminarPictureSRC.DataSet:=TestSeminarPictureSQL;
+   PpReport1.Print;
+
+  end;
+
+
 
 
 end.

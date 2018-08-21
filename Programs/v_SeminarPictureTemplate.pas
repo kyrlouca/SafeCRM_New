@@ -229,12 +229,11 @@ end;
 procedure TV_SeminarPictureTemplateFRM.SelectAndSavePictureX(const SeminarSerial: Integer; const
   Language: string; img: TImage);
 begin
-//  SeminarSerial:=SeminarSQL.fieldbyName('serial_number').AsInteger;
   if SelectPicturex(img) then
   begin
     SavePictureX(SeminarSerial, img.Name, Language, img);
     ShowPictureX(SeminarSerial, img.Name, Language, img);
-//    ShowPictureData(TypeSerial,LanguageRGP.Value);
+
   end;
 
 end;
