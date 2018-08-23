@@ -3413,7 +3413,7 @@ object V_SeminarFRM: TV_SeminarFRM
     Left = 210
     Top = 101
     Bitmap = {
-      494C0101100088009C0310001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010110008800A00310001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4294,7 +4294,7 @@ object V_SeminarFRM: TV_SeminarFRM
     ReadOnly = True
     Active = True
     Left = 26
-    Top = 193
+    Top = 209
     ParamData = <
       item
         DataType = ftUnknown
@@ -4335,8 +4335,8 @@ object V_SeminarFRM: TV_SeminarFRM
   end
   object NonAttendSRC: TDataSource
     DataSet = NonAttendSQL
-    Left = 88
-    Top = 185
+    Left = 24
+    Top = 257
   end
   object seminarSubjectSQL: TIBCQuery
     KeyFields = 'SERIAL_NUMBER'

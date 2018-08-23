@@ -303,7 +303,7 @@ object M_companyNewFRM: TM_companyNewFRM
     Top = 92
     Width = 1104
     Height = 504
-    ActivePage = EmployeesTS
+    ActivePage = InfoTS
     Align = alClient
     MultiLine = True
     TabOrder = 3
@@ -1099,7 +1099,6 @@ object M_companyNewFRM: TM_companyNewFRM
             TitleButtons = True
             OnTitleButtonClick = Grid1TitleButtonClick
             OnDblClick = Grid1DblClick
-            ExplicitTop = 43
           end
         end
         object RzPanel3: TRzPanel
@@ -1455,7 +1454,6 @@ object M_companyNewFRM: TM_companyNewFRM
       'SERIAL_NUMBER= :CompanySerial')
     Options.AutoClose = True
     Active = True
-    Constraints = <>
     OnNewRecord = CompanySQLNewRecord
     Left = 49
     Top = 37
@@ -1529,12 +1527,10 @@ object M_companyNewFRM: TM_companyNewFRM
     end
     object CompanySQLADDRESS_CITY: TWideStringField
       FieldName = 'ADDRESS_CITY'
-      FixedChar = True
       Size = 30
     end
     object CompanySQLADDRESS_DISTRICT: TWideStringField
       FieldName = 'ADDRESS_DISTRICT'
-      FixedChar = True
       Size = 30
     end
     object CompanySQLDATE_STARTED: TDateField
@@ -1749,7 +1745,6 @@ object M_companyNewFRM: TM_companyNewFRM
       'order by '
       'pe.Last_name, pe.first_name')
     Active = True
-    Constraints = <>
     Left = 74
     Top = 505
     ParamData = <
@@ -1879,7 +1874,6 @@ object M_companyNewFRM: TM_companyNewFRM
       'Order by pout.last_name, pout.first_name')
     ReadOnly = True
     Active = True
-    Constraints = <>
     Left = 258
     Top = 473
     object ExcludedPersonsSQLSERIAL_NUMBER: TIntegerField

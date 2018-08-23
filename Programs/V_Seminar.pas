@@ -499,6 +499,7 @@ type
 
     function UpdateCostFooter(const SeminarSerial: Integer): Double;
     procedure UPdateAttendFooter();
+    procedure InsertMonoCompany(Const CompanySerial:integer);
 
   public
     { Public declarations }
@@ -522,7 +523,10 @@ procedure TV_SeminarFRM.AcceptBTNClick(Sender: TObject);
 begin
   ksPostTables([SeminarSQL]);
   case PageControlPC.ActivePageIndex of
-    0: ksPostTables([SeminarSQL]);
+    0: begin
+      ksPostTables([SeminarSQL]);
+      InsertMonoCompany(0);
+    end;
     1: ksPostTables([seminarSubjectSQL]);
     2: ksPostTables([AttendingSQL]);
     3: ksPostTables([SeminarCostItemSQL]);
@@ -1224,6 +1228,42 @@ begin
 
 end;
 
+
+procedure TV_SeminarFRM.InsertMonoCompany(Const CompanySerial:integer);
+var
+  qr: TksQuery;
+  Personserial: Integer;
+  seminarSerial: Integer;
+  str: string;
+begin
+
+  if not allowToModify() then
+  begin
+    ShowMessage('Cannot Modify');
+    exit;
+  end;
+
+  SeminarSerial := SeminarSQL.FieldByName('serial_number').AsInteger;
+  PersonSerial := SeminarSQL.FieldByName('fk_company_person_serial').AsInteger;
+
+
+  if Personserial < 1 then
+    exit;
+
+  str:=
+   ' Delete from seminar_company sc where sc.fk_seminar_serial = :seminarSerial and '
+  +' exists (select serial_number from seminar sem where sem.type_mono_poly= :mono and  sc.fk_seminar_serial=sem.serial_number)';
+  ksExecSQLVar(cn, str, [SeminarSerial,'M']);
+
+  str := ' insert into seminar_COMPANY  (fk_seminar_serial,fk_person_serial) '
+    + ' values(:seminar,:person)';
+  ksExecSQLVar(cn, str, [seminarSerial, Personserial]);
+
+end;
+
+
+
+
 procedure TV_SeminarFRM.AllPersonsGRDTitleButtonClick(Sender: TObject;
   AFieldName: string);
   var
@@ -1417,7 +1457,10 @@ begin
   Try
 
     case PageControlPC.ActivePageIndex of
-    0: ksPostTables([SeminarSQL]);
+    0: begin
+      ksPostTables([SeminarSQL]);
+      InsertMonoCompany(0);
+    end;
     1: ksPostTables([seminarSubjectSQL]);
 //    2: ksPostTables([AttendingSQL]);
     4: ksPostTables([SeminarCostItemSQL]);

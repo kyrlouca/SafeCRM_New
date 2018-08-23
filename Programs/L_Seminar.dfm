@@ -3,7 +3,7 @@ object L_SeminarFRM: TL_SeminarFRM
   Top = 153
   Caption = '--'
   ClientHeight = 588
-  ClientWidth = 1138
+  ClientWidth = 1232
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,7 +23,7 @@ object L_SeminarFRM: TL_SeminarFRM
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1138
+    Width = 1232
     Height = 53
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
@@ -33,12 +33,12 @@ object L_SeminarFRM: TL_SeminarFRM
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 1053
+    ExplicitWidth = 1138
     object Label4: TRzLabel
       AlignWithMargins = True
       Left = 4
       Top = 4
-      Width = 1130
+      Width = 1224
       Height = 45
       Align = alClient
       Alignment = taCenter
@@ -58,20 +58,20 @@ object L_SeminarFRM: TL_SeminarFRM
   object Panel4: TPanel
     Left = 0
     Top = 545
-    Width = 1138
+    Width = 1232
     Height = 43
     Align = alBottom
     TabOrder = 3
-    ExplicitWidth = 1053
+    ExplicitWidth = 1138
     object RzPanel1: TRzPanel
-      Left = 1037
+      Left = 1131
       Top = 1
       Width = 100
       Height = 41
       Align = alRight
       BorderOuter = fsNone
       TabOrder = 0
-      ExplicitLeft = 952
+      ExplicitLeft = 1037
       object RzBitBtn1: TRzBitBtn
         Left = 6
         Top = 3
@@ -152,11 +152,11 @@ object L_SeminarFRM: TL_SeminarFRM
   object Panel2: TPanel
     Left = 0
     Top = 53
-    Width = 1138
+    Width = 1232
     Height = 134
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 1053
+    ExplicitWidth = 1138
     object RzGroupBox1: TRzGroupBox
       Left = 4
       Top = 6
@@ -187,7 +187,7 @@ object L_SeminarFRM: TL_SeminarFRM
       end
       object Label1: TLabel
         Left = 33
-        Top = 53
+        Top = 82
         Width = 34
         Height = 15
         Caption = #932#973#960#959#962
@@ -200,7 +200,7 @@ object L_SeminarFRM: TL_SeminarFRM
       end
       object Label6: TLabel
         Left = 8
-        Top = 82
+        Top = 52
         Width = 59
         Height = 15
         Caption = #924#959#957#959'/'#928#959#955#965
@@ -250,7 +250,7 @@ object L_SeminarFRM: TL_SeminarFRM
       end
       object CategoryFLD: TwwDBComboBox
         Left = 75
-        Top = 50
+        Top = 79
         Width = 140
         Height = 23
         ParentCustomHint = False
@@ -286,8 +286,8 @@ object L_SeminarFRM: TL_SeminarFRM
         ParentDoubleBuffered = False
       end
       object MonoFLD: TwwDBComboBox
-        Left = 73
-        Top = 79
+        Left = 75
+        Top = 50
         Width = 140
         Height = 23
         ParentCustomHint = False
@@ -402,13 +402,13 @@ object L_SeminarFRM: TL_SeminarFRM
   object Panel3: TPanel
     Left = 0
     Top = 187
-    Width = 1138
+    Width = 1232
     Height = 358
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 1053
+    ExplicitWidth = 1138
     object Panel5: TPanel
-      Left = 1031
+      Left = 1057
       Top = 1
       Width = 201
       Height = 356
@@ -416,7 +416,8 @@ object L_SeminarFRM: TL_SeminarFRM
       BevelOuter = bvNone
       Locked = True
       TabOrder = 1
-      ExplicitLeft = 872
+      ExplicitLeft = 1063
+      ExplicitTop = -4
       object InsertHawbBTN: TRzBitBtn
         Left = 6
         Top = 35
@@ -811,7 +812,7 @@ object L_SeminarFRM: TL_SeminarFRM
     object RzPanel2: TRzPanel
       Left = 25
       Top = 1
-      Width = 1006
+      Width = 1032
       Height = 356
       Align = alLeft
       BorderOuter = fsNone
@@ -819,12 +820,12 @@ object L_SeminarFRM: TL_SeminarFRM
       object RzPanel3: TRzPanel
         Left = 0
         Top = 0
-        Width = 1006
+        Width = 1032
         Height = 33
         Align = alTop
         BorderOuter = fsNone
         TabOrder = 0
-        ExplicitWidth = 824
+        ExplicitWidth = 1006
         object Nav1: TwwDBNavigator
           Left = 1
           Top = 7
@@ -850,6 +851,7 @@ object L_SeminarFRM: TL_SeminarFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Button'
+            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 0
@@ -866,6 +868,7 @@ object L_SeminarFRM: TL_SeminarFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Prior'
+            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 1
@@ -941,7 +944,7 @@ object L_SeminarFRM: TL_SeminarFRM
       object Grid1: TwwDBGrid
         Left = 0
         Top = 33
-        Width = 1006
+        Width = 1032
         Height = 323
         ControlType.Strings = (
           'SEMINAR_CORP_TYPE;CustomEdit;wwDBComboBox1;F'
@@ -950,12 +953,12 @@ object L_SeminarFRM: TL_SeminarFRM
         Selected.Strings = (
           'SERIAL_NUMBER'#9'5'#9'A/A'
           'ANAD_NUMBER'#9'9'#9#913#925#913#916' '
-          'SEMINAR_NAME'#9'58'#9#928#949#961#953#947#961#945#966#942
           'SPECIFICATION_NUMBER'#9'10'#9#913#957#945#966#959#961#940
+          'SEMINAR_NAME'#9'58'#9#928#949#961#953#947#961#945#966#942
+          'LAST_NAME'#9'11'#9#917#964#945#953#961#949#943#945
+          'TYPE_MONO_POLY'#9'4'#9#917#960#967
           'SEM_CATEGORY'#9'10'#9#932#973#960#959#962
           'STATUS'#9'8'#9#931#964#940#948#953#959
-          'TYPE_MONO_POLY'#9'4'#9#917#960#967
-          'LAST_NAME'#9'11'#9#917#964#945#953#961#949#943#945
           'DATE_STARTED'#9'11'#9#904#957#945#961#958#951
           'DATE_COMPLETED'#9'11'#9#932#941#955#959#962
           'DURATION_HOURS'#9'6'#9#911#961#949#962)
@@ -1141,17 +1144,33 @@ object L_SeminarFRM: TL_SeminarFRM
       FixedChar = True
       Size = 30
     end
+    object TableSQLSPECIFICATION_NUMBER: TWideStringField
+      DisplayLabel = #913#957#945#966#959#961#940
+      DisplayWidth = 10
+      FieldName = 'SPECIFICATION_NUMBER'
+      Size = 10
+    end
     object TableSQLSEMINAR_NAME: TWideStringField
       DisplayLabel = #928#949#961#953#947#961#945#966#942
       DisplayWidth = 58
       FieldName = 'SEMINAR_NAME'
       Size = 160
     end
-    object TableSQLSPECIFICATION_NUMBER: TWideStringField
-      DisplayLabel = #913#957#945#966#959#961#940
-      DisplayWidth = 10
-      FieldName = 'SPECIFICATION_NUMBER'
-      Size = 10
+    object TableSQLLAST_NAME: TWideStringField
+      DisplayLabel = #917#964#945#953#961#949#943#945
+      DisplayWidth = 11
+      FieldName = 'LAST_NAME'
+      ReadOnly = True
+      FixedChar = True
+      Size = 30
+    end
+    object TableSQLTYPE_MONO_POLY: TWideStringField
+      DisplayLabel = #917#960#967
+      DisplayWidth = 4
+      FieldName = 'TYPE_MONO_POLY'
+      Required = True
+      FixedChar = True
+      Size = 1
     end
     object TableSQLSEM_CATEGORY: TWideStringField
       DisplayLabel = #932#973#960#959#962
@@ -1167,22 +1186,6 @@ object L_SeminarFRM: TL_SeminarFRM
       FieldName = 'STATUS'
       FixedChar = True
       Size = 1
-    end
-    object TableSQLTYPE_MONO_POLY: TWideStringField
-      DisplayLabel = #917#960#967
-      DisplayWidth = 4
-      FieldName = 'TYPE_MONO_POLY'
-      Required = True
-      FixedChar = True
-      Size = 1
-    end
-    object TableSQLLAST_NAME: TWideStringField
-      DisplayLabel = #917#964#945#953#961#949#943#945
-      DisplayWidth = 11
-      FieldName = 'LAST_NAME'
-      ReadOnly = True
-      FixedChar = True
-      Size = 30
     end
     object TableSQLDATE_STARTED: TDateField
       DisplayLabel = #904#957#945#961#958#951

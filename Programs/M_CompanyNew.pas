@@ -95,7 +95,21 @@ type
     RzDBLabel1: TRzDBLabel;
     Label6: TLabel;
     wwDBEdit3: TwwDBEdit;
-    SafeFLD: TwwCheckBox;
+    IncludedPersonsSQLSERIAL_NUMBER: TIntegerField;
+    IncludedPersonsSQLFIRST_NAME: TWideStringField;
+    IncludedPersonsSQLLAST_NAME: TWideStringField;
+    IncludedPersonsSQLNATIONAL_ID: TWideStringField;
+    IncludedPersonsSQLPHONE_MOBILE: TWideStringField;
+    IncludedPersonsSQLCOMP_NAME: TWideStringField;
+    IncludedPersonsSQLCOMP_SERIAL: TIntegerField;
+    IncludedPersonsSQLCOMP_REG: TWideStringField;
+    ExcludedPersonsSQLSERIAL_NUMBER: TIntegerField;
+    ExcludedPersonsSQLLAST_NAME: TWideStringField;
+    ExcludedPersonsSQLFIRST_NAME: TWideStringField;
+    ExcludedPersonsSQLNATIONAL_ID: TWideStringField;
+    ExcludedPersonsSQLPHONE_MOBILE: TWideStringField;
+    Label7: TLabel;
+    wwDBEdit4: TwwDBEdit;
     CompanySQLSERIAL_NUMBER: TIntegerField;
     CompanySQLSERIAL_QB: TIntegerField;
     CompanySQLFK_COMPANY_SERIAL: TIntegerField;
@@ -146,21 +160,7 @@ type
     CompanySQLFIRST_NAME: TWideStringField;
     CompanySQLCOMPANY_CONTACT_LAST: TWideStringField;
     CompanySQLCOMPANY_CONTACT_FIRST: TWideStringField;
-    IncludedPersonsSQLSERIAL_NUMBER: TIntegerField;
-    IncludedPersonsSQLFIRST_NAME: TWideStringField;
-    IncludedPersonsSQLLAST_NAME: TWideStringField;
-    IncludedPersonsSQLNATIONAL_ID: TWideStringField;
-    IncludedPersonsSQLPHONE_MOBILE: TWideStringField;
-    IncludedPersonsSQLCOMP_NAME: TWideStringField;
-    IncludedPersonsSQLCOMP_SERIAL: TIntegerField;
-    IncludedPersonsSQLCOMP_REG: TWideStringField;
-    ExcludedPersonsSQLSERIAL_NUMBER: TIntegerField;
-    ExcludedPersonsSQLLAST_NAME: TWideStringField;
-    ExcludedPersonsSQLFIRST_NAME: TWideStringField;
-    ExcludedPersonsSQLNATIONAL_ID: TWideStringField;
-    ExcludedPersonsSQLPHONE_MOBILE: TWideStringField;
-    Label7: TLabel;
-    wwDBEdit4: TwwDBEdit;
+    SafeFLD: TwwCheckBox;
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);
@@ -281,8 +281,8 @@ begin
   if not box.Modified then    exit;
   if box.Checked then begin
     personSerial:=box.DataSource.DataSet.FieldByName('serial_number').AsInteger;
-    str:='update person per set per.is_safe_company=''N'' where per.serial_number <> :PersonSerial';
-    ksExecSQLVar(cn,str,[PersonSerial])
+    str:='update person per set per.is_safe_company= :No where per.serial_number <> :PersonSerial';
+    ksExecSQLVar(cn,str,['N', PersonSerial])
   end else begin
   end
 

@@ -499,12 +499,7 @@ begin
 
 
   temp:=
-  'select per.last_name as Company_name,sem.* from Seminar sem '
-  +'  left outer join person per'
-  +'  on sem.fk_company_person_serial = per.serial_number'
-  +'  where'
-  +'  sem.type_mono_poly =''M'' and'
-  +'  sem.serial_number = :SeminarSerial' ;
+  'select sem.* from Seminar sem where sem.serial_number = :SeminarSerial' ;
 
   qr:=TksQuery.Create(cn,temp);
   try
@@ -516,7 +511,6 @@ begin
     end;
     SeminarName:=trim(qr.FieldByName('Seminar_name').AsString);
     SeminarYear:= system.DateUtils.YearOf(qr.FieldByName('Date_started').AsDateTime);
-    monoCompanyName:=Trim(qr.FieldByName('Company_name').AsString);
     StartDateStr:=FormatDateTime('dd_mmm_yyyy',qr.FieldByName('date_started').AsDateTime);
     IsPoly:=qr.FieldByName('Type_mono_poly').AsString;
     if isPoly='P' then
@@ -524,14 +518,12 @@ begin
     else if isPoly='M' then
       PolyName:='Mono'
     else PolyName:='';
-
-    MonoCompanySerial:= qr.FieldByName('FK_COMPANY_PERSON_SERIAL').AsInteger;
-
     qr.Close;
-
   finally
     qr.free;
   end;
+
+
 
   temp:= stringreplace(SeminarName, '\', '_', [rfReplaceAll, rfIgnoreCase]);
   temp:= stringreplace(temp, '/', '_', [rfReplaceAll, rfIgnoreCase]);
@@ -553,6 +545,7 @@ begin
   end;
 
 
+
   str2:='Select * from word_docs wd where wd.Poly_mono = :poly and wd.doc_type= :DocType';
   qr:= TksQuery.Create(cn,str2);
   try
@@ -566,36 +559,28 @@ begin
         fileName:=qr.FieldByName('doc_name').AsString;
         IsSendToAll:=qr.FieldByName('Is_send_to_all').AsString;
 
-        if IsSendToAll='N' then begin
+//        if IsSendToAll='N' then begin
           /////////file for the seminar
-          fname:= SeminarFolder+'\'+fileName+'.docM';
-          fTextName:=SeminarFolder+'\'+fileName+'.csv';
-          CopyaFile(DocSerial,fName);
-          CreateTextFile(seminarSerial,MonoCompanySerial,fTextName);
-        end else begin
-         //Will copy this file to each Company (only One company if Mono)
-          if IsPoly='M' then begin
-                //if mono the company is found on seminar (fk_company_serial)
-              Str2:= 'select per.serial_number,per.National_id, per.Last_name from person per where per.serial_number= :PersonSerial';
-          end else begin
-                //if poly the companies are found on seminar_company
+//          fname:= SeminarFolder+'\'+fileName+'.docM';
+//          fTextName:=SeminarFolder+'\'+fileName+'.csv';
+//          CopyaFile(DocSerial,fName);
+//          CreateTextFile(seminarSerial,MonoCompanySerial,fTextName);
+//        end
+
+        if 1=1 then begin
+
           str2:=
           '   select per.serial_number,per.National_id, per.Last_name from'
           +'          seminar_company semC left outer join'
           +'          person per on semc.fk_person_serial = per.serial_number'
           +'  where semC.fk_seminar_serial= :SeminarSerial';
 
-          end;
-
           Compqr:= TksQuery.Create(cn,str2);
           try
             CompQR.close;
-            if (CompQr.FindParam('SeminarSerial')<>nil) then
-              CompQr.ParamByName('SeminarSerial').Value:=SeminarSerial;
-            if (CompQr.FindParam('PersonSerial')<>nil) then
-              CompQr.ParamByName('PersonSerial').Value:=MonoCompanySerial;
-
+            CompQr.ParamByName('SeminarSerial').Value:=SeminarSerial;
             CompQr.open;
+
             while not CompQR.Eof do begin
               CompId:=CompQR.FieldByName('National_id').AsString;
               CompName:=CompQR.FieldByName('Last_name').AsString;
@@ -612,6 +597,7 @@ begin
                       exit;
                     end;
               end;
+
               fname:=UseFOlder+'\'+fileName+Trim(compId)+'_'+'.docM';
               fTextname:=UseFOlder+'\'+fileName+Trim(compId)+'_'+'.csv';
               CopyaFile(DocSerial,fName);
@@ -796,6 +782,11 @@ const
   SemArray :Tarray<String>=['serial_number','ANAD_number', 'national_id', 'seminar_name', 'date_started', 'date_completed', 'duration_days', 'duration_hours'];
   CompanyArray :Tarray<String>=['Last_name','company_owner','company_owner_id','company_social_sec','company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email',
   'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY','PHONE_FIXED','email','website'];
+
+  SafeCompanyArray :Tarray<String>=['Last_name','company_owner','company_owner_id','company_social_sec','company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email',
+  'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY','PHONE_FIXED','email','website'];
+
+
   VenueArray :Tarray<String>=['Venue_Name','Venue_location','ANAD_Number'];
   InstructorArray :Tarray<String>=['first_name','Last_name','national_id','ANAD_Number'];
   CountStudentArray :Tarray<String>=['count_student'];
@@ -805,6 +796,7 @@ var
   FS:TMemoryStream;
   InstructorSerial:Integer;
   VenueSerial:Integer;
+  SafeCompanySerial:integer;
   FieldName:String;
   val:string;
   Writer: TStreamWriter;
@@ -831,9 +823,22 @@ begin
     qr.Free;
   end;
 
+  str := ' select first 1 per.serial_number  from person per where per.is_safe_company = :isSafeCompany ';
+  qr:= TksQuery.Create(cn,str);
+  try
+    qr.ParamByName('IsSafeCompany').Value:='Y';
+    qr.open;
+    SafeCompanySerial:=qr.FieldByName('serial_number').AsInteger;
+  finally
+      qr.Free;
+  end;
+
+
+
  writeTitles('Seminar__', SeminarSQL, SeminarSerial,FileName,SemArray);
  writeTitles('studentCount__', CountStudentSQL, SeminarSerial,FileName,CountStudentArray);
  writeTitles('Company__', CompanySQL, CompSerial,FileName,COmpanyArray);
+ writeTitles('SafeCompany__', CompanySQL, SafeCompanySerial,FileName,SafeCOmpanyArray);
  writeTitles('Venue__', VenueSQL, VenueSerial,FileName,VenueArray);
  writeTitles('Instructor__', InstructorSQL, InstructorSerial,FileName,InstructorArray);
 
@@ -842,16 +847,9 @@ begin
  writeValues('Seminar__',SeminarSQL, SeminarSerial ,FileName,SemArray);
  writeValues('studentCount__', CountStudentSQL, SeminarSerial,FileName,CountStudentArray);
  writeValues('Company__', CompanySQL, CompSerial,FileName,CompanyArray);
+ writeValues('SafeCompany__', CompanySQL, SafeCompanySerial,FileName,SafeCompanyArray);
  writeValues('Venue__',VenueSQL, VenueSerial ,FileName,VenueArray);
  writeValues('Instructor__', InstructorSQL, InstructorSerial,FileName,InstructorArray);
-
-
-
-//  SeminarSQL.Close;
-//  SeminarSQL.ParamByName('SerialNumber').Value:=SeminarSerial;
-//  SeminarSQL.open;
-//  VenueSerial:=SeminarSQL.FieldByName('fk_venue').AsInteger;
-//  InstructorSerial:=SeminarSQL.FieldByName('fk_Instructor').AsInteger;
 
 end;
 
