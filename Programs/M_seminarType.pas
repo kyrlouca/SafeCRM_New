@@ -88,7 +88,7 @@ type
     SeminarTS: TTabSheet;
     SubjectTS: TTabSheet;
     ReminderTS: TTabSheet;
-    CertificationTS: TTabSheet;
+    CertificationOldTS: TTabSheet;
     RzPanel22: TRzPanel;
     RzPanel26: TRzPanel;
     RzPanel27: TRzPanel;
@@ -285,7 +285,7 @@ type
     certificatesHelpRE: TwwDBRichEdit;
     Label27: TLabel;
     wwDBEdit16: TwwDBEdit;
-    TabSheet1: TTabSheet;
+    CertificationTS: TTabSheet;
     RzPanel35: TRzPanel;
     EditTemplateBTN: TRzBitBtn;
     RzBitBtn1: TRzBitBtn;
@@ -302,8 +302,8 @@ type
     procedure SubjectTSShow(Sender: TObject);
     procedure ReminderTSShow(Sender: TObject);
     procedure wwNavButton5Click(Sender: TObject);
-    procedure CertificationTSShow(Sender: TObject);
-    procedure CertificationTSExit(Sender: TObject);
+    procedure CertificationOldTSShow(Sender: TObject);
+    procedure CertificationOldTSExit(Sender: TObject);
     procedure SeminarTypeSQLAfterScroll(DataSet: TDataSet);
     procedure PICTURE_TOP_L1DblClick(Sender: TObject);
     procedure PICTURE_TOP_L1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -601,7 +601,7 @@ begin
   end;
 end;
 
-procedure TM_SeminarTypeFRM.CertificationTSExit(Sender: TObject);
+procedure TM_SeminarTypeFRM.CertificationOldTSExit(Sender: TObject);
 begin
   If SeminarPictureSQL.State in [dsEdit,dsInsert] then begin
     SeminarPictureSQL.Post;
@@ -609,7 +609,7 @@ begin
 
 end;
 
-procedure TM_SeminarTypeFRM.CertificationTSShow(Sender: TObject);
+procedure TM_SeminarTypeFRM.CertificationOldTSShow(Sender: TObject);
 var
   SeminarSerial:Integer;
   Language:String;
@@ -848,6 +848,7 @@ end;
 procedure TM_SeminarTypeFRM.SelectAndSavePictureT(Const SeminarSerial:Integer;Const Language:String; img:TImage);
 begin
 //  SeminarSerial:=SeminarSQL.fieldbyName('serial_number').AsInteger;
+  ksPostTables([SeminarPictureSQL]);
   if SelectPictureT(img) then begin
     SavePictureT(SeminarSerial, img.Name, Language,img);
     ShowPictureT(SeminarSerial,img.Name,Language, img);

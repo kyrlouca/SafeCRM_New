@@ -89,6 +89,7 @@ type
     MonoFLD: TwwDBComboBox;
     TableSQLSPECIFICATION_NUMBER: TWideStringField;
     TableSQLANAD_NUMBER: TWideStringField;
+    MonoPoly: TwwDBComboBox;
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure TableSRCStateChange(Sender: TObject);

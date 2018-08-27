@@ -403,7 +403,7 @@ object L_SeminarFRM: TL_SeminarFRM
     Align = alClient
     TabOrder = 2
     object Panel5: TPanel
-      Left = 1057
+      Left = 1073
       Top = 1
       Width = 201
       Height = 356
@@ -411,6 +411,7 @@ object L_SeminarFRM: TL_SeminarFRM
       BevelOuter = bvNone
       Locked = True
       TabOrder = 1
+      ExplicitLeft = 1057
       object InsertHawbBTN: TRzBitBtn
         Left = 6
         Top = 35
@@ -805,7 +806,7 @@ object L_SeminarFRM: TL_SeminarFRM
     object RzPanel2: TRzPanel
       Left = 25
       Top = 1
-      Width = 1032
+      Width = 1048
       Height = 356
       Align = alLeft
       BorderOuter = fsNone
@@ -813,11 +814,12 @@ object L_SeminarFRM: TL_SeminarFRM
       object RzPanel3: TRzPanel
         Left = 0
         Top = 0
-        Width = 1032
+        Width = 1048
         Height = 33
         Align = alTop
         BorderOuter = fsNone
         TabOrder = 0
+        ExplicitWidth = 1032
         object Nav1: TwwDBNavigator
           Left = 1
           Top = 7
@@ -843,7 +845,6 @@ object L_SeminarFRM: TL_SeminarFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Button'
-            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 0
@@ -860,7 +861,6 @@ object L_SeminarFRM: TL_SeminarFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Prior'
-            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 1
@@ -936,24 +936,25 @@ object L_SeminarFRM: TL_SeminarFRM
       object Grid1: TwwDBGrid
         Left = 0
         Top = 33
-        Width = 1032
+        Width = 1042
         Height = 323
         ControlType.Strings = (
           'SEMINAR_CORP_TYPE;CustomEdit;wwDBComboBox1;F'
           'STATUS;CustomEdit;StatusShowFLD;T'
-          'SEM_CATEGORY;CustomEdit;CategoryShowFLD;F')
+          'SEM_CATEGORY;CustomEdit;CategoryShowFLD;F'
+          'TYPE_MONO_POLY;CustomEdit;MonoPoly;F')
         Selected.Strings = (
-          'SERIAL_NUMBER'#9'5'#9'A/A'
-          'ANAD_NUMBER'#9'9'#9#913#925#913#916' '
-          'SPECIFICATION_NUMBER'#9'10'#9#913#957#945#966#959#961#940
-          'SEMINAR_NAME'#9'58'#9#928#949#961#953#947#961#945#966#942
-          'LAST_NAME'#9'11'#9#917#964#945#953#961#949#943#945
-          'TYPE_MONO_POLY'#9'4'#9#917#960#967
-          'SEM_CATEGORY'#9'10'#9#932#973#960#959#962
-          'STATUS'#9'8'#9#931#964#940#948#953#959
-          'DATE_STARTED'#9'11'#9#904#957#945#961#958#951
-          'DATE_COMPLETED'#9'11'#9#932#941#955#959#962
-          'DURATION_HOURS'#9'6'#9#911#961#949#962)
+          'SERIAL_NUMBER'#9'5'#9'A/A'#9#9
+          'ANAD_NUMBER'#9'9'#9#913#925#913#916' '#9#9
+          'SPECIFICATION_NUMBER'#9'10'#9#913#957#945#966#959#961#940#9#9
+          'SEMINAR_NAME'#9'55'#9#928#949#961#953#947#961#945#966#942#9#9
+          'LAST_NAME'#9'11'#9#917#964#945#953#961#949#943#945#9#9
+          'TYPE_MONO_POLY'#9'7'#9#917#960#967#9#9
+          'SEM_CATEGORY'#9'10'#9#932#973#960#959#962#9#9
+          'STATUS'#9'8'#9#931#964#940#948#953#959#9#9
+          'DATE_STARTED'#9'11'#9#904#957#945#961#958#951#9#9
+          'DATE_COMPLETED'#9'11'#9#932#941#955#959#962#9#9
+          'DURATION_HOURS'#9'6'#9#911#961#949#962#9#9)
         IniAttributes.Delimiter = ';;'
         IniAttributes.UnicodeIniFile = False
         TitleColor = clBtnFace
@@ -983,8 +984,8 @@ object L_SeminarFRM: TL_SeminarFRM
         OnTitleButtonClick = Grid1TitleButtonClick
         OnDblClick = Grid1DblClick
         object StatusShowFLD: TwwDBComboBox
-          Left = 304
-          Top = 176
+          Left = 274
+          Top = 136
           Width = 52
           Height = 17
           ShowButton = False
@@ -1018,6 +1019,29 @@ object L_SeminarFRM: TL_SeminarFRM
           ItemHeight = 0
           Sorted = False
           TabOrder = 1
+          UnboundDataType = wwDefault
+        end
+        object MonoPoly: TwwDBComboBox
+          Left = 704
+          Top = 152
+          Width = 70
+          Height = 22
+          ShowButton = False
+          Style = csDropDown
+          MapList = True
+          AllowClearKey = False
+          ButtonStyle = cbsCustom
+          DataField = 'TYPE_MONO_POLY'
+          DataSource = TableSRC
+          DisableDropDownList = True
+          DropDownCount = 8
+          ItemHeight = 0
+          Items.Strings = (
+            #924#959#957#959#9'M'
+            #928#959#955#965#9'P')
+          ItemIndex = 0
+          Sorted = False
+          TabOrder = 2
           UnboundDataType = wwDefault
         end
       end
@@ -1144,7 +1168,7 @@ object L_SeminarFRM: TL_SeminarFRM
     end
     object TableSQLSEMINAR_NAME: TWideStringField
       DisplayLabel = #928#949#961#953#947#961#945#966#942
-      DisplayWidth = 58
+      DisplayWidth = 55
       FieldName = 'SEMINAR_NAME'
       Size = 160
     end
@@ -1158,7 +1182,7 @@ object L_SeminarFRM: TL_SeminarFRM
     end
     object TableSQLTYPE_MONO_POLY: TWideStringField
       DisplayLabel = #917#960#967
-      DisplayWidth = 4
+      DisplayWidth = 7
       FieldName = 'TYPE_MONO_POLY'
       Required = True
       FixedChar = True

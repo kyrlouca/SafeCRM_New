@@ -117,7 +117,7 @@ object V_SeminarFRM: TV_SeminarFRM
       Width = 1073
       Height = 611
       Margins.Left = 30
-      ActivePage = SubjectTS
+      ActivePage = SeminarTS
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -138,7 +138,6 @@ object V_SeminarFRM: TV_SeminarFRM
           Align = alClient
           BorderOuter = fsNone
           TabOrder = 0
-          ExplicitTop = 24
           object FirstGRP: TRzGroupBox
             Left = 20
             Top = 24
@@ -3414,7 +3413,7 @@ object V_SeminarFRM: TV_SeminarFRM
     Left = 210
     Top = 101
     Bitmap = {
-      494C010110008800A80310001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010110008800AC0310001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4219,8 +4218,8 @@ object V_SeminarFRM: TV_SeminarFRM
   end
   object AttendingSRC: TDataSource
     DataSet = AttendingSQL
-    Left = 56
-    Top = 137
+    Left = 48
+    Top = 121
   end
   object NonAttendSQL: TIBCQuery
     UpdatingTable = 'person'
