@@ -7319,6 +7319,7 @@ object M_mainFRM: TM_mainFRM
       Height = 25
       Caption = 'Button1'
       TabOrder = 1
+      Visible = False
       OnClick = Button1Click
     end
     object Button2: TButton

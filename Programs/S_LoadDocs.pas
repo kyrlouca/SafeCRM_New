@@ -548,7 +548,7 @@ begin
               fTextname:=CheckFileLength(fTextName);
               CreateTextFile(SeminarSerial,CompSerial,fTextName);
 
-              fname:=UseFOlder+'\'+'StudentsFile.xls';
+              fname:=UseFOlder+'\'+'StudentsFile.csv';
               CreateStudentFile(SeminarSerial,compSerial,fname);
 
               compQR.Next;
