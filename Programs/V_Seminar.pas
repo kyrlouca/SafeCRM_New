@@ -1239,7 +1239,7 @@ begin
 
   if not allowToModify() then
   begin
-    ShowMessage('Cannot Modify');
+//    ShowMessage('Cannot Modify');
     exit;
   end;
 

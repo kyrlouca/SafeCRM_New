@@ -64,6 +64,9 @@ type
     Nav1Delete: TwwNavButton;
     Nav1Post: TwwNavButton;
     Nav1Cancel: TwwNavButton;
+    Label10: TLabel;
+    wwDBEdit3: TwwDBEdit;
+    TableSQLDISTRICT: TWideStringField;
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure TableSRCStateChange(Sender: TObject);

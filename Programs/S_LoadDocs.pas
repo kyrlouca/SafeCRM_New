@@ -67,13 +67,10 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
-    Label10: TLabel;
     RzDBLabel2: TRzDBLabel;
-    Label11: TLabel;
     wwDBEdit1: TwwDBEdit;
     RzBitBtn2: TRzBitBtn;
     Button3: TButton;
-    wwCheckBox3: TwwCheckBox;
     wwCheckBox4: TwwCheckBox;
     wwButton2: TwwButton;
     RzPanel6: TRzPanel;
@@ -115,6 +112,7 @@ type
   procedure writeValues(Const Prefix:string; Const TableSQL:String; Const Serial :Integer; Const FileName :String;Const fieldArray: Array of String);
   procedure writeTitles(Const Prefix:String; Const TableSQL:String; Const Serial :Integer; Const FileName :String;Const fieldArray: Array of String);
   procedure CreateStudentFile( Const SeminarSerial :Integer; Const CompanySerial:Integer; Const FileName :String);
+  function CheckFileLength(const filename:string):String;
 
   public
     { Public declarations }
@@ -200,43 +198,6 @@ function TS_LoadDocsFRM.FindHex(const FileName:String): Integer;
 begin
 end;
 
-{
-function TS_LoadDocsFRM.PosHex(const SubStr: AnsiString; const StrStream: TMemoryStream): Integer;
-var
-  SubLen, SrcLen, Len, I, J: Integer;
-
-  C1: AnsiChar;
-  Str: PAnsiChar;
-begin
-  SrcLen := StrStream.Size;
-  SubLen := Length(SubStr);
-
-  Result := 0;
-  if (SubLen <= 0) or (SrcLen <= 0) or (SrcLen < SubLen) then Exit;
-
-  StrStream.Position := 0;
-  Str := StrStream.Memory;
-
-  Len := SrcLen - SubLen + 1;
-  C1 := SubStr[1];
-  for I := 1 to Len do
-  begin
-    if Str[I] = C1 then
-    begin
-      Result := I;
-      for J := 1 to SubLen-1 do
-      begin
-        if Str[I+J] <> SubStr[1+J] then
-        begin
-          Result := 0;
-          break;
-        end;
-      end;
-      if Result <> 0 then Exit;
-    end;
-  end;
-end;
-}
 
 procedure TS_LoadDocsFRM.CopyaFile(Const DocSerial:Integer;Const FileName :String);
 var
@@ -351,23 +312,6 @@ begin
      qr.Free;
   end;
 
-
-{
-   fs := TFileStream.Create('filename', fmOpenRead);
-IBCQuery.Open;
-IBCQuery.Edit;
-TBlobField(IBCQuery.FieldByName('blobfieldname')).LoadFromStream(fs);
-IBCQuery.Post;
-fs.Free;
-}
-
-{
-IBCQuery.Open;
-IBCQuery.Edit;
-TBlobField(IBCQuery.FieldByName('blobfieldname')).LoadFromFile('filename');
-IBCQuery.Post;
-}
-
 end;
 
 
@@ -385,7 +329,11 @@ var
   codeKey:String;
   SerialNumber:Integer;
 begin
-  if TableSQL.State in [dsEdit,dsInsert] then
+  if tableSQL.state <> dsInsert then begin
+    exit;
+  end;
+
+  if TableSQL.State in [dsEdit] then
     TableSQL.Post;
 
   if not FileDialog1.Execute then     begin
@@ -486,14 +434,11 @@ SeminarYear:Integer;
 begin
 
   //for every document
-  // if is sent_to_all is N then just one document to the seminar folder
-  // otherwise one for each company (but there is only one if is mono)
   param:=  gpGetGeneralParam(cn,'T00');
   baseFOlder:=Trim(param.P_String3);
 
   if not DirectoryExists(baseFOlder) then begin
       ShowMessage('Base Directory does NOT EXISTS: '+BaseFolder);
-//      result:=false;
       exit;
   end;
 
@@ -528,6 +473,7 @@ begin
   temp:= stringreplace(SeminarName, '\', '_', [rfReplaceAll, rfIgnoreCase]);
   temp:= stringreplace(temp, '/', '_', [rfReplaceAll, rfIgnoreCase]);
   temp:= stringreplace(temp, '.', '_', [rfReplaceAll, rfIgnoreCase]);
+  temp:= stringreplace(temp, '&', '_', [rfReplaceAll, rfIgnoreCase]);
 
   SeminarFolder:=baseFOlder+'\'+IntToStr(SeminarYear)+'_'+PolyName+'__'+temp+
   '__'+MonoCompanyName+'_'+StartDateStr+'_'+IntToStr(SeminarSerial);
@@ -557,15 +503,8 @@ begin
       //for every document
         DocSerial:=qr.FieldByName('SERIAL_NUMBER').AsInteger;
         fileName:=qr.FieldByName('doc_name').AsString;
-        IsSendToAll:=qr.FieldByName('Is_send_to_all').AsString;
 
-//        if IsSendToAll='N' then begin
-          /////////file for the seminar
-//          fname:= SeminarFolder+'\'+fileName+'.docM';
-//          fTextName:=SeminarFolder+'\'+fileName+'.csv';
-//          CopyaFile(DocSerial,fName);
-//          CreateTextFile(seminarSerial,MonoCompanySerial,fTextName);
-//        end
+        IsSendToAll:=qr.FieldByName('Is_send_to_all').AsString;
 
         if 1=1 then begin
 
@@ -598,9 +537,15 @@ begin
                     end;
               end;
 
+
+
+
               fname:=UseFOlder+'\'+fileName+Trim(compId)+'_'+'.docM';
-              fTextname:=UseFOlder+'\'+fileName+Trim(compId)+'_'+'.csv';
+              fname:=CheckFileLength(fname);
               CopyaFile(DocSerial,fName);
+
+              fTextname:=UseFOlder+'\'+fileName+Trim(compId)+'_'+'.csv';
+              fTextname:=CheckFileLength(fTextName);
               CreateTextFile(SeminarSerial,CompSerial,fTextName);
 
               fname:=UseFOlder+'\'+'StudentsFile.xls';
@@ -775,11 +720,11 @@ const
   SeminarSQL = 'select * from seminar where serial_number = :Serial';
   CompanySQl = 'select * from Person where serial_number = :Serial';
   VenueSQl = 'select * from Venue where serial_number = :Serial';
-  InstructorSQl = 'select * from Person where serial_number = :Serial';
+  InstructorSQl = 'select * from instructor where serial_number = :Serial';
   CountStudentSQL = 'select count(sp.fk_person_serial) as count_student from seminar_person sp where sp.is_guest=''N'' and sp.fk_seminar_serial = :Serial';
 //  DaysSQL =
 
-  SemArray :Tarray<String>=['serial_number','ANAD_number', 'national_id', 'seminar_name', 'date_started', 'date_completed', 'duration_days', 'duration_hours'];
+  SemArray :Tarray<String>=['serial_number','ANAD_number','SPECIFICATION_NUMBER', 'national_id', 'seminar_name', 'date_started', 'date_completed', 'duration_days', 'duration_hours'];
   CompanyArray :Tarray<String>=['Last_name','company_owner','company_owner_id','company_social_sec','company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email',
   'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY','PHONE_FIXED','email','website'];
 
@@ -787,8 +732,8 @@ const
   'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY','PHONE_FIXED','email','website'];
 
 
-  VenueArray :Tarray<String>=['Venue_Name','Venue_location','ANAD_Number'];
-  InstructorArray :Tarray<String>=['first_name','Last_name','national_id','ANAD_Number'];
+  VenueArray :Tarray<String>=['Venue_Name','Venue_location','ROOM_NAME','ANAD_Number','DISTRICT'];
+  InstructorArray :Tarray<String>=['first_name','Last_name','national_id','PHONE_FIXED','ANAD_NUMBER'];
   CountStudentArray :Tarray<String>=['count_student'];
 var
   str2:String;
@@ -1008,4 +953,23 @@ End Function
 
 
 }
+
+function TS_LoadDocsFRM.CheckFileLength(const filename:string):String;
+const
+  MAX_Length=245;
+var
+  pName:String;
+begin
+  result:=fileName;
+
+  pName := ExtractFileDir(fileName) +'\'+tpath.GetFileNameWithoutExtension(filename);
+  if Length(pname)>MAX_LENGTH then begin
+    pname:=copy(pName,1,MAX_LENGTH);
+    result:=pname+tpath.GetExtension(filename);
+  end;
+
+//  showMessage(intToStr(length(result)));
+end;
+
 End.
+

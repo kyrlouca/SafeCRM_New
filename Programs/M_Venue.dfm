@@ -518,7 +518,7 @@ object M_venuFRM: TM_venuFRM
         end
         object Label1: TLabel
           Left = 61
-          Top = 225
+          Top = 255
           Width = 35
           Height = 14
           Caption = #931#967#972#955#953#945
@@ -531,7 +531,7 @@ object M_venuFRM: TM_venuFRM
         end
         object Label5: TLabel
           Left = 39
-          Top = 153
+          Top = 183
           Width = 57
           Height = 14
           Caption = #932#959#960#959#952#949#963#943#945
@@ -555,7 +555,7 @@ object M_venuFRM: TM_venuFRM
         end
         object Label8: TLabel
           Left = 22
-          Top = 175
+          Top = 205
           Width = 74
           Height = 14
           Caption = #919#956#949#961'. '#922#972#963#964#959#962
@@ -568,7 +568,7 @@ object M_venuFRM: TM_venuFRM
         end
         object Label9: TLabel
           Left = 20
-          Top = 200
+          Top = 230
           Width = 76
           Height = 14
           Caption = #935#969#961#951#964#953#954#972#964#951#964#945
@@ -605,6 +605,19 @@ object M_venuFRM: TM_venuFRM
           Font.Style = []
           ParentFont = False
         end
+        object Label10: TLabel
+          Left = 53
+          Top = 156
+          Width = 43
+          Height = 14
+          Caption = #917#960#945#961#967#943#945
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
         object FirstFLD: TwwDBEdit
           Left = 102
           Top = 70
@@ -619,48 +632,48 @@ object M_venuFRM: TM_venuFRM
         end
         object wwDBEdit1: TwwDBEdit
           Left = 102
-          Top = 148
+          Top = 178
           Width = 256
           Height = 22
           DataField = 'VENUE_LOCATION'
-          DataSource = TableSRC
-          TabOrder = 3
-          UnboundDataType = wwDefault
-          WantReturns = False
-          WordWrap = False
-        end
-        object wwDBEdit2: TwwDBEdit
-          Left = 102
-          Top = 172
-          Width = 67
-          Height = 22
-          DataField = 'VENUE_COST'
           DataSource = TableSRC
           TabOrder = 4
           UnboundDataType = wwDefault
           WantReturns = False
           WordWrap = False
         end
-        object wwDBEdit5: TwwDBEdit
+        object wwDBEdit2: TwwDBEdit
           Left = 102
-          Top = 197
+          Top = 202
           Width = 67
           Height = 22
-          DataField = 'VENUE_CAPACITY'
+          DataField = 'VENUE_COST'
           DataSource = TableSRC
           TabOrder = 5
           UnboundDataType = wwDefault
           WantReturns = False
           WordWrap = False
         end
+        object wwDBEdit5: TwwDBEdit
+          Left = 102
+          Top = 227
+          Width = 67
+          Height = 22
+          DataField = 'VENUE_CAPACITY'
+          DataSource = TableSRC
+          TabOrder = 6
+          UnboundDataType = wwDefault
+          WantReturns = False
+          WordWrap = False
+        end
         object wwDBEdit6: TwwDBEdit
           Left = 102
-          Top = 222
+          Top = 252
           Width = 256
           Height = 22
           DataField = 'COMMENTS'
           DataSource = TableSRC
-          TabOrder = 6
+          TabOrder = 7
           UnboundDataType = wwDefault
           WantReturns = False
           WordWrap = False
@@ -685,6 +698,18 @@ object M_venuFRM: TM_venuFRM
           DataField = 'ROOM_NAME'
           DataSource = TableSRC
           TabOrder = 2
+          UnboundDataType = wwDefault
+          WantReturns = False
+          WordWrap = False
+        end
+        object wwDBEdit3: TwwDBEdit
+          Left = 102
+          Top = 153
+          Width = 256
+          Height = 22
+          DataField = 'DISTRICT'
+          DataSource = TableSRC
+          TabOrder = 3
           UnboundDataType = wwDefault
           WantReturns = False
           WordWrap = False
@@ -745,8 +770,6 @@ object M_venuFRM: TM_venuFRM
         TitleLines = 1
         TitleButtons = True
         OnTitleButtonClick = Grid1TitleButtonClick
-        ExplicitLeft = 6
-        ExplicitTop = 15
       end
     end
     object RzPanel5: TRzPanel
@@ -772,11 +795,11 @@ object M_venuFRM: TM_venuFRM
       'INSERT INTO VENUE'
       
         '  (SERIAL_NUMBER, VENUE_NAME, VENUE_LOCATION, VENUE_CAPACITY, VE' +
-        'NUE_COST, COMMENTS, ANAD_NUMBER, ROOM_NAME)'
+        'NUE_COST, COMMENTS, ANAD_NUMBER, ROOM_NAME, DISTRICT)'
       'VALUES'
       
         '  (:SERIAL_NUMBER, :VENUE_NAME, :VENUE_LOCATION, :VENUE_CAPACITY' +
-        ', :VENUE_COST, :COMMENTS, :ANAD_NUMBER, :ROOM_NAME)')
+        ', :VENUE_COST, :COMMENTS, :ANAD_NUMBER, :ROOM_NAME, :DISTRICT)')
     SQLDelete.Strings = (
       'DELETE FROM VENUE'
       'WHERE'
@@ -788,13 +811,14 @@ object M_venuFRM: TM_venuFRM
         '  SERIAL_NUMBER = :SERIAL_NUMBER, VENUE_NAME = :VENUE_NAME, VENU' +
         'E_LOCATION = :VENUE_LOCATION, VENUE_CAPACITY = :VENUE_CAPACITY, ' +
         'VENUE_COST = :VENUE_COST, COMMENTS = :COMMENTS, ANAD_NUMBER = :A' +
-        'NAD_NUMBER, ROOM_NAME = :ROOM_NAME'
+        'NAD_NUMBER, ROOM_NAME = :ROOM_NAME, DISTRICT = :DISTRICT'
       'WHERE'
       '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
     SQLRefresh.Strings = (
       
         'SELECT SERIAL_NUMBER, VENUE_NAME, VENUE_LOCATION, VENUE_CAPACITY' +
-        ', VENUE_COST, COMMENTS, ANAD_NUMBER, ROOM_NAME FROM VENUE'
+        ', VENUE_COST, COMMENTS, ANAD_NUMBER, ROOM_NAME, DISTRICT FROM VE' +
+        'NUE'
       'WHERE'
       '  SERIAL_NUMBER = :SERIAL_NUMBER')
     SQLLock.Strings = (
@@ -817,7 +841,6 @@ object M_venuFRM: TM_venuFRM
       'venue'
       'order by Venue_name')
     Active = True
-    Constraints = <>
     AfterInsert = TableSQLAfterInsert
     Left = 49
     Top = 5
@@ -866,6 +889,11 @@ object M_venuFRM: TM_venuFRM
     end
     object TableSQLCOMMENTS: TWideStringField
       FieldName = 'COMMENTS'
+      Visible = False
+      Size = 160
+    end
+    object TableSQLDISTRICT: TWideStringField
+      FieldName = 'DISTRICT'
       Visible = False
       Size = 160
     end

@@ -117,7 +117,7 @@ object V_SeminarFRM: TV_SeminarFRM
       Width = 1073
       Height = 611
       Margins.Left = 30
-      ActivePage = SeminarTS
+      ActivePage = SubjectTS
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -138,6 +138,7 @@ object V_SeminarFRM: TV_SeminarFRM
           Align = alClient
           BorderOuter = fsNone
           TabOrder = 0
+          ExplicitTop = 24
           object FirstGRP: TRzGroupBox
             Left = 20
             Top = 24
@@ -3413,7 +3414,7 @@ object V_SeminarFRM: TV_SeminarFRM
     Left = 210
     Top = 101
     Bitmap = {
-      494C010110008800A00310001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010110008800A80310001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4145,8 +4146,8 @@ object V_SeminarFRM: TV_SeminarFRM
     DetailFields = 'FK_SEMINAR_SERIAL'
     MasterSource = SeminarSRC
     Active = True
-    Left = 90
-    Top = 145
+    Left = 114
+    Top = 113
     ParamData = <
       item
         DataType = ftInteger
@@ -5027,8 +5028,8 @@ object V_SeminarFRM: TV_SeminarFRM
     SQL.Strings = (
       'select * from instructor where status_active= '#39'Y'#39)
     ReadOnly = True
-    Left = 683
-    Top = 242
+    Left = 619
+    Top = 106
     object instructorSelectSQLLAST_NAME: TWideStringField
       DisplayLabel = #917#960#943#952#949#964#959
       DisplayWidth = 12
@@ -5227,8 +5228,8 @@ object V_SeminarFRM: TV_SeminarFRM
     SQL.Strings = (
       'select * from instructor where status_active= '#39'Y'#39)
     ReadOnly = True
-    Left = 539
-    Top = 186
+    Left = 379
+    Top = 178
     object WideStringField1: TWideStringField
       DisplayLabel = #917#960#943#952#949#964#959
       DisplayWidth = 12

@@ -405,7 +405,6 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
         Color = clBtnFace
         DitherColor = clWhite
         DitherStyle = wwdsDither
-        NumGlyphs = 0
         ShadeStyle = wwbsNormal
         TabOrder = 1
         TextOptions.Alignment = taCenter
@@ -726,19 +725,6 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
           Font.Style = []
           ParentFont = False
         end
-        object Label10: TLabel
-          Left = 5
-          Top = 98
-          Width = 70
-          Height = 14
-          Caption = #931#964#953#962' '#917#964#945#953#961#949#943#949#962
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
         object RzDBLabel2: TRzDBLabel
           Left = 80
           Top = 23
@@ -754,21 +740,6 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
           BorderOuter = fsFlat
           DataField = 'SERIAL_NUMBER'
           DataSource = TableSRC
-        end
-        object Label11: TLabel
-          Left = 116
-          Top = 101
-          Width = 358
-          Height = 14
-          Caption = 
-            '*'#963#949' '#954#940#952#949' '#949#964#945#953#961#949#943#945' '#960#959#965' '#963#965#956#956#949#964#941#967#949#953' ('#924#953#945' '#945#957' '#949#943#957#945#953' '#924#959#957#959'-'#917#960#953#967#949#953#961#953#963#953#945#954 +
-            #972')'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
         end
         object wwDBEdit1: TwwDBEdit
           Left = 81
@@ -807,7 +778,7 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
           Font.Style = []
           ParentDoubleBuffered = False
           ParentFont = False
-          TabOrder = 2
+          TabOrder = 1
           OnClick = SavetoDBClick
           Glyph.Data = {
             F6060000424DF606000000000000360000002800000018000000180000000100
@@ -869,32 +840,14 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
           Margin = -1
         end
         object Button3: TButton
-          Left = 267
-          Top = 167
+          Left = 259
+          Top = 136
           Width = 137
           Height = 25
           Caption = 'Write to File'
-          TabOrder = 3
+          TabOrder = 2
           Visible = False
           OnClick = Button1Click
-        end
-        object wwCheckBox3: TwwCheckBox
-          AlignWithMargins = True
-          Left = 81
-          Top = 101
-          Width = 29
-          Height = 17
-          DisableThemes = False
-          AlwaysTransparent = False
-          ValueChecked = 'Y'
-          ValueUnchecked = 'N'
-          DisplayValueChecked = 'Y'
-          DisplayValueUnchecked = 'N'
-          NullAndBlankState = cbUnchecked
-          DataField = 'IS_SEND_TO_ALL'
-          DataSource = TableSRC
-          ShowText = False
-          TabOrder = 1
         end
         object wwCheckBox4: TwwCheckBox
           AlignWithMargins = True
@@ -912,7 +865,7 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
           DataField = 'POLY_MONO'
           DataSource = TableSRC
           ShowText = False
-          TabOrder = 4
+          TabOrder = 3
         end
       end
       object wwButton2: TwwButton
@@ -924,6 +877,7 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
         Color = clBtnFace
         DitherColor = clWhite
         DitherStyle = wwdsDither
+        NumGlyphs = 0
         ShadeStyle = wwbsNormal
         TabOrder = 1
         TextOptions.Alignment = taCenter

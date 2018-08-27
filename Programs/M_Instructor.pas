@@ -73,7 +73,6 @@ type
     Label16: TLabel;
     wwDBEdit13: TwwDBEdit;
     Label17: TLabel;
-    TableSQLANAD_NUMBER: TWideStringField;
     Panel6: TRzPanel;
     Nav1: TwwDBNavigator;
     Nav1Button: TwwNavButton;
@@ -104,6 +103,7 @@ type
     wwDBEdit5: TwwDBEdit;
     wwDBEdit6: TwwDBEdit;
     Grid1: TwwDBGrid;
+    TableSQLANAD_NUMBER: TWideStringField;
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);

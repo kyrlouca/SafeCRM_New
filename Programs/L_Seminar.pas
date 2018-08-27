@@ -121,6 +121,8 @@ type
     cn:TIBCConnection;
     procedure EditSeminar();
     procedure DeleteSeminar();
+    procedure FilterSeminars;
+
   procedure  InsertSeminar();
   public
     { Public declarations }
@@ -230,20 +232,45 @@ begin
   end;
 end;
 
+procedure TL_SeminarFRM.FilterSeminars;
+begin
+  TableSQL.close;
+  TableSQL.RestoreSQL;
+  if statusFLD.Value>'' then begin
+      TableSQL.AddWhere('sem.status = :status');
+      TableSQL.ParamByName('status').Value:=StatusFLD.Value;
+  end;
+
+  if (MonoFLD.Value>'') And (MonoFLD.Value <>'A') then begin
+      TableSQL.AddWhere('sem.type_mono_poly = :mono');
+      TableSQL.ParamByName('mono').Value:=MonoFLD.Value;
+  end;
+
+  if CategoryFLD.Value>'' then begin
+      TableSQL.AddWhere('sem.sem_category = :cat');
+      TableSQL.ParamByName('cat').Value:=CategoryFLD.Value;
+
+  end;
+  TableSQL.Open;
+
+end;
+
+
 procedure TL_SeminarFRM.StatusFLDCloseUp(Sender: TwwDBComboBox;
   Select: Boolean);
 var
   val:string;
 begin
 if not select then exit;
-  TableSQL.close;
-  TableSQL.RestoreSQL;
-    if Sender.Value>'' then begin
-      TableSQL.AddWhere('sem.status = :status');
-      TableSQL.ParamByName('status').Value:=Sender.Value;
-
-    end;
-  TableSQL.Open;
+FilterSeminars();
+//  TableSQL.close;
+//  TableSQL.RestoreSQL;
+//    if Sender.Value>'' then begin
+//      TableSQL.AddWhere('sem.status = :status');
+//      TableSQL.ParamByName('status').Value:=Sender.Value;
+//
+//    end;
+//  TableSQL.Open;
 
 end;
 
@@ -438,13 +465,14 @@ var
   val:string;
 begin
 if not select then exit;
-  TableSQL.close;
-  TableSQL.RestoreSQL;
-    if (Sender.Value>'') And (sender.Value <>'A') then begin
-      TableSQL.AddWhere('sem.type_mono_poly = :mono');
-      TableSQL.ParamByName('mono').Value:=Sender.Value;
-    end;
-  TableSQL.Open;
+FIlterSeminars();
+//  TableSQL.close;
+//  TableSQL.RestoreSQL;
+//    if (Sender.Value>'') And (sender.Value <>'A') then begin
+//      TableSQL.AddWhere('sem.type_mono_poly = :mono');
+//      TableSQL.ParamByName('mono').Value:=Sender.Value;
+//    end;
+//  TableSQL.Open;
 end;
 
 procedure TL_SeminarFRM.N1Click(Sender: TObject);
@@ -541,14 +569,15 @@ var
   val:string;
 begin
 if not select then exit;
-  TableSQL.close;
-  TableSQL.RestoreSQL;
-    if Sender.Value>'' then begin
-      TableSQL.AddWhere('sem.sem_category = :cat');
-      TableSQL.ParamByName('cat').Value:=Sender.Value;
-
-    end;
-  TableSQL.Open;
+FIlterSeminars();
+//  TableSQL.close;
+//  TableSQL.RestoreSQL;
+//    if Sender.Value>'' then begin
+//      TableSQL.AddWhere('sem.sem_category = :cat');
+//      TableSQL.ParamByName('cat').Value:=Sender.Value;
+//
+//    end;
+//  TableSQL.Open;
 
 end;
 

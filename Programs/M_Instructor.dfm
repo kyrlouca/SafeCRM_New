@@ -520,8 +520,10 @@ object M_InstructorFRM: TM_InstructorFRM
           NullAndBlankState = cbUnchecked
           Alignment = taLeftJustify
           Caption = #917#957#949#961#947#972#962
+          Checked = True
           DataField = 'STATUS_ACTIVE'
           DataSource = TableSRC
+          State = cbChecked
           TabOrder = 6
         end
         object wwDBEdit1: TwwDBEdit
@@ -573,9 +575,11 @@ object M_InstructorFRM: TM_InstructorFRM
           DisplayValueUnchecked = 'N'
           NullAndBlankState = cbUnchecked
           Caption = #913#925#913#916
+          Checked = True
           DataField = 'CERTIFIED_ANAD'
           DataSource = TableSRC
           ShowText = False
+          State = cbChecked
           TabOrder = 0
         end
         object wwDBEdit13: TwwDBEdit
@@ -1116,14 +1120,6 @@ object M_InstructorFRM: TM_InstructorFRM
       FixedChar = True
       Size = 15
     end
-    object TableSQLANAD_NUMBER: TWideStringField
-      DisplayLabel = #913#961'. '#913#925#913#916
-      DisplayWidth = 10
-      FieldName = 'ANAD_NUMBER'
-      Visible = False
-      FixedChar = True
-      Size = 30
-    end
     object TableSQLPHONE_FIXED: TWideStringField
       DisplayLabel = #932#951#955'. '#931#964#945#952#949#961#972
       DisplayWidth = 12
@@ -1252,6 +1248,12 @@ object M_InstructorFRM: TM_InstructorFRM
       FieldName = 'JOB_TITLE'
       Visible = False
       Size = 160
+    end
+    object TableSQLANAD_NUMBER: TWideStringField
+      FieldName = 'ANAD_NUMBER'
+      Visible = False
+      FixedChar = True
+      Size = 30
     end
   end
 end

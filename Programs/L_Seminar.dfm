@@ -33,7 +33,6 @@ object L_SeminarFRM: TL_SeminarFRM
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 1138
     object Label4: TRzLabel
       AlignWithMargins = True
       Left = 4
@@ -62,7 +61,6 @@ object L_SeminarFRM: TL_SeminarFRM
     Height = 43
     Align = alBottom
     TabOrder = 3
-    ExplicitWidth = 1138
     object RzPanel1: TRzPanel
       Left = 1131
       Top = 1
@@ -71,7 +69,6 @@ object L_SeminarFRM: TL_SeminarFRM
       Align = alRight
       BorderOuter = fsNone
       TabOrder = 0
-      ExplicitLeft = 1037
       object RzBitBtn1: TRzBitBtn
         Left = 6
         Top = 3
@@ -156,7 +153,6 @@ object L_SeminarFRM: TL_SeminarFRM
     Height = 134
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 1138
     object RzGroupBox1: TRzGroupBox
       Left = 4
       Top = 6
@@ -406,7 +402,6 @@ object L_SeminarFRM: TL_SeminarFRM
     Height = 358
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 1138
     object Panel5: TPanel
       Left = 1057
       Top = 1
@@ -416,8 +411,6 @@ object L_SeminarFRM: TL_SeminarFRM
       BevelOuter = bvNone
       Locked = True
       TabOrder = 1
-      ExplicitLeft = 1063
-      ExplicitTop = -4
       object InsertHawbBTN: TRzBitBtn
         Left = 6
         Top = 35
@@ -825,7 +818,6 @@ object L_SeminarFRM: TL_SeminarFRM
         Align = alTop
         BorderOuter = fsNone
         TabOrder = 0
-        ExplicitWidth = 1006
         object Nav1: TwwDBNavigator
           Left = 1
           Top = 7
