@@ -23,7 +23,7 @@ uses
   RzPanel, Vcl.Imaging.pngimage, VirtualTable, myChkBox, vcl.wwclearbuttongroup,
   vcl.wwradiogroup, ppStrtch, ppRichTx, Vcl.ComCtrls, vcl.wwriched,ClipBrd,
   Vcl.DBCtrls, RzDBEdit, vcl.wwclearpanel, vcl.Wwdotdot, vcl.Wwdbcomb, RzLabel,
-  RzDBLbl;
+  RzDBLbl, ppSubRpt;
 
 type
   TReminderResult= Record
@@ -79,13 +79,10 @@ type
     SeminarPIcturePIP: TppDBPipeline;
     TopFld: TppDBRichText;
     Button1: TButton;
-    PICTURE_TOP_L1: TppDBImage;
-    ppDBImage2: TppDBImage;
     MiddleFld: TppDBRichText;
     BottomRIghtFLD: TppDBRichText;
     BottomLeftFLD: TppDBRichText;
     SideTopFLD: TppDBRichText;
-    ppDBImage3: TppDBImage;
     ppDBRichText7: TppDBRichText;
     CertificateSQLSUBJECT_HOURS: TIntegerField;
     CertificateSQLSEMINAR_CERTIFICATE: TWideStringField;
@@ -113,7 +110,6 @@ type
     SeminarPicturesSQLBR_X: TIntegerField;
     SeminarPicturesSQLBR_Y: TIntegerField;
     CertificateSQLANAD_NUMBER: TWideStringField;
-    ppDBImage4: TppDBImage;
     wwMemo: TwwDBRichEdit;
     FirstGRP: TGroupBox;
     Label2: TLabel;
@@ -219,6 +215,22 @@ type
     WideStringField11: TWideStringField;
     DateField2: TDateField;
     CertificatesShowSRC: TDataSource;
+    TestPictureIconSQL: TIBCQuery;
+    TestPictureIconSQLSERIAL_NUMBER: TIntegerField;
+    TestPictureIconSQLFK_SEMINAR_TYPE: TIntegerField;
+    TestPictureIconSQLPOSITION_CORNER: TWideStringField;
+    TestPictureIconSQLOFFSET_X: TIntegerField;
+    TestPictureIconSQLOFFSET_Y: TIntegerField;
+    TestPictureIconSQLICON_BLOB: TBlobField;
+    TestPictureIconSQLLANGUAGE_GREEK_OR_ENGLISH: TWideStringField;
+    TestPictureIconSRC: TDataSource;
+    TestPictureIconPIP: TppDBPipeline;
+    ppSubReport1: TppSubReport;
+    ppChildReport1: TppChildReport;
+    ppDesignLayers1: TppDesignLayers;
+    ppDesignLayer1: TppDesignLayer;
+    ppDetailBand1: TppDetailBand;
+    ppDBImage1: TppDBImage;
     procedure BitBtn2Click(Sender: TObject);
     procedure ppReport1PreviewFormCreate(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -238,6 +250,7 @@ type
     procedure TopFldGetRichText(Sender: TObject; var Text: string);
     procedure PrintOnexBTNClick(Sender: TObject);
     procedure ppReport1BeforePrint(Sender: TObject);
+    procedure ppDBImage1Print(Sender: TObject);
   private
     { Private declarations }
     cn:TIBCConnection;
@@ -254,8 +267,8 @@ type
     IN_PictureSerial:Integer;
     procedure PrintSeminar(Const SeminarSerial,CertificateSerial:Integer;Const language:String);
     procedure PrintTheSeminar();
-    procedure PrintTestSeminar(Const CertificateSerial, PictureSerial:Integer; Const Language:String);
-//    procedure PrintTestSeminar(Const SeminarSerial,SeminarTypeSerial,CertificateSerial:Integer;Const Language:String);
+//    procedure PrintTestSeminar(Const CertificateSerial, PictureSerial:Integer; Const Language:String);
+    procedure PrintTestSeminar(Const SeminarSerial, CertificateSerial, PictureSerial:Integer; Const Language:String);
 
 
   end;
@@ -338,6 +351,35 @@ begin
       end;
 
     end;
+end;
+
+procedure TR_certificateFRM.ppDBImage1Print(Sender: TObject);
+var
+  img:TppDBImage;
+  dataset:TDataset;
+  source:String;
+  ind:Integer;
+  offsetX,offsetY:Integer;
+  temp:Integer;
+begin
+
+  img:=TppDBImage( Sender);
+
+//  temp:=img.DataField;
+
+  ind:=img.DataPipeline.FindField('OFFSET_X');
+  OffsetX  :=img.DataPipeline.FieldValues['OFFSET_X'];
+  OffsetY  :=img.DataPipeline.FieldValues['OFFSET_Y'];
+
+  if (temp=22) and (ind=3) and (val=3) then showmessage('x');
+
+  //  shift the image (in mm)
+//    img.Left:= 10+ img.DataField(imgFound.FieldForLeft).AsFloat/1.0;
+    img.Left:= 1 + offsetX;
+    img.Left:= 1 - offsetY;
+//    img.Top:= ImgFound.Top- SeminarPictureSRC.DataSet.FieldByName(imgFOund.FieldForTop).AsFloat/1.0;
+
+
 end;
 
 procedure TR_certificateFRM.ppReport1BeforePrint(Sender: TObject);
@@ -698,7 +740,7 @@ end;
 
 
 
-procedure TR_certificateFRM.PrintTestSeminar(Const CertificateSerial, PictureSerial:Integer; Const Language:String);
+procedure TR_certificateFRM.PrintTestSeminar(Const SeminarSerial, CertificateSerial, PictureSerial:Integer; Const Language:String);
 //will print a certificate using pictures from the TEMPLATE
 begin
 
@@ -723,7 +765,7 @@ begin
       close ;
       RestoreSQL;
 
-      ParamByName('PictureSerial').Value:=PictureSerial;
+      ParamByName('pictureSerial').Value:=PictureSerial;
       ParamByName('Language').Value:=Language;
       Open ;
       if  IsEmpty then begin
@@ -732,6 +774,16 @@ begin
       end;
 
     end;
+
+    with TestPictureIconSQL do begin
+      close ;
+      RestoreSQL;
+
+      ParamByName('SeminarSerial').Value:=SeminarSerial;
+      ParamByName('Language').Value:=Language;
+      Open ;
+    end;
+
 
    SeminarPictureSRC.DataSet:=TestSeminarPictureSQL;
    PpReport1.Print;

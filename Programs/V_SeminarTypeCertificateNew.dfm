@@ -1,4 +1,4 @@
-object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
+object V_SeminarTypeCertificateNewFRM: TV_SeminarTypeCertificateNewFRM
   Left = 365
   Top = 153
   Caption = '--'
@@ -334,7 +334,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
     Height = 53
     Align = alTop
     BorderOuter = fsNone
-    Caption = #914#945#963#953#954#972' Template '#928#953#963#964#959#960#959#953#951#964#953#954#959#973
+    Caption = 'XXX'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlue
     Font.Height = -27
@@ -342,6 +342,13 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    object Label1: TLabel
+      Left = 40
+      Top = 8
+      Width = 87
+      Height = 32
+      Caption = 'Label1'
+    end
   end
   object RzPanel2: TRzPanel
     Left = 0
@@ -362,10 +369,6 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
       object PictTS: TTabSheet
         Caption = 'Template'
         OnShow = PictTSShow
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object RzPanel7: TRzPanel
           Left = 0
           Top = 0
@@ -1012,7 +1015,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
               Height = 79
               BorderOuter = fsGroove
               TabOrder = 7
-              object PICTURE_TOP_L1: TImage
+              object TL: TImage
                 Left = 2
                 Top = 2
                 Width = 78
@@ -1022,8 +1025,8 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
                 Center = True
                 Proportional = True
                 Stretch = True
-                OnDblClick = PICTURE_TOP_L1DblClick
-                OnMouseDown = PICTURE_TOP_L1MouseDown
+                OnDblClick = TLDblClick
+                OnMouseDown = TLMouseDown
                 ExplicitLeft = 0
                 ExplicitTop = 4
               end
@@ -1035,7 +1038,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
               Height = 79
               BorderOuter = fsGroove
               TabOrder = 8
-              object PICTURE_TOP_R1: TImage
+              object TR: TImage
                 Left = 2
                 Top = 2
                 Width = 78
@@ -1045,8 +1048,8 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
                 Center = True
                 Proportional = True
                 Stretch = True
-                OnDblClick = PICTURE_TOP_L1DblClick
-                OnMouseDown = PICTURE_TOP_L1MouseDown
+                OnDblClick = TLDblClick
+                OnMouseDown = TLMouseDown
                 ExplicitTop = 0
               end
             end
@@ -1057,7 +1060,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
               Height = 79
               BorderOuter = fsGroove
               TabOrder = 9
-              object PICTURE_BOT_L1: TImage
+              object BL: TImage
                 Left = 2
                 Top = 2
                 Width = 78
@@ -1067,8 +1070,8 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
                 Center = True
                 Proportional = True
                 Stretch = True
-                OnDblClick = PICTURE_TOP_L1DblClick
-                OnMouseDown = PICTURE_TOP_L1MouseDown
+                OnDblClick = TLDblClick
+                OnMouseDown = TLMouseDown
                 ExplicitLeft = 14
                 ExplicitTop = 4
               end
@@ -1080,7 +1083,7 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
               Height = 79
               BorderOuter = fsGroove
               TabOrder = 10
-              object PICTURE_BOT_R1: TImage
+              object BR: TImage
                 Left = 2
                 Top = 2
                 Width = 78
@@ -1090,8 +1093,8 @@ object V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM
                 Center = True
                 Proportional = True
                 Stretch = True
-                OnDblClick = PICTURE_TOP_L1DblClick
-                OnMouseDown = PICTURE_TOP_L1MouseDown
+                OnDblClick = TLDblClick
+                OnMouseDown = TLMouseDown
                 ExplicitLeft = 26
                 ExplicitTop = 4
               end

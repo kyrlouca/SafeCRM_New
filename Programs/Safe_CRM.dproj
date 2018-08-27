@@ -286,11 +286,12 @@
             <Form>T_test2FRM</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="V_SeminarTypeCertificate.pas">
-            <Form>V_SeminarTypeCertificateFRM</Form>
-        </DCCReference>
         <DCCReference Include="v_SeminarPictureTemplate.pas">
             <Form>V_SeminarPictureTemplateFRM</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="V_SeminarTypeCertificateNew.pas">
+            <Form>V_SeminarTypeCertificateNewFRM</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

@@ -360,7 +360,7 @@ var
 implementation
 
 uses   U_Database, G_generalProcs, G_SFCommonProcs, H_Help, R_Certificate,
-  V_SeminarTypeCertificate;
+  V_SeminarTypeCertificate, V_SeminarTypeCertificateNew;
 
 
 {$R *.DFM}
@@ -1032,9 +1032,9 @@ end;
 
 procedure TM_SeminarTypeFRM.EditTemplateBTNClick(Sender: TObject);
 var
-  Frm: TV_SeminarTypeCertificateFRM;
+  Frm: TV_SeminarTypeCertificateNewFRM;
 begin
- frm := TV_SeminarTypeCertificateFRM.Create(nil);
+ frm := TV_SeminarTypeCertificateNewFRM.Create(nil);
   try
 
     frm.IN_SeminarTypeSerial:=SeminarTypeSQL.FieldByName('serial_number').AsInteger;

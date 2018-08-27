@@ -1,4 +1,4 @@
-unit V_SeminarTypeCertificate;
+unit V_SeminarTypeCertificateNew;
 
 interface
 
@@ -12,7 +12,7 @@ uses
   Vcl.ComCtrls, vcl.wwriched,codeSiteLogging,
     CodeSiteMessage, Vcl.ExtDlgs, Vcl.Menus;
 type
-  TV_SeminarTypeCertificateFRM = class(TForm)
+  TV_SeminarTypeCertificateNewFRM = class(TForm)
     Panel4: TRzPanel;
     WriteTrans: TIBCTransaction;
     ReadTrans: TIBCTransaction;
@@ -42,13 +42,13 @@ type
     BottomFLD: TwwDBRichEdit;
     BottomLeftFLD: TwwDBRichEdit;
     RzPanel3: TRzPanel;
-    PICTURE_TOP_L1: TImage;
+    TL: TImage;
     RzPanel4: TRzPanel;
-    PICTURE_TOP_R1: TImage;
+    TR: TImage;
     RzPanel5: TRzPanel;
-    PICTURE_BOT_L1: TImage;
+    BL: TImage;
     RzPanel6: TRzPanel;
-    PICTURE_BOT_R1: TImage;
+    BR: TImage;
     wwDBEdit1: TwwDBEdit;
     wwDBEdit3: TwwDBEdit;
     wwDBEdit2: TwwDBEdit;
@@ -84,6 +84,7 @@ type
     CopyHardBTN: TRzBitBtn;
     SaveHardBTN: TRzBitBtn;
     RzBitBtn1: TRzBitBtn;
+    Label1: TLabel;
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormCreate(Sender: TObject);
@@ -91,8 +92,8 @@ type
     procedure PictTSShow(Sender: TObject);
     procedure LanguageRGPChange(Sender: TObject);
     procedure PictureGRPExit(Sender: TObject);
-    procedure PICTURE_TOP_L1DblClick(Sender: TObject);
-    procedure PICTURE_TOP_L1MouseDown(Sender: TObject; Button: TMouseButton;
+    procedure TLDblClick(Sender: TObject);
+    procedure TLMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Certifcates1Click(Sender: TObject);
     procedure CopyFromTemplateBTNClick(Sender: TObject);
@@ -109,10 +110,9 @@ type
 
     function SelectPictureX(var img: TImage): Boolean;
     procedure ShowPictureDataX(const TypeSerial: Integer; const Language:  string);
-    procedure ShowPictureX(const TypeSerial: Integer; const aFieldName: string; const Language: string; img: TImage);
-//    procedure SavePictureX(const SeminarTypeSerial: Integer; const aFieldName:string; const Language: string; img: Timage);
-    procedure SavePictureX(const SeminarSerial: Integer; const
-  aFieldName: string; const Language: string; img: Timage);
+
+  procedure SavePictureX(const SeminarSerial: Integer; const position : string; const Language: string; img: Timage);
+  procedure ShowPictureX(const TypeSerial: Integer; const  Position: string; const Language: string; img: TImage);
 
     procedure SelectAndSavePictureX(const SeminarSerial: Integer; const Language: string; img: TImage);
     procedure ClearPictureX(const SeminarSerial: Integer; const aFieldName:string; const Language: string; img: Timage);
@@ -132,7 +132,7 @@ type
   end;
 
 var
-  V_SeminarTypeCertificateFRM: TV_SeminarTypeCertificateFRM;
+  V_SeminarTypeCertificateNewFRM: TV_SeminarTypeCertificateNewFRM;
 
 implementation
 
@@ -141,20 +141,20 @@ uses   U_Database, G_generalProcs, H_Help, G_SFCommonProcs, R_Certificate;
 
 {$R *.DFM}
 
-procedure TV_SeminarTypeCertificateFRM.BitBtn2Click(Sender: TObject);
+procedure TV_SeminarTypeCertificateNewFRM.BitBtn2Click(Sender: TObject);
 begin
     ksPostTables([SeminarPictureSQL]);
 
 end;
 
-procedure TV_SeminarTypeCertificateFRM.TableSQLBeforeEdit(
+procedure TV_SeminarTypeCertificateNewFRM.TableSQLBeforeEdit(
   DataSet: TDataSet);
 begin
 //   Dataset.FieldByName('Serial_number').ReadOnly:=true;
 end;
 
 
-procedure TV_SeminarTypeCertificateFRM.PictTSShow(Sender: TObject);
+procedure TV_SeminarTypeCertificateNewFRM.PictTSShow(Sender: TObject);
 var
   allowModify: boolean;
 SeminarSerial:Integer;
@@ -169,14 +169,14 @@ begin
   ShowAllData(seminarSerial,'G');
 end;
 
-procedure TV_SeminarTypeCertificateFRM.CloseBTNClick(Sender: TObject);
+procedure TV_SeminarTypeCertificateNewFRM.CloseBTNClick(Sender: TObject);
 begin
   close;
 end;
 
 
 
-procedure TV_SeminarTypeCertificateFRM.FormActivate(Sender: TObject);
+procedure TV_SeminarTypeCertificateNewFRM.FormActivate(Sender: TObject);
 var
   qr:TksQuery;
   str:String;
@@ -194,12 +194,12 @@ begin
 
 end;
 
-procedure TV_SeminarTypeCertificateFRM.FormCreate(Sender: TObject);
+procedure TV_SeminarTypeCertificateNewFRM.FormCreate(Sender: TObject);
 begin
   cn:=U_databaseFRM.DataConnection;
 end;
 
-procedure TV_SeminarTypeCertificateFRM.LanguageRGPChange(Sender: TObject);
+procedure TV_SeminarTypeCertificateNewFRM.LanguageRGPChange(Sender: TObject);
 var
   SeminarSerial: Integer;
 begin
@@ -214,7 +214,7 @@ begin
   ShowAllData(SeminarSerial,LanguageRGP.Value);
 end;
 
-procedure TV_SeminarTypeCertificateFRM.PictureGRPExit(Sender: TObject);
+procedure TV_SeminarTypeCertificateNewFRM.PictureGRPExit(Sender: TObject);
 begin
   if SeminarPictureSQL.State in [dsEdit, dsInsert] then
   begin
@@ -223,14 +223,14 @@ begin
 
 end;
 
-procedure TV_SeminarTypeCertificateFRM.PICTURE_TOP_L1DblClick(Sender: TObject);
+procedure TV_SeminarTypeCertificateNewFRM.TLDblClick(Sender: TObject);
 begin
   SelectAndSavePictureX(IN_SeminarTypeSerial,
     LanguageRGP.Values[LanguageRGP.ItemIndex], TImage(Sender));
 
 end;
 
-procedure TV_SeminarTypeCertificateFRM.PICTURE_TOP_L1MouseDown(Sender: TObject;
+procedure TV_SeminarTypeCertificateNewFRM.TLMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   if (ssCtrl in Shift) then
@@ -247,7 +247,7 @@ end;
 ///
 ///
 
-procedure TV_SeminarTypeCertificateFRM.SelectAndSavePictureX(const SeminarSerial: Integer; const
+procedure TV_SeminarTypeCertificateNewFRM.SelectAndSavePictureX(const SeminarSerial: Integer; const
   Language: string; img: TImage);
 begin
 //  SeminarSerial:=SeminarSQL.fieldbyName('serial_number').AsInteger;
@@ -262,7 +262,7 @@ end;
 
 
 
-procedure TV_SeminarTypeCertificateFRM.Certifcates1Click(Sender: TObject);
+procedure TV_SeminarTypeCertificateNewFRM.Certifcates1Click(Sender: TObject);
 var
   Frm: TH_HelpFRM;
 begin
@@ -279,7 +279,7 @@ begin
 
 end;
 
-procedure TV_SeminarTypeCertificateFRM.InsertSeminarTypePictureRecord(const TypeSerial: Integer);
+procedure TV_SeminarTypeCertificateNewFRM.InsertSeminarTypePictureRecord(const TypeSerial: Integer);
 var
   Serial: Integer;
   str: string;
@@ -314,7 +314,7 @@ begin
 
 end;
 
-procedure TV_SeminarTypeCertificateFRM.ClearPictureX(const SeminarSerial: Integer; const
+procedure TV_SeminarTypeCertificateNewFRM.ClearPictureX(const SeminarSerial: Integer; const
   aFieldName: string; const Language: string; img: Timage);
 begin
 //  showMessage('clear lang='+language);
@@ -326,7 +326,7 @@ end;
 
 
 
-function TV_SeminarTypeCertificateFRM.SelectPictureX(var img: TImage): Boolean;
+function TV_SeminarTypeCertificateNewFRM.SelectPictureX(var img: TImage): Boolean;
 var
   fileName: string;
 begin
@@ -342,7 +342,7 @@ begin
   result := true;
 end;
 
-procedure TV_SeminarTypeCertificateFRM.CopyFromTemplateBTNClick(Sender: TObject);
+procedure TV_SeminarTypeCertificateNewFRM.CopyFromTemplateBTNClick(Sender: TObject);
 var
  TypeSerial:integer;
  qr:TksQuery;
@@ -369,7 +369,7 @@ begin
 end;
 
 
-procedure TV_SeminarTypeCertificateFRM.CopyHardBTNClick(Sender: TObject);
+procedure TV_SeminarTypeCertificateNewFRM.CopyHardBTNClick(Sender: TObject);
 var
   SeminarSerial:Integer;
   PictureSerial:Integer;
@@ -386,7 +386,7 @@ begin
 end;
 
 
-procedure TV_SeminarTypeCertificateFRM.ShowPictureDataX(const TypeSerial: Integer; const Language: string);
+procedure TV_SeminarTypeCertificateNewFRM.ShowPictureDataX(const TypeSerial: Integer; const Language: string);
 begin
   SeminarPictureSQL.Close;
   SeminarPictureSQL.ParamByName('SeminarSerial').Value := TypeSerial;
@@ -396,85 +396,20 @@ begin
 end;
 
 
-procedure TV_SeminarTypeCertificateFRM.ShowAllData(const SeminarSerial: Integer; const Language: string);
+procedure TV_SeminarTypeCertificateNewFRM.ShowAllData(const SeminarSerial: Integer; const Language: string);
 begin
   InsertSeminarTypePictureRecord(SeminarSerial);
-  SHowPictureX(SeminarSerial, Picture_top_l1.Name, Language, Picture_top_L1);
-  SHowPictureX(SeminarSerial, Picture_top_R1.Name, Language, Picture_top_R1);
-  SHowPictureX(SeminarSerial, Picture_bot_l1.Name, Language, Picture_bot_L1);
-  SHowPictureX(SeminarSerial, Picture_bot_R1.Name, Language, Picture_bot_R1);
+  SHowPictureX(SeminarSerial, TL.Name, Language, TL);
+  SHowPictureX(SeminarSerial, TR.Name, Language, TR);
+  SHowPictureX(SeminarSerial, BL.Name, Language, BL);
+  SHowPictureX(SeminarSerial, BR.Name, Language, BR);
   SHowPictureDataX(SeminarSerial, Language);
 
 end;
 
 
-procedure TV_SeminarTypeCertificateFRM.ShowPictureX(const TypeSerial: Integer; const
-  aFieldName: string; const Language: string; img: TImage);
-var
-  code: string;
-  BlobFIeld: TField;
-  BS: TStream;
-  qr: TksQuery;
-//  imgTemp:TImage;
-str:string;
 
-begin
-
-  if TypeSerial < 1 then
-    exit;
-  if (Language <> 'G') and (Language <> 'E') then
-  begin
-    showMessage('ERROR lang=' + language);
-    exit;
-  end;
-
-  Img.Picture := nil;
-
-  str:='select * from seminar_Type_pictures stp where stp.fk_seminar_Type_serial= :seminarTypeSerial and LANGUAGE_GREEK_OR_ENGLISH = :language';
-  qr := TksQuery.Create(cn,str);
-
-  try
-      qr.close;
-      qr.ParamByName('seminarTypeSerial').Value := TypeSerial;
-      qr.ParamByName('LANGUAGE').Value := Language;
-      qr.open;
-      if qr.IsEmpty then
-        exit;
-
-      if (qr.FindField(aFieldName) = nil) then
-      begin
-        ShowMessage('Cannot find field. Name of the picture =fieldname= ' +
-          aFieldName);
-        exit;
-      end;
-
-//        if aFieldName='PICTURE_TOP_R1' then
-//         img.Picture.LoadFromFile('C:\Data\DelphiProjects\Safe_CRM\pictures\SafetyLogo.png');
-
-      BlobField := qr.FieldByName(aFieldName);
-
-      BS := qr.CreateBlobStream(BlobField, bmRead);
-      try
-        BS.Position := 0;
-        if bs.Size > 0 then
-          Img.Picture.LoadFromStream(bs)
-        else
-          Img.Picture := nil;
-      finally
-      end;
-//     qr.Close; not yet
-
-  finally
-    bs.Free;
-    qr.Free;
-  end;
-
-
-end;
-//////////////////////////////////////////
-
-
-procedure TV_SeminarTypeCertificateFRM.CopyTemplatePIctures(const SeminarSerial, TypeSerial:  Integer);
+procedure TV_SeminarTypeCertificateNewFRM.CopyTemplatePIctures(const SeminarSerial, TypeSerial:  Integer);
 //copied from v_seminar
 var
   serial: Integer;
@@ -558,7 +493,7 @@ end;
 
 
 
-procedure TV_SeminarTypeCertificateFRM.CopyDefaultBTNClick(Sender: TObject);
+procedure TV_SeminarTypeCertificateNewFRM.CopyDefaultBTNClick(Sender: TObject);
 var
   SeminarSerial:Integer;
   PictureSerial:Integer;
@@ -573,7 +508,7 @@ begin
 
 end;
 
-procedure TV_SeminarTypeCertificateFRM.CopyFromDefault(Const PictureSerial:Integer;Const DefaultPicSerial:Integer;Const Language:String);
+procedure TV_SeminarTypeCertificateNewFRM.CopyFromDefault(Const PictureSerial:Integer;Const DefaultPicSerial:Integer;Const Language:String);
 var
   DefaultQr:TksQuery;
   pictQR:TksQuery;
@@ -615,7 +550,7 @@ begin
 
 end;
 
-procedure TV_SeminarTypeCertificateFRM.SaveHardBTNClick(Sender: TObject);
+procedure TV_SeminarTypeCertificateNewFRM.SaveHardBTNClick(Sender: TObject);
 var
   PictureSerial:Integer;
   Language:string;
@@ -631,77 +566,14 @@ end;
 
 
 
-procedure TV_SeminarTypeCertificateFRM.SavePictureX(const SeminarSerial: Integer; const
-  aFieldName: string; const Language: string; img: Timage);
-//  BlobField: TField;
-var
-  BlobField: TBlobField;
-  BS: TStream;
-  str2: string;
-  qr: TksQuery;
-begin
-
-  CodeSite.send(InttoStr(SeminarSerial));
-
-  CodeSite.Send(afieldName);
-  CodeSite.Send(Language);
-  CodeSite.Send(img.Name);
-    str2:=
-    'select * from seminar_Type_pictures stp '
-    + ' where stp.fk_seminar_Type_serial= :seminarSerial and LANGUAGE_GREEK_OR_ENGLISH = :language';
-
-  qr := TksQuery.Create(cn, str2);
-  try
-      qr.close;
-      qr.ParamByName('seminarSerial').Value := seminarSerial;
-      qr.ParamByName('Language').Value := Language;
-      qr.open;
-      if qr.IsEmpty then
-        exit;
-
-      if (qr.FindField(aFieldName) = nil) then
-      begin
-        ShowMessage('Cannot find field. Name of the picture =fieldname= ' +
-          aFieldName);
-        exit;
-      end;
-
-      qr.Edit;
-      BlobField := qr.FieldByName(aFieldName) as TBlobField;
-      BS := qr.CreateBlobStream(BlobField, bmWrite);
-      try
-        Bs.Position := 0;
-        Img.Picture.SaveToStream(BS);
-
-        if BS.Size = 0 then
-        begin
-          BlobField.Clear;
-        end;
-        qr.Post;
-//        qr.close;  //do not close yet
-
-
-      finally
-    //        BS.Free;
-      // it seems that delphi makes the pointer nil if reference count of the object is decreased to zero.
-      //  where qr is closed and i get a runtime error
-      end;
-
-  finally
-    BS.Free;
-    qr.Free;
-  end;
-end;
-
-
-procedure TV_SeminarTypeCertificateFRM.RzBitBtn1Click(Sender: TObject);
+procedure TV_SeminarTypeCertificateNewFRM.RzBitBtn1Click(Sender: TObject);
 begin
   PrintTestCertificate();
 end;
 
 
 
-procedure TV_SeminarTypeCertificateFRM.PrintTestCertificate();
+procedure TV_SeminarTypeCertificateNewFRM.PrintTestCertificate();
 var
   SeminarTypeSerial:Integer;
   PictureSerial:Integer;
@@ -713,7 +585,7 @@ var
   Frm:TR_certificateFRM;
 begin
 
-//    SeminarTypeSerial:= IN_SeminarTypeSerial;
+    SeminarTypeSerial:= IN_SeminarTypeSerial;
     PictureSerial:=SeminarPictureSQL.FieldByName('serial_number').AsInteger;
     Language:= SeminarPictureSQL.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').AsString;
 
@@ -744,7 +616,7 @@ str:=' Select first 1 sem.fk_seminar as type_serial, sem.serial_number as semina
 
   frm :=  TR_certificateFRM.Create(nil);
   try
-//    frm.PrintTestSeminar(CertificateSerial,PictureSerial,Language);
+    frm.PrintTestSeminar(SeminarTypeSerial,CertificateSerial,PictureSerial,Language);
   finally
     frm.Free;
   end;
@@ -754,6 +626,131 @@ str:=' Select first 1 sem.fk_seminar as type_serial, sem.serial_number as semina
 
 end;
 
+
+
+procedure TV_SeminarTypeCertificateNewFRM.SavePictureX(const SeminarSerial: Integer; const
+  position : string; const Language: string; img: Timage);
+//  BlobField: TField;
+var
+  BlobField: TBlobField;
+  BS: TStream;
+  str2: string;
+  qr: TksQuery;
+  iconSerial:Integer;
+begin
+
+//  CodeSite.send(InttoStr(SeminarSerial));
+
+//  CodeSite.Send(afieldName);
+//  CodeSite.Send(Language);
+//  CodeSite.Send(img.Name);
+
+    str2:=
+    'select * from seminar_Type_icon stp '
+    + ' where stp.fk_seminar_Type = :seminarSerial and LANGUAGE_GREEK_OR_ENGLISH = :language'
+    + ' and stp.position_corner= :position ';
+
+  qr := TksQuery.Create(cn, str2);
+  try
+      qr.close;
+      qr.ParamByName('seminarSerial').Value := seminarSerial;
+      qr.ParamByName('Language').Value := Language;
+      qr.ParamByName('position').Value := position;
+      qr.open;
+
+      if qr.IsEmpty then  begin
+       iconSerial:= ksGenerateSerial(cn,'GEN_SEMINAR_TYPE_ICON');
+       qr.Insert;
+       qr.FieldByName('serial_number').Value:=iconSerial;
+       qr.FieldByName('fk_seminar_type').Value:=SeminarSerial;
+       qr.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').Value:=language;
+       qr.FieldByName('POSITION_CORNER').Value:=position;
+       qr.Post;
+      end;
+
+      qr.Edit;
+      BlobField := qr.FieldByName('icon_blob') as TBlobField;
+      BS := qr.CreateBlobStream(BlobField, bmWrite);
+      try
+        Bs.Position := 0;
+        Img.Picture.SaveToStream(BS);
+
+        if BS.Size = 0 then
+        begin
+          BlobField.Clear;
+        end;
+        qr.Post;
+
+      finally
+    //        BS.Free;
+      // it seems that delphi makes the pointer nil if reference count of the object is decreased to zero.
+      //  where qr is closed and i get a runtime error
+      end;
+
+  finally
+    BS.Free;
+    qr.Free;
+  end;
+end;
+
+
+procedure TV_SeminarTypeCertificateNewFRM.ShowPictureX(const TypeSerial: Integer; const
+  Position: string; const Language: string; img: TImage);
+var
+  code: string;
+  BlobFIeld: TField;
+  BS: TStream;
+  qr: TksQuery;
+//  imgTemp:TImage;
+str:string;
+
+begin
+
+  if TypeSerial < 1 then
+    exit;
+  if (Language <> 'G') and (Language <> 'E') then
+  begin
+    showMessage('ERROR lang=' + language);
+    exit;
+  end;
+
+  Img.Picture := nil;
+
+  str:='select * from seminar_Type_icon stp where stp.fk_seminar_Type= :seminarTypeSerial and LANGUAGE_GREEK_OR_ENGLISH = :language'
+  + ' and stp.position_corner= :position';
+  qr := TksQuery.Create(cn,str);
+
+  try
+      qr.close;
+      qr.ParamByName('seminarTypeSerial').Value := TypeSerial;
+      qr.ParamByName('LANGUAGE').Value := Language;
+      qr.ParamByName('position').Value := position;
+      qr.open;
+      if qr.IsEmpty then
+        exit;
+
+
+      BlobField := qr.FieldByName('icon_blob');
+
+      BS := qr.CreateBlobStream(BlobField, bmRead);
+      try
+        BS.Position := 0;
+        if bs.Size > 0 then
+          Img.Picture.LoadFromStream(bs)
+        else
+          Img.Picture := nil;
+      finally
+      end;
+//     qr.Close; not yet
+
+  finally
+    bs.Free;
+    qr.Free;
+  end;
+
+
+end;
+//////////////////////////////////////////
 
 
 End.

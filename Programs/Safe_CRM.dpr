@@ -55,8 +55,8 @@ uses
   S_LoadDocs in 'S_LoadDocs.pas' {S_LoadDocsFRM},
   S_backupData in 'S_backupData.pas' {M_backupDataFRM},
   t_test2 in 't_test2.pas' {T_test2FRM},
-  V_SeminarTypeCertificate in 'V_SeminarTypeCertificate.pas' {V_SeminarTypeCertificateFRM},
-  v_SeminarPictureTemplate in 'v_SeminarPictureTemplate.pas' {V_SeminarPictureTemplateFRM};
+  v_SeminarPictureTemplate in 'v_SeminarPictureTemplate.pas' {V_SeminarPictureTemplateFRM},
+  V_SeminarTypeCertificateNew in 'V_SeminarTypeCertificateNew.pas' {V_SeminarTypeCertificateNewFRM};
 
 //  R_PendingCertificates in 'R_PendingCertificates.pas' {R_PendingCertificatesFRM};
 
@@ -84,7 +84,9 @@ ReportMemoryLeaksOnShutdown := DebugHook <> 0;
   Application.CreateForm(TM_backupDataFRM, M_backupDataFRM);
   Application.CreateForm(TM_backupDataFRM, M_backupDataFRM);
   Application.CreateForm(TT_test2FRM, T_test2FRM);
-  Application.CreateForm(TV_SeminarTypeCertificateFRM, V_SeminarTypeCertificateFRM);
+  Application.CreateForm(TV_SeminarTypeCertificateNewFRM, V_SeminarTypeCertificateNewFRM);
   Application.CreateForm(TV_SeminarPictureTemplateFRM, V_SeminarPictureTemplateFRM);
+  Application.CreateForm(TV_SeminarTypeCertificateNewFRM, V_SeminarTypeCertificateNewFRM);
+  Application.CreateForm(TV_SeminarTypeCertificateNewFRM, V_SeminarTypeCertificateNewFRM);
   Application.Run;
 end.
