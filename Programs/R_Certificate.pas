@@ -352,36 +352,6 @@ begin
 
     end;
 end;
-
-procedure TR_certificateFRM.ppDBImage1Print(Sender: TObject);
-var
-  img:TppDBImage;
-  dataset:TDataset;
-  source:String;
-  ind:Integer;
-  offsetX,offsetY:Integer;
-  temp:Integer;
-begin
-
-  img:=TppDBImage( Sender);
-
-//  temp:=img.DataField;
-
-  ind:=img.DataPipeline.FindField('OFFSET_X');
-  OffsetX  :=img.DataPipeline.FieldValues['OFFSET_X'];
-  OffsetY  :=img.DataPipeline.FieldValues['OFFSET_Y'];
-
-  if (temp=22) and (ind=3) and (val=3) then showmessage('x');
-
-  //  shift the image (in mm)
-//    img.Left:= 10+ img.DataField(imgFound.FieldForLeft).AsFloat/1.0;
-    img.Left:= 1 + offsetX;
-    img.Left:= 1 - offsetY;
-//    img.Top:= ImgFound.Top- SeminarPictureSRC.DataSet.FieldByName(imgFOund.FieldForTop).AsFloat/1.0;
-
-
-end;
-
 procedure TR_certificateFRM.ppReport1BeforePrint(Sender: TObject);
 begin
 //initReportPositions();
@@ -789,6 +759,55 @@ begin
    PpReport1.Print;
 
   end;
+
+
+procedure TR_certificateFRM.ppDBImage1Print(Sender: TObject);
+var
+  img:TppDBImage;
+  dataset:TDataset;
+  offsetX,offsetY:Integer;
+  Position:String;
+  initX,initY:Integer;
+  temp:string;
+begin
+
+
+  img:=TppDBImage( Sender);
+  if (img.name='a') then showmessage('x');
+
+
+//  temp:=img.DataField;
+
+
+  OffsetX  :=img.DataPipeline.FieldValues['OFFSET_X'];
+  OffsetY  :=img.DataPipeline.FieldValues['OFFSET_Y'];
+
+  Position  :=img.DataPipeline.FieldValues['position_corner'];
+  if (position = 'BL') then begin
+    initx:=21;
+    initY:=-133;
+  end else  if (position = 'BR') then begin
+    initx:=249;
+    initY:=-145;
+
+  end else  if (position = 'TL') then begin
+    initx:=142;
+    initY:= 27;
+  end else  if (position = 'TR') then begin
+    initx:=185;
+    initY:=55;
+  end;
+
+
+
+  //  shift the image (in mm)
+//    img.Left:= 10+ img.DataField(imgFound.FieldForLeft).AsFloat/1.0;
+     img.Left:= initx+ offsetX;
+    img.Top:= -inity  - offsetY;
+//    img.Top:= ImgFound.Top- SeminarPictureSRC.DataSet.FieldByName(imgFOund.FieldForTop).AsFloat/1.0;
+
+
+end;
 
 
 

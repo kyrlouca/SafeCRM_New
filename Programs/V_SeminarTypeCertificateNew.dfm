@@ -343,8 +343,8 @@ object V_SeminarTypeCertificateNewFRM: TV_SeminarTypeCertificateNewFRM
     ParentFont = False
     TabOrder = 0
     object Label1: TLabel
-      Left = 40
-      Top = 8
+      Left = 476
+      Top = 39
       Width = 87
       Height = 32
       Caption = 'Label1'

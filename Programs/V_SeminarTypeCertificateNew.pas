@@ -116,6 +116,13 @@ type
 
     procedure SelectAndSavePictureX(const SeminarSerial: Integer; const Language: string; img: TImage);
     procedure ClearPictureX(const SeminarSerial: Integer; const aFieldName:string; const Language: string; img: Timage);
+
+
+
+  procedure UpdateAllIconOffsets();
+  procedure UpdateOneIconOffsets(const SeminarSerial: Integer; const Language,  Position:String;Const OffsetX,OffsetY:Integer);
+
+
     procedure CopyTemplatePIctures(const SeminarSerial, TypeSerial:  Integer);
 
     procedure CopyFromDefault(Const PictureSerial:Integer;Const DefaultPicSerial:Integer;Const Language:String);
@@ -144,6 +151,7 @@ uses   U_Database, G_generalProcs, H_Help, G_SFCommonProcs, R_Certificate;
 procedure TV_SeminarTypeCertificateNewFRM.BitBtn2Click(Sender: TObject);
 begin
     ksPostTables([SeminarPictureSQL]);
+//    UPdateIconOffsets(SeminarSerial);
 
 end;
 
@@ -568,7 +576,8 @@ end;
 
 procedure TV_SeminarTypeCertificateNewFRM.RzBitBtn1Click(Sender: TObject);
 begin
-  PrintTestCertificate();
+    UpdateAllIconOffsets();
+    PrintTestCertificate();
 end;
 
 
@@ -751,6 +760,69 @@ begin
 
 end;
 //////////////////////////////////////////
+procedure TV_SeminarTypeCertificateNewFRM.UpdateAllIconOffsets();
+const
+   PosArray :TArray<String> =[ 'TL', 'TR' ,'BL', 'BR'];
+var
+  qr:TksQuery;
+  str:string;
+  position:string;
+  offsetx,offsetY:integer;
+  SeminarSerial:Integer;
+  Language:String;
+begin
+      ksPostTables([SeminarPictureSQL]);
+
+      SeminarSerial:=SeminarPictureSQL.FieldByName('FK_seminar_type_serial').AsInteger;
+      Language:=SeminarPictureSQL.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').AsString;
+
+      if SeminarSerial<1 then
+        exit;
+
+      for position in PosArray do begin
+        offsetX:=SeminarPictureSQL.FieldByName(Position+'_X').AsInteger;
+        offsetY:=SeminarPictureSQL.FieldByName(Position+'_Y').AsInteger;
+        UpdateOneIconOffsets(SeminarSerial,Language,position,offsetx,offsetY);
+      end;
+
+end;
+
+procedure TV_SeminarTypeCertificateNewFRM.UpdateOneIconOffsets(const SeminarSerial: Integer; const Language,  Position:String;Const OffsetX,OffsetY:Integer);
+var
+  qr: TksQuery;
+  iconSerial:Integer;
+  str:string;
+  SerialNumber:integer;
+begin
+
+  str:= '  select * from seminar_type_icon sti '
+  +' where sti.fk_seminar_type= :seminarSerial and sti.language_greek_or_english= :Language and sti.position_corner= :position ';
+  qr:= TksQuery.Create(cn,str);
+  try
+    qr.ParamByName('SeminarSerial').Value:= SeminarSerial;
+    qr.ParamByName('Language').Value:= Language;
+    qr.ParamByName('Position').Value:= Position;
+    qr.Open;
+    serialNumber:=qr.FieldByName('serial_number').AsInteger;
+  finally
+    qr.Free;
+  end;
+
+  if (SerialNumber=0) then begin
+    SerialNumber:=ksGenerateSerial(cn,'GEN_SEMINAR_TYPE_ICON');
+    str := 'insert into  seminar_type_icon (Serial_number,fk_seminar_type,language_greek_or_english,position_corner)'
+     +' values( :SerialNumber, :seminar, :language, :Position)';
+    ksExecSQLVar(cn,str,[SerialNumber,SeminarSerial,Language,Position]);
+  end;
+
+  str:=
+ '  update seminar_type_icon sti'
+  +'        set sti.offset_x = :offsetX, sti.offset_y= :offsetY'
+  +' where sti.serial_number= :Serial';
+
+  ksExecSQLVar(cn,str,[offsetX,offsetY,SerialNumber]);
+
+end;
 
 
 End.
