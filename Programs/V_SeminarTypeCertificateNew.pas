@@ -125,7 +125,7 @@ type
 
     procedure CopyTemplatePIctures(const SeminarSerial, TypeSerial:  Integer);
 
-    procedure CopyFromDefault(Const PictureSerial:Integer;Const DefaultPicSerial:Integer;Const Language:String);
+  procedure CopyFromDefault(Const PictureSerial:Integer;Const DefaultPicSerial:Integer;Const Language:String);
   procedure PrintTestCertificate();
 
 
