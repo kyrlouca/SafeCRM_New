@@ -366,8 +366,6 @@ object V_SeminarTypeCertificateTemplateNewFRM: TV_SeminarTypeCertificateTemplate
       Align = alClient
       BorderOuter = fsNone
       TabOrder = 0
-      ExplicitWidth = 1019
-      ExplicitHeight = 625
       object LanguageRGP: TwwRadioGroup
         Left = 18
         Top = 3

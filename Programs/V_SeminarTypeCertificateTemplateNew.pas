@@ -227,52 +227,6 @@ begin
   ShowAllData(SeminarSerial,LanguageRGP.Value);
 end;
 
-procedure TV_SeminarTypeCertificateTemplateNewFRM.PictureGRPExit(Sender: TObject);
-begin
-  if SeminarPictureSQL.State in [dsEdit, dsInsert] then
-  begin
-    SeminarPictureSQL.Post;
-  end;
-
-end;
-
-procedure TV_SeminarTypeCertificateTemplateNewFRM.TLDblClick(Sender: TObject);
-begin
-  SelectAndSavePictureX(IN_SeminarTypeSerial,
-    LanguageRGP.Values[LanguageRGP.ItemIndex], TImage(Sender));
-
-end;
-
-procedure TV_SeminarTypeCertificateTemplateNewFRM.TLMouseDown(Sender: TObject;
-  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
-begin
-  if (ssCtrl in Shift) then
-  begin
-    ClearPictureX(IN_SeminarTYpeSerial,
-      TImage(sender).name, LanguageRGP.Values[LanguageRGP.ItemIndex],
-      TImage(Sender));
-  end;
-
-end;
-
-////////////////////////////////////////
-///
-///
-///
-
-procedure TV_SeminarTypeCertificateTemplateNewFRM.SelectAndSavePictureX(const SeminarSerial: Integer; const
-  Language: string; img: TImage);
-begin
-  if SelectPicturex(img) then
-  begin
-    SavePictureX(SeminarSerial, img.Name, Language, img);
-    ShowPictureX(SeminarSerial, img.Name, Language, img);
-  end;
-
-end;
-
-
-
 procedure TV_SeminarTypeCertificateTemplateNewFRM.Certifcates1Click(Sender: TObject);
 var
   Frm: TH_HelpFRM;
@@ -288,6 +242,202 @@ begin
     frm.Free;
   end;
 
+end;
+
+
+procedure TV_SeminarTypeCertificateTemplateNewFRM.PictureGRPExit(Sender: TObject);
+begin
+  if SeminarPictureSQL.State in [dsEdit, dsInsert] then
+  begin
+    SeminarPictureSQL.Post;
+  end;
+
+end;
+
+procedure TV_SeminarTypeCertificateTemplateNewFRM.TLMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  if (ssCtrl in Shift) then
+  begin
+    ClearPictureX(IN_SeminarTYpeSerial,
+      TImage(sender).name, LanguageRGP.Values[LanguageRGP.ItemIndex],
+      TImage(Sender));
+  end;
+
+end;
+
+
+procedure TV_SeminarTypeCertificateTemplateNewFRM.TLDblClick(Sender: TObject);
+begin
+  SelectAndSavePictureX(IN_SeminarTypeSerial,
+    LanguageRGP.Values[LanguageRGP.ItemIndex], TImage(Sender));
+
+end;
+
+
+procedure TV_SeminarTypeCertificateTemplateNewFRM.SelectAndSavePictureX(const SeminarSerial: Integer; const
+  Language: string; img: TImage);
+begin
+  if SelectPicturex(img) then
+  begin
+    SavePictureX(SeminarSerial, img.Name, Language, img);
+    ShowPictureX(SeminarSerial, img.Name, Language, img);
+  end;
+
+end;
+
+
+procedure TV_SeminarTypeCertificateTemplateNewFRM.SavePictureX(const SeminarSerial: Integer; const
+  position : string; const Language: string; img: Timage);
+//  BlobField: TField;
+var
+  BlobField: TBlobField;
+  BS: TStream;
+  str2: string;
+  qr: TksQuery;
+  iconSerial:Integer;
+begin
+
+//  CodeSite.send(InttoStr(SeminarSerial));
+
+//  CodeSite.Send(afieldName);
+//  CodeSite.Send(Language);
+//  CodeSite.Send(img.Name);
+
+    str2:=
+    'select * from seminar_Type_icon stp '
+    + ' where stp.fk_seminar_Type = :seminarSerial and LANGUAGE_GREEK_OR_ENGLISH = :language'
+    + ' and stp.position_corner= :position ';
+
+  qr := TksQuery.Create(cn, str2);
+  try
+      qr.close;
+      qr.ParamByName('seminarSerial').Value := seminarSerial;
+      qr.ParamByName('Language').Value := Language;
+      qr.ParamByName('position').Value := position;
+      qr.open;
+
+      if qr.IsEmpty then  begin
+       iconSerial:= ksGenerateSerial(cn,'GEN_SEMINAR_TYPE_ICON');
+       qr.Insert;
+       qr.FieldByName('serial_number').Value:=iconSerial;
+       qr.FieldByName('fk_seminar_type').Value:=SeminarSerial;
+       qr.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').Value:=language;
+       qr.FieldByName('POSITION_CORNER').Value:=position;
+       qr.Post;
+      end;
+
+      qr.Edit;
+      BlobField := qr.FieldByName('icon_blob') as TBlobField;
+      BS := qr.CreateBlobStream(BlobField, bmWrite);
+      try
+        Bs.Position := 0;
+        Img.Picture.SaveToStream(BS);
+
+        if BS.Size = 0 then
+        begin
+          BlobField.Clear;
+        end;
+        qr.Post;
+
+      finally
+    //        BS.Free;
+      // it seems that delphi makes the pointer nil if reference count of the object is decreased to zero.
+      //  where qr is closed and i get a runtime error
+      end;
+
+  finally
+    BS.Free;
+    qr.Free;
+  end;
+end;
+
+
+procedure TV_SeminarTypeCertificateTemplateNewFRM.ShowPictureX(const SeminarSerial: Integer; const
+  Position: string; const Language: string; img: TImage);
+var
+  code: string;
+  BlobFIeld: TField;
+  BS: TStream;
+  qr: TksQuery;
+//  imgTemp:TImage;
+str:string;
+
+begin
+
+  if SeminarSerial < 1 then
+    exit;
+  if (Language <> 'G') and (Language <> 'E') then
+  begin
+    showMessage('ERROR lang=' + language);
+    exit;
+  end;
+
+  Img.Picture := nil;
+
+  str:='select * from seminar_Type_icon stp where stp.fk_seminar_Type= :seminarTypeSerial and LANGUAGE_GREEK_OR_ENGLISH = :language'
+  + ' and stp.position_corner= :position';
+  qr := TksQuery.Create(cn,str);
+
+  try
+      qr.close;
+      qr.ParamByName('seminarTypeSerial').Value := SeminarSerial;
+      qr.ParamByName('LANGUAGE').Value := Language;
+      qr.ParamByName('position').Value := position;
+      qr.open;
+      if qr.IsEmpty then
+        exit;
+
+
+      BlobField := qr.FieldByName('icon_blob');
+
+      BS := qr.CreateBlobStream(BlobField, bmRead);
+      try
+        BS.Position := 0;
+        if bs.Size > 0 then
+          Img.Picture.LoadFromStream(bs)
+        else
+          Img.Picture := nil;
+      finally
+      end;
+//     qr.Close; not yet
+
+  finally
+    bs.Free;
+    qr.Free;
+  end;
+
+
+end;
+
+
+
+procedure TV_SeminarTypeCertificateTemplateNewFRM.ClearPictureX(const SeminarSerial: Integer; const
+  aFieldName: string; const Language: string; img: Timage);
+begin
+//  showMessage('clear lang='+language);
+
+  img.Picture := nil;
+  SavePictureX(SeminarSerial, aFieldName,
+    LanguageRGP.Values[LanguageRGP.ItemIndex], img);
+end;
+
+
+
+function TV_SeminarTypeCertificateTemplateNewFRM.SelectPictureX(var img: TImage): Boolean;
+var
+  fileName: string;
+begin
+  result := false;
+  if not OpenPictureDialog1.Execute then
+  begin
+//    showMessage('exit');
+    Exit;
+  end;
+  filename := OpenPictureDialog1.FileName;
+  Img.Picture := nil;
+  img.Picture.LoadFromFile(filename);
+  result := true;
 end;
 
 procedure TV_SeminarTypeCertificateTemplateNewFRM.InsertSeminarTypePictureRecord(const TypeSerial: Integer);
@@ -325,33 +475,6 @@ begin
 
 end;
 
-procedure TV_SeminarTypeCertificateTemplateNewFRM.ClearPictureX(const SeminarSerial: Integer; const
-  aFieldName: string; const Language: string; img: Timage);
-begin
-//  showMessage('clear lang='+language);
-
-  img.Picture := nil;
-  SavePictureX(SeminarSerial, aFieldName,
-    LanguageRGP.Values[LanguageRGP.ItemIndex], img);
-end;
-
-
-
-function TV_SeminarTypeCertificateTemplateNewFRM.SelectPictureX(var img: TImage): Boolean;
-var
-  fileName: string;
-begin
-  result := false;
-  if not OpenPictureDialog1.Execute then
-  begin
-//    showMessage('exit');
-    Exit;
-  end;
-  filename := OpenPictureDialog1.FileName;
-  Img.Picture := nil;
-  img.Picture.LoadFromFile(filename);
-  result := true;
-end;
 
 {
 procedure TV_SeminarTypeCertificateNewFRM.CopyFromTemplateBTNClick(Sender: TObject);
@@ -543,128 +666,6 @@ end;
 
 
 
-procedure TV_SeminarTypeCertificateTemplateNewFRM.SavePictureX(const SeminarSerial: Integer; const
-  position : string; const Language: string; img: Timage);
-//  BlobField: TField;
-var
-  BlobField: TBlobField;
-  BS: TStream;
-  str2: string;
-  qr: TksQuery;
-  iconSerial:Integer;
-begin
-
-//  CodeSite.send(InttoStr(SeminarSerial));
-
-//  CodeSite.Send(afieldName);
-//  CodeSite.Send(Language);
-//  CodeSite.Send(img.Name);
-
-    str2:=
-    'select * from seminar_Type_icon stp '
-    + ' where stp.fk_seminar_Type = :seminarSerial and LANGUAGE_GREEK_OR_ENGLISH = :language'
-    + ' and stp.position_corner= :position ';
-
-  qr := TksQuery.Create(cn, str2);
-  try
-      qr.close;
-      qr.ParamByName('seminarSerial').Value := seminarSerial;
-      qr.ParamByName('Language').Value := Language;
-      qr.ParamByName('position').Value := position;
-      qr.open;
-
-      if qr.IsEmpty then  begin
-       iconSerial:= ksGenerateSerial(cn,'GEN_SEMINAR_TYPE_ICON');
-       qr.Insert;
-       qr.FieldByName('serial_number').Value:=iconSerial;
-       qr.FieldByName('fk_seminar_type').Value:=SeminarSerial;
-       qr.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').Value:=language;
-       qr.FieldByName('POSITION_CORNER').Value:=position;
-       qr.Post;
-      end;
-
-      qr.Edit;
-      BlobField := qr.FieldByName('icon_blob') as TBlobField;
-      BS := qr.CreateBlobStream(BlobField, bmWrite);
-      try
-        Bs.Position := 0;
-        Img.Picture.SaveToStream(BS);
-
-        if BS.Size = 0 then
-        begin
-          BlobField.Clear;
-        end;
-        qr.Post;
-
-      finally
-    //        BS.Free;
-      // it seems that delphi makes the pointer nil if reference count of the object is decreased to zero.
-      //  where qr is closed and i get a runtime error
-      end;
-
-  finally
-    BS.Free;
-    qr.Free;
-  end;
-end;
-
-
-procedure TV_SeminarTypeCertificateTemplateNewFRM.ShowPictureX(const SeminarSerial: Integer; const
-  Position: string; const Language: string; img: TImage);
-var
-  code: string;
-  BlobFIeld: TField;
-  BS: TStream;
-  qr: TksQuery;
-//  imgTemp:TImage;
-str:string;
-
-begin
-
-  if SeminarSerial < 1 then
-    exit;
-  if (Language <> 'G') and (Language <> 'E') then
-  begin
-    showMessage('ERROR lang=' + language);
-    exit;
-  end;
-
-  Img.Picture := nil;
-
-  str:='select * from seminar_Type_icon stp where stp.fk_seminar_Type= :seminarTypeSerial and LANGUAGE_GREEK_OR_ENGLISH = :language'
-  + ' and stp.position_corner= :position';
-  qr := TksQuery.Create(cn,str);
-
-  try
-      qr.close;
-      qr.ParamByName('seminarTypeSerial').Value := SeminarSerial;
-      qr.ParamByName('LANGUAGE').Value := Language;
-      qr.ParamByName('position').Value := position;
-      qr.open;
-      if qr.IsEmpty then
-        exit;
-
-
-      BlobField := qr.FieldByName('icon_blob');
-
-      BS := qr.CreateBlobStream(BlobField, bmRead);
-      try
-        BS.Position := 0;
-        if bs.Size > 0 then
-          Img.Picture.LoadFromStream(bs)
-        else
-          Img.Picture := nil;
-      finally
-      end;
-//     qr.Close; not yet
-
-  finally
-    bs.Free;
-    qr.Free;
-  end;
-
-
-end;
 //////////////////////////////////////////
 procedure TV_SeminarTypeCertificateTemplateNewFRM.UpdateAllIconOffsets();
 const
