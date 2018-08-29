@@ -1,13 +1,4 @@
 // how to set offsets
-// not the best approach but too late now
-//the table seminar_type_pictures has fields  for images and RTF text
-// 1. fields for holding the actual images => (picture_top_L1, Picture_top_R1 , etc
-// 2. fields with the offset for each image =>(TL_x, TL_Y) are the offsetts of picture_top_li
-// therefore, before printing EACH  TppImage, get and apply its offsets as specified in the live record
-// for example for field PICTURE_TOP_L1, find its offsets in fields TL_X, and TL_Y
-
-//Get the positions of the images on activating the form, to avoid "
-// moving the pictures every time the report is printed:
 
 unit R_Certificate;
 
@@ -170,28 +161,6 @@ type
     TableSQLPASS_PERCENTAGE: TIntegerField;
     TableSQLSPECIFICATION_NUMBER: TWideStringField;
     TestSeminarPictureSQL: TIBCQuery;
-    TestSeminarPictureSQLSERIAL_NUMBER: TIntegerField;
-    TestSeminarPictureSQLFK_SEMINAR_TYPE_SERIAL: TIntegerField;
-    TestSeminarPictureSQLLANGUAGE_GREEK_OR_ENGLISH: TWideStringField;
-    TestSeminarPictureSQLPICTURE_SEMINAR: TBlobField;
-    TestSeminarPictureSQLLINE_A1: TWideStringField;
-    TestSeminarPictureSQLLINE_A2: TWideStringField;
-    TestSeminarPictureSQLLINE_B1: TWideStringField;
-    TestSeminarPictureSQLLINE_B2: TWideStringField;
-    TestSeminarPictureSQLLINE_B3: TWideStringField;
-    TestSeminarPictureSQLTL_X: TIntegerField;
-    TestSeminarPictureSQLTL_Y: TIntegerField;
-    TestSeminarPictureSQLTR_X: TIntegerField;
-    TestSeminarPictureSQLTR_Y: TIntegerField;
-    TestSeminarPictureSQLBL_X: TIntegerField;
-    TestSeminarPictureSQLBL_Y: TIntegerField;
-    TestSeminarPictureSQLBR_X: TIntegerField;
-    TestSeminarPictureSQLBR_Y: TIntegerField;
-    TestSeminarPictureSQLPICTURE_TOP_L1: TBlobField;
-    TestSeminarPictureSQLPICTURE_TOP_R1: TBlobField;
-    TestSeminarPictureSQLPICTURE_BOT_L1: TBlobField;
-    TestSeminarPictureSQLPICTURE_BOT_R1: TBlobField;
-    TestSeminarPictureSQLLINE_C1: TWideStringField;
     CertificatesShowSQL: TIBCQuery;
     IntegerField1: TIntegerField;
     IntegerField2: TIntegerField;
@@ -269,6 +238,7 @@ type
     procedure PrintTheSeminar();
 //    procedure PrintTestSeminar(Const CertificateSerial, PictureSerial:Integer; Const Language:String);
     procedure PrintTestSeminar(Const SeminarSerial, CertificateSerial, PictureSerial:Integer; Const Language:String);
+    procedure PrintTestSeminarCertificate(Const PrintType:string;  Const  CertificateSerial, SeminarSerial, PictureSeminarSerial, IconSeminarSerial:Integer; Const Language:String);
 
 
   end;
@@ -759,6 +729,99 @@ begin
    PpReport1.Print;
 
   end;
+
+
+procedure TR_certificateFRM.PrintTestSeminarCertificate(Const PrintType:string;  Const  CertificateSerial, SeminarSerial, PictureSeminarSerial, IconSeminarSerial:Integer; Const Language:String);
+var
+  str:String;
+  I:integer;
+//will print a certificate using pic
+begin
+
+
+  CertificateSQL.Close;
+  CertificateSQL.RestoreSQL;
+
+    with CertificateSQL do begin
+        CertificateSQL.AddWhere('serial_number = :CertificateSerial');
+        CertificateSQL.ParamByName('CertificateSerial').Value:=CertificateSerial;
+
+      CertificateSQL.Open;
+      if CertificateSQL.IsEmpty then begin
+       showMessage('Certificate not found');
+        exit;
+      end;
+//      TheSeminarSerial:=CertificateSQL.FieldByName('fk_seminar_serial').AsInteger;
+
+  end;
+
+    with TestSeminarPictureSQL do begin
+      close ;
+
+      if PrintTYpe='101' then begin
+        str:=
+        ' SELECT STP.*FROM '
+        +'  seminar_type_pictures STP '
+        +' where stp.FK_SEMINAR_TYPE_SERIAL= :SeminarSerial and stp.LANGUAGE_GREEK_OR_ENGLISH = :language ';
+      end else if PrintTYpe='102' then begin
+        str:=
+        ' SELECT STP.*FROM '
+        +'  seminar_pictures STP '
+        +' where stp.FK_SEMINAR_SERIAL= :SeminarSerial and stp.LANGUAGE_GREEK_OR_ENGLISH = :language ';
+
+      end;
+      sql.Clear;
+      SQL.Add(str);
+      TestSeminarPictureSQL.FieldDefs.Update;
+      for I := 0 to TestSeminarPictureSQL.FieldDefs.Count - 1 do
+        TestSeminarPictureSQL.FieldDefs[I].CreateField(TestSeminarPictureSQL);
+
+
+      ParamByName('SeminarSerial').Value:=PictureSeminarSerial;
+      ParamByName('Language').Value:=Language;
+      Open ;
+      if  IsEmpty then begin
+       showMessage('error: missing seminar tYPE picture record');
+       exit;
+      end;
+
+    end;
+
+    with TestPictureIconSQL do begin
+      close ;
+      if PrintTYpe='101' then begin
+        str:=
+          'SELECT STP.* FROM '
+        +' seminar_type_icon STP '
+        +' where stp.fk_seminar_type= :SeminarSerial and stp.LANGUAGE_GREEK_OR_ENGLISH = :Language '
+        +' order by position_corner ';
+      end else if PrintTYpe='102' then begin
+        str:=
+          'SELECT STP.* FROM '
+        +' seminar_icon STP '
+        +' where stp.fk_seminar_serial= :SeminarSerial and stp.LANGUAGE_GREEK_OR_ENGLISH = :Language '
+        +' order by position_corner ';
+      end;
+
+
+      sql.Clear;
+      SQL.Add(str);
+      TestPictureIconSQL.Fields.Clear;
+      TestPictureIconSQL.FieldDefs.Update;
+      for I := 0 to TestPictureIconSQL.FieldDefs.Count - 1 do
+        TestPictureIconSQL.FieldDefs[I].CreateField(TestPictureIconSQL);
+
+      ParamByName('SeminarSerial').Value:=IconSeminarSerial;
+      ParamByName('Language').Value:=Language;
+      Open ;
+    end;
+
+
+   SeminarPictureSRC.DataSet:=TestSeminarPictureSQL;
+   PpReport1.Print;
+
+  end;
+
 
 
 procedure TR_certificateFRM.ppDBImage1Print(Sender: TObject);

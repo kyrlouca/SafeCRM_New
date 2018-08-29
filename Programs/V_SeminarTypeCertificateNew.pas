@@ -498,20 +498,20 @@ end;
 
 
 procedure TV_SeminarTypeCertificateNewFRM.PrintTestCertificate();
+//use the first random certificate you can find
+//But specify correct seminar for picture and icon
 var
   SeminarTypeSerial:Integer;
-  PictureSerial:Integer;
   Language:string;
   qr:TksQuery;
   str:String;
-//  SeminarSerial:Integer;
   CertificateSerial:integer;
   Frm:TR_certificateFRM;
 begin
 
-    SeminarTypeSerial:= IN_SeminarTypeSerial;
-    PictureSerial:=SeminarPictureSQL.FieldByName('serial_number').AsInteger;
     Language:= SeminarPictureSQL.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').AsString;
+    SeminarTypeSerial:= SeminarPictureSQL.FieldByName('FK_SEMINAR_TYPE_SERIAL').AsInteger;
+
 
 str:=' Select first 1 sem.fk_seminar as type_serial, sem.serial_number as seminar_serial, sc.serial_number as certificate_serial'
   +'  from'
@@ -520,6 +520,7 @@ str:=' Select first 1 sem.fk_seminar as type_serial, sem.serial_number as semina
 
     qr:=TksQuery.Create(cn,str);
     try
+      //select the first seminar you can find with a certificate
       Qr.Open;
       if qr.IsEmpty then begin
         ShowMessage('Cannot find an existing Certificate');
@@ -533,7 +534,7 @@ str:=' Select first 1 sem.fk_seminar as type_serial, sem.serial_number as semina
 
   frm :=  TR_certificateFRM.Create(nil);
   try
-    frm.PrintTestSeminar(SeminarTypeSerial,CertificateSerial,PictureSerial,Language);
+    frm.PrintTestSeminarCertificate('101',CertificateSErial,SeminarTypeSerial,SeminarTypeSerial,SeminarTypeSerial,Language);
   finally
     frm.Free;
   end;

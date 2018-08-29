@@ -1189,11 +1189,11 @@ object V_SeminarCertificateTemplateFRM: TV_SeminarCertificateTemplateFRM
         end
       end
       object CopyFromTemplateBTN: TRzBitBtn
-        Left = 569
+        Left = 450
         Top = 24
-        Width = 121
+        Width = 152
         Height = 37
-        Caption = 'Copy again from Template'
+        Caption = 'Copy from Template'
         DoubleBuffered = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
