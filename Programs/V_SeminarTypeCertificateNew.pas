@@ -534,7 +534,7 @@ str:=' Select first 1 sem.fk_seminar as type_serial, sem.serial_number as semina
 
   frm :=  TR_certificateFRM.Create(nil);
   try
-    frm.PrintTestSeminarCertificate('101',CertificateSErial,SeminarTypeSerial,SeminarTypeSerial,SeminarTypeSerial,Language);
+    frm.PrintSeminarCertificate('101',true,CertificateSErial,SeminarTypeSerial,SeminarTypeSerial,SeminarTypeSerial,Language);
   finally
     frm.Free;
   end;

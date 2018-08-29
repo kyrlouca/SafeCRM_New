@@ -1361,7 +1361,6 @@ object V_SeminarCertificateTemplateFRM: TV_SeminarCertificateTemplateFRM
       end>
     object SeminarPictureSQLSERIAL_NUMBER: TIntegerField
       FieldName = 'SERIAL_NUMBER'
-      Required = True
     end
     object SeminarPictureSQLFK_SEMINAR_SERIAL: TIntegerField
       FieldName = 'FK_SEMINAR_SERIAL'

@@ -200,6 +200,7 @@ type
     ppDesignLayer1: TppDesignLayer;
     ppDetailBand1: TppDetailBand;
     ppDBImage1: TppDBImage;
+    TestLBL: TppLabel;
     procedure BitBtn2Click(Sender: TObject);
     procedure ppReport1PreviewFormCreate(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -220,6 +221,7 @@ type
     procedure PrintOnexBTNClick(Sender: TObject);
     procedure ppReport1BeforePrint(Sender: TObject);
     procedure ppDBImage1Print(Sender: TObject);
+    procedure TestLBLPrint(Sender: TObject);
   private
     { Private declarations }
     cn:TIBCConnection;
@@ -234,11 +236,10 @@ type
     IN_certificate_serial:Integer;
     IN_Language:String;
     IN_PictureSerial:Integer;
-    procedure PrintSeminar(Const SeminarSerial,CertificateSerial:Integer;Const language:String);
-    procedure PrintTheSeminar();
-//    procedure PrintTestSeminar(Const CertificateSerial, PictureSerial:Integer; Const Language:String);
-    procedure PrintTestSeminar(Const SeminarSerial, CertificateSerial, PictureSerial:Integer; Const Language:String);
-    procedure PrintTestSeminarCertificate(Const PrintType:string;  Const  CertificateSerial, SeminarSerial, PictureSeminarSerial, IconSeminarSerial:Integer; Const Language:String);
+//    procedure PrintSeminar(Const SeminarSerial,CertificateSerial:Integer;Const language:String);
+//    procedure PrintTheSeminar();
+//    procedure PrintTestSeminarCertificate(Const PrintType:string;  Const  CertificateSerial, SeminarSerial, PictureSeminarSerial, IconSeminarSerial:Integer; Const Language:String);
+    procedure PrintSeminarCertificate(Const PrintType:string; const isTEst:boolean; Const  CertificateSerial, SeminarSerial, PictureSeminarSerial, IconSeminarSerial:Integer; Const Language:String);
 
 
   end;
@@ -406,7 +407,7 @@ language:String;
 
 begin
   Language:=LanguageRGP.Values[LanguageRGP.ItemIndex];
-  PrintSeminar(IN_Seminar_Serial,0,Language);
+//  PrintSeminar(IN_Seminar_Serial,0,Language);
 
 end;
 
@@ -432,12 +433,12 @@ begin
   end;
   Language:=LanguageRGP.Values[LanguageRGP.ItemIndex];
 
-  PrintSeminar(IN_Seminar_Serial,CertSerial,Language);
+//  PrintSeminar(IN_Seminar_Serial,CertSerial,Language);
 
 end;
 
 
-
+{
 procedure TR_certificateFRM.PrintTheSeminar();
 var
   Language:String;
@@ -445,7 +446,7 @@ begin
   Language:=LanguageRGP.Values[LanguageRGP.ItemIndex];
   PrintSeminar(IN_Seminar_Serial,IN_certificate_serial,Language);
 end;
-
+}
 
 procedure TR_certificateFRM.FormActivate(Sender: TObject);
 begin
@@ -631,107 +632,8 @@ end;
 
 
 
-procedure TR_certificateFRM.PrintSeminar(Const SeminarSerial,CertificateSerial:Integer;Const language:String);
 
-Var
-   TheSeminarSerial:Integer;
-begin
-
-
-  CertificateSQL.Close;
-  CertificateSQL.RestoreSQL;
-
-  with CertificateSQL do begin
-    //if certificateSerial is zero it will print ALL the certs of the seminar
-    if CertificateSerial=0 then begin
-        CertificateSQL.AddWhere('fk_seminar_serial= :SeminarSerial');
-        CertificateSQL.ParamByName('SeminarSerial').Value:=SeminarSerial;
-    end else if CertificateSerial>0 then begin
-    //if certificateSerial greater than zero print only one certificate
-        CertificateSQL.AddWhere('serial_number = :CertificateSerial');
-        CertificateSQL.ParamByName('CertificateSerial').Value:=CertificateSerial;
-    end;
-
-    CertificateSQL.Open;
-    if CertificateSQL.IsEmpty then
-      exit;
-    TheSeminarSerial:=CertificateSQL.FieldByName('fk_seminar_serial').AsInteger;
-  end;
-
-    with SeminarPicturesSQL do begin
-      SeminarPicturesSQL.close ;
-      SeminarPicturesSQL.RestoreSQL;
-
-      SeminarPicturesSQL.AddWhere('stp.FK_SEMINAR_SERIAL = :SeminarSerial and stp.LANGUAGE_GREEK_OR_ENGLISH = :language');
-      SeminarPicturesSQL.ParamByName('SeminarSerial').Value:=TheSeminarSerial;
-      SeminarPicturesSQL.ParamByName('Language').Value:=Language;
-    end;
-
-
-    SeminarPicturesSQL.Open ;
-
-    if  SeminarPicturesSQL.IsEmpty then begin
-      showMessage('error: missing seminar picture record');
-      exit;
-    end;
-  PpReport1.Print;
-
-end;
-
-
-
-procedure TR_certificateFRM.PrintTestSeminar(Const SeminarSerial, CertificateSerial, PictureSerial:Integer; Const Language:String);
-//will print a certificate using pictures from the TEMPLATE
-begin
-
-
-  CertificateSQL.Close;
-  CertificateSQL.RestoreSQL;
-
-    with CertificateSQL do begin
-        CertificateSQL.AddWhere('serial_number = :CertificateSerial');
-        CertificateSQL.ParamByName('CertificateSerial').Value:=CertificateSerial;
-
-      CertificateSQL.Open;
-      if CertificateSQL.IsEmpty then begin
-       showMessage('Certificate not found');
-        exit;
-      end;
-//      TheSeminarSerial:=CertificateSQL.FieldByName('fk_seminar_serial').AsInteger;
-
-  end;
-
-    with TestSeminarPictureSQL do begin
-      close ;
-      RestoreSQL;
-
-      ParamByName('pictureSerial').Value:=PictureSerial;
-      ParamByName('Language').Value:=Language;
-      Open ;
-      if  IsEmpty then begin
-       showMessage('error: missing seminar tYPE picture record');
-       exit;
-      end;
-
-    end;
-
-    with TestPictureIconSQL do begin
-      close ;
-      RestoreSQL;
-
-      ParamByName('SeminarSerial').Value:=SeminarSerial;
-      ParamByName('Language').Value:=Language;
-      Open ;
-    end;
-
-
-   SeminarPictureSRC.DataSet:=TestSeminarPictureSQL;
-   PpReport1.Print;
-
-  end;
-
-
-procedure TR_certificateFRM.PrintTestSeminarCertificate(Const PrintType:string;  Const  CertificateSerial, SeminarSerial, PictureSeminarSerial, IconSeminarSerial:Integer; Const Language:String);
+procedure TR_certificateFRM.PrintSeminarCertificate(Const PrintType:string; const isTEst:boolean; Const  CertificateSerial, SeminarSerial, PictureSeminarSerial, IconSeminarSerial:Integer; Const Language:String);
 var
   str:String;
   I:integer;
@@ -743,15 +645,21 @@ begin
   CertificateSQL.RestoreSQL;
 
     with CertificateSQL do begin
+
+    if CertificateSerial=0 then begin
+        CertificateSQL.AddWhere('fk_seminar_serial= :SeminarSerial');
+        CertificateSQL.ParamByName('SeminarSerial').Value:=SeminarSerial;
+    end else if CertificateSerial>0 then begin
+    //if certificateSerial greater than zero print only one certificate
         CertificateSQL.AddWhere('serial_number = :CertificateSerial');
         CertificateSQL.ParamByName('CertificateSerial').Value:=CertificateSerial;
+    end;
 
-      CertificateSQL.Open;
-      if CertificateSQL.IsEmpty then begin
+     CertificateSQL.Open;
+    if CertificateSQL.IsEmpty then begin
        showMessage('Certificate not found');
         exit;
-      end;
-//      TheSeminarSerial:=CertificateSQL.FieldByName('fk_seminar_serial').AsInteger;
+    end;
 
   end;
 
@@ -781,7 +689,7 @@ begin
       ParamByName('Language').Value:=Language;
       Open ;
       if  IsEmpty then begin
-       showMessage('error: missing seminar tYPE picture record');
+       showMessage('ERROR: Template NOT found. (SeminarPicture record)');
        exit;
       end;
 
@@ -818,6 +726,7 @@ begin
 
 
    SeminarPictureSRC.DataSet:=TestSeminarPictureSQL;
+   ppReport1.Parameters['isTest'].Value := isTEst;
    PpReport1.Print;
 
   end;
@@ -861,18 +770,20 @@ begin
     initY:=55;
   end;
 
-
-
-  //  shift the image (in mm)
-//    img.Left:= 10+ img.DataField(imgFound.FieldForLeft).AsFloat/1.0;
-     img.Left:= initx+ offsetX;
-    img.Top:= -inity  - offsetY;
-//    img.Top:= ImgFound.Top- SeminarPictureSRC.DataSet.FieldByName(imgFOund.FieldForTop).AsFloat/1.0;
-
+  img.Left:= initx+ offsetX;
+  img.Top:= -inity  - offsetY;
 
 end;
 
 
 
+
+procedure TR_certificateFRM.TestLBLPrint(Sender: TObject);
+var
+  isTest:Boolean;
+begin
+  isTest:= ppReport1.Parameters['IsTest'].AsBoolean;
+  TppLabel(sender).Visible:=isTest;
+end;
 
 end.

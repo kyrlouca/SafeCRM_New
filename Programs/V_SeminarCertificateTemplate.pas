@@ -124,8 +124,7 @@ type
   procedure UpdateOneIconOffsets(const SeminarSerial: Integer; const Language,  Position:String;Const OffsetX,OffsetY:Integer);
 
 
-//    procedure CopyTemplatePIctures(const SeminarSerial, TypeSerial:  Integer);
-  procedure CopyTemplatePIctures(const SeminarSerial, TypeSerial:  Integer);
+  Function CopyTemplatePIctures(const SeminarSerial, TypeSerial:  Integer):Boolean;
 
   procedure CopyFromDefault(Const PictureSerial:Integer;Const DefaultPicSerial:Integer;Const Language:String);
   procedure PrintTestCertificate();
@@ -151,7 +150,15 @@ uses   U_Database, G_generalProcs, H_Help, G_SFCommonProcs, R_Certificate;
 {$R *.DFM}
 
 procedure TV_SeminarCertificateTemplateFRM.BitBtn2Click(Sender: TObject);
+var
+  SeminarSerial:Integer;
 begin
+    seminarSerial:=SeminarPictureSQL.FieldByName('FK_SEMINAR_SERIAL').AsInteger;
+    if SeminarSerial=0 then begin
+      showMessage('Copy from Template first');
+      exit;
+    end;
+
     ksPostTables([SeminarPictureSQL]);
 //    UPdateIconOffsets(SeminarSerial);
 
@@ -408,7 +415,7 @@ end;
 
 procedure TV_SeminarCertificateTemplateFRM.ShowAllData(const SeminarSerial: Integer; const Language: string);
 begin
-  InsertSeminarTypePictureRecord(SeminarSerial);
+//  InsertSeminarTypePictureRecord(SeminarSerial);
   SHowPictureX(SeminarSerial, TL.Name, Language, TL);
   SHowPictureX(SeminarSerial, TR.Name, Language, TR);
   SHowPictureX(SeminarSerial, BL.Name, Language, BL);
@@ -482,15 +489,21 @@ begin
   end;
 
   if (IN_SeminarTypeSerial >0) and (TypeSerial>0) then begin
-   CopyTemplatePIctures(IN_SeminarTypeSerial,TypeSerial);
+   if CopyTemplatePIctures(IN_SeminarTypeSerial,TypeSerial) then begin
+     ShowAllData(IN_SeminarTypeSerial,Language);
+   end else begin
+     ShowMessage('ERROR : no Template Found');
+     exit;
+   end;
+
 //   LanguageRGP.ItemIndex:=0;
-   ShowAllData(IN_SeminarTypeSerial,Language);
+  end else begin
   end;
 
 end;
 
 
-procedure TV_SeminarCertificateTemplateFRM.CopyTemplatePIctures(const SeminarSerial, TypeSerial:  Integer);
+Function TV_SeminarCertificateTemplateFRM.CopyTemplatePIctures(const SeminarSerial, TypeSerial:  Integer):boolean;
 //copied from v_seminar
 var
   serial: Integer;
@@ -504,29 +517,20 @@ var
   img: TImage;
   I: Integer;
 begin
+  result:=true;
 
   ksExecSQLVar(cn,
     'delete from SEMINAR_pictures where fk_seminar_serial=:serial',
     [SeminarSerial]);
-{
-  str :=
-    ' INSERT INTO SEMINAR_PICTURES'
-    + '   (SERIAL_NUMBER,  FK_SEMINAR_SERIAL,LANGUAGE_GREEK_OR_ENGLISH,'
-    + '   LINE_A1, LINE_A2, LINE_B1, LINE_B2, LINE_B3,LINE_C1,'
-    + '   picture_top_l1,picture_top_r1, picture_bot_l1,picture_bot_r1,'
-    + '   tl_x,tl_y, tr_x,tr_y, bl_x,bl_y,br_x,br_y)'
-    + '    VALUES ('
-    + '    :s1,:s2,:s3,'
-    + '    :l1,:l2,:l3,:l4,:l5,:l6,'
-    + '    :p1,:p2,:p3,:p4,'
-    + '    :t1,:t2,:t3,:t4,:t5,:t6,:t7,:t8)';
-}
-
   SeminarQr := TksQuery.Create(cn,' select * from seminar_pictures where fk_seminar_serial= :seminarSerial');
   Typeqr := TksQuery.Create(cn,'select * from seminar_type_pictures where fk_seminar_type_serial= :Typeserial');
   try
     Typeqr.ParamByName('Typeserial').Value := TYpeSerial;
     Typeqr.Open;
+    if TypeQr.IsEmpty then begin
+      result:=false;
+    end;
+
     SeminarQr.ParamByName('seminarSerial').Value := SeminarSerial;
     SeminarQR.Open;
 
@@ -557,7 +561,12 @@ end;
 
 
 procedure TV_SeminarCertificateTemplateFRM.RzBitBtn1Click(Sender: TObject);
+
 begin
+    if SeminarPictureSQL.IsEmpty then begin
+      ShowMessage('Create a template First');
+      exit;
+    end;
     UpdateAllIconOffsets();
     PrintTestCertificate();
 end;
@@ -602,7 +611,7 @@ str:=' Select first 1 sem.fk_seminar as type_serial, sem.serial_number as semina
 
   frm :=  TR_certificateFRM.Create(nil);
   try
-    frm.PrintTestSeminarCertificate('102',CertificateSErial,SeminarSerial,SeminarSerial,SeminarSerial,Language);
+    frm.PrintSeminarCertificate('102',true,CertificateSErial,SeminarSerial,SeminarSerial,SeminarSerial,Language);
   finally
     frm.Free;
   end;

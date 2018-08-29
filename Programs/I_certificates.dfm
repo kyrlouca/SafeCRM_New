@@ -2,7 +2,7 @@ object I_CertificatesFRM: TI_CertificatesFRM
   Left = 365
   Top = 153
   Caption = '--'
-  ClientHeight = 530
+  ClientHeight = 510
   ClientWidth = 1132
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -32,7 +32,6 @@ object I_CertificatesFRM: TI_CertificatesFRM
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 1004
     object Label4: TLabel
       AlignWithMargins = True
       Left = 4
@@ -184,12 +183,11 @@ object I_CertificatesFRM: TI_CertificatesFRM
   end
   object Panel4: TPanel
     Left = 0
-    Top = 487
+    Top = 467
     Width = 1132
     Height = 43
     Align = alBottom
     TabOrder = 3
-    ExplicitWidth = 1004
     object RzPanel1: TRzPanel
       Left = 1031
       Top = 1
@@ -198,7 +196,6 @@ object I_CertificatesFRM: TI_CertificatesFRM
       Align = alRight
       BorderOuter = fsNone
       TabOrder = 0
-      ExplicitLeft = 903
       object RzBitBtn1: TRzBitBtn
         Left = 6
         Top = 3
@@ -283,21 +280,19 @@ object I_CertificatesFRM: TI_CertificatesFRM
     Height = 39
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 1004
   end
   object Panel3: TPanel
     Left = 0
     Top = 92
     Width = 1132
-    Height = 395
+    Height = 375
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 1004
     object Panel5: TPanel
       Left = 329
       Top = 1
       Width = 671
-      Height = 393
+      Height = 373
       Align = alLeft
       BevelOuter = bvNone
       Locked = True
@@ -447,7 +442,7 @@ object I_CertificatesFRM: TI_CertificatesFRM
       end
       object RzPanel5: TRzPanel
         Left = 0
-        Top = 350
+        Top = 330
         Width = 671
         Height = 43
         Align = alBottom
@@ -649,7 +644,7 @@ object I_CertificatesFRM: TI_CertificatesFRM
       Left = 1
       Top = 1
       Width = 328
-      Height = 393
+      Height = 373
       Align = alLeft
       BorderOuter = fsNone
       TabOrder = 0
@@ -664,7 +659,7 @@ object I_CertificatesFRM: TI_CertificatesFRM
       end
       object RzPanel4: TRzPanel
         Left = 0
-        Top = 196
+        Top = 176
         Width = 328
         Height = 197
         Align = alBottom

@@ -804,7 +804,8 @@ begin
 
   frm :=  TR_certificateFRM.Create(nil);
   try
-    frm.PrintSeminar(SeminarSerial,0,Language);
+//    frm.PrintSeminar(SeminarSerial,0,Language);
+      frm.PrintSeminarCertificate('102',false,0,SeminarSerial,SeminarSerial,SeminarSerial,Language);
   finally
     frm.Free;
   end;
@@ -843,9 +844,11 @@ begin
   end;
   Language:=LanguageRGP.Values[LanguageRGP.ItemIndex];
 
+
   frm :=  TR_certificateFRM.Create(nil);
   try
-    frm.PrintSeminar(SeminarSerial,certSerial,Language);
+      frm.PrintSeminarCertificate('102',false,certSerial,SeminarSerial,SeminarSerial,SeminarSerial,Language);
+//    frm.PrintSeminar(SeminarSerial,certSerial,Language);
   finally
     frm.Free;
   end;
