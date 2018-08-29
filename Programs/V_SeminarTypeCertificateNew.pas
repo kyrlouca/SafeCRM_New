@@ -1,4 +1,10 @@
 unit V_SeminarTypeCertificateNew;
+//a certificate is printed based on a "template" which consists of the following two tables
+//        the templates of the seminar_type are used as a sample  for templates of the seminar
+// 1. table seminar_type_pictures has the text (and the offsets of the icon-blobs )
+// 2. table seminar_type_icon has the blobs
+
+// ** prototype_pictures has a sample for all seminar_types (copy from default)
 
 interface
 
@@ -81,8 +87,6 @@ type
     SeminarPictureSQLPICTURE_BOT_R1: TBlobField;
     SeminarPictureSQLLINE_C1: TWideStringField;
     CopyDefaultBTN: TRzBitBtn;
-    CopyHardBTN: TRzBitBtn;
-    SaveHardBTN: TRzBitBtn;
     RzBitBtn1: TRzBitBtn;
     Label1: TLabel;
     procedure BitBtn2Click(Sender: TObject);
@@ -96,9 +100,9 @@ type
     procedure TLMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Certifcates1Click(Sender: TObject);
-    procedure CopyFromTemplateBTNClick(Sender: TObject);
+//    procedure CopyFromTemplateBTNClick(Sender: TObject);
     procedure CopyHardBTNClick(Sender: TObject);
-    procedure SaveHardBTNClick(Sender: TObject);
+//    procedure SaveHardBTNClick(Sender: TObject);
     procedure RzBitBtn1Click(Sender: TObject);
     procedure CopyDefaultBTNClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -111,10 +115,9 @@ type
     function SelectPictureX(var img: TImage): Boolean;
     procedure ShowPictureDataX(const TypeSerial: Integer; const Language:  string);
 
-  procedure SavePictureX(const SeminarSerial: Integer; const position : string; const Language: string; img: Timage);
-  procedure ShowPictureX(const TypeSerial: Integer; const  Position: string; const Language: string; img: TImage);
-
     procedure SelectAndSavePictureX(const SeminarSerial: Integer; const Language: string; img: TImage);
+    procedure SavePictureX(const SeminarSerial: Integer; const position : string; const Language: string; img: Timage);
+    procedure ShowPictureX(const SeminarSerial: Integer; const  Position: string; const Language: string; img: TImage);
     procedure ClearPictureX(const SeminarSerial: Integer; const aFieldName:string; const Language: string; img: Timage);
 
 
@@ -123,7 +126,7 @@ type
   procedure UpdateOneIconOffsets(const SeminarSerial: Integer; const Language,  Position:String;Const OffsetX,OffsetY:Integer);
 
 
-    procedure CopyTemplatePIctures(const SeminarSerial, TypeSerial:  Integer);
+//    procedure CopyTemplatePIctures(const SeminarSerial, TypeSerial:  Integer);
 
   procedure CopyFromDefault(Const PictureSerial:Integer;Const DefaultPicSerial:Integer;Const Language:String);
   procedure PrintTestCertificate();
@@ -258,12 +261,10 @@ end;
 procedure TV_SeminarTypeCertificateNewFRM.SelectAndSavePictureX(const SeminarSerial: Integer; const
   Language: string; img: TImage);
 begin
-//  SeminarSerial:=SeminarSQL.fieldbyName('serial_number').AsInteger;
   if SelectPicturex(img) then
   begin
     SavePictureX(SeminarSerial, img.Name, Language, img);
     ShowPictureX(SeminarSerial, img.Name, Language, img);
-//    ShowPictureData(TypeSerial,LanguageRGP.Value);
   end;
 
 end;
@@ -350,6 +351,7 @@ begin
   result := true;
 end;
 
+{
 procedure TV_SeminarTypeCertificateNewFRM.CopyFromTemplateBTNClick(Sender: TObject);
 var
  TypeSerial:integer;
@@ -375,7 +377,7 @@ begin
    ShowAllData(IN_SeminarTypeSerial,'G');
   end;
 end;
-
+}
 
 procedure TV_SeminarTypeCertificateNewFRM.CopyHardBTNClick(Sender: TObject);
 var
@@ -384,13 +386,10 @@ var
   Language:string;
 begin
 
-//    SeminarSerial:= SeminarTypeSQL.FieldByName('serial_number').AsInteger;
     SeminarSerial:=IN_SeminarTypeSerial;
     PictureSerial:=SeminarPictureSQL.FieldByName('serial_number').AsInteger;
     Language:= SeminarPictureSQL.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').AsString;
     CopyFromDefault(PictureSerial,-1,Language);
-//    SeminarTypeSQL.Refresh;
-//    ShowAll(SeminarSerial,Language);
 end;
 
 
@@ -414,91 +413,6 @@ begin
   SHowPictureDataX(SeminarSerial, Language);
 
 end;
-
-
-
-procedure TV_SeminarTypeCertificateNewFRM.CopyTemplatePIctures(const SeminarSerial, TypeSerial:  Integer);
-//copied from v_seminar
-var
-  serial: Integer;
-  Typeqr: TksQuery;
-  seminarQr: TksQuery;
-  str: string;
-  fdesc, fmessage, fafter, fperson, fstart, fDays: string;
-  fnumber_of_days: Integer;
-  ActionDate: TDate;
-//  ActionDateRec: TActionDateRec;
-  blobRead, blobWrite: TBlobField;
-  streamRead, StreamWrite: TStream;
-  img: TImage;
-  I: Integer;
-begin
-
- showMessage('fix from type');
-  ksExecSQLVar(cn,
-    'delete from SEMINAR_pictures where fk_seminar_serial=:serial',
-    [SeminarSerial]);
-//    exit;
-
-  str :=
-    ' INSERT INTO SEMINAR_PICTURES'
-    + '   (SERIAL_NUMBER,  FK_SEMINAR_SERIAL,LANGUAGE_GREEK_OR_ENGLISH,'
-    + '   LINE_A1, LINE_A2, LINE_B1, LINE_B2, LINE_B3,LINE_C1,'
-    + '   picture_top_l1,picture_top_r1, picture_bot_l1,picture_bot_r1,'
-    + '   tl_x,tl_y, tr_x,tr_y, bl_x,bl_y,br_x,br_y)'
-    + '    VALUES ('
-    + '    :s1,:s2,:s3,'
-    + '    :l1,:l2,:l3,:l4,:l5,:l6,'
-    + '    :p1,:p2,:p3,:p4,'
-    + '    :t1,:t2,:t3,:t4,:t5,:t6,:t7,:t8)';
-
-// img:=Timage.Create(self);
-  SeminarQr := TksQuery.Create(cn,
-    ' select * from seminar_pictures where fk_seminar_serial= :seminarSerial');
-  Typeqr := TksQuery.Create(cn,
-    'select * from seminar_type_pictures where fk_seminar_type_serial= :Typeserial');
-  try
-    Typeqr.ParamByName('Typeserial').Value := TYpeSerial;
-    Typeqr.Open;
-    SeminarQr.ParamByName('seminarSerial').Value := SeminarSerial;
-    SeminarQR.Open;
-
-    try
-
-      while not Typeqr.Eof do
-      begin
-
-        serial := ksGenerateSerial(cn, 'GEN_SEMINAR_PICTURES');
-
-//    blobRead := Typeqr.FieldByName('picture_seminar') as TBlobField;
-//    streamRead := Typeqr.CreateBlobStream(blobRead, bmRead);
-//    Img.Picture.LoadFromStream(streamRead);
-
-        SeminarQR.Insert;
-        SeminarQR.FieldByName('Serial_number').value := Serial;
-        SeminarQR.FieldByName('FK_Seminar_serial').value := SeminarSerial;
-        CopyDataRecord(typeQr, SeminarQR);
-//    blobWrite := Seminarqr.FieldByName('picture_seminar') as TBlobField;
-//    streamWrite := Seminarqr.CreateBlobStream(blobWrite, bmWrite);
-//    StreamWrite.Position:=0;
-//    Img.Picture.SaveToStream(streamWrite);
-        SeminarQR.Post;
-        TypeQr.Next;
-      end;
-    finally
-//    streamWrite.Free;
-//    streamRead.Free;
-
-    end;
-  finally
-    Typeqr.Free;
-    SeminarQr.Free;
-//   img.Free;
-  end;
-
-end;
-
-
 
 
 procedure TV_SeminarTypeCertificateNewFRM.CopyDefaultBTNClick(Sender: TObject);
@@ -558,6 +472,7 @@ begin
 
 end;
 
+{
 procedure TV_SeminarTypeCertificateNewFRM.SaveHardBTNClick(Sender: TObject);
 var
   PictureSerial:Integer;
@@ -568,10 +483,8 @@ begin
     end;
     PictureSerial:=SeminarPictureSQL.FieldByName('serial_number').AsInteger;
     Language:= SeminarPictureSQL.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').AsString;
-//    SaveToDefault(PictureSerial,-1,Language);
-
 end;
-
+}
 
 
 procedure TV_SeminarTypeCertificateNewFRM.RzBitBtn1Click(Sender: TObject);
@@ -603,20 +516,13 @@ str:=' Select first 1 sem.fk_seminar as type_serial, sem.serial_number as semina
   +'      Seminar sem  inner join'
   +'      seminar_certificate sc on sem.serial_number=sc.fk_seminar_serial';
 
-
-//  +'  where'
-//  +'      sem.fk_seminar = :typeSerial';
-
     qr:=TksQuery.Create(cn,str);
     try
-//      qr.ParamByName('typeSerial').Value:=TypeSerial;
       Qr.Open;
       if qr.IsEmpty then begin
         ShowMessage('Cannot find an existing Certificate');
         exit;
       end;
-
-//      SeminarSerial:=qr.FieldByName('Seminar_Serial').AsInteger;
       CertificateSerial:=qr.FieldByName('Certificate_Serial').AsInteger;
     finally
       qr.Free;
@@ -629,9 +535,6 @@ str:=' Select first 1 sem.fk_seminar as type_serial, sem.serial_number as semina
   finally
     frm.Free;
   end;
-
-
-
 
 end;
 
@@ -703,7 +606,7 @@ begin
 end;
 
 
-procedure TV_SeminarTypeCertificateNewFRM.ShowPictureX(const TypeSerial: Integer; const
+procedure TV_SeminarTypeCertificateNewFRM.ShowPictureX(const SeminarSerial: Integer; const
   Position: string; const Language: string; img: TImage);
 var
   code: string;
@@ -715,7 +618,7 @@ str:string;
 
 begin
 
-  if TypeSerial < 1 then
+  if SeminarSerial < 1 then
     exit;
   if (Language <> 'G') and (Language <> 'E') then
   begin
@@ -731,7 +634,7 @@ begin
 
   try
       qr.close;
-      qr.ParamByName('seminarTypeSerial').Value := TypeSerial;
+      qr.ParamByName('seminarTypeSerial').Value := SeminarSerial;
       qr.ParamByName('LANGUAGE').Value := Language;
       qr.ParamByName('position').Value := position;
       qr.open;
