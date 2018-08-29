@@ -423,6 +423,7 @@ type
     Label30: TLabel;
     wwDBEdit7: TwwDBEdit;
     RzDBLabel4: TRzDBLabel;
+    CertificateTemplateBTN: TRzBitBtn;
     procedure AcceptBTNClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -460,7 +461,7 @@ type
     procedure ClearTopLeftBTNClick(Sender: TObject);
     procedure SeminarCostItemSQLNewRecord(DataSet: TDataSet);
     procedure SeminarDaySQLBeforeInsert(DataSet: TDataSet);
-    procedure RzBitBtn1Click(Sender: TObject);
+    procedure CertificateTemplateBTNClick(Sender: TObject);
     procedure HIghFLDClick(Sender: TObject);
     procedure wwNavButton25Click(Sender: TObject);
     procedure wwNavButton26Click(Sender: TObject);
@@ -477,6 +478,7 @@ type
     procedure AllCompGRDTitleButtonClick(Sender: TObject; AFieldName: string);
     procedure AttendGRDDblClick(Sender: TObject);
     procedure wwDBGrid4DblClick(Sender: TObject);
+    procedure RzBitBtn2Click(Sender: TObject);
   private
     { Private declarations }
     cn: TIBCConnection;
@@ -515,7 +517,7 @@ implementation
 
 uses U_Database, G_generalProcs, M_Instructor, M_Venue, G_SFCommonProcs,
   H_Help, v_SeminarPictureTemplate, R_AnadFIles, S_LoadDocs, M_seminarType,
-  M_Student, M_CompanyNew;
+  M_Student, M_CompanyNew, V_SeminarCertificateTemplate;
 
 {$R *.DFM}
 
@@ -1366,6 +1368,21 @@ begin
   NonAttendSQL.Refresh;
 end;
 
+procedure TV_SeminarFRM.RzBitBtn2Click(Sender: TObject);
+var
+  Frm: TV_SeminarPictureTemplateFRM;
+begin
+  frm := TV_SeminarPictureTemplateFRM.Create(nil);
+  try
+
+    frm.IN_SeminarSerial:=SeminarSQL.FieldByName('serial_number').AsInteger;
+    frm.IN_allowModify:=true;
+    frm.ShowModal;
+  finally
+    frm.Free;
+  end;
+end;
+
 procedure TV_SeminarFRM.RemoveCompany();
 var
   qr: TksQuery;
@@ -1399,14 +1416,14 @@ begin
 RemoveCompany();
 end;
 
-procedure TV_SeminarFRM.RzBitBtn1Click(Sender: TObject);
+procedure TV_SeminarFRM.CertificateTemplateBTNClick(Sender: TObject);
 var
-  Frm: TV_SeminarPictureTemplateFRM;
+  Frm: TV_SeminarCertificateTemplateFRM;
 begin
-  frm := TV_SeminarPictureTemplateFRM.Create(nil);
+  frm := TV_SeminarCertificateTemplateFRM.Create(nil);
   try
 
-    frm.IN_SeminarSerial:=SeminarSQL.FieldByName('serial_number').AsInteger;
+    frm.IN_SeminarTypeSerial:=SeminarSQL.FieldByName('serial_number').AsInteger;
     frm.IN_allowModify:=true;
     frm.ShowModal;
   finally

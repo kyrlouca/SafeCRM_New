@@ -290,6 +290,10 @@
             <Form>V_SeminarPictureTemplateFRM</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="V_SeminarCertificateTemplate.pas">
+            <Form>V_SeminarCertificateTemplateFRM</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <DCCReference Include="V_SeminarTypeCertificateNew.pas">
             <Form>V_SeminarTypeCertificateNewFRM</Form>
             <FormType>dfm</FormType>

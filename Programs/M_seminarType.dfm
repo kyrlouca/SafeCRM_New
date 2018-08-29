@@ -43,7 +43,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
       Height = 48
       Align = alTop
       BorderOuter = fsFlatRounded
-      Caption = 'Template '#931#949#956#953#957#945#961#943#969#957
+      Caption = 'Template '#931#949#956#953#957#945#961#943#969#957' x'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = 3947580
       Font.Height = -24
@@ -292,7 +292,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
       Top = 67
       Width = 1028
       Height = 691
-      ActivePage = SeminarTS
+      ActivePage = InstructTS
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -355,6 +355,8 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               Align = alTop
               BorderOuter = fsNone
               TabOrder = 0
+              ExplicitLeft = -4
+              ExplicitTop = -6
             end
             object Grid1: TwwDBGrid
               Left = 0
@@ -2116,7 +2118,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
           object RzGroupBox3: TRzGroupBox
             Left = 0
             Top = 169
-            Width = 369
+            Width = 513
             Height = 491
             Align = alLeft
             BorderSides = [sdLeft, sdTop, sdRight]
@@ -2131,16 +2133,17 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             object RzSizePanel1: TRzSizePanel
               Left = 1
               Top = 15
-              Width = 367
+              Width = 511
               Height = 12
               Align = alTop
               TabOrder = 0
+              ExplicitWidth = 367
             end
             object AttendGRD: TwwDBGrid
               Left = 1
               Top = 27
-              Width = 367
-              Height = 463
+              Width = 511
+              Height = 457
               ControlType.Strings = (
                 'IS_GUEST;CheckBox;Y;N')
               Selected.Strings = (
@@ -2169,16 +2172,20 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               TitleFont.Style = []
               TitleLines = 1
               TitleButtons = False
+              ExplicitTop = 26
+              ExplicitWidth = 367
+              ExplicitHeight = 463
             end
           end
           object middlePNL: TRzPanel
-            Left = 369
+            Left = 513
             Top = 169
             Width = 94
             Height = 491
             Align = alLeft
             BorderOuter = fsNone
             TabOrder = 2
+            ExplicitLeft = 369
             object ToRightBTN: TBitBtn
               Left = 5
               Top = 69
@@ -2325,7 +2332,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             end
           end
           object RzGroupBox4: TRzGroupBox
-            Left = 463
+            Left = 607
             Top = 169
             Width = 391
             Height = 491
@@ -2338,6 +2345,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Font.Style = []
             ParentFont = False
             TabOrder = 3
+            ExplicitLeft = 463
             object AllPersonsGRD: TwwDBGrid
               Left = 1
               Top = 98
@@ -2519,6 +2527,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
         Font.Style = []
         ImageIndex = 5
         ParentFont = False
+        TabVisible = False
         object RzPanel35: TRzPanel
           Left = 0
           Top = 0
@@ -2609,6 +2618,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
       object CertificationOldTS: TTabSheet
         Caption = 'Old '#928#953#963#964#959#960#959#953#951#964#953#954#940
         ImageIndex = 3
+        TabVisible = False
         OnExit = CertificationOldTSExit
         OnShow = CertificationOldTSShow
         object RzPanel28: TRzPanel
