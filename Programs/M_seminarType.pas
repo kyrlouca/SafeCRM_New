@@ -1032,9 +1032,9 @@ end;
 
 procedure TM_SeminarTypeFRM.EditTemplateBTNClick(Sender: TObject);
 var
-  Frm: TV_SeminarTypeCertificateNewFRM;
+  Frm: TV_SeminarTypeCertificateTemplateNewFRM;
 begin
- frm := TV_SeminarTypeCertificateNewFRM.Create(nil);
+ frm := TV_SeminarTypeCertificateTemplateNewFRM.Create(nil);
   try
 
     frm.IN_SeminarTypeSerial:=SeminarTypeSQL.FieldByName('serial_number').AsInteger;

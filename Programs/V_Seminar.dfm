@@ -117,7 +117,7 @@ object V_SeminarFRM: TV_SeminarFRM
       Width = 1073
       Height = 611
       Margins.Left = 30
-      ActivePage = SeminarTS
+      ActivePage = ReminderTS
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -2943,6 +2943,7 @@ object V_SeminarFRM: TV_SeminarFRM
       object PictureTS: TTabSheet
         Caption = #928#953#963#964#959#960#959#953#951#964#953#954#940
         ImageIndex = 5
+        TabVisible = False
         object RzPanel23: TRzPanel
           Left = 0
           Top = 0

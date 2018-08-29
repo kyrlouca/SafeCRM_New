@@ -27,7 +27,6 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
     Align = alBottom
     BorderOuter = fsFlatRounded
     TabOrder = 1
-    ExplicitTop = 706
     object RzPanel1: TRzPanel
       Left = 925
       Top = 2
@@ -263,7 +262,7 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
     Height = 53
     Align = alTop
     BorderOuter = fsNone
-    Caption = 'Template '#928#953#963#964#959#960#959#953#951#964#953#954#959#973
+    Caption = 'NOT USED ANYMORE'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlue
     Font.Height = -27
@@ -280,7 +279,6 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
     Align = alClient
     BorderOuter = fsNone
     TabOrder = 2
-    ExplicitHeight = 653
     object PageCtl: TPageControl
       Left = 0
       Top = 0
@@ -289,11 +287,9 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
       ActivePage = PictTS
       Align = alClient
       TabOrder = 0
-      ExplicitHeight = 653
       object PictTS: TTabSheet
         Caption = 'Template'
         OnShow = PictTSShow
-        ExplicitHeight = 625
         object RzPanel7: TRzPanel
           Left = 0
           Top = 0
@@ -302,7 +298,6 @@ object V_SeminarPictureTemplateFRM: TV_SeminarPictureTemplateFRM
           Align = alClient
           BorderOuter = fsNone
           TabOrder = 0
-          ExplicitHeight = 625
           object LanguageRGP: TwwRadioGroup
             Left = 18
             Top = 3

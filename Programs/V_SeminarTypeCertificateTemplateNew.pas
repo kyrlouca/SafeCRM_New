@@ -1,4 +1,4 @@
-unit V_SeminarTypeCertificateNew;
+unit V_SeminarTypeCertificateTemplateNew;
 //a certificate is printed based on a "template" which consists of the following two tables
 //        the templates of the seminar_type are used as a sample  for templates of the seminar
 // 1. table seminar_type_pictures has the text (and the offsets of the icon-blobs )

@@ -35,7 +35,6 @@ type
     Help1: TMenuItem;
     Certifcates1: TMenuItem;
     RzBitBtn1: TRzBitBtn;
-    Label1: TLabel;
     SeminarPictureSQLSERIAL_NUMBER: TIntegerField;
     SeminarPictureSQLFK_SEMINAR_SERIAL: TIntegerField;
     SeminarPictureSQLLANGUAGE_GREEK_OR_ENGLISH: TWideStringField;

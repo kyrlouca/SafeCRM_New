@@ -1,4 +1,4 @@
-object V_SeminarCertificateTemplateFRM: TV_SeminarCertificateTemplateFRM
+object V_SeminarCertificateTemplateNewFRM: TV_SeminarCertificateTemplateNewFRM
   Left = 365
   Top = 153
   Caption = '--'

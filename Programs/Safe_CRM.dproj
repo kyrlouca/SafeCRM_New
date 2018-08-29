@@ -291,11 +291,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="V_SeminarCertificateTemplate.pas">
-            <Form>V_SeminarCertificateTemplateFRM</Form>
+            <Form>V_SeminarCertificateTemplateNewFRM</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="V_SeminarTypeCertificateNew.pas">
-            <Form>V_SeminarTypeCertificateNewFRM</Form>
+        <DCCReference Include="V_SeminarTypeCertificateTemplateNew.pas">
+            <Form>V_SeminarTypeCertificateTemplateNewFRM</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

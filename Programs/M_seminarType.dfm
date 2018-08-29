@@ -292,7 +292,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
       Top = 67
       Width = 1028
       Height = 691
-      ActivePage = InstructTS
+      ActivePage = SeminarTS
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -355,8 +355,6 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               Align = alTop
               BorderOuter = fsNone
               TabOrder = 0
-              ExplicitLeft = -4
-              ExplicitTop = -6
             end
             object Grid1: TwwDBGrid
               Left = 0
@@ -930,7 +928,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               Width = 189
               Height = 37
               Alignment = taLeftJustify
-              Caption = #928#953#963#964#959#960#959#953#951#964#953#954#940' - Template'
+              Caption = 'Template '#928#953#963#964#959#960#959#953#951#964#953#954'o'#973
               DoubleBuffered = True
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
@@ -2137,13 +2135,12 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               Height = 12
               Align = alTop
               TabOrder = 0
-              ExplicitWidth = 367
             end
             object AttendGRD: TwwDBGrid
               Left = 1
               Top = 27
               Width = 511
-              Height = 457
+              Height = 463
               ControlType.Strings = (
                 'IS_GUEST;CheckBox;Y;N')
               Selected.Strings = (
@@ -2172,9 +2169,6 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
               TitleFont.Style = []
               TitleLines = 1
               TitleButtons = False
-              ExplicitTop = 26
-              ExplicitWidth = 367
-              ExplicitHeight = 463
             end
           end
           object middlePNL: TRzPanel
@@ -2185,7 +2179,6 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Align = alLeft
             BorderOuter = fsNone
             TabOrder = 2
-            ExplicitLeft = 369
             object ToRightBTN: TBitBtn
               Left = 5
               Top = 69
@@ -2345,7 +2338,6 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Font.Style = []
             ParentFont = False
             TabOrder = 3
-            ExplicitLeft = 463
             object AllPersonsGRD: TwwDBGrid
               Left = 1
               Top = 98

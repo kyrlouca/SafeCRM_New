@@ -137,7 +137,7 @@ type
     TableSQLFK_COMPANY_INVOICED: TIntegerField;
     TableSQLPASS_PERCENTAGE: TIntegerField;
     TableSQLSPECIFICATION_NUMBER: TWideStringField;
-    TestSeminarPictureSQL: TIBCQuery;
+    SeminarPictureSQL: TIBCQuery;
     CertificatesShowSQL: TIBCQuery;
     IntegerField1: TIntegerField;
     IntegerField2: TIntegerField;
@@ -640,7 +640,7 @@ begin
 
   end;
 
-    with TestSeminarPictureSQL do begin
+    with SeminarPictureSQL do begin
       close ;
 
       if PrintTYpe='101' then begin
@@ -657,9 +657,9 @@ begin
       end;
       sql.Clear;
       SQL.Add(str);
-      TestSeminarPictureSQL.FieldDefs.Update;
-      for I := 0 to TestSeminarPictureSQL.FieldDefs.Count - 1 do
-        TestSeminarPictureSQL.FieldDefs[I].CreateField(TestSeminarPictureSQL);
+      SeminarPictureSQL.FieldDefs.Update;
+      for I := 0 to SeminarPictureSQL.FieldDefs.Count - 1 do
+        SeminarPictureSQL.FieldDefs[I].CreateField(SeminarPictureSQL);
 
 
       ParamByName('SeminarSerial').Value:=PictureSeminarSerial;
@@ -702,7 +702,7 @@ begin
     end;
 
 
-   SeminarPictureSRC.DataSet:=TestSeminarPictureSQL;
+//   SeminarPictureSRC.DataSet:=TestSeminarPictureSQL;
    ppReport1.Parameters['isTest'].Value := isTEst;
    PpReport1.Print;
 

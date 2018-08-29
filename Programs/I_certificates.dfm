@@ -14,6 +14,7 @@ object I_CertificatesFRM: TI_CertificatesFRM
   Menu = MainMenu1
   OldCreateOrder = False
   Position = poScreenCenter
+  WindowState = wsMaximized
   OnActivate = FormActivate
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
