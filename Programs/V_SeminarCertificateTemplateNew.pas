@@ -124,6 +124,7 @@ type
 
 
   Function CopyTemplatePIctures(const SeminarSerial, TypeSerial:  Integer):Boolean;
+  Function CopyTemplateIcons(const SeminarSerial, TypeSerial:  Integer):boolean;
 
   procedure CopyFromDefault(Const PictureSerial:Integer;Const DefaultPicSerial:Integer;Const Language:String);
   procedure PrintTestCertificate();
@@ -489,6 +490,7 @@ begin
 
   if (IN_SeminarTypeSerial >0) and (TypeSerial>0) then begin
    if CopyTemplatePIctures(IN_SeminarTypeSerial,TypeSerial) then begin
+     CopyTemplateIcons(IN_SeminarTypeSerial,TypeSerial);
      ShowAllData(IN_SeminarTypeSerial,Language);
    end else begin
      ShowMessage('ERROR : no Template Found');
@@ -538,6 +540,62 @@ begin
       while not Typeqr.Eof do
       begin
         serial := ksGenerateSerial(cn, 'GEN_SEMINAR_PICTURES');
+        SeminarQR.Insert;
+        CopyDataRecord(typeQr, SeminarQR);
+        SeminarQR.FieldByName('Serial_number').value := Serial;
+        SeminarQR.FieldByName('FK_Seminar_serial').value := SeminarSerial;
+
+        SeminarQR.Post;
+        TypeQr.Next;
+      end;
+    finally
+
+    end;
+  finally
+    Typeqr.Free;
+    SeminarQr.Free;
+  end;
+
+end;
+
+
+
+Function TV_SeminarCertificateTemplateNewFRM.CopyTemplateIcons(const SeminarSerial, TypeSerial:  Integer):boolean;
+//copied from v_seminar
+var
+  serial: Integer;
+  Typeqr: TksQuery;
+  seminarQr: TksQuery;
+  str: string;
+  fdesc, fmessage, fafter, fperson, fstart, fDays: string;
+  fnumber_of_days: Integer;
+  ActionDate: TDate;
+  streamRead, StreamWrite: TStream;
+  img: TImage;
+  I: Integer;
+begin
+  result:=true;
+
+  ksExecSQLVar(cn,
+    'delete from SEMINAR_icon where fk_seminar_serial=:serial',
+    [SeminarSerial]);
+  SeminarQr := TksQuery.Create(cn,' select * from seminar_icon where fk_seminar_serial= :seminarSerial');
+  Typeqr := TksQuery.Create(cn,'select * from seminar_Type_icon where fk_seminar_type= :Typeserial');
+  try
+    Typeqr.ParamByName('Typeserial').Value := TYpeSerial;
+    Typeqr.Open;
+    if TypeQr.IsEmpty then begin
+      result:=false;
+    end;
+
+    SeminarQr.ParamByName('seminarSerial').Value := SeminarSerial;
+    SeminarQR.Open;
+
+    try
+
+      while not Typeqr.Eof do
+      begin
+        serial := ksGenerateSerial(cn, 'GEN_SEMINAR_icon');
         SeminarQR.Insert;
         CopyDataRecord(typeQr, SeminarQR);
         SeminarQR.FieldByName('Serial_number').value := Serial;

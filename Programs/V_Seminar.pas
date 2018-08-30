@@ -517,7 +517,8 @@ implementation
 
 uses U_Database, G_generalProcs, M_Instructor, M_Venue, G_SFCommonProcs,
   H_Help, v_SeminarPictureTemplate, R_AnadFIles, S_LoadDocs, M_seminarType,
-  M_Student, M_CompanyNew, V_SeminarCertificateTemplate;
+  M_Student, M_CompanyNew, V_SeminarCertificateTemplate,
+  V_SeminarCertificateTemplateNew;
 
 {$R *.DFM}
 
@@ -1418,9 +1419,9 @@ end;
 
 procedure TV_SeminarFRM.CertificateTemplateBTNClick(Sender: TObject);
 var
-  Frm: TV_SeminarCertificateTemplateFRM;
+  Frm: TV_SeminarCertificateTemplateNewFRM;
 begin
-  frm := TV_SeminarCertificateTemplateFRM.Create(nil);
+  frm := TV_SeminarCertificateTemplateNewFRM.Create(nil);
   try
 
     frm.IN_SeminarTypeSerial:=SeminarSQL.FieldByName('serial_number').AsInteger;

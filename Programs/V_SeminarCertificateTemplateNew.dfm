@@ -1180,8 +1180,8 @@ object V_SeminarCertificateTemplateNewFRM: TV_SeminarCertificateTemplateNewFRM
         end
       end
       object CopyFromTemplateBTN: TRzBitBtn
-        Left = 450
-        Top = 24
+        Left = 692
+        Top = 31
         Width = 152
         Height = 37
         Caption = 'Copy from Template'

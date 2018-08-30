@@ -342,13 +342,6 @@ object V_SeminarTypeCertificateTemplateNewFRM: TV_SeminarTypeCertificateTemplate
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    object Label1: TLabel
-      Left = 476
-      Top = 39
-      Width = 87
-      Height = 32
-      Caption = 'Label1'
-    end
   end
   object RzPanel2: TRzPanel
     Left = 0
@@ -1262,7 +1255,7 @@ object V_SeminarTypeCertificateTemplateNewFRM: TV_SeminarTypeCertificateTemplate
         Margin = -1
       end
       object CopyDefaultBTN: TRzBitBtn
-        Left = 386
+        Left = 875
         Top = 31
         Width = 145
         Height = 37

@@ -57,7 +57,6 @@ type
     SeminarPictureSQLPICTURE_BOT_R1: TBlobField;
     SeminarPictureSQLLINE_C1: TWideStringField;
     RzBitBtn1: TRzBitBtn;
-    Label1: TLabel;
     RzPanel7: TRzPanel;
     LanguageRGP: TwwRadioGroup;
     certificatesHelpRE: TwwDBRichEdit;
