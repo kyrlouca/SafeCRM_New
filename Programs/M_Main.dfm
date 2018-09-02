@@ -26,7 +26,7 @@ object M_mainFRM: TM_mainFRM
     Margins.Bottom = 0
     Align = alTop
     BorderOuter = fsGroove
-    Caption = 'Safe CRM - V1.17'
+    Caption = 'Safe CRM - V1.18'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 3947580
     Font.Height = -48
@@ -7333,8 +7333,8 @@ object M_mainFRM: TM_mainFRM
       OnClick = Button2Click
     end
     object MainHelpRE: TwwDBRichEdit
-      Left = 576
-      Top = 114
+      Left = 544
+      Top = 128
       Width = 121
       Height = 66
       AutoURLDetect = False

@@ -1365,7 +1365,8 @@ object M_companyNewFRM: TM_companyNewFRM
         ', COMPANY_EMPLOYEES, PHONE_MOBILE_2, LINKED_IN, JOB, IS_SAFE_COM' +
         'PANY, COMPANY_OWNER_ID, U_LAST_NAME, U_FIRST_NAME, U_COMPANY_CON' +
         'TACT_FIRST, U_COMPANY_CONTACT_LAST, LAST_NAME, FIRST_NAME, COMPA' +
-        'NY_CONTACT_LAST, COMPANY_CONTACT_FIRST)'
+        'NY_CONTACT_LAST, COMPANY_CONTACT_FIRST, ADDRESS_DISTRICT_WIN1253' +
+        ', ADDRESS_CITY_WIN1253)'
       'VALUES'
       
         '  (:SERIAL_NUMBER, :SERIAL_QB, :FK_COMPANY_SERIAL, :NATIONAL_ID,' +
@@ -1380,7 +1381,8 @@ object M_companyNewFRM: TM_companyNewFRM
         '_MOBILE_2, :LINKED_IN, :JOB, :IS_SAFE_COMPANY, :COMPANY_OWNER_ID' +
         ', :U_LAST_NAME, :U_FIRST_NAME, :U_COMPANY_CONTACT_FIRST, :U_COMP' +
         'ANY_CONTACT_LAST, :LAST_NAME, :FIRST_NAME, :COMPANY_CONTACT_LAST' +
-        ', :COMPANY_CONTACT_FIRST)')
+        ', :COMPANY_CONTACT_FIRST, :ADDRESS_DISTRICT_WIN1253, :ADDRESS_CI' +
+        'TY_WIN1253)')
     SQLDelete.Strings = (
       'DELETE FROM PERSON'
       'WHERE'
@@ -1413,7 +1415,9 @@ object M_companyNewFRM: TM_companyNewFRM
         'ANY_CONTACT_FIRST = :U_COMPANY_CONTACT_FIRST, U_COMPANY_CONTACT_' +
         'LAST = :U_COMPANY_CONTACT_LAST, LAST_NAME = :LAST_NAME, FIRST_NA' +
         'ME = :FIRST_NAME, COMPANY_CONTACT_LAST = :COMPANY_CONTACT_LAST, ' +
-        'COMPANY_CONTACT_FIRST = :COMPANY_CONTACT_FIRST'
+        'COMPANY_CONTACT_FIRST = :COMPANY_CONTACT_FIRST, ADDRESS_DISTRICT' +
+        '_WIN1253 = :ADDRESS_DISTRICT_WIN1253, ADDRESS_CITY_WIN1253 = :AD' +
+        'DRESS_CITY_WIN1253'
       'WHERE'
       '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
     SQLRefresh.Strings = (
@@ -1429,7 +1433,8 @@ object M_companyNewFRM: TM_companyNewFRM
         '_SEC, COMPANY_EMPLOYEES, PHONE_MOBILE_2, LINKED_IN, JOB, IS_SAFE' +
         '_COMPANY, COMPANY_OWNER_ID, U_LAST_NAME, U_FIRST_NAME, U_COMPANY' +
         '_CONTACT_FIRST, U_COMPANY_CONTACT_LAST, LAST_NAME, FIRST_NAME, C' +
-        'OMPANY_CONTACT_LAST, COMPANY_CONTACT_FIRST FROM PERSON'
+        'OMPANY_CONTACT_LAST, COMPANY_CONTACT_FIRST, ADDRESS_DISTRICT_WIN' +
+        '1253, ADDRESS_CITY_WIN1253 FROM PERSON'
       'WHERE'
       '  SERIAL_NUMBER = :SERIAL_NUMBER')
     SQLLock.Strings = (
@@ -1519,19 +1524,6 @@ object M_companyNewFRM: TM_companyNewFRM
     object CompanySQLADDRESS_STREET: TWideStringField
       FieldName = 'ADDRESS_STREET'
       Size = 80
-    end
-    object CompanySQLADDRESS_POST_CODE: TWideStringField
-      FieldName = 'ADDRESS_POST_CODE'
-      FixedChar = True
-      Size = 30
-    end
-    object CompanySQLADDRESS_CITY: TWideStringField
-      FieldName = 'ADDRESS_CITY'
-      Size = 30
-    end
-    object CompanySQLADDRESS_DISTRICT: TWideStringField
-      FieldName = 'ADDRESS_DISTRICT'
-      Size = 30
     end
     object CompanySQLDATE_STARTED: TDateField
       FieldName = 'DATE_STARTED'
@@ -1679,6 +1671,29 @@ object M_companyNewFRM: TM_companyNewFRM
     end
     object CompanySQLCOMPANY_CONTACT_FIRST: TWideStringField
       FieldName = 'COMPANY_CONTACT_FIRST'
+      FixedChar = True
+      Size = 120
+    end
+    object CompanySQLADDRESS_POST_CODE: TWideStringField
+      FieldName = 'ADDRESS_POST_CODE'
+      FixedChar = True
+      Size = 30
+    end
+    object CompanySQLADDRESS_CITY: TWideStringField
+      FieldName = 'ADDRESS_CITY'
+      FixedChar = True
+      Size = 120
+    end
+    object CompanySQLADDRESS_DISTRICT_WIN1253: TWideStringField
+      FieldName = 'ADDRESS_DISTRICT_WIN1253'
+      Size = 160
+    end
+    object CompanySQLADDRESS_CITY_WIN1253: TWideStringField
+      FieldName = 'ADDRESS_CITY_WIN1253'
+      Size = 160
+    end
+    object CompanySQLADDRESS_DISTRICT: TWideStringField
+      FieldName = 'ADDRESS_DISTRICT'
       FixedChar = True
       Size = 120
     end

@@ -124,9 +124,6 @@ type
     CompanySQLEMAIL_2: TSmallintField;
     CompanySQLADDRESS: TWideStringField;
     CompanySQLADDRESS_STREET: TWideStringField;
-    CompanySQLADDRESS_POST_CODE: TWideStringField;
-    CompanySQLADDRESS_CITY: TWideStringField;
-    CompanySQLADDRESS_DISTRICT: TWideStringField;
     CompanySQLDATE_STARTED: TDateField;
     CompanySQLDATE_BIRTH: TDateField;
     CompanySQLDATE_USER: TDateField;
@@ -161,6 +158,11 @@ type
     CompanySQLCOMPANY_CONTACT_LAST: TWideStringField;
     CompanySQLCOMPANY_CONTACT_FIRST: TWideStringField;
     SafeFLD: TwwCheckBox;
+    CompanySQLADDRESS_POST_CODE: TWideStringField;
+    CompanySQLADDRESS_CITY: TWideStringField;
+    CompanySQLADDRESS_DISTRICT_WIN1253: TWideStringField;
+    CompanySQLADDRESS_CITY_WIN1253: TWideStringField;
+    CompanySQLADDRESS_DISTRICT: TWideStringField;
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);

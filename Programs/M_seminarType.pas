@@ -1034,6 +1034,13 @@ procedure TM_SeminarTypeFRM.EditTemplateBTNClick(Sender: TObject);
 var
   Frm: TV_SeminarTypeCertificateTemplateNewFRM;
 begin
+  if SeminarTypeSQL.State in [dsEdit, dsInsert] then begin
+    seminarTypeSQL.Post;
+  end;
+
+  if SeminarTypeSQL.FieldByName('serial_number').AsInteger <1 then
+    exit;
+
  frm := TV_SeminarTypeCertificateTemplateNewFRM.Create(nil);
   try
 
