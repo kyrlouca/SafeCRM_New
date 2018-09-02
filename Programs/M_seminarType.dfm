@@ -340,13 +340,14 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             end
           end
           object RzPanel2: TRzPanel
-            Left = 0
+            Left = 389
             Top = 51
             Width = 631
             Height = 609
-            Align = alLeft
+            Align = alRight
             BorderOuter = fsNone
             TabOrder = 1
+            ExplicitLeft = 0
             object RzPanel3: TRzPanel
               Left = 0
               Top = 0
@@ -400,12 +401,13 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             end
           end
           object RzPanel12: TRzPanel
-            Left = 631
+            Left = 0
             Top = 51
             Width = 389
             Height = 609
             Align = alClient
             TabOrder = 2
+            ExplicitLeft = 631
             object GroupBox1: TGroupBox
               Left = 34
               Top = 39
@@ -920,6 +922,8 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 Align = alLeft
                 BorderOuter = fsNone
                 TabOrder = 1
+                ExplicitLeft = -10
+                ExplicitTop = 4
               end
             end
             object RzBitBtn1: TRzBitBtn
@@ -1009,15 +1013,18 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Align = alTop
             BorderOuter = fsNone
             TabOrder = 3
+            ExplicitLeft = 714
+            ExplicitTop = 45
           end
           object RzPanel30: TRzPanel
-            Left = 631
+            Left = 0
             Top = 51
             Width = 0
             Height = 609
             Align = alLeft
             BorderOuter = fsNone
             TabOrder = 4
+            ExplicitLeft = 631
           end
         end
       end
@@ -4063,7 +4070,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
         DataType = ftInteger
         Name = 'SERIAL_NUMBER'
         ParamType = ptInput
-        Value = 51
+        Value = 56
       end>
     object seminarSubjectSQLSERIAL_NUMBER: TIntegerField
       DisplayLabel = 'A/A'
@@ -4173,7 +4180,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
         DataType = ftInteger
         Name = 'SERIAL_NUMBER'
         ParamType = ptInput
-        Value = 51
+        Value = 56
       end>
     object SeminarReminderSQLSERIAL_NUMBER: TIntegerField
       DisplayLabel = 'A/A'

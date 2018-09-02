@@ -314,13 +314,14 @@ object M_InstructorFRM: TM_InstructorFRM
     Align = alClient
     TabOrder = 2
     object RzPanel2: TRzPanel
-      Left = 1
+      Left = 587
       Top = 1
       Width = 504
       Height = 421
-      Align = alLeft
+      Align = alRight
       BorderOuter = fsNone
       TabOrder = 0
+      ExplicitLeft = 1
       object RzPanel3: TRzPanel
         Left = 0
         Top = 0
@@ -371,7 +372,7 @@ object M_InstructorFRM: TM_InstructorFRM
       end
     end
     object RzPanel5: TRzPanel
-      Left = 505
+      Left = 1
       Top = 1
       Width = 586
       Height = 421
@@ -379,6 +380,7 @@ object M_InstructorFRM: TM_InstructorFRM
       BorderOuter = fsNone
       TabOrder = 1
       VisualStyle = vsClassic
+      ExplicitLeft = 505
       object GroupBox1: TGroupBox
         Left = 16
         Top = 45
@@ -575,11 +577,9 @@ object M_InstructorFRM: TM_InstructorFRM
           DisplayValueUnchecked = 'N'
           NullAndBlankState = cbUnchecked
           Caption = #913#925#913#916
-          Checked = True
           DataField = 'CERTIFIED_ANAD'
           DataSource = TableSRC
           ShowText = False
-          State = cbChecked
           TabOrder = 0
         end
         object wwDBEdit13: TwwDBEdit

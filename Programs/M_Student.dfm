@@ -336,13 +336,14 @@ object M_StudentFRM: TM_StudentFRM
     Align = alClient
     TabOrder = 2
     object RzPanel2: TRzPanel
-      Left = 1
+      Left = 580
       Top = 1
       Width = 665
       Height = 487
-      Align = alLeft
+      Align = alRight
       BorderOuter = fsNone
       TabOrder = 0
+      ExplicitLeft = 1
       object RzPanel3: TRzPanel
         Left = 0
         Top = 0
@@ -399,12 +400,13 @@ object M_StudentFRM: TM_StudentFRM
       end
     end
     object RzPanel4: TRzPanel
-      Left = 666
+      Left = 1
       Top = 1
       Width = 579
       Height = 487
       Align = alClient
       TabOrder = 1
+      ExplicitLeft = 666
       object GroupBox1: TGroupBox
         Left = 19
         Top = 49

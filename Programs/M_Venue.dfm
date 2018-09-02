@@ -310,17 +310,18 @@ object M_venuFRM: TM_venuFRM
     Top = 92
     Width = 918
     Height = 423
-    Align = alClient
+    Align = alRight
     TabOrder = 2
     object Panel5: TPanel
-      Left = 544
+      Left = 17
       Top = 1
       Width = 373
       Height = 421
-      Align = alRight
+      Align = alLeft
       BevelOuter = bvNone
       Locked = True
       TabOrder = 1
+      ExplicitLeft = 544
       object RzPanel4: TRzPanel
         Left = 0
         Top = 0
@@ -354,7 +355,6 @@ object M_venuFRM: TM_venuFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Button'
-            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 0
@@ -371,7 +371,6 @@ object M_venuFRM: TM_venuFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Prior'
-            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 1
@@ -388,6 +387,7 @@ object M_venuFRM: TM_venuFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Next'
+            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 2
@@ -404,6 +404,7 @@ object M_venuFRM: TM_venuFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Button1'
+            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 3
@@ -717,24 +718,26 @@ object M_venuFRM: TM_venuFRM
       end
     end
     object RzPanel2: TRzPanel
-      Left = 42
+      Left = 415
       Top = 1
-      Width = 476
+      Width = 502
       Height = 421
-      Align = alLeft
+      Align = alRight
       BorderOuter = fsNone
       TabOrder = 0
+      ExplicitLeft = 42
       object RzPanel3: TRzPanel
         Left = 0
         Top = 0
-        Width = 476
+        Width = 502
         Height = 9
         Align = alTop
         BorderOuter = fsNone
         TabOrder = 0
+        ExplicitWidth = 476
       end
       object Grid1: TwwDBGrid
-        Left = 0
+        Left = 30
         Top = 9
         Width = 472
         Height = 412
@@ -748,7 +751,7 @@ object M_venuFRM: TM_venuFRM
         TitleColor = clBtnFace
         FixedCols = 0
         ShowHorzScrollBar = True
-        Align = alLeft
+        Align = alRight
         Color = 12713983
         DataSource = TableSRC
         Font.Charset = DEFAULT_CHARSET
@@ -770,12 +773,13 @@ object M_venuFRM: TM_venuFRM
         TitleLines = 1
         TitleButtons = True
         OnTitleButtonClick = Grid1TitleButtonClick
+        ExplicitLeft = -40
       end
     end
     object RzPanel5: TRzPanel
       Left = 1
       Top = 1
-      Width = 41
+      Width = 16
       Height = 421
       Align = alLeft
       BorderOuter = fsNone
