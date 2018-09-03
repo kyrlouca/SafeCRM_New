@@ -1,5 +1,5 @@
 // how to set offsets
-
+//temp:= stringreplace(test, 'ò', 'Ó', [rfReplaceAll, rfIgnoreCase]);
 unit R_Certificate;
 
 interface
@@ -317,6 +317,7 @@ end;
 procedure TR_certificateFRM.NameFLDCalc(Sender: TObject;
   var Value: Variant);
 begin
+  //here
             value:=AnsiUpperCase(Trim(CertificateSQL.FieldByName('First_name').AsString))+'  '+
             AnsiUpperCase(Trim(CertificateSQL.FieldByName('First_name').AsString));
 

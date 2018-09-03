@@ -431,6 +431,7 @@ var
   temp:String;
   StartDateStr:String;
 SeminarYear:Integer;
+AnadNUmber:String;
 begin
 
   //for every document
@@ -456,6 +457,9 @@ begin
     end;
     SeminarName:=trim(qr.FieldByName('Seminar_name').AsString);
     SeminarYear:= system.DateUtils.YearOf(qr.FieldByName('Date_started').AsDateTime);
+
+    AnadNumber:=trim(qr.FieldByName('ANAD_NUMBER').AsString);
+
     StartDateStr:=FormatDateTime('dd_mmm_yyyy',qr.FieldByName('date_started').AsDateTime);
     IsPoly:=qr.FieldByName('Type_mono_poly').AsString;
     if isPoly='P' then
@@ -476,7 +480,8 @@ begin
   temp:= stringreplace(temp, '&', '_', [rfReplaceAll, rfIgnoreCase]);
 
   SeminarFolder:=baseFOlder+'\'+IntToStr(SeminarYear)+'_'+PolyName+'__'+temp+
-  '__'+MonoCompanyName+'_'+StartDateStr+'_'+IntToStr(SeminarSerial);
+  '__'+MonoCompanyName+'_'+StartDateStr+'_'+AnadNUmber;
+
 //  showMessage(SeminarFOlder);
 //  exit;
 

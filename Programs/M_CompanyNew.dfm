@@ -303,7 +303,7 @@ object M_companyNewFRM: TM_companyNewFRM
     Top = 92
     Width = 1104
     Height = 504
-    ActivePage = EmployeesTS
+    ActivePage = InfoTS
     Align = alClient
     MultiLine = True
     TabOrder = 3
@@ -374,9 +374,9 @@ object M_companyNewFRM: TM_companyNewFRM
           object Label5: TLabel
             Left = 54
             Top = 73
-            Width = 51
+            Width = 57
             Height = 14
-            Caption = #921#948#953#959#954#942#964#951#962
+            Caption = #921#948#953#959#954#964#942#964#951#962
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -12

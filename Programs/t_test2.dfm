@@ -111,8 +111,8 @@ object T_test2FRM: TT_test2FRM
     TitleButtons = False
   end
   object Button1: TButton
-    Left = 461
-    Top = 24
+    Left = 8
+    Top = 88
     Width = 75
     Height = 25
     Caption = 'Button1'
@@ -187,7 +187,6 @@ object T_test2FRM: TT_test2FRM
       '         spv.fk_seminar_serial= :SeminarSerial'
       '         order by'
       '            ssd.serial_number, spv.last_first_name')
-    Constraints = <>
     Filtered = True
     Left = 64
     Top = 8
@@ -234,7 +233,6 @@ object T_test2FRM: TT_test2FRM
   object vt1: TVirtualTable
     Options = [voPersistentData, voStored, voSetEmptyStrToNull, voSkipUnSupportedFieldTypes]
     Active = True
-    Constraints = <>
     FieldDefs = <
       item
         Name = 'vt1Field1'
@@ -309,6 +307,7 @@ object T_test2FRM: TT_test2FRM
     ThumbnailSettings.Enabled = True
     ThumbnailSettings.Visible = True
     ThumbnailSettings.DeadSpace = 30
+    ThumbnailSettings.PageHighlight.Width = 3
     PDFSettings.EmbedFontOptions = [efUseSubset]
     PDFSettings.EncryptSettings.AllowCopy = True
     PDFSettings.EncryptSettings.AllowInteract = True
@@ -322,6 +321,8 @@ object T_test2FRM: TT_test2FRM
     PDFSettings.EncryptSettings.EncryptionType = etRC4
     PDFSettings.FontEncoding = feAnsi
     PDFSettings.ImageCompressionLevel = 25
+    PDFSettings.PDFAFormat = pafNone
+    PreviewFormSettings.PageBorder.mmPadding = 0
     RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
     RTFSettings.DefaultFont.Color = clWindowText
     RTFSettings.DefaultFont.Height = -13
@@ -337,17 +338,19 @@ object T_test2FRM: TT_test2FRM
     XLSSettings.WorksheetName = 'Report'
     Left = 280
     Top = 297
-    Version = '18.01'
+    Version = '19.01'
     mmColumnWidth = 0
     DataPipelineName = 'vtpip'
     object ppTitleBand1: TppTitleBand
       Background.Brush.Style = bsClear
+      Border.mmPadding = 0
       mmBottomOffset = 0
       mmHeight = 0
       mmPrintPosition = 0
     end
     object ppHeaderBand1: TppHeaderBand
       Background.Brush.Style = bsClear
+      Border.mmPadding = 0
       mmBottomOffset = 0
       mmHeight = 0
       mmPrintPosition = 0
@@ -355,18 +358,21 @@ object T_test2FRM: TT_test2FRM
     object ddBand: TppDetailBand
       Background1.Brush.Style = bsClear
       Background2.Brush.Style = bsClear
+      Border.mmPadding = 0
       mmBottomOffset = 0
       mmHeight = 117475
       mmPrintPosition = 0
     end
     object ppFooterBand1: TppFooterBand
       Background.Brush.Style = bsClear
+      Border.mmPadding = 0
       mmBottomOffset = 0
       mmHeight = 77523
       mmPrintPosition = 0
       object ppLine2: TppLine
         DesignLayer = ppDesignLayer1
         UserName = 'Line4'
+        Border.mmPadding = 0
         Pen.Color = clGray
         Pen.Width = 2
         Weight = 1.500000000000000000
@@ -380,6 +386,7 @@ object T_test2FRM: TT_test2FRM
     end
     object ppPageStyle1: TppPageStyle
       Background.Brush.Style = bsClear
+      Border.mmPadding = 0
       EndPage = 0
       SinglePage = 0
       StartPage = 0
@@ -394,6 +401,7 @@ object T_test2FRM: TT_test2FRM
         Font.Name = 'TIMES NEW ROMAN'
         Font.Size = 8
         Font.Style = []
+        Border.mmPadding = 0
         Caption = 'RichText1'
         ExportRTFAsBitmap = False
         RichText = 
@@ -473,6 +481,7 @@ object T_test2FRM: TT_test2FRM
         Font.Name = 'TIMES NEW ROMAN'
         Font.Size = 8
         Font.Style = []
+        Border.mmPadding = 0
         Caption = 'RichText2'
         ExportRTFAsBitmap = False
         RichText = 
@@ -777,7 +786,6 @@ object T_test2FRM: TT_test2FRM
     Connection = U_databaseFRM.DataConnection
     SQL.Strings = (
       'Select * from prototype_pictures')
-    Constraints = <>
     Left = 88
     Top = 216
     object picturesSQLSERIAL_NUMBER: TIntegerField
@@ -926,7 +934,6 @@ object T_test2FRM: TT_test2FRM
     Connection = U_databaseFRM.DataConnection
     SQL.Strings = (
       'select * from person co where co.is_company='#39'Y'#39)
-    Constraints = <>
     Left = 32
     Top = 304
     object CompanySQLSERIAL_NUMBER: TIntegerField
@@ -1222,7 +1229,6 @@ object T_test2FRM: TT_test2FRM
       '         order by'
       '            pres.day_serial,spv.first_name'
       '')
-    Constraints = <>
     Left = 32
     Top = 416
     ParamData = <
@@ -1359,7 +1365,6 @@ object T_test2FRM: TT_test2FRM
     Connection = U_databaseFRM.DataConnection
     SQL.Strings = (
       'Select * from Person_VIEW')
-    Constraints = <>
     Left = 48
     Top = 360
     object PersonSQLSERIAL_NUMBER: TIntegerField
@@ -1594,7 +1599,6 @@ object T_test2FRM: TT_test2FRM
     SQL.Strings = (
       'select first 1 * from person co')
     Active = True
-    Constraints = <>
     Left = 617
     Top = 128
     object IntegerField1: TIntegerField
@@ -1818,6 +1822,7 @@ object T_test2FRM: TT_test2FRM
     ThumbnailSettings.Enabled = True
     ThumbnailSettings.Visible = True
     ThumbnailSettings.DeadSpace = 30
+    ThumbnailSettings.PageHighlight.Width = 3
     PDFSettings.EmbedFontOptions = [efUseSubset]
     PDFSettings.EncryptSettings.AllowCopy = True
     PDFSettings.EncryptSettings.AllowInteract = True
@@ -1831,6 +1836,8 @@ object T_test2FRM: TT_test2FRM
     PDFSettings.EncryptSettings.EncryptionType = etRC4
     PDFSettings.FontEncoding = feAnsi
     PDFSettings.ImageCompressionLevel = 25
+    PDFSettings.PDFAFormat = pafNone
+    PreviewFormSettings.PageBorder.mmPadding = 0
     RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
     RTFSettings.DefaultFont.Color = clWindowText
     RTFSettings.DefaultFont.Height = -13
@@ -1846,24 +1853,29 @@ object T_test2FRM: TT_test2FRM
     XLSSettings.WorksheetName = 'Report'
     Left = 336
     Top = 376
-    Version = '18.01'
+    Version = '19.01'
     mmColumnWidth = 0
     DataPipelineName = 'personPIP'
     object ppHeaderBand2: TppHeaderBand
       Background.Brush.Style = bsClear
+      Border.mmPadding = 0
       mmBottomOffset = 0
       mmHeight = 13229
       mmPrintPosition = 0
       object ppLabel1: TppLabel
         DesignLayer = ppDesignLayer3
         UserName = 'Label1'
+        RTLReading = False
         AutoSize = False
+        Border.mmPadding = 0
         Caption = 'SERIAL_NUMBER'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Name = 'Arial'
         Font.Size = 12
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 4763
         mmLeft = 6085
@@ -1875,13 +1887,17 @@ object T_test2FRM: TT_test2FRM
       object ppLabel2: TppLabel
         DesignLayer = ppDesignLayer3
         UserName = 'Label2'
+        RTLReading = False
         AutoSize = False
+        Border.mmPadding = 0
         Caption = 'LAST_NAME'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Name = 'Arial'
         Font.Size = 12
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 4763
         mmLeft = 44979
@@ -1893,13 +1909,17 @@ object T_test2FRM: TT_test2FRM
       object ppLabel3: TppLabel
         DesignLayer = ppDesignLayer3
         UserName = 'Label3'
+        RTLReading = False
         AutoSize = False
+        Border.mmPadding = 0
         Caption = 'FIRST_NAME'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Name = 'Arial'
         Font.Size = 12
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 4763
         mmLeft = 76729
@@ -1912,12 +1932,15 @@ object T_test2FRM: TT_test2FRM
     object ppDetailBand1: TppDetailBand
       Background1.Brush.Style = bsClear
       Background2.Brush.Style = bsClear
+      Border.mmPadding = 0
       mmBottomOffset = 0
       mmHeight = 9525
       mmPrintPosition = 0
       object ppDBText1: TppDBText
         DesignLayer = ppDesignLayer3
         UserName = 'DBText1'
+        RTLReading = False
+        Border.mmPadding = 0
         DataField = 'PERSON_SERIAL'
         DataPipeline = personPIP
         Font.Charset = DEFAULT_CHARSET
@@ -1937,6 +1960,8 @@ object T_test2FRM: TT_test2FRM
       object ppDBText2: TppDBText
         DesignLayer = ppDesignLayer3
         UserName = 'DBText2'
+        RTLReading = False
+        Border.mmPadding = 0
         DataField = 'LAST_FIRST_NAME'
         DataPipeline = personPIP
         Font.Charset = DEFAULT_CHARSET
@@ -1956,6 +1981,8 @@ object T_test2FRM: TT_test2FRM
       object ppDBText3: TppDBText
         DesignLayer = ppDesignLayer3
         UserName = 'DBText3'
+        RTLReading = False
+        Border.mmPadding = 0
         DataField = 'SEMINAR_DAY'
         DataPipeline = personPIP
         Font.Charset = DEFAULT_CHARSET
@@ -1975,6 +2002,7 @@ object T_test2FRM: TT_test2FRM
     end
     object ppFooterBand2: TppFooterBand
       Background.Brush.Style = bsClear
+      Border.mmPadding = 0
       mmBottomOffset = 0
       mmHeight = 0
       mmPrintPosition = 0

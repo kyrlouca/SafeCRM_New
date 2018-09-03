@@ -9,7 +9,7 @@ uses
   ppDB, ppDBPipe, ppComm, ppRelatv, ppProd, ppClass, ppReport, ppBands, ppCache,
   ppDesignLayer, ppParameter, ppPrnabl, ppCtrls, ppVar, Vcl.Imaging.pngimage,ComCtrls,
   ppStrtch, ppRichTx,  Vcl.ExtCtrls,
-  vcl.wwriched;
+  vcl.wwriched,System.Character;
 
 type
   TT_test2FRM = class(TForm)
@@ -284,10 +284,13 @@ end;
 
 procedure TT_test2FRM.Button1Click(Sender: TObject);
 var
-  fileName:String;
+test:String;
+temp:String;
 begin
+test:='σαβας' ;
+temp:= stringreplace(test, 'ς', 'Σ', [rfReplaceAll, rfIgnoreCase]);
+showmEssage(test+'-'+toUpper(temp));
 
-  
 
 end;
 
