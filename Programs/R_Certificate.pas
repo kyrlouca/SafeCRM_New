@@ -1,5 +1,5 @@
 // how to set offsets
-//temp:= stringreplace(test, 'ò', 'Ó', [rfReplaceAll, rfIgnoreCase]);
+
 unit R_Certificate;
 
 interface
@@ -497,7 +497,7 @@ begin
           if token='[NAME]' then begin
             temp:=Trim(CertificateSQL.FieldByName('First_name').AsString) +' '+Trim(CertificateSQL.FieldByName('Last_Name').AsString);
              if isAllUpper then begin
-                temp:= ToUpper(temp);
+                temp:= ToUpperKyr(temp);
                 temp:= RemoveAccents(Temp);
              end;
 
@@ -514,7 +514,7 @@ begin
               temp:='Ç';
 
              if isAllUpper then begin
-                temp:= ToUpper(temp);
+                temp:= ToUpperKyr(temp);
                 temp:= RemoveAccents(Temp);
              end;
 
@@ -531,7 +531,7 @@ begin
             GreekOrEnglish:=SeminarPictureSRC.DataSet.FieldByName('LANGUAGE_GREEK_OR_ENGLISH').AsString;
             temp:=FormatGreekDate(CertificateSQL.FieldByName('DATE_ISSUED').AsDateTime,GreekOrEnglish);
              if isAllUpper then begin
-                temp:= ToUpper(temp);
+                temp:= ToUpperKyr(temp);
                 temp:= RemoveAccents(Temp);
              end;
 

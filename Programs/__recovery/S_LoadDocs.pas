@@ -730,20 +730,22 @@ const
 //  DaysSQL =
 
   SemArray :Tarray<String>=['serial_number','ANAD_number','SPECIFICATION_NUMBER', 'national_id', 'seminar_name', 'date_started', 'date_completed', 'duration_days', 'duration_hours'];
-  CompanyArray :Tarray<String>=['Last_name','PHONE_FIXED','email','website',  'company_social_sec',
 
+  CompanyArray :Tarray<String>=[
+  'Last_name','national_id','company_social_sec','COMPANY_REGISTRATION_DATE','COMPANY_EMPLOYEES',
+  'PHONE_FIXED','fax','email','website',
   'company_owner','company_owner_id','company_owner_Phone','company_owner_fax','company_owner_email',
   'company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email','company_contact_position',
-  'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY',
+  'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY'
   ];
 
-
-  SafeCompanyArray
-
-   :Tarray<String>=['Last_name',
+  SafeCompanyArray :Tarray<String>=[
+  'Last_name','national_id','company_social_sec','COMPANY_REGISTRATION_DATE','COMPANY_EMPLOYEES',
+  'PHONE_FIXED','fax','email','website',
   'company_owner','company_owner_id','company_owner_Phone','company_owner_fax','company_owner_email',
-  'company_social_sec','company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email',
-  'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY','PHONE_FIXED','email','website'];
+  'company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email','company_contact_position',
+  'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY'
+  ];
 
 
   VenueArray :Tarray<String>=['Venue_Name','Venue_location','ROOM_NAME','ANAD_Number','DISTRICT'];
@@ -842,10 +844,10 @@ begin
   Writer := TStreamWriter.Create(FileName, true, TEncoding.UTF8);
   str:=
   '   select'
-  +'    ''T'' as Id_Type,per.national_id,''Κύπρος'' as Country,'
+  +'    ''T'' as Id_Type,per.national_id,''ΞΟΟ€ΟΞΏΟ‚'' as Country,'
   +'    case(per.sex)'
   +'    when ''M'' then ''A'''
-  +'    when ''F'' then ''Θ'''
+  +'    when ''F'' then ''Ξ'''
   +'    else ''A'''
   +'    end as Sex'
   +'    ,per.last_name,per.first_name ,per.job from'
@@ -869,7 +871,7 @@ begin
      writer.Write( intToStr(i)+'. ; ');
      writer.Write( 'T ; ');
      writer.Write( fillEmpty(qr.FieldByName('National_id').AsString) +' ; ');
-     writer.Write( 'Κύπρος ; ');
+     writer.Write( 'ΞΟΟ€ΟΞΏΟ‚ ; ');
      writer.Write( FillEmpty(qr.FieldByName('sex').AsString)   +' ; ');
      writer.Write( FillEmpty(qr.FieldByName('Last_name').AsString)   +' ; ');
      writer.write( FillEmpty(qr.FieldByName('first_name').AsString)  +' ; ');

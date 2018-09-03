@@ -20,6 +20,8 @@ Function FormatGreekDate(const aDateTime:TDateTime;Const GreekOrEnglish:String):
 Function RemoveAccents(Const val:String):string;
 function AllUpper (val:string):Boolean;
 function AllLower (val:string):Boolean;
+function ToUpperKyr (val:string):String;
+
 Procedure CopyDataRecord(SourceDataset,DestDataset:TDataSet);
 Function G_Boolean(bool :Boolean):string;
 
@@ -29,6 +31,18 @@ function test1():Integer;
 begin
   result:=1;
 end;
+
+
+function ToUpperKyr(val:String):String;
+var
+  temp:String;
+begin
+  result:=toUpper(val);
+  result:=stringreplace(result, 'ò', 'Ó', [rfReplaceAll, rfIgnoreCase]);
+
+//temp:= stringreplace(test, 'ò', 'Ó', [rfReplaceAll, rfIgnoreCase]);
+end;
+
 
 Function CalcDaysOld(const DateSeminar,DateRef:TDateTime;Const isAfter,isDayUnit:Boolean;Const NumberOfUnits:Integer):Integer;
 var
