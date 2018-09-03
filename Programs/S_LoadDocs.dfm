@@ -141,11 +141,12 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
   object Panel3: TRzPanel
     Left = 0
     Top = 86
-    Width = 1123
+    Width = 0
     Height = 429
     Align = alClient
     BorderOuter = fsNone
     TabOrder = 3
+    ExplicitWidth = 1123
     object Panel5: TRzPanel
       Left = 609
       Top = 0
@@ -662,7 +663,7 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
     Top = 86
     Width = 1123
     Height = 429
-    Align = alClient
+    Align = alRight
     BorderOuter = fsNone
     TabOrder = 4
     object RzPanel5: TRzPanel
@@ -674,6 +675,8 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
       BorderOuter = fsNone
       Locked = True
       TabOrder = 0
+      ExplicitLeft = 607
+      ExplicitTop = -1
       object GroupBox2: TGroupBox
         Left = 6
         Top = 39
@@ -1093,6 +1096,8 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
       TitleFont.Style = []
       TitleLines = 1
       TitleButtons = False
+      ExplicitLeft = -6
+      ExplicitTop = 1
     end
     object RzPanel7: TRzPanel
       Left = 601

@@ -321,7 +321,6 @@ object M_venuFRM: TM_venuFRM
       BevelOuter = bvNone
       Locked = True
       TabOrder = 1
-      ExplicitLeft = 544
       object RzPanel4: TRzPanel
         Left = 0
         Top = 0
@@ -355,6 +354,7 @@ object M_venuFRM: TM_venuFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Button'
+            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 0
@@ -371,6 +371,7 @@ object M_venuFRM: TM_venuFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Prior'
+            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 1
@@ -387,7 +388,6 @@ object M_venuFRM: TM_venuFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Next'
-            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 2
@@ -404,7 +404,6 @@ object M_venuFRM: TM_venuFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Button1'
-            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 3
@@ -725,7 +724,6 @@ object M_venuFRM: TM_venuFRM
       Align = alRight
       BorderOuter = fsNone
       TabOrder = 0
-      ExplicitLeft = 42
       object RzPanel3: TRzPanel
         Left = 0
         Top = 0
@@ -734,7 +732,6 @@ object M_venuFRM: TM_venuFRM
         Align = alTop
         BorderOuter = fsNone
         TabOrder = 0
-        ExplicitWidth = 476
       end
       object Grid1: TwwDBGrid
         Left = 30
@@ -773,7 +770,6 @@ object M_venuFRM: TM_venuFRM
         TitleLines = 1
         TitleButtons = True
         OnTitleButtonClick = Grid1TitleButtonClick
-        ExplicitLeft = -40
       end
     end
     object RzPanel5: TRzPanel
@@ -904,13 +900,13 @@ object M_venuFRM: TM_venuFRM
   end
   object WriteTrans: TIBCTransaction
     DefaultConnection = U_databaseFRM.DataConnection
-    Left = 137
-    Top = 213
+    Left = 225
+    Top = 117
   end
   object ReadTrans: TIBCTransaction
     DefaultConnection = U_databaseFRM.DataConnection
     IsolationLevel = iblReadOnlyReadCommitted
-    Left = 200
-    Top = 209
+    Left = 280
+    Top = 105
   end
 end

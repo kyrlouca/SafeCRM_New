@@ -729,21 +729,27 @@ const
   CountStudentSQL = 'select count(sp.fk_person_serial) as count_student from seminar_person sp where sp.is_guest=''N'' and sp.fk_seminar_serial = :Serial';
 //  DaysSQL =
 
-  SemArray :Tarray<String>=['serial_number','ANAD_number','SPECIFICATION_NUMBER', 'national_id', 'seminar_name', 'date_started', 'date_completed', 'duration_days', 'duration_hours'];
-  CompanyArray :Tarray<String>=['Last_name','PHONE_FIXED','email','website',  'company_social_sec',
-
-  'company_owner','company_owner_id','company_owner_Phone','company_owner_fax','company_owner_email',
-  'company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email','company_contact_position',
-  'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY',
+  SemArray :Tarray<String>=[
+  'seminar_name','serial_number','ANAD_number','SPECIFICATION_NUMBER', 'national_id',
+  'date_started', 'date_completed', 'duration_days', 'duration_hours',
+  'MAX_CAPACITY'
   ];
 
-
-  SafeCompanyArray
-
-   :Tarray<String>=['Last_name',
+  CompanyArray :Tarray<String>=[
+  'Last_name','national_id','company_social_sec','COMPANY_REGISTRATION_DATE','COMPANY_EMPLOYEES',
+  'PHONE_FIXED','fax','email','website',
   'company_owner','company_owner_id','company_owner_Phone','company_owner_fax','company_owner_email',
-  'company_social_sec','company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email',
-  'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY','PHONE_FIXED','email','website'];
+  'company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email','company_contact_position',
+  'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY'
+  ];
+
+  SafeCompanyArray :Tarray<String>=[
+  'Last_name','national_id','company_social_sec','COMPANY_REGISTRATION_DATE','COMPANY_EMPLOYEES',
+  'PHONE_FIXED','fax','email','website',
+  'company_owner','company_owner_id','company_owner_Phone','company_owner_fax','company_owner_email',
+  'company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email','company_contact_position',
+  'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY'
+  ];
 
 
   VenueArray :Tarray<String>=['Venue_Name','Venue_location','ROOM_NAME','ANAD_Number','DISTRICT'];
