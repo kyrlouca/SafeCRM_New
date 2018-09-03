@@ -3,7 +3,7 @@ unit S_LoadDocs;
 interface
 
 uses
-  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  G_kyriacosTypes,Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   System.IOUtils,    System.DateUtils,
   StdCtrls, Mask,  Db, wwSpeedButton, wwDBNavigator,
   wwclearpanel, Buttons, ExtCtrls, wwdblook, Wwkeycb, Grids,
@@ -62,30 +62,6 @@ type
     TableSQLDOC_TYPE: TWideStringField;
     Button2: TButton;
     RzPanel4: TRzPanel;
-    RzPanel5: TRzPanel;
-    GroupBox2: TGroupBox;
-    Label7: TLabel;
-    Label8: TLabel;
-    Label9: TLabel;
-    RzDBLabel2: TRzDBLabel;
-    wwDBEdit1: TwwDBEdit;
-    RzBitBtn2: TRzBitBtn;
-    Button3: TButton;
-    wwCheckBox4: TwwCheckBox;
-    wwButton2: TwwButton;
-    RzPanel6: TRzPanel;
-    wwDBNavigator1: TwwDBNavigator;
-    wwNavButton1: TwwNavButton;
-    wwNavButton2: TwwNavButton;
-    wwNavButton3: TwwNavButton;
-    wwNavButton4: TwwNavButton;
-    wwNavButton5: TwwNavButton;
-    wwNavButton6: TwwNavButton;
-    wwNavButton7: TwwNavButton;
-    wwNavButton8: TwwNavButton;
-    Button4: TButton;
-    wwDBGrid1: TwwDBGrid;
-    RzPanel7: TRzPanel;
     procedure FormCreate(Sender: TObject);
     procedure RzBitBtn1Click(Sender: TObject);
     procedure SavetoDBClick(Sender: TObject);
@@ -94,6 +70,7 @@ type
     procedure wwButton1Click(Sender: TObject);
     procedure TableSQLNewRecord(DataSet: TDataSet);
     procedure Nav1InsertClick(Sender: TObject);
+    procedure Grid1TitleButtonClick(Sender: TObject; AFieldName: string);
   private
     { Private declarations }
     cn:TIBCConnection;
@@ -360,6 +337,20 @@ end;
 procedure TS_LoadDocsFRM.FormCreate(Sender: TObject);
 begin
   cn:=  U_databaseFRM.DataConnection;
+end;
+
+procedure TS_LoadDocsFRM.Grid1TitleButtonClick(Sender: TObject;
+  AFieldName: string);
+  var
+         sortInfoHawb:TSOrtInfo;
+         Table:TIBCQuery;
+
+
+  begin
+        Table:=TIbcQuery(Grid1.DataSource.DataSet);
+        SortInfoHawb.Table:=Table;
+        G_GeneralProcs.SortGrid(Table,AFieldName,SOrtInfoHawb);
+
 end;
 
 procedure TS_LoadDocsFRM.Nav1InsertClick(Sender: TObject);
