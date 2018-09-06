@@ -713,7 +713,8 @@ end;
 
 procedure TS_LoadDocsFRM.CreateTextFile(Const seminarSerial, CompSerial:Integer; Const FileName :String);
 const
-  SeminarSQL = 'select * from seminar where serial_number = :Serial';
+  SeminarSQL = 'select (sem.date_started-22) as Date_22, sem.* from seminar sem where serial_number = :Serial';
+//  SeminarSQL = 'select * from seminar where serial_number = :Serial';
   CompanySQl = 'select * from Person where serial_number = :Serial';
   VenueSQl = 'select * from Venue where serial_number = :Serial';
   InstructorSQl = 'select * from instructor where serial_number = :Serial';
@@ -722,21 +723,22 @@ const
 
   SemArray :Tarray<String>=[
   'seminar_name','serial_number','ANAD_number','SPECIFICATION_NUMBER', 'national_id',
-  'date_started', 'date_completed', 'duration_days', 'duration_hours',
+  'date_22','date_started', 'date_completed', 'duration_days', 'duration_hours',
   'MAX_CAPACITY'
   ];
 
   CompanyArray :Tarray<String>=[
-  'Last_name','national_id','company_social_sec','COMPANY_REGISTRATION_DATE','COMPANY_EMPLOYEES',
-  'PHONE_FIXED','fax','email','website',
+  'Last_name','national_id','company_social_sec','COMPANY_REGISTRATION_DATE','COMPANY_EMPLOYEES', 'COMPANY_MAIN_ACTIVITY',
+  'PHONE_FIXED','PHONE_ALTERNATE','fax','email','website',
   'company_owner','company_owner_id','company_owner_Phone','company_owner_fax','company_owner_email',
   'company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email','company_contact_position',
+  'company_manager_last','company_manager_first','company_manager_Phone','company_manager_fax','company_manager_email','company_manager_position',
   'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY'
   ];
 
   SafeCompanyArray :Tarray<String>=[
   'Last_name','national_id','company_social_sec','COMPANY_REGISTRATION_DATE','COMPANY_EMPLOYEES',
-  'PHONE_FIXED','fax','email','website',
+  'PHONE_FIXED','PHONE_ALTERNATE','fax','email','website',
   'company_owner','company_owner_id','company_owner_Phone','company_owner_fax','company_owner_email',
   'company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email','company_contact_position',
   'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY'
