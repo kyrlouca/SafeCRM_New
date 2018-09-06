@@ -204,6 +204,10 @@ type
     wwDBEdit33: TwwDBEdit;
     Label38: TLabel;
     wwDBEdit34: TwwDBEdit;
+    ExcludedPersonsSQLFK_COMPANY_SERIAL: TIntegerField;
+    ExcludedPersonsSQLIS_COMPANY: TWideStringField;
+    ExcludedPersonsSQLCOMPANY_NAME: TWideStringField;
+    ExcludedPersonsSQLCOMPANY_SERIAL: TIntegerField;
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);
@@ -285,7 +289,7 @@ var
 
 
   begin
-        Table:=TIbcQuery(Grid1.DataSource.DataSet);
+        Table:=TIbcQuery(AllPersonsGRD.DataSource.DataSet);
         SortInfoHawb.Table:=Table;
         G_GeneralProcs.SortGrid(Table,AFieldName,SOrtInfoHawb);
 
@@ -505,10 +509,20 @@ var
   qr:TksQuery;
   Personserial:Integer;
   CompanySerial:Integer;
+  ExistingCompany:Integer;
+
   str:string;
 begin
   PersonSerial:=ExcludedPersonsSQL.FieldByName('serial_number').AsInteger;
+  ExistingCompany:=ExcludedPersonsSQL.FieldByName('Fk_company_serial').AsInteger;
+  If ExistingCompany>0 then begin
+    ShowMessage('Already assigned to a Company');
+    exit;
+  end;
+
+
   CompanySerial:=companySQL.FieldByName('serial_number').AsInteger;
+
   if Personserial<1 then exit;
   str:='update person set fk_company_serial = :company_serial where serial_number= :PersonSerial';
   ksExecSQLVar(cn,str,[CompanySerial,Personserial]);

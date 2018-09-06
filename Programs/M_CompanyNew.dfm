@@ -63,7 +63,6 @@ object M_companyNewFRM: TM_companyNewFRM
     Height = 43
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 596
     object RzPanel1: TRzPanel
       Left = 1161
       Top = 1
@@ -305,16 +304,14 @@ object M_companyNewFRM: TM_companyNewFRM
     Top = 92
     Width = 1262
     Height = 660
-    ActivePage = InfoTS
+    ActivePage = EmployeesTS
     Align = alClient
     MultiLine = True
     TabOrder = 3
     OnChanging = PageControlPCChanging
-    ExplicitHeight = 504
     object InfoTS: TTabSheet
       Caption = #917#964#945#953#961#949#943#945
       OnShow = InfoTSShow
-      ExplicitHeight = 476
       object RzPanel4: TRzPanel
         Left = 0
         Top = 0
@@ -323,8 +320,6 @@ object M_companyNewFRM: TM_companyNewFRM
         Align = alClient
         BorderOuter = fsNone
         TabOrder = 0
-        ExplicitLeft = -88
-        ExplicitTop = 16
         object DetailsGRP: TGroupBox
           Left = 3
           Top = 20
@@ -1643,10 +1638,11 @@ object M_companyNewFRM: TM_companyNewFRM
             Height = 557
             Selected.Strings = (
               'SERIAL_NUMBER'#9'6'#9'A/A'
-              'LAST_NAME'#9'18'#9#917#960#943#952#949#964#959
+              'LAST_NAME'#9'20'#9#917#960#943#952#949#964#959
               'FIRST_NAME'#9'10'#9#908#957#959#956#945
               'NATIONAL_ID'#9'13'#9#932#945#965#964#972#964#951#964#945
-              'PHONE_MOBILE'#9'13'#9#922#953#957#951#964#972)
+              'PHONE_MOBILE'#9'13'#9#922#953#957#951#964#972
+              'COMPANY_NAME'#9'120'#9'Company')
             IniAttributes.Delimiter = ';;'
             IniAttributes.UnicodeIniFile = False
             TitleColor = clBtnFace
@@ -2312,19 +2308,17 @@ object M_companyNewFRM: TM_companyNewFRM
     SQL.Strings = (
       ' select'
       
-        '     pout.serial_number,pout.is_company, pout.last_name,pout.fir' +
-        'st_name, pout.national_id,pout.phone_mobile'
-      ' from'
-      ' person pout'
-      ' where'
-      '('
-      ' (pout.fk_company_serial is null) OR'
-      ' (pout.fk_company_serial is not null'
+        '     pout.serial_number,pout.fk_company_serial, pout.is_company,' +
+        ' pout.last_name,pout.first_name, pout.national_id,pout.phone_mob' +
+        'ile,'
       
-        ' and  not exists(select serial_number from person comp where com' +
-        'p.serial_number= pout.fk_company_serial) )'
-      ' )'
-      ' and pout.is_company ='#39'N'#39
+        '     comp.last_name as Company_name,comp.serial_number as Compan' +
+        'y_serial'
+      ' from'
+      ' person pout left outer join'
+      ' person comp on pout.fk_company_serial=comp.serial_number'
+      ' where'
+      '  pout.is_company ='#39'N'#39
       'Order by pout.last_name, pout.first_name')
     ReadOnly = True
     Active = True
@@ -2338,7 +2332,7 @@ object M_companyNewFRM: TM_companyNewFRM
     end
     object ExcludedPersonsSQLLAST_NAME: TWideStringField
       DisplayLabel = #917#960#943#952#949#964#959
-      DisplayWidth = 18
+      DisplayWidth = 20
       FieldName = 'LAST_NAME'
       FixedChar = True
       Size = 120
@@ -2362,6 +2356,28 @@ object M_companyNewFRM: TM_companyNewFRM
       FieldName = 'PHONE_MOBILE'
       FixedChar = True
       Size = 15
+    end
+    object ExcludedPersonsSQLCOMPANY_NAME: TWideStringField
+      DisplayLabel = 'Company'
+      DisplayWidth = 120
+      FieldName = 'COMPANY_NAME'
+      FixedChar = True
+      Size = 120
+    end
+    object ExcludedPersonsSQLFK_COMPANY_SERIAL: TIntegerField
+      FieldName = 'FK_COMPANY_SERIAL'
+      Visible = False
+    end
+    object ExcludedPersonsSQLIS_COMPANY: TWideStringField
+      FieldName = 'IS_COMPANY'
+      Required = True
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
+    object ExcludedPersonsSQLCOMPANY_SERIAL: TIntegerField
+      FieldName = 'COMPANY_SERIAL'
+      Visible = False
     end
   end
   object ExcludedPersonsSRC: TDataSource
