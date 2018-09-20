@@ -1442,26 +1442,6 @@ object V_SeminarTypeCertificateTemplateNewFRM: TV_SeminarTypeCertificateTemplate
     object SeminarPictureSQLPICTURE_SEMINAR: TBlobField
       FieldName = 'PICTURE_SEMINAR'
     end
-    object SeminarPictureSQLLINE_A1: TWideStringField
-      FieldName = 'LINE_A1'
-      Size = 1500
-    end
-    object SeminarPictureSQLLINE_A2: TWideStringField
-      FieldName = 'LINE_A2'
-      Size = 1500
-    end
-    object SeminarPictureSQLLINE_B1: TWideStringField
-      FieldName = 'LINE_B1'
-      Size = 1500
-    end
-    object SeminarPictureSQLLINE_B2: TWideStringField
-      FieldName = 'LINE_B2'
-      Size = 1500
-    end
-    object SeminarPictureSQLLINE_B3: TWideStringField
-      FieldName = 'LINE_B3'
-      Size = 1500
-    end
     object SeminarPictureSQLTL_X: TIntegerField
       FieldName = 'TL_X'
     end
@@ -1501,6 +1481,26 @@ object V_SeminarTypeCertificateTemplateNewFRM: TV_SeminarTypeCertificateTemplate
     object SeminarPictureSQLLINE_C1: TWideStringField
       FieldName = 'LINE_C1'
       Size = 1500
+    end
+    object SeminarPictureSQLLINE_A1: TWideStringField
+      FieldName = 'LINE_A1'
+      Size = 2320
+    end
+    object SeminarPictureSQLLINE_A2: TWideStringField
+      FieldName = 'LINE_A2'
+      Size = 2320
+    end
+    object SeminarPictureSQLLINE_B1: TWideStringField
+      FieldName = 'LINE_B1'
+      Size = 2320
+    end
+    object SeminarPictureSQLLINE_B2: TWideStringField
+      FieldName = 'LINE_B2'
+      Size = 2320
+    end
+    object SeminarPictureSQLLINE_B3: TWideStringField
+      FieldName = 'LINE_B3'
+      Size = 2320
     end
   end
   object OpenPictureDialog1: TOpenPictureDialog

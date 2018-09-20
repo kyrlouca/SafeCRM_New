@@ -107,8 +107,8 @@ type
     RzDBLabel1: TRzDBLabel;
     N4: TMenuItem;
     BitBtn1: TBitBtn;
-    VPresenceSQLfirst_name: TStringField;
-    VPresenceSQLLast_name: TStringField;
+    VPresenceSQLfirst_name: TWideStringField;
+    VPresenceSQLLast_name: TWideStringField;
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure TableSRCStateChange(Sender: TObject);
     procedure FormActivate(Sender: TObject);

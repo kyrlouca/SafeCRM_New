@@ -2,7 +2,7 @@ object P_attendanceFRM: TP_attendanceFRM
   Left = 365
   Top = 153
   Caption = '--'
-  ClientHeight = 556
+  ClientHeight = 561
   ClientWidth = 1002
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -54,11 +54,12 @@ object P_attendanceFRM: TP_attendanceFRM
   end
   object Panel4: TPanel
     Left = 0
-    Top = 513
+    Top = 518
     Width = 1002
     Height = 43
     Align = alBottom
     TabOrder = 3
+    ExplicitTop = 473
     object RzPanel1: TRzPanel
       Left = 901
       Top = 1
@@ -156,7 +157,7 @@ object P_attendanceFRM: TP_attendanceFRM
     Left = 0
     Top = 92
     Width = 1002
-    Height = 421
+    Height = 426
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -165,11 +166,12 @@ object P_attendanceFRM: TP_attendanceFRM
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    ExplicitHeight = 381
     object Panel5: TPanel
       Left = 441
       Top = 1
       Width = 504
-      Height = 419
+      Height = 424
       Align = alLeft
       BevelOuter = bvNone
       Font.Charset = DEFAULT_CHARSET
@@ -180,11 +182,12 @@ object P_attendanceFRM: TP_attendanceFRM
       Locked = True
       ParentFont = False
       TabOrder = 0
+      ExplicitHeight = 379
       object wwDBGrid1: TwwDBGrid
         Left = 0
         Top = 36
         Width = 504
-        Height = 340
+        Height = 345
         ControlType.Strings = (
           'Is_Present;CustomEdit;PresentFLD;F')
         Selected.Strings = (
@@ -218,6 +221,7 @@ object P_attendanceFRM: TP_attendanceFRM
         TitleButtons = False
         UseTFields = False
         OnExit = wwDBGrid1Exit
+        ExplicitHeight = 300
         object PresentFLD: TwwCheckBox
           Left = 72
           Top = 62
@@ -366,13 +370,14 @@ object P_attendanceFRM: TP_attendanceFRM
       end
       object RzPanel5: TRzPanel
         Left = 0
-        Top = 376
+        Top = 381
         Width = 504
         Height = 43
         Align = alBottom
         BorderOuter = fsFlat
         BorderSides = [sdLeft, sdRight, sdBottom]
         TabOrder = 2
+        ExplicitTop = 336
         object RzPanel6: TRzPanel
           Left = 403
           Top = 0
@@ -604,10 +609,11 @@ object P_attendanceFRM: TP_attendanceFRM
       Left = 1
       Top = 1
       Width = 440
-      Height = 419
+      Height = 424
       Align = alLeft
       BorderOuter = fsNone
       TabOrder = 1
+      ExplicitHeight = 379
       object RzPanel3: TRzPanel
         Left = 0
         Top = 0
@@ -619,12 +625,13 @@ object P_attendanceFRM: TP_attendanceFRM
       end
       object RzPanel4: TRzPanel
         Left = 0
-        Top = 222
+        Top = 227
         Width = 440
         Height = 197
         Align = alBottom
         BorderOuter = fsNone
         TabOrder = 1
+        ExplicitTop = 182
         object Grid1: TwwDBGrid
           Left = 0
           Top = 0
@@ -912,7 +919,6 @@ object P_attendanceFRM: TP_attendanceFRM
       'where '
       'se.serial_number= :SeminarSerial')
     Active = True
-    Constraints = <>
     AfterScroll = TableSQLAfterScroll
     Left = 49
     Top = 5
@@ -1097,7 +1103,6 @@ object P_attendanceFRM: TP_attendanceFRM
       'se.serial_number= :SeminarSerial')
     DetailFields = 'FK_SEMINAR_SERIAL'
     Active = True
-    Constraints = <>
     BeforeScroll = DaySQLBeforeScroll
     AfterScroll = DaySQLAfterScroll
     Left = 273
@@ -1187,8 +1192,6 @@ object P_attendanceFRM: TP_attendanceFRM
   end
   object VPresenceSQL: TVirtualTable
     Options = [voSkipUnSupportedFieldTypes]
-    Active = True
-    Constraints = <>
     FieldDefs = <
       item
         Name = 'PersonSerial'
@@ -1214,13 +1217,13 @@ object P_attendanceFRM: TP_attendanceFRM
       end
       item
         Name = 'first_name'
-        DataType = ftString
-        Size = 80
+        DataType = ftWideString
+        Size = 100
       end
       item
         Name = 'Last_name'
-        DataType = ftString
-        Size = 80
+        DataType = ftWideString
+        Size = 100
       end>
     BeforePost = VPresenceSQLBeforePost
     OnNewRecord = VPresenceSQLNewRecord
@@ -1254,13 +1257,13 @@ object P_attendanceFRM: TP_attendanceFRM
       Visible = False
       DisplayFormat = '0%'
     end
-    object VPresenceSQLfirst_name: TStringField
+    object VPresenceSQLfirst_name: TWideStringField
       FieldName = 'first_name'
-      Size = 80
+      Size = 100
     end
-    object VPresenceSQLLast_name: TStringField
+    object VPresenceSQLLast_name: TWideStringField
       FieldName = 'Last_name'
-      Size = 80
+      Size = 100
     end
   end
   object MainMenu1: TMainMenu

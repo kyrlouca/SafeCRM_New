@@ -179,7 +179,6 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
       '         order by'
       '            ssd.serial_number, spv.last_first_name')
     Active = True
-    Constraints = <>
     Filtered = True
     Left = 64
     Top = 8
@@ -227,22 +226,21 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
   object vt1: TVirtualTable
     Options = [voPersistentData, voStored, voSetEmptyStrToNull, voSkipUnSupportedFieldTypes]
     Active = True
-    Constraints = <>
     FieldDefs = <
       item
         Name = 'vt1Field1'
-        DataType = ftString
+        DataType = ftWideString
         Size = 20
       end
       item
         Name = 'af'
-        DataType = ftString
+        DataType = ftWideString
         Size = 20
       end>
     Left = 288
     Top = 40
     Data = {
-      0400020009007674314669656C64310100140000000000020061660100140000
+      0400020009007674314669656C64311800140000000000020061661800140000
       000000000000000000}
   end
   object Vt1SRC: TDataSource
@@ -289,6 +287,7 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
     ThumbnailSettings.Enabled = True
     ThumbnailSettings.Visible = True
     ThumbnailSettings.DeadSpace = 30
+    ThumbnailSettings.PageHighlight.Width = 3
     PDFSettings.EmbedFontOptions = [efUseSubset]
     PDFSettings.EncryptSettings.AllowCopy = True
     PDFSettings.EncryptSettings.AllowInteract = True
@@ -302,6 +301,8 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
     PDFSettings.EncryptSettings.EncryptionType = etRC4
     PDFSettings.FontEncoding = feAnsi
     PDFSettings.ImageCompressionLevel = 25
+    PDFSettings.PDFAFormat = pafNone
+    PreviewFormSettings.PageBorder.mmPadding = 0
     RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
     RTFSettings.DefaultFont.Color = clWindowText
     RTFSettings.DefaultFont.Height = -13
@@ -317,24 +318,29 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
     XLSSettings.WorksheetName = 'Report'
     Left = 288
     Top = 313
-    Version = '18.01'
+    Version = '19.01'
     mmColumnWidth = 0
     DataPipelineName = 'vtpip'
     object ppTitleBand1: TppTitleBand
       Background.Brush.Style = bsClear
+      Border.mmPadding = 0
       mmBottomOffset = 0
       mmHeight = 30956
       mmPrintPosition = 0
       object ppLabel4: TppLabel
         DesignLayer = ppDesignLayer1
         UserName = 'Label2'
+        RTLReading = False
         AutoSize = False
+        Border.mmPadding = 0
         Caption = #928#945#961#959#965#963#953#959#955#972#947#953#959' '#913#957#940' '#924#941#961#945
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Name = 'TIMES NEW ROMAN'
         Font.Size = 24
         Font.Style = [fsBold, fsItalic]
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         TextAlignment = taCentered
         Transparent = True
         mmHeight = 10583
@@ -351,6 +357,7 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
         AlignVertical = avCenter
         MaintainAspectRatio = True
         Stretch = True
+        Border.mmPadding = 0
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D49484452000001400000
           00D8080200000015B0AD67000000017352474200AECE1CE90000000467414D41
@@ -1369,12 +1376,16 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
       object ppLabel9: TppLabel
         DesignLayer = ppDesignLayer1
         UserName = 'Label10'
+        RTLReading = False
+        Border.mmPadding = 0
         Caption = #931#949#956#953#957#940#961#953#959
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Name = 'TIMES NEW ROMAN'
         Font.Size = 10
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 5027
         mmLeft = 54197
@@ -1386,6 +1397,8 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
       object ppDBText8: TppDBText
         DesignLayer = ppDesignLayer1
         UserName = 'DBText6'
+        RTLReading = False
+        Border.mmPadding = 0
         DataField = 'SEMINAR_NAME'
         DataPipeline = SeminarPip
         Font.Charset = DEFAULT_CHARSET
@@ -1406,6 +1419,8 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
       object ppDBText9: TppDBText
         DesignLayer = ppDesignLayer1
         UserName = 'DBText7'
+        RTLReading = False
+        Border.mmPadding = 0
         DataField = 'DATE_STARTED'
         DataPipeline = SeminarPip
         DisplayFormat = 'dd/mm/yyyy'
@@ -1427,12 +1442,16 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
       object ppLabel11: TppLabel
         DesignLayer = ppDesignLayer1
         UserName = 'Label101'
+        RTLReading = False
+        Border.mmPadding = 0
         Caption = #904#957#945#961#958#951
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Name = 'TIMES NEW ROMAN'
         Font.Size = 10
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 5027
         mmLeft = 58166
@@ -1444,12 +1463,14 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
     end
     object ppHeaderBand1: TppHeaderBand
       Background.Brush.Style = bsClear
+      Border.mmPadding = 0
       mmBottomOffset = 0
       mmHeight = 12965
       mmPrintPosition = 0
       object ppLine1: TppLine
         DesignLayer = ppDesignLayer1
         UserName = 'Line3'
+        Border.mmPadding = 0
         Pen.Color = clNavy
         Pen.Width = 2
         Weight = 1.500000000000000000
@@ -1464,18 +1485,21 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
     object ddBand: TppDetailBand
       Background1.Brush.Style = bsClear
       Background2.Brush.Style = bsClear
+      Border.mmPadding = 0
       mmBottomOffset = 0
       mmHeight = 4763
       mmPrintPosition = 0
     end
     object ppFooterBand1: TppFooterBand
       Background.Brush.Style = bsClear
+      Border.mmPadding = 0
       mmBottomOffset = 0
       mmHeight = 6615
       mmPrintPosition = 0
       object ppLine2: TppLine
         DesignLayer = ppDesignLayer1
         UserName = 'Line4'
+        Border.mmPadding = 0
         Pen.Color = clGray
         Pen.Width = 2
         Weight = 1.500000000000000000
@@ -1489,6 +1513,8 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
       object ppSystemVariable1: TppSystemVariable
         DesignLayer = ppDesignLayer1
         UserName = 'SystemVariable3'
+        RTLReading = False
+        Border.mmPadding = 0
         VarType = vtPrintDateTime
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
@@ -1506,8 +1532,10 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
       object ppSystemVariable2: TppSystemVariable
         DesignLayer = ppDesignLayer1
         UserName = 'SystemVariable4'
+        RTLReading = False
         Anchors = [atTop, atRight]
         AutoSize = False
+        Border.mmPadding = 0
         VarType = vtPageSetDesc
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
@@ -1610,7 +1638,6 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
         'SErial'
       '  ')
     Active = True
-    Constraints = <>
     Filtered = True
     Left = 48
     Top = 304

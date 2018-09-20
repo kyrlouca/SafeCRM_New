@@ -38,11 +38,6 @@ type
     SeminarPictureSQLFK_SEMINAR_TYPE_SERIAL: TIntegerField;
     SeminarPictureSQLLANGUAGE_GREEK_OR_ENGLISH: TWideStringField;
     SeminarPictureSQLPICTURE_SEMINAR: TBlobField;
-    SeminarPictureSQLLINE_A1: TWideStringField;
-    SeminarPictureSQLLINE_A2: TWideStringField;
-    SeminarPictureSQLLINE_B1: TWideStringField;
-    SeminarPictureSQLLINE_B2: TWideStringField;
-    SeminarPictureSQLLINE_B3: TWideStringField;
     SeminarPictureSQLTL_X: TIntegerField;
     SeminarPictureSQLTL_Y: TIntegerField;
     SeminarPictureSQLTR_X: TIntegerField;
@@ -86,6 +81,11 @@ type
     wwDBEdit8: TwwDBEdit;
     CopyFromTemplateBTN: TRzBitBtn;
     CopyDefaultBTN: TRzBitBtn;
+    SeminarPictureSQLLINE_A1: TWideStringField;
+    SeminarPictureSQLLINE_A2: TWideStringField;
+    SeminarPictureSQLLINE_B1: TWideStringField;
+    SeminarPictureSQLLINE_B2: TWideStringField;
+    SeminarPictureSQLLINE_B3: TWideStringField;
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormCreate(Sender: TObject);

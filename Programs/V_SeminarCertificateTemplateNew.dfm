@@ -727,12 +727,6 @@ object V_SeminarCertificateTemplateNewFRM: TV_SeminarCertificateTemplateNewFRM
           DoubleBuffered = False
           ParentDoubleBuffered = False
           RichEditVersion = 2
-          Data = {
-            7F0000007B5C727466315C616E73695C616E7369637067313235335C64656666
-            305C6465666C616E67313033327B5C666F6E7474626C7B5C66305C666E696C5C
-            6663686172736574313631205461686F6D613B7D7D0D0A5C766965776B696E64
-            345C7563315C706172645C66305C6673313820546F70464C445C7061720D0A7D
-            0D0A00}
         end
         object MiddleFLD: TwwDBRichEdit
           Left = 229
@@ -779,12 +773,6 @@ object V_SeminarCertificateTemplateNewFRM: TV_SeminarCertificateTemplateNewFRM
           DoubleBuffered = False
           ParentDoubleBuffered = False
           RichEditVersion = 2
-          Data = {
-            820000007B5C727466315C616E73695C616E7369637067313235335C64656666
-            305C6465666C616E67313033327B5C666F6E7474626C7B5C66305C666E696C5C
-            6663686172736574313631205461686F6D613B7D7D0D0A5C766965776B696E64
-            345C7563315C706172645C66305C66733138204D6964646C65464C445C706172
-            0D0A7D0D0A00}
         end
         object CertDirectorFLD: TwwDBRichEdit
           Left = 620
@@ -830,12 +818,6 @@ object V_SeminarCertificateTemplateNewFRM: TV_SeminarCertificateTemplateNewFRM
           DoubleBuffered = False
           ParentDoubleBuffered = False
           RichEditVersion = 2
-          Data = {
-            880000007B5C727466315C616E73695C616E7369637067313235335C64656666
-            305C6465666C616E67313033327B5C666F6E7474626C7B5C66305C666E696C5C
-            6663686172736574313631205461686F6D613B7D7D0D0A5C766965776B696E64
-            345C7563315C706172645C66305C6673313820436572744469726563746F7246
-            4C445C7061720D0A7D0D0A00}
         end
         object CertInstructorFLD: TwwDBRichEdit
           Left = 228
@@ -881,12 +863,6 @@ object V_SeminarCertificateTemplateNewFRM: TV_SeminarCertificateTemplateNewFRM
           DoubleBuffered = False
           ParentDoubleBuffered = False
           RichEditVersion = 2
-          Data = {
-            8A0000007B5C727466315C616E73695C616E7369637067313235335C64656666
-            305C6465666C616E67313033327B5C666F6E7474626C7B5C66305C666E696C5C
-            6663686172736574313631205461686F6D613B7D7D0D0A5C766965776B696E64
-            345C7563315C706172645C66305C667331382043657274496E7374727563746F
-            72464C445C7061720D0A7D0D0A00}
         end
         object BottomFLD: TwwDBRichEdit
           Left = 229
@@ -932,12 +908,6 @@ object V_SeminarCertificateTemplateNewFRM: TV_SeminarCertificateTemplateNewFRM
           DoubleBuffered = False
           ParentDoubleBuffered = False
           RichEditVersion = 2
-          Data = {
-            820000007B5C727466315C616E73695C616E7369637067313235335C64656666
-            305C6465666C616E67313033327B5C666F6E7474626C7B5C66305C666E696C5C
-            6663686172736574313631205461686F6D613B7D7D0D0A5C766965776B696E64
-            345C7563315C706172645C66305C6673313820426F74746F6D464C445C706172
-            0D0A7D0D0A00}
         end
         object BottomLeftFLD: TwwDBRichEdit
           Left = 47
@@ -983,12 +953,6 @@ object V_SeminarCertificateTemplateNewFRM: TV_SeminarCertificateTemplateNewFRM
           DoubleBuffered = False
           ParentDoubleBuffered = False
           RichEditVersion = 2
-          Data = {
-            860000007B5C727466315C616E73695C616E7369637067313235335C64656666
-            305C6465666C616E67313033327B5C666F6E7474626C7B5C66305C666E696C5C
-            6663686172736574313631205461686F6D613B7D7D0D0A5C766965776B696E64
-            345C7563315C706172645C66305C6673313820426F74746F6D4C656674464C44
-            5C7061720D0A7D0D0A00}
         end
         object RzPanel3: TRzPanel
           Left = 403
@@ -1337,6 +1301,7 @@ object V_SeminarCertificateTemplateNewFRM: TV_SeminarCertificateTemplateNewFRM
       
         'where stp.FK_SEMINAR_SERIAL = :SeminarSerial  and stp.LANGUAGE_G' +
         'REEK_OR_ENGLISH = :language')
+    Active = True
     Left = 65
     Top = 17
     ParamData = <
@@ -1364,30 +1329,6 @@ object V_SeminarCertificateTemplateNewFRM: TV_SeminarCertificateTemplateNewFRM
     end
     object SeminarPictureSQLPICTURE_SEMINAR: TBlobField
       FieldName = 'PICTURE_SEMINAR'
-    end
-    object SeminarPictureSQLLINE_A1: TWideStringField
-      FieldName = 'LINE_A1'
-      Size = 1500
-    end
-    object SeminarPictureSQLLINE_A2: TWideStringField
-      FieldName = 'LINE_A2'
-      Size = 1500
-    end
-    object SeminarPictureSQLLINE_B1: TWideStringField
-      FieldName = 'LINE_B1'
-      Size = 1500
-    end
-    object SeminarPictureSQLLINE_B2: TWideStringField
-      FieldName = 'LINE_B2'
-      Size = 1500
-    end
-    object SeminarPictureSQLLINE_B3: TWideStringField
-      FieldName = 'LINE_B3'
-      Size = 1500
-    end
-    object SeminarPictureSQLLINE_C1: TWideStringField
-      FieldName = 'LINE_C1'
-      Size = 1500
     end
     object SeminarPictureSQLPICTURE_TOP_L1: TBlobField
       FieldName = 'PICTURE_TOP_L1'
@@ -1424,6 +1365,30 @@ object V_SeminarCertificateTemplateNewFRM: TV_SeminarCertificateTemplateNewFRM
     end
     object SeminarPictureSQLBR_Y: TIntegerField
       FieldName = 'BR_Y'
+    end
+    object SeminarPictureSQLLINE_A1: TWideStringField
+      FieldName = 'LINE_A1'
+      Size = 2320
+    end
+    object SeminarPictureSQLLINE_A2: TWideStringField
+      FieldName = 'LINE_A2'
+      Size = 2320
+    end
+    object SeminarPictureSQLLINE_B1: TWideStringField
+      FieldName = 'LINE_B1'
+      Size = 2320
+    end
+    object SeminarPictureSQLLINE_B2: TWideStringField
+      FieldName = 'LINE_B2'
+      Size = 2320
+    end
+    object SeminarPictureSQLLINE_B3: TWideStringField
+      FieldName = 'LINE_B3'
+      Size = 2320
+    end
+    object SeminarPictureSQLLINE_C1: TWideStringField
+      FieldName = 'LINE_C1'
+      Size = 2320
     end
   end
   object OpenPictureDialog1: TOpenPictureDialog
