@@ -150,7 +150,7 @@ begin
 
   try
     vt1.AddField('Person_Serial',ftinteger);
-    vt1.AddField('person_name',ftString,40);
+    vt1.AddField('person_name',ftWideString,40);
     vt1.AddField('Percent',ftFloat);
 
     qr.ParamByName('SeminarSerial').Value:=SeminarSerial;

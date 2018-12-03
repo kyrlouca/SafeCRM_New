@@ -3,7 +3,7 @@ object P_attendanceFRM: TP_attendanceFRM
   Top = 153
   Caption = '--'
   ClientHeight = 561
-  ClientWidth = 1002
+  ClientWidth = 1195
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,7 +22,7 @@ object P_attendanceFRM: TP_attendanceFRM
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1002
+    Width = 1195
     Height = 53
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
@@ -32,11 +32,12 @@ object P_attendanceFRM: TP_attendanceFRM
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 1002
     object Label4: TLabel
       AlignWithMargins = True
       Left = 4
       Top = 4
-      Width = 994
+      Width = 1187
       Height = 45
       Align = alClient
       Alignment = taCenter
@@ -55,19 +56,21 @@ object P_attendanceFRM: TP_attendanceFRM
   object Panel4: TPanel
     Left = 0
     Top = 518
-    Width = 1002
+    Width = 1195
     Height = 43
     Align = alBottom
     TabOrder = 3
     ExplicitTop = 473
+    ExplicitWidth = 1002
     object RzPanel1: TRzPanel
-      Left = 901
+      Left = 1094
       Top = 1
       Width = 100
       Height = 41
       Align = alRight
       BorderOuter = fsNone
       TabOrder = 0
+      ExplicitLeft = 901
       object RzBitBtn1: TRzBitBtn
         Left = 6
         Top = 3
@@ -148,15 +151,16 @@ object P_attendanceFRM: TP_attendanceFRM
   object Panel2: TPanel
     Left = 0
     Top = 53
-    Width = 1002
+    Width = 1195
     Height = 39
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 1002
   end
   object Panel3: TPanel
     Left = 0
     Top = 92
-    Width = 1002
+    Width = 1195
     Height = 426
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
@@ -166,11 +170,12 @@ object P_attendanceFRM: TP_attendanceFRM
     Font.Style = []
     ParentFont = False
     TabOrder = 2
-    ExplicitHeight = 381
+    ExplicitLeft = -1
+    ExplicitTop = 90
     object Panel5: TPanel
       Left = 441
       Top = 1
-      Width = 504
+      Width = 576
       Height = 424
       Align = alLeft
       BevelOuter = bvNone
@@ -182,19 +187,18 @@ object P_attendanceFRM: TP_attendanceFRM
       Locked = True
       ParentFont = False
       TabOrder = 0
-      ExplicitHeight = 379
       object wwDBGrid1: TwwDBGrid
         Left = 0
         Top = 36
-        Width = 504
+        Width = 576
         Height = 345
         ControlType.Strings = (
           'Is_Present;CustomEdit;PresentFLD;F')
         Selected.Strings = (
           'PersonSerial'#9'4'#9'ps'
           'DaySerial'#9'4'#9'ds'
-          'Last_name'#9'13'#9#917#960#943#952#949#964#959#9'F'
-          'first_name'#9'8'#9#908#957#959#956#945#9'F'
+          'Last_name'#9'25'#9#917#960#943#952#949#964#959#9'F'
+          'first_name'#9'25'#9#908#957#959#956#945#9'F'
           'Is_Present'#9'7'#9#928#945#961#974#957
           'Hours_Present'#9'6'#9'Hours')
         IniAttributes.Delimiter = ';;'
@@ -221,7 +225,7 @@ object P_attendanceFRM: TP_attendanceFRM
         TitleButtons = False
         UseTFields = False
         OnExit = wwDBGrid1Exit
-        ExplicitHeight = 300
+        ExplicitWidth = 505
         object PresentFLD: TwwCheckBox
           Left = 72
           Top = 62
@@ -244,11 +248,12 @@ object P_attendanceFRM: TP_attendanceFRM
       object RzPanel2: TRzPanel
         Left = 0
         Top = 0
-        Width = 504
+        Width = 576
         Height = 36
         Align = alTop
         BorderOuter = fsNone
         TabOrder = 1
+        ExplicitWidth = 504
         object wwDBNavigator1: TwwDBNavigator
           Left = 0
           Top = 0
@@ -371,21 +376,23 @@ object P_attendanceFRM: TP_attendanceFRM
       object RzPanel5: TRzPanel
         Left = 0
         Top = 381
-        Width = 504
+        Width = 576
         Height = 43
         Align = alBottom
         BorderOuter = fsFlat
         BorderSides = [sdLeft, sdRight, sdBottom]
         TabOrder = 2
         ExplicitTop = 336
+        ExplicitWidth = 504
         object RzPanel6: TRzPanel
-          Left = 403
+          Left = 475
           Top = 0
           Width = 100
           Height = 42
           Align = alRight
           BorderOuter = fsNone
           TabOrder = 0
+          ExplicitLeft = 403
         end
         object SavePresBTN: TBitBtn
           Left = 7
