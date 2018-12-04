@@ -156,8 +156,9 @@ begin
     qr.ParamByName('SeminarSerial').Value:=SeminarSerial;
     qr.Open;
     while not qr.Eof do begin
+    // create one field for each day
       fday:=qr.fieldByName('daySerial').AsInteger;
-      vt1.AddField(IntToStr(fday),ftInteger);
+      vt1.AddField(IntToStr(fday),ftfloat);
       qr.Next;
     end;
   finally
@@ -176,6 +177,7 @@ var
   PersonSerial:Integer;
   fname:string;
   left:integer;
+  hours:Double;
 
 begin
 // POPULATE Fields
@@ -215,8 +217,9 @@ begin
 
         fname:=PresenceQR.FieldByName('day_serial').AsString;
         if vt1.FindField(fname)<> nil then   begin
-          vt1.FieldByName(fname).Value:=
-            PresenceQR.FieldByName('present_hours').AsFloat;
+          hours:=  PresenceQR.FieldByName('present_hours').AsFloat;
+          vt1.FieldByName(fname).AsFloat:=hours;
+
         end;
 
         PresenceQR.Next;
@@ -262,8 +265,8 @@ begin
 
       case I of
         0: begin  dist:=0.1; rfwidth:=0.4;  lbl1.Caption:='A/A'; end;
-        1: begin  dist:=0.2; rfwidth:=2;  lbl1.Caption:='Όνομα';end;
-        2: begin  dist:=0.2; rfwidth:=0.7;  lbl1.Caption:='%Παρακ.'; lbl1.Alignment := TAlignment(2);end;
+        1: begin  dist:=0.2; rfwidth:=2;  lbl1.Caption:='ΞΞ½ΞΏΞΌΞ±';end;
+        2: begin  dist:=0.2; rfwidth:=0.7;  lbl1.Caption:='%Ξ Ξ±ΟΞ±ΞΊ.'; lbl1.Alignment := TAlignment(2);end;
         3: begin  dist:=0.2; rfwidth:=0.7;  end;
         else begin
            dist:=0.2; rfwidth:=0.7;

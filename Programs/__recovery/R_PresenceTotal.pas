@@ -164,8 +164,8 @@ end;
 
 procedure TR_presenceTotalFRM.CertFLDPrint(Sender: TObject);
 var
-  TotalHours:Integer;
-  Hours:Integer;
+  TotalHours:Double;
+  Hours:double;
   PercentActual:Double;
   PercentPass:Integer;
   isPresent:Boolean;
@@ -174,8 +174,8 @@ var
   SeminarSerial:Integer;
 
 begin
-  TotalHours:= SeminarSQL.FieldByName('TOTALHours').AsInteger;
-  Hours:= SeminarPresenceSQL.FieldByName('Hours').AsInteger;
+  TotalHours:= SeminarSQL.FieldByName('TOTALHours').AsFloat;
+  Hours:= SeminarPresenceSQL.FieldByName('Hours').AsFloat;
   isPresent:= SeminarPresenceSQL.FieldByName('always_present').AsString='Y';
   isGuest:= SeminarPresenceSQL.FieldByName('is_guest').AsString='Y';
   seminarSerial:=SeminarSQL.FieldByName('SeminarSerial').AsInteger;
@@ -196,7 +196,7 @@ begin
 
   end;
 
-//  percentPass:=gpGetGeneralParam(cn,'Ô00').P_Integer1;
+//  percentPass:=gpGetGeneralParam(cn,'Î¤00').P_Integer1;
 
   PassFLD.Checked:= (percentActual>= PercentPass) and isPresent and (not IsGuest);
 
@@ -221,11 +221,11 @@ end;
 procedure TR_presenceTotalFRM.ppVariable1Calc(Sender: TObject;
   var Value: Variant);
 var
-  TotalHours:Integer;
-  Hours:Integer;
+  TotalHours:double;
+  Hours:double;
 begin
-  TotalHours:= SeminarSQL.FieldByName('TOTALHours').AsInteger;
-  Hours:= SeminarPresenceSQL.FieldByName('Hours').AsInteger;
+  TotalHours:= SeminarSQL.FieldByName('TOTALHours').AsFloat;
+  Hours:= SeminarPresenceSQL.FieldByName('Hours').AsFloat;
   if TotalHours=0 then
     value:=0
   else
