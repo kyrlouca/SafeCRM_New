@@ -146,6 +146,10 @@ begin
 
   str:='select ssv.daySerial from seminar_day_view ssv '
     +' where  ssv.seminar_serial= :SeminarSerial ';
+
+  str:= 'select ssv.daySerial, ssv.seminar_day from seminar_day_view ssv '
+   +' where  ssv.seminar_serial= :SeminarSerial order by ssv.seminar_day';
+
   qr:=TksQuery.Create(cn,str);
 
   try
@@ -156,8 +160,9 @@ begin
     qr.ParamByName('SeminarSerial').Value:=SeminarSerial;
     qr.Open;
     while not qr.Eof do begin
+    // create one field for each day
       fday:=qr.fieldByName('daySerial').AsInteger;
-      vt1.AddField(IntToStr(fday),ftInteger);
+      vt1.AddField(IntToStr(fday),ftfloat);
       qr.Next;
     end;
   finally
@@ -176,6 +181,7 @@ var
   PersonSerial:Integer;
   fname:string;
   left:integer;
+  hours:Double;
 
 begin
 // POPULATE Fields
@@ -215,8 +221,9 @@ begin
 
         fname:=PresenceQR.FieldByName('day_serial').AsString;
         if vt1.FindField(fname)<> nil then   begin
-          vt1.FieldByName(fname).Value:=
-            PresenceQR.FieldByName('present_hours').AsFloat;
+          hours:=  PresenceQR.FieldByName('present_hours').AsFloat;
+          vt1.FieldByName(fname).AsFloat:=hours;
+
         end;
 
         PresenceQR.Next;

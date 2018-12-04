@@ -346,7 +346,7 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
         RTLReading = False
         AutoSize = False
         Border.mmPadding = 0
-        Caption = #928#945#961#959#965#963#953#959#955#972#947#953#959' '#913#957#940' '#924#941#961#945'1'
+        Caption = #928#945#961#959#965#963#953#959#955#972#947#953#959' '#913#957#940' '#924#941#961#945'2'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Name = 'TIMES NEW ROMAN'
