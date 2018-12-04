@@ -110,10 +110,10 @@ type
     SeminarPresenceSQLLAST_FIRST_NAME: TWideStringField;
     SeminarPresenceSQLNATIONAL_ID: TWideStringField;
     SeminarPresenceSQLIS_PRESENT: TWideStringField;
-    SeminarPresenceSQLHOURS_PRESENT: TIntegerField;
     SeminarPresenceSQLDAYSERIAL: TIntegerField;
     SeminarPresenceSQLSEMINAR_DAY: TDateField;
     SeminarPresenceSQLSUBJECT: TWideStringField;
+    SeminarPresenceSQLHOURS_PRESENT: TFloatField;
     procedure BitBtn2Click(Sender: TObject);
     procedure ppReport1PreviewFormCreate(Sender: TObject);
     procedure ppLabel10GetText(Sender: TObject; var Text: String);

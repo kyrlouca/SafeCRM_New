@@ -47,7 +47,6 @@ type
     ppDesignLayers3: TppDesignLayers;
     ppDesignLayer3: TppDesignLayer;
     ppDBText1: TppDBText;
-    ppDBText5: TppDBText;
     ppLabel1: TppLabel;
     ppLabel3: TppLabel;
     ppLabel8: TppLabel;
@@ -110,6 +109,7 @@ type
     ppDBText8: TppDBText;
     ppDBText9: TppDBText;
     SeminarPresenceSQLHOURS: TFloatField;
+    ppDBText5: TppDBText;
     procedure BitBtn2Click(Sender: TObject);
     procedure ppReport1PreviewFormCreate(Sender: TObject);
     procedure ppLabel10GetText(Sender: TObject; var Text: String);
@@ -196,7 +196,7 @@ begin
 
   end;
 
-//  percentPass:=gpGetGeneralParam(cn,'Ô00').P_Integer1;
+//  percentPass:=gpGetGeneralParam(cn,'Î¤00').P_Integer1;
 
   PassFLD.Checked:= (percentActual>= PercentPass) and isPresent and (not IsGuest);
 

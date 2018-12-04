@@ -2,7 +2,7 @@ object P_attendanceFRM: TP_attendanceFRM
   Left = 365
   Top = 153
   Caption = '--'
-  ClientHeight = 561
+  ClientHeight = 521
   ClientWidth = 1195
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -32,7 +32,6 @@ object P_attendanceFRM: TP_attendanceFRM
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 1002
     object Label4: TLabel
       AlignWithMargins = True
       Left = 4
@@ -55,13 +54,11 @@ object P_attendanceFRM: TP_attendanceFRM
   end
   object Panel4: TPanel
     Left = 0
-    Top = 518
+    Top = 478
     Width = 1195
     Height = 43
     Align = alBottom
     TabOrder = 3
-    ExplicitTop = 473
-    ExplicitWidth = 1002
     object RzPanel1: TRzPanel
       Left = 1094
       Top = 1
@@ -70,7 +67,6 @@ object P_attendanceFRM: TP_attendanceFRM
       Align = alRight
       BorderOuter = fsNone
       TabOrder = 0
-      ExplicitLeft = 901
       object RzBitBtn1: TRzBitBtn
         Left = 6
         Top = 3
@@ -155,13 +151,12 @@ object P_attendanceFRM: TP_attendanceFRM
     Height = 39
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 1002
   end
   object Panel3: TPanel
     Left = 0
     Top = 92
     Width = 1195
-    Height = 426
+    Height = 386
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -170,13 +165,11 @@ object P_attendanceFRM: TP_attendanceFRM
     Font.Style = []
     ParentFont = False
     TabOrder = 2
-    ExplicitLeft = -1
-    ExplicitTop = 90
     object Panel5: TPanel
       Left = 441
       Top = 1
-      Width = 576
-      Height = 424
+      Width = 672
+      Height = 384
       Align = alLeft
       BevelOuter = bvNone
       Font.Charset = DEFAULT_CHARSET
@@ -190,8 +183,8 @@ object P_attendanceFRM: TP_attendanceFRM
       object wwDBGrid1: TwwDBGrid
         Left = 0
         Top = 36
-        Width = 576
-        Height = 345
+        Width = 672
+        Height = 305
         ControlType.Strings = (
           'Is_Present;CustomEdit;PresentFLD;F')
         Selected.Strings = (
@@ -200,7 +193,7 @@ object P_attendanceFRM: TP_attendanceFRM
           'Last_name'#9'25'#9#917#960#943#952#949#964#959#9'F'
           'first_name'#9'25'#9#908#957#959#956#945#9'F'
           'Is_Present'#9'7'#9#928#945#961#974#957
-          'Hours_Present'#9'6'#9'Hours')
+          'Hours_Present'#9'10'#9'Hours'#9'F')
         IniAttributes.Delimiter = ';;'
         IniAttributes.UnicodeIniFile = False
         TitleColor = clBtnFace
@@ -225,7 +218,7 @@ object P_attendanceFRM: TP_attendanceFRM
         TitleButtons = False
         UseTFields = False
         OnExit = wwDBGrid1Exit
-        ExplicitWidth = 505
+        ExplicitWidth = 577
         object PresentFLD: TwwCheckBox
           Left = 72
           Top = 62
@@ -248,12 +241,12 @@ object P_attendanceFRM: TP_attendanceFRM
       object RzPanel2: TRzPanel
         Left = 0
         Top = 0
-        Width = 576
+        Width = 672
         Height = 36
         Align = alTop
         BorderOuter = fsNone
         TabOrder = 1
-        ExplicitWidth = 504
+        ExplicitWidth = 576
         object wwDBNavigator1: TwwDBNavigator
           Left = 0
           Top = 0
@@ -375,24 +368,23 @@ object P_attendanceFRM: TP_attendanceFRM
       end
       object RzPanel5: TRzPanel
         Left = 0
-        Top = 381
-        Width = 576
+        Top = 341
+        Width = 672
         Height = 43
         Align = alBottom
         BorderOuter = fsFlat
         BorderSides = [sdLeft, sdRight, sdBottom]
         TabOrder = 2
-        ExplicitTop = 336
-        ExplicitWidth = 504
+        ExplicitWidth = 576
         object RzPanel6: TRzPanel
-          Left = 475
+          Left = 571
           Top = 0
           Width = 100
           Height = 42
           Align = alRight
           BorderOuter = fsNone
           TabOrder = 0
-          ExplicitLeft = 403
+          ExplicitLeft = 475
         end
         object SavePresBTN: TBitBtn
           Left = 7
@@ -616,11 +608,10 @@ object P_attendanceFRM: TP_attendanceFRM
       Left = 1
       Top = 1
       Width = 440
-      Height = 424
+      Height = 384
       Align = alLeft
       BorderOuter = fsNone
       TabOrder = 1
-      ExplicitHeight = 379
       object RzPanel3: TRzPanel
         Left = 0
         Top = 0
@@ -632,13 +623,12 @@ object P_attendanceFRM: TP_attendanceFRM
       end
       object RzPanel4: TRzPanel
         Left = 0
-        Top = 227
+        Top = 187
         Width = 440
         Height = 197
         Align = alBottom
         BorderOuter = fsNone
         TabOrder = 1
-        ExplicitTop = 182
         object Grid1: TwwDBGrid
           Left = 0
           Top = 0
@@ -1109,7 +1099,6 @@ object P_attendanceFRM: TP_attendanceFRM
       'where '
       'se.serial_number= :SeminarSerial')
     DetailFields = 'FK_SEMINAR_SERIAL'
-    Active = True
     BeforeScroll = DaySQLBeforeScroll
     AfterScroll = DaySQLAfterScroll
     Left = 273
@@ -1138,12 +1127,6 @@ object P_attendanceFRM: TP_attendanceFRM
       DisplayLabel = #924#941#961#945
       DisplayWidth = 10
       FieldName = 'SEMINAR_DAY'
-      ReadOnly = True
-    end
-    object DaySQLDURATION_HOURS: TIntegerField
-      DisplayLabel = #911#961#949#962
-      DisplayWidth = 6
-      FieldName = 'DURATION_HOURS'
       ReadOnly = True
     end
     object DaySQLSEMINARSERIAL: TIntegerField
@@ -1178,6 +1161,10 @@ object P_attendanceFRM: TP_attendanceFRM
       FieldName = 'FK_SEMINAR_SUBJECT_SERIAL'
       ReadOnly = True
       Visible = False
+    end
+    object DaySQLDURATION_HOURS: TFloatField
+      FieldName = 'DURATION_HOURS'
+      ReadOnly = True
     end
   end
   object vPresenceSRC: TIBCDataSource
@@ -1219,8 +1206,7 @@ object P_attendanceFRM: TP_attendanceFRM
       end
       item
         Name = 'Hours_Present'
-        DataType = ftString
-        Size = 20
+        DataType = ftFloat
       end
       item
         Name = 'first_name'
@@ -1252,11 +1238,6 @@ object P_attendanceFRM: TP_attendanceFRM
       FieldName = 'Is_Present'
       Size = 1
     end
-    object VPresenceSQLHours_Present: TStringField
-      DisplayLabel = 'Hours'
-      DisplayWidth = 6
-      FieldName = 'Hours_Present'
-    end
     object VPresenceSQLpercentage_present: TIntegerField
       DisplayLabel = '% '#911#961#945#962
       DisplayWidth = 9
@@ -1271,6 +1252,9 @@ object P_attendanceFRM: TP_attendanceFRM
     object VPresenceSQLLast_name: TWideStringField
       FieldName = 'Last_name'
       Size = 100
+    end
+    object VPresenceSQLHours_Present: TFloatField
+      FieldName = 'Hours_Present'
     end
   end
   object MainMenu1: TMainMenu

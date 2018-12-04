@@ -46,7 +46,6 @@ type
     DaySQLSUBJECT: TWideStringField;
     DaySQLDAYSERIAL: TIntegerField;
     DaySQLSEMINAR_DAY: TDateField;
-    DaySQLDURATION_HOURS: TIntegerField;
     VPresenceSQLDaySerial: TIntegerField;
     DaySQLFK_SEMINAR_SUBJECT_SERIAL: TIntegerField;
     RzPanel5: TRzPanel;
@@ -71,7 +70,6 @@ type
     TableSQLIS_INVOICED: TWideStringField;
     TableSQLIS_CERTIFICATED: TWideStringField;
     TableSQLMAX_CAPACITY: TIntegerField;
-    VPresenceSQLHours_Present: TStringField;
     PresentFLD: TwwCheckBox;
     wwDBNavigator1Button1: TwwNavButton;
     wwDBNavigator1Button2: TwwNavButton;
@@ -109,6 +107,8 @@ type
     BitBtn1: TBitBtn;
     VPresenceSQLfirst_name: TWideStringField;
     VPresenceSQLLast_name: TWideStringField;
+    DaySQLDURATION_HOURS: TFloatField;
+    VPresenceSQLHours_Present: TFloatField;
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure TableSRCStateChange(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -402,7 +402,8 @@ end;
 procedure TP_attendanceFRM.PresentFLDClick(Sender: TObject);
 var
   IsPresent:Boolean;
-  hours:Integer;
+  hours:double;
+
 begin
   if not PresentFLD.Modified then
     exit;
@@ -419,7 +420,7 @@ begin
   if VPresenceSQL.State in [dsBrowse] then VPresenceSQL.Edit;
 
 
-  hours:=daySQL.FieldByName('DURATION_HOURS').AsInteger;
+  hours:=daySQL.FieldByName('DURATION_HOURS').AsFloat;
 
   if PresentFLD.Checked then
     VPresenceSQL.FieldByName('hours_present').Value:=hours
@@ -432,8 +433,8 @@ procedure TP_attendanceFRM.UpdatePresenceTable(const seminarSerial, DaySerial:in
 var
   qr:TksQuery;
   str:string;
-  hours:integer;
-  DayDuration:Integer;
+  hours:double;
+  DayDuration:Double;
   IsPresent:String;
 begin
 
@@ -450,7 +451,7 @@ qr:= TksQuery.Create(cn,'select * from  seminar_subject_day where serial_number=
   try
     qr.ParamByName('daySerial').AsInteger:=DaySerial;
     qr.Open;
-    dayDuration:=qr.FieldByName('duration_hours').AsInteger;
+    dayDuration:=qr.FieldByName('duration_hours').AsFloat;
     qr.Close;
   finally
     qr.Free;
@@ -499,11 +500,11 @@ str:=
       VPresenceSQL.FieldByName('DaySerial').Value:= DaySerial; //may be null if no person_presence
 //  seminar_subject_day
       VPresenceSQL.FieldByName('Percentage_present').Value:=qr.FieldByName('percentage_present').AsInteger;
-      hours :=qr.FieldByName('Hours_present').AsInteger;
+      hours :=qr.FieldByName('Hours_present').AsFloat;
       if Hours=0 then begin
         VPresenceSQL.FieldByName('Hours_present').Value:=DayDuration;
       end else begin
-        VPresenceSQL.FieldByName('Hours_present').Value:=qr.FieldByName('Hours_present').AsInteger;
+        VPresenceSQL.FieldByName('Hours_present').Value:=qr.FieldByName('Hours_present').AsFloat;
       end;
 
       VPresenceSQL.FieldByName('is_present').Value:=qr.FieldByName('is_present').AsString;
@@ -518,7 +519,7 @@ end;
 
 procedure TP_attendanceFRM.VPresenceSQLBeforePost(DataSet: TDataSet);
 var
-   maxHours:Integer;
+   maxHours:double;
 begin
   if daySQL.FieldByName('DaySerial').AsInteger <1 then begin
     Dataset.Cancel;
@@ -527,14 +528,14 @@ begin
 
 
   if Dataset.FieldByName('is_present').AsString<>'Y' then begin
-    Dataset.FieldByName('hours_present').AsInteger:=0;
+    Dataset.FieldByName('hours_present').AsFloat:=0;
   end else begin
-    maxHours:=daySQL.FieldByName('DURATION_HOURS').AsInteger;
-    if Dataset.FieldByName('hours_Present').AsInteger < 0 then
-      Dataset.FieldByName('hours_present').AsInteger:=0;
+    maxHours:=daySQL.FieldByName('DURATION_HOURS').AsFloat;
+    if Dataset.FieldByName('hours_Present').AsFloat < 0 then
+      Dataset.FieldByName('hours_present').AsFloat:=0;
 
-    if Dataset.FieldByName('hours_Present').AsInteger > maxHours then
-      Dataset.FieldByName('hours_present').AsInteger:=maxHours;
+    if Dataset.FieldByName('hours_Present').AsFloat > maxHours then
+      Dataset.FieldByName('hours_present').AsFloat:=maxHours;
 
 
   end;
@@ -546,7 +547,7 @@ begin
   if daySQL.FieldByName('DaySerial').AsInteger <1 then begin
     exit;
   end;
-  Dataset.FieldByName('hours_present').AsInteger:=99;
+  Dataset.FieldByName('hours_present').AsFloat:=99;
 end;
 
 procedure TP_attendanceFRM.SavePresBTNClick(Sender: TObject);
@@ -566,7 +567,7 @@ var
   PersonSerial,DaySerial :Integer;
   IsPresent :String;
   Percentage: Integer;
-  Hours:Integer;
+  Hours:double;
 begin
  if vPresenceSQL.State in [dsEdit,dsInsert] then
   VPresenceSQL.Post;
@@ -581,7 +582,7 @@ str:=
     personSerial:=VPresenceSQL.FieldByName('PersonSerial').AsInteger;
     DaySerial:=VPresenceSQL.FieldByName('DaySerial').AsInteger;
     Percentage:=VPresenceSQL.FieldByName('Percentage_Present').AsInteger;
-    Hours:=VPresenceSQL.FieldByName('Hours_Present').AsInteger;
+    Hours:=VPresenceSQL.FieldByName('Hours_Present').AsFloat;
     IsPresent:=VPresenceSQL.FieldByName('Is_present').AsString;
     if IsPresent='' then IsPresent:='N';
     if Percentage>0 then  IsPresent:='Y';
@@ -627,7 +628,7 @@ end;
 
 procedure TP_attendanceFRM.TickALl();
 var
-  hours:Integer;
+  hours:double;
 begin
 
   if VPresenceSQL.State in [dsInactive] then
@@ -636,7 +637,7 @@ begin
   VPresenceSQL.First;
   while not VPresenceSQL.eof do begin
     if VPresenceSQL.State in [dsBrowse] then VPresenceSQL.Edit;
-      hours:=daySQL.FieldByName('DURATION_HOURS').AsInteger;
+      hours:=daySQL.FieldByName('DURATION_HOURS').AsFloat;
       VPresenceSQL.FieldByName('hours_present').Value:=hours;
       VPresenceSQL.FieldByName('is_present').AsString :='Y';
       VPresenceSQL.Post;

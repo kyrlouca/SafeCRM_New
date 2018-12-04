@@ -261,8 +261,8 @@ begin
 
       case I of
         0: begin  dist:=0.1; rfwidth:=0.4;  lbl1.Caption:='A/A'; end;
-        1: begin  dist:=0.2; rfwidth:=2;  lbl1.Caption:='Όνομα';end;
-        2: begin  dist:=0.2; rfwidth:=0.7;  lbl1.Caption:='%Παρακ.'; lbl1.Alignment := TAlignment(2);end;
+        1: begin  dist:=0.2; rfwidth:=2;  lbl1.Caption:='ΞΞ½ΞΏΞΌΞ±';end;
+        2: begin  dist:=0.2; rfwidth:=0.7;  lbl1.Caption:='%Ξ Ξ±ΟΞ±ΞΊ.'; lbl1.Alignment := TAlignment(2);end;
         3: begin  dist:=0.2; rfwidth:=0.7;  end;
         else begin
            dist:=0.2; rfwidth:=0.7;

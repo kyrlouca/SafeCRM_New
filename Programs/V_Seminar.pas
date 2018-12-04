@@ -59,7 +59,6 @@ type
     SeminarDaySQLSERIAL_NUMBER: TIntegerField;
     SeminarDaySQLFK_SEMINAR_SUBJECT_SERIAL: TIntegerField;
     SeminarDaySQLSEMINAR_DAY: TDateField;
-    SeminarDaySQLDURATION_HOURS: TIntegerField;
     SeminarCostItemSQL: TIBCQuery;
     SeminarCostItemSRC: TDataSource;
     SeminarCostItemSQLSERIAL_NUMBER: TIntegerField;
@@ -425,6 +424,7 @@ type
     RzDBLabel4: TRzDBLabel;
     CertificateTemplateBTN: TRzBitBtn;
     MonoPolyDisplayFLD: TwwDBComboBox;
+    SeminarDaySQLDURATION_HOURS: TFloatField;
     procedure AcceptBTNClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
