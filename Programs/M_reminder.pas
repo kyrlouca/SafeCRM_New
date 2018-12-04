@@ -116,6 +116,8 @@ begin
   Dataset.FieldByName('reminder_type').Value:='S';
   Dataset.FieldByName('PERSON_OR_SEMINAR').Value:='S';
   Dataset.FieldByName('is_completed').Value:='N';
+  Dataset.FieldByName('is_internal').Value:='N';
+  Dataset.FieldByName('is_high').Value:='N';
 
 end;
 

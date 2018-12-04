@@ -26,7 +26,7 @@ object M_mainFRM: TM_mainFRM
     Margins.Bottom = 0
     Align = alTop
     BorderOuter = fsGroove
-    Caption = 'Safe CRM - V1.23'
+    Caption = 'Safe CRM - V1.24'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 3947580
     Font.Height = -48
@@ -186,7 +186,6 @@ object M_mainFRM: TM_mainFRM
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 1
-    ExplicitTop = 358
     object Panel1: TPanel
       Left = 700
       Top = 2
@@ -283,7 +282,6 @@ object M_mainFRM: TM_mainFRM
     SizeBarWidth = 1
     TabOrder = 2
     VisualStyle = vsClassic
-    ExplicitHeight = 275
     object Image1: TImage
       Left = 0
       Top = 0
