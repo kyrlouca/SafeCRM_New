@@ -343,7 +343,6 @@ object M_StudentFRM: TM_StudentFRM
       Align = alRight
       BorderOuter = fsNone
       TabOrder = 0
-      ExplicitLeft = 1
       object RzPanel3: TRzPanel
         Left = 0
         Top = 0
@@ -369,7 +368,7 @@ object M_StudentFRM: TM_StudentFRM
           'NATIONAL_ID'#9'11'#9#932#945#965#964#972#964#951#964#945
           'FIRST_NAME'#9'10'#9#908#957#959#956#945
           'PHONE_MOBILE'#9'11'#9#922#953#957#951#964#972
-          'COMPANY_NAME'#9'18'#9#917#964#945#953#961#949#943#945)
+          'COMPANY_NAME'#9'15'#9#917#964#945#953#961#949#943#945)
         IniAttributes.Delimiter = ';;'
         IniAttributes.UnicodeIniFile = False
         TitleColor = clBtnFace
@@ -406,11 +405,10 @@ object M_StudentFRM: TM_StudentFRM
       Height = 487
       Align = alClient
       TabOrder = 1
-      ExplicitLeft = 666
       object GroupBox1: TGroupBox
-        Left = 19
+        Left = 10
         Top = 49
-        Width = 270
+        Width = 290
         Height = 288
         Caption = #928#955#951#961#959#966#959#961#943#949#962
         Font.Charset = DEFAULT_CHARSET
@@ -526,7 +524,7 @@ object M_StudentFRM: TM_StudentFRM
         object FirstFLD: TwwDBEdit
           Left = 93
           Top = 83
-          Width = 161
+          Width = 190
           Height = 22
           DataField = 'FIRST_NAME'
           DataSource = TableSRC
@@ -544,7 +542,7 @@ object M_StudentFRM: TM_StudentFRM
         object wwDBEdit1: TwwDBEdit
           Left = 93
           Top = 108
-          Width = 161
+          Width = 190
           Height = 22
           DataField = 'LAST_NAME'
           DataSource = TableSRC
@@ -652,9 +650,9 @@ object M_StudentFRM: TM_StudentFRM
         end
       end
       object GroupBox2: TGroupBox
-        Left = 301
+        Left = 306
         Top = 49
-        Width = 260
+        Width = 266
         Height = 288
         Caption = #917#960#953#954#959#953#957#969#957#943#945
         Font.Charset = DEFAULT_CHARSET
@@ -1007,7 +1005,7 @@ object M_StudentFRM: TM_StudentFRM
         end
       end
       object GroupBox3: TGroupBox
-        Left = 295
+        Left = 306
         Top = 343
         Width = 266
         Height = 175
@@ -1146,9 +1144,9 @@ object M_StudentFRM: TM_StudentFRM
         end
       end
       object RzGroupBox2: TRzGroupBox
-        Left = 19
+        Left = 10
         Top = 343
-        Width = 270
+        Width = 290
         Height = 111
         Caption = #917#964#945#953#961#949#943#945
         Font.Charset = DEFAULT_CHARSET
@@ -1159,9 +1157,9 @@ object M_StudentFRM: TM_StudentFRM
         ParentFont = False
         TabOrder = 4
         object RzDBLabel2: TRzDBLabel
-          Left = 106
-          Top = 45
-          Width = 158
+          Left = 51
+          Top = 39
+          Width = 230
           Height = 20
           BorderOuter = fsFlat
           BorderWidth = 1
@@ -1169,8 +1167,8 @@ object M_StudentFRM: TM_StudentFRM
           DataSource = TableSRC
         end
         object RzDBLabel3: TRzDBLabel
-          Left = 106
-          Top = 19
+          Left = 51
+          Top = 13
           Width = 49
           Height = 20
           Alignment = taRightJustify
@@ -1180,8 +1178,8 @@ object M_StudentFRM: TM_StudentFRM
           DataSource = TableSRC
         end
         object Label19: TLabel
-          Left = 73
-          Top = 71
+          Left = 16
+          Top = 66
           Width = 28
           Height = 14
           Caption = #920#941#963#951
@@ -1193,11 +1191,11 @@ object M_StudentFRM: TM_StudentFRM
           ParentFont = False
         end
         object Label20: TLabel
-          Left = 28
-          Top = 20
-          Width = 73
+          Left = 19
+          Top = 15
+          Width = 25
           Height = 14
-          Caption = #913'/'#913' '#917#964#945#953#961#949#943#945#962
+          Caption = #913'/'#913' '
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -12
@@ -1206,11 +1204,11 @@ object M_StudentFRM: TM_StudentFRM
           ParentFont = False
         end
         object Label21: TLabel
-          Left = 12
-          Top = 46
-          Width = 89
+          Left = 3
+          Top = 41
+          Width = 41
           Height = 14
-          Caption = #908#957#959#956#945' '#917#964#945#953#961#949#943#945#962
+          Caption = #908#957#959#956#945' '
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -12
@@ -1219,8 +1217,8 @@ object M_StudentFRM: TM_StudentFRM
           ParentFont = False
         end
         object wwDBEdit2: TwwDBEdit
-          Left = 106
-          Top = 69
+          Left = 51
+          Top = 63
           Width = 158
           Height = 22
           DataField = 'JOB'
@@ -1404,7 +1402,7 @@ object M_StudentFRM: TM_StudentFRM
     end
     object TableSQLCOMPANY_NAME: TWideStringField
       DisplayLabel = #917#964#945#953#961#949#943#945
-      DisplayWidth = 18
+      DisplayWidth = 15
       FieldName = 'COMPANY_NAME'
       ReadOnly = True
       FixedChar = True

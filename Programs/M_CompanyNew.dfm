@@ -304,7 +304,7 @@ object M_companyNewFRM: TM_companyNewFRM
     Top = 92
     Width = 1262
     Height = 660
-    ActivePage = EmployeesTS
+    ActivePage = InfoTS
     Align = alClient
     MultiLine = True
     TabOrder = 3
@@ -322,8 +322,8 @@ object M_companyNewFRM: TM_companyNewFRM
         TabOrder = 0
         object DetailsGRP: TGroupBox
           Left = 3
-          Top = 20
-          Width = 346
+          Top = 9
+          Width = 448
           Height = 349
           Caption = #928#955#951#961#959#966#959#961#943#949#962
           Font.Charset = DEFAULT_CHARSET
@@ -334,7 +334,7 @@ object M_companyNewFRM: TM_companyNewFRM
           ParentFont = False
           TabOrder = 0
           object Label2: TLabel
-            Left = 17
+            Left = 11
             Top = 45
             Width = 89
             Height = 14
@@ -347,7 +347,7 @@ object M_companyNewFRM: TM_companyNewFRM
             ParentFont = False
           end
           object Label3: TLabel
-            Left = 85
+            Left = 79
             Top = 21
             Width = 21
             Height = 14
@@ -360,7 +360,7 @@ object M_companyNewFRM: TM_companyNewFRM
             ParentFont = False
           end
           object Label1: TLabel
-            Left = 17
+            Left = 11
             Top = 101
             Width = 89
             Height = 14
@@ -373,7 +373,7 @@ object M_companyNewFRM: TM_companyNewFRM
             ParentFont = False
           end
           object SerialFLD: TRzDBLabel
-            Left = 112
+            Left = 105
             Top = 19
             Width = 115
             Height = 20
@@ -397,7 +397,7 @@ object M_companyNewFRM: TM_companyNewFRM
             ParentFont = False
           end
           object Label15: TLabel
-            Left = 29
+            Left = 23
             Top = 75
             Width = 77
             Height = 14
@@ -410,7 +410,7 @@ object M_companyNewFRM: TM_companyNewFRM
             ParentFont = False
           end
           object Label28: TLabel
-            Left = 11
+            Left = 5
             Top = 127
             Width = 95
             Height = 14
@@ -436,9 +436,9 @@ object M_companyNewFRM: TM_companyNewFRM
             ParentFont = False
           end
           object FirstFLD: TwwDBEdit
-            Left = 112
+            Left = 105
             Top = 45
-            Width = 228
+            Width = 332
             Height = 22
             DataField = 'LAST_NAME'
             DataSource = CompanySRC
@@ -460,7 +460,7 @@ object M_companyNewFRM: TM_companyNewFRM
             WordWrap = False
           end
           object DatePassedFLD: TwwDBDateTimePicker
-            Left = 112
+            Left = 105
             Top = 98
             Width = 115
             Height = 23
@@ -483,7 +483,7 @@ object M_companyNewFRM: TM_companyNewFRM
             DisplayFormat = 'dd/mm/yyyy'
           end
           object wwDBEdit13: TwwDBEdit
-            Left = 112
+            Left = 105
             Top = 73
             Width = 115
             Height = 22
@@ -495,7 +495,7 @@ object M_companyNewFRM: TM_companyNewFRM
             WordWrap = False
           end
           object wwDBEdit22: TwwDBEdit
-            Left = 112
+            Left = 105
             Top = 124
             Width = 115
             Height = 22
@@ -528,7 +528,7 @@ object M_companyNewFRM: TM_companyNewFRM
           object wwDBEdit32: TwwDBEdit
             Left = 126
             Top = 197
-            Width = 217
+            Width = 299
             Height = 22
             DataField = 'COMPANY_MAIN_ACTIVITY'
             DataSource = CompanySRC
@@ -539,8 +539,8 @@ object M_companyNewFRM: TM_companyNewFRM
           end
         end
         object ConactGRP: TGroupBox
-          Left = 355
-          Top = 20
+          Left = 457
+          Top = 9
           Width = 336
           Height = 177
           Caption = #917#960#953#954#959#953#957#969#957#943#945
@@ -703,8 +703,8 @@ object M_companyNewFRM: TM_companyNewFRM
           end
         end
         object ContactPersonGRP: TGroupBox
-          Left = 735
-          Top = 203
+          Left = 799
+          Top = 192
           Width = 338
           Height = 209
           Caption = #913#961#956#972#948#953#959#962' '#917#960#953#954#959#953#957#969#957#943#945#962
@@ -892,8 +892,8 @@ object M_companyNewFRM: TM_companyNewFRM
           end
         end
         object AddressGRP: TGroupBox
-          Left = 355
-          Top = 203
+          Left = 457
+          Top = 192
           Width = 336
           Height = 167
           Caption = #916#953#949#973#952#965#957#963#951
@@ -1051,8 +1051,8 @@ object M_companyNewFRM: TM_companyNewFRM
           OnClick = SafeFLDClick
         end
         object OwnerGRP: TGroupBox
-          Left = 735
-          Top = 12
+          Left = 799
+          Top = 10
           Width = 338
           Height = 176
           Caption = #921#948#953#959#954#964#942#964#951#962
@@ -1190,7 +1190,7 @@ object M_companyNewFRM: TM_companyNewFRM
           end
         end
         object ManagerGRP: TGroupBox
-          Left = 735
+          Left = 799
           Top = 421
           Width = 338
           Height = 209

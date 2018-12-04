@@ -62,6 +62,9 @@ type
     TableSQLDOC_TYPE: TWideStringField;
     Button2: TButton;
     RzPanel4: TRzPanel;
+    SaveFileBTN: TButton;
+    OpenDialog1: TOpenDialog;
+    SaveDialog1: TSaveDialog;
     procedure FormCreate(Sender: TObject);
     procedure RzBitBtn1Click(Sender: TObject);
     procedure SavetoDBClick(Sender: TObject);
@@ -71,6 +74,7 @@ type
     procedure TableSQLNewRecord(DataSet: TDataSet);
     procedure Nav1InsertClick(Sender: TObject);
     procedure Grid1TitleButtonClick(Sender: TObject; AFieldName: string);
+    procedure SaveFileBTNClick(Sender: TObject);
   private
     { Private declarations }
     cn:TIBCConnection;
@@ -90,6 +94,7 @@ type
   procedure writeTitles(Const Prefix:String; Const TableSQL:String; Const Serial :Integer; Const FileName :String;Const fieldArray: Array of String);
   procedure CreateStudentFile( Const SeminarSerial :Integer; Const CompanySerial:Integer; Const FileName :String);
   function CheckFileLength(const filename:string):String;
+  procedure SaveToFile(Const SerialNumber:Integer;Const DocName :String);
 
   public
     { Public declarations }
@@ -291,12 +296,75 @@ begin
 
 end;
 
+procedure TS_LoadDocsFRM.SaveToFile(Const SerialNumber:Integer;Const DocName :String);
+var
+  BlobField: TBlobField;
+//  BS: TStream;
+  str2:String;
+  qr:TksQuery;
+  CompQr:TksQuery;
+//  FS:TMemoryStream;
+begin
+
+  str2:='Select * from word_docs wd where wd.serial_number = :SerialNumber';
+  qr:= TksQuery.Create(cn,str2);
+  try
+      qr.close;
+      qr.ParamByName('SerialNumber').Value:=SerialNumber;
+      qr.open;
+
+      if qr.IsEmpty then
+       exit;
+      qr.Edit;
+      TBlobField(qr.FieldByName('doc_blob')).SaveToFile(DocName);
+      ShowMessage('file saved : '+ DocName);
+  finally
+     qr.Free;
+  end;
+
+end;
+
 
 procedure TS_LoadDocsFRM.TableSQLNewRecord(DataSet: TDataSet);
 begin
   Dataset.FieldByName('Poly_mono').AsString:='P';
   Dataset.FieldByName('iS_send_to_all').AsString:='Y';
   Dataset.FieldByName('DOC_TYPE').AsString:='WORD';
+end;
+
+procedure TS_LoadDocsFRM.SaveFileBTNClick(Sender: TObject);
+var
+  FilePath:string;
+  FileName:string;
+  NewFileName:string;
+  FileSerial:integer;
+begin
+
+  with TFileOpenDialog.Create(nil) do
+    try
+      Options := [fdoPickFolders];
+      if Execute then begin
+        FilePath := FileName;
+      end  else begin
+        exit;
+      end;
+   finally
+      Free;
+  end;
+
+
+  with TableSQL do begin
+    if not tableSQL.IsEmpty then begin
+      FileSerial:=tableSQL.FieldByName('serial_number').AsInteger;
+      FileName:=TableSQL.FieldByName('doc_Name').AsString;
+      FIleName:=TPath.GetFileNameWithoutExtension(FileName);
+    end else begin
+      exit;
+    end;
+  end;
+  NewFileName:=FilePath+'\'+FileName+'.docMxx';
+  SaveToFile(FileSerial,NewFileName);
+//  ShowMessage(newFileName);
 end;
 
 procedure TS_LoadDocsFRM.SavetoDBClick(Sender: TObject);
@@ -731,8 +799,8 @@ const
   'Last_name','national_id','company_social_sec','COMPANY_REGISTRATION_DATE','COMPANY_EMPLOYEES', 'COMPANY_MAIN_ACTIVITY',
   'PHONE_FIXED','PHONE_ALTERNATE','fax','email','website',
   'company_owner','company_owner_id','company_owner_Phone','company_owner_fax','company_owner_email',
-  'company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email','company_contact_position',
-  'company_manager_last','company_manager_first','company_manager_Phone','company_manager_fax','company_manager_email','company_manager_position',
+  'company_contact_id','company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email','company_contact_position',
+  'company_manager_id','company_manager_last','company_manager_first','company_manager_Phone','company_manager_fax','company_manager_email','company_manager_position',
   'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY'
   ];
 
@@ -740,7 +808,7 @@ const
   'Last_name','national_id','company_social_sec','COMPANY_REGISTRATION_DATE','COMPANY_EMPLOYEES',
   'PHONE_FIXED','PHONE_ALTERNATE','fax','email','website',
   'company_owner','company_owner_id','company_owner_Phone','company_owner_fax','company_owner_email',
-  'company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email','company_contact_position',
+  'company_contact_id','company_contact_last','company_contact_first','company_contact_Phone','company_contact_fax','company_contact_email','company_contact_position',
   'address','ADDRESS_POST_CODE','ADDRESS_STREET','ADDRESS_DISTRICT','ADDRESS_CITY'
   ];
 

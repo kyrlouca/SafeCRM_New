@@ -275,8 +275,8 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
           WordWrap = False
         end
         object SavetoDB: TRzBitBtn
-          Left = 310
-          Top = 3
+          Left = 286
+          Top = 14
           Width = 86
           Height = 26
           Caption = 'Get File'
@@ -406,6 +406,7 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
         Color = clBtnFace
         DitherColor = clWhite
         DitherStyle = wwdsDither
+        NumGlyphs = 0
         ShadeStyle = wwbsNormal
         TabOrder = 1
         TextOptions.Alignment = taCenter
@@ -570,6 +571,21 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
             Index = 7
             Style = nbsCancel
           end
+        end
+        object SaveFileBTN: TButton
+          Left = 259
+          Top = 7
+          Width = 137
+          Height = 25
+          Caption = 'Save File'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          OnClick = SaveFileBTNClick
         end
       end
       object Button2: TButton
@@ -803,5 +819,14 @@ object S_LoadDocsFRM: TS_LoadDocsFRM
   object FileDialog1: TOpenDialog
     Left = 328
     Top = 392
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 160
+    Top = 272
+  end
+  object SaveDialog1: TSaveDialog
+    Options = [ofHideReadOnly, ofPathMustExist, ofEnableSizing]
+    Left = 400
+    Top = 390
   end
 end

@@ -293,6 +293,7 @@ object L_SeminarFRM: TL_SeminarFRM
         Style = csDropDownList
         MapList = True
         AllowClearKey = False
+        AutoDropDown = True
         Color = clWhite
         Ctl3D = True
         DropDownCount = 8
@@ -305,7 +306,9 @@ object L_SeminarFRM: TL_SeminarFRM
         Items.Strings = (
           'All'#9'A'
           #924#959#957#959'-'#917#960#953#967#949#953#961#953#963#953#945#954#940#9'M'
-          #928#972#955#965'- '#917#960#953#967#949#953#961#953#963#953#945#954#940#9'P')
+          #928#972#955#965'- '#917#960#953#967#949#953#961#953#963#953#945#954#940#9'P'
+          ' '#913#960#955#940#9'N')
+        ItemIndex = 0
         ParentCtl3D = False
         ParentFont = False
         ParentShowHint = False
@@ -411,7 +414,6 @@ object L_SeminarFRM: TL_SeminarFRM
       BevelOuter = bvNone
       Locked = True
       TabOrder = 1
-      ExplicitLeft = 1057
       object InsertHawbBTN: TRzBitBtn
         Left = 6
         Top = 35
@@ -819,7 +821,6 @@ object L_SeminarFRM: TL_SeminarFRM
         Align = alTop
         BorderOuter = fsNone
         TabOrder = 0
-        ExplicitWidth = 1032
         object Nav1: TwwDBNavigator
           Left = 1
           Top = 7
@@ -845,6 +846,7 @@ object L_SeminarFRM: TL_SeminarFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Button'
+            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 0
@@ -861,6 +863,7 @@ object L_SeminarFRM: TL_SeminarFRM
             Spacing = 4
             Transparent = False
             Caption = 'Nav1Prior'
+            Enabled = False
             DisabledTextColors.ShadeColor = clGray
             DisabledTextColors.HighlightColor = clBtnHighlight
             Index = 1
@@ -944,17 +947,17 @@ object L_SeminarFRM: TL_SeminarFRM
           'SEM_CATEGORY;CustomEdit;CategoryShowFLD;F'
           'TYPE_MONO_POLY;CustomEdit;MonoPoly;F')
         Selected.Strings = (
-          'SERIAL_NUMBER'#9'5'#9'A/A'#9#9
-          'ANAD_NUMBER'#9'9'#9#913#925#913#916' '#9#9
-          'SPECIFICATION_NUMBER'#9'10'#9#913#957#945#966#959#961#940#9#9
-          'SEMINAR_NAME'#9'55'#9#928#949#961#953#947#961#945#966#942#9#9
-          'LAST_NAME'#9'11'#9#917#964#945#953#961#949#943#945#9#9
-          'TYPE_MONO_POLY'#9'7'#9#917#960#967#9#9
-          'SEM_CATEGORY'#9'10'#9#932#973#960#959#962#9#9
-          'STATUS'#9'8'#9#931#964#940#948#953#959#9#9
-          'DATE_STARTED'#9'11'#9#904#957#945#961#958#951#9#9
-          'DATE_COMPLETED'#9'11'#9#932#941#955#959#962#9#9
-          'DURATION_HOURS'#9'6'#9#911#961#949#962#9#9)
+          'SERIAL_NUMBER'#9'5'#9'A/A'
+          'ANAD_NUMBER'#9'9'#9#913#925#913#916' '
+          'SPECIFICATION_NUMBER'#9'10'#9#913#957#945#966#959#961#940
+          'SEMINAR_NAME'#9'55'#9#928#949#961#953#947#961#945#966#942
+          'LAST_NAME'#9'11'#9#917#964#945#953#961#949#943#945
+          'TYPE_MONO_POLY'#9'7'#9#917#960#967
+          'SEM_CATEGORY'#9'10'#9#932#973#960#959#962
+          'STATUS'#9'8'#9#931#964#940#948#953#959
+          'DATE_STARTED'#9'11'#9#904#957#945#961#958#951
+          'DATE_COMPLETED'#9'11'#9#932#941#955#959#962
+          'DURATION_HOURS'#9'6'#9#911#961#949#962)
         IniAttributes.Delimiter = ';;'
         IniAttributes.UnicodeIniFile = False
         TitleColor = clBtnFace

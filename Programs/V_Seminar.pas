@@ -424,6 +424,7 @@ type
     wwDBEdit7: TwwDBEdit;
     RzDBLabel4: TRzDBLabel;
     CertificateTemplateBTN: TRzBitBtn;
+    MonoPolyDisplayFLD: TwwDBComboBox;
     procedure AcceptBTNClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -529,6 +530,7 @@ begin
     0: begin
       ksPostTables([SeminarSQL]);
       InsertMonoCompany(0);
+      SeminarSQL.Refresh;
     end;
     1: ksPostTables([seminarSubjectSQL]);
     2: ksPostTables([AttendingSQL]);
@@ -959,6 +961,7 @@ procedure TV_SeminarFRM.MonoRGPChange(Sender: TObject);
 begin
   CompanyFLD.Visible := MonoRGP.Value = 'M';
   Companylbl.Visible := MonoRGP.Value = 'M';
+//  ShowMessage(seminarSQL.FieldByName('type_mono_poly').AsString);
 end;
 
 procedure TV_SeminarFRM.VenueBTNClick(Sender: TObject);
@@ -1238,7 +1241,9 @@ var
   Personserial: Integer;
   seminarSerial: Integer;
   str: string;
+  isMono:boolean;
 begin
+
 
   if not allowToModify() then
   begin
@@ -1248,14 +1253,27 @@ begin
 
   SeminarSerial := SeminarSQL.FieldByName('serial_number').AsInteger;
   PersonSerial := SeminarSQL.FieldByName('fk_company_person_serial').AsInteger;
+  isMono := SeminarSQL.FieldByName('TYPE_MONO_POLY').AsString='M';
 
 
-  if Personserial < 1 then
+//  only if mono and has a mono Company
+// Delete all companies and insert the mono compoany
+  if not( (Personserial>0) and  isMono )then
     exit;
 
   str:=
    ' Delete from seminar_company sc where sc.fk_seminar_serial = :seminarSerial and '
   +' exists (select serial_number from seminar sem where sem.type_mono_poly= :mono and  sc.fk_seminar_serial=sem.serial_number)';
+
+  {
+str:=
+' Delete from seminar_company sc where sc.fk_seminar_serial = :seminarSerial and'
+  +'  exists ('
+  +'  select serial_number from seminar sem where'
+  +'  sc.fk_seminar_serial=sem.serial_number and'
+  +'  sem.type_mono_poly= :mono or sem.type_mono_poly= :simple'
+  +');'
+}
   ksExecSQLVar(cn, str, [SeminarSerial,'M']);
 
   str := ' insert into seminar_COMPANY  (fk_seminar_serial,fk_person_serial) '
@@ -1318,6 +1336,7 @@ begin
 //  ksfillComboF1(cn, ExaminerFLD, 'INSTRUCTOR', 'SERIAL_NUMBER', 'Last_NAME',    'last_NAME');
   ksfillComboF1(cn, VenueFLD, 'VENUE', 'SERIAL_NUMBER', 'VENUE_NAME','VENUE_NAME');
   ksfillComboF1(cn, StatusFLD, 'status_activity', 'status', 'description');
+//  ksfillComboF1(cn, MonoPolyDisplayFLD, '', 'TYPE_MONO_POLY', 'description');
   ksOpenTables([SeminarSQL]);
   if IN_ACTION = 'INSERT' then
   begin
@@ -1478,7 +1497,8 @@ begin
     0: begin
       ksPostTables([SeminarSQL]);
       InsertMonoCompany(0);
-    end;
+       SeminarSQL.Refresh;
+     end;
     1: ksPostTables([seminarSubjectSQL]);
 //    2: ksPostTables([AttendingSQL]);
     4: ksPostTables([SeminarCostItemSQL]);

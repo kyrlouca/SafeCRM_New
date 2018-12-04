@@ -452,11 +452,11 @@ object S_UpdateStatusFRM: TS_UpdateStatusFRM
           'SEM_CATEGORY;CustomEdit;SHowCatFLD;F'
           'STATUS;CustomEdit;ShowStatusFLD;F')
         Selected.Strings = (
-          'SERIAL_NUMBER'#9'5'#9'A/A'#9#9
-          'ANAD_NUMBER'#9'10'#9#913#925#913#916' '#9#9
-          'SEMINAR_NAME'#9'14'#9#928#949#961#953#947#961#945#966#942#9#9
-          'SEM_CATEGORY'#9'14'#9#932#973#960#959#962#9#9
-          'STATUS'#9'14'#9#931#964#940#948#953#959#9#9)
+          'SERIAL_NUMBER'#9'5'#9'A/A'
+          'ANAD_NUMBER'#9'10'#9#913#925#913#916' '
+          'SEMINAR_NAME'#9'14'#9#928#949#961#953#947#961#945#966#942
+          'SEM_CATEGORY'#9'14'#9#932#973#960#959#962
+          'STATUS'#9'14'#9#931#964#940#948#953#959)
         IniAttributes.Delimiter = ';;'
         IniAttributes.UnicodeIniFile = False
         TitleColor = clBtnFace
@@ -480,7 +480,8 @@ object S_UpdateStatusFRM: TS_UpdateStatusFRM
         TitleFont.Name = 'Arial'
         TitleFont.Style = []
         TitleLines = 1
-        TitleButtons = False
+        TitleButtons = True
+        OnTitleButtonClick = SemGRDTitleButtonClick
         object SHowCatFLD: TwwDBComboBox
           Left = 23
           Top = 313
@@ -562,8 +563,6 @@ object S_UpdateStatusFRM: TS_UpdateStatusFRM
       BorderOuter = fsNone
       TabOrder = 1
       VisualStyle = vsClassic
-      ExplicitLeft = 463
-      ExplicitTop = 0
       object Panel6: TRzPanel
         Left = 0
         Top = 0
@@ -741,8 +740,10 @@ object S_UpdateStatusFRM: TS_UpdateStatusFRM
           ItemHeight = 0
           Items.Strings = (
             #924#972#957#959'-'#917#960#967'.'#9'M'
-            #928#972#955#965'-'#917#960#967'.'#9'P')
-          ItemIndex = 0
+            #928#972#955#965'-'#917#960#967'.'#9'P'
+            #913#960#955#972#9'N')
+          ItemIndex = 1
+          ReadOnly = True
           Sorted = False
           TabOrder = 0
           UnboundDataType = wwDefault

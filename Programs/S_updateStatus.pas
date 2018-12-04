@@ -92,6 +92,7 @@ type
     procedure Grid1TitleButtonClick(Sender: TObject; AFieldName: string);
     procedure TableSQLNewRecord(DataSet: TDataSet);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure SemGRDTitleButtonClick(Sender: TObject; AFieldName: string);
   private
     { Private declarations }
     cn:TIBCConnection;
@@ -147,6 +148,18 @@ end;
 procedure TS_UpdateStatusFRM.RzBitBtn1Click(Sender: TObject);
 begin
 close;
+end;
+
+procedure TS_UpdateStatusFRM.SemGRDTitleButtonClick(Sender: TObject;
+  AFieldName: string);
+  var
+         sortInfoHawb:TSOrtInfo;
+         Table:TIBCQuery;
+
+begin
+        Table:=TIbcQuery(SemGRD.DataSource.DataSet);
+        SortInfoHawb.Table:=Table;
+        G_GeneralProcs.SortGrid(Table,AFieldName,SOrtInfoHawb);
 end;
 
 procedure TS_UpdateStatusFRM.FormActivate(Sender: TObject);
