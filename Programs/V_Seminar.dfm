@@ -117,7 +117,7 @@ object V_SeminarFRM: TV_SeminarFRM
       Width = 1073
       Height = 619
       Margins.Left = 30
-      ActivePage = SeminarTS
+      ActivePage = CompaniesTS
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -1933,8 +1933,7 @@ object V_SeminarFRM: TV_SeminarFRM
               Selected.Strings = (
                 'SERIAL_NUMBER'#9'8'#9'A/A'
                 'SERIAL_QB'#9'8'#9'QB'
-                'LAST_NAME'#9'17'#9#917#960#943#952#949#964#959
-                'FIRST_NAME'#9'15'#9#908#957#959#956#945
+                'LAST_NAME'#9'17'#9#917#964#945#953#961#949#943#945
                 'NATIONAL_ID'#9'10'#9#932#945#965#964#972#964#951#964#945)
               IniAttributes.Delimiter = ';;'
               IniAttributes.UnicodeIniFile = False
@@ -2136,8 +2135,8 @@ object V_SeminarFRM: TV_SeminarFRM
               Selected.Strings = (
                 'SERIAL_NUMBER'#9'10'#9'A/A'
                 'SERIAL_QB'#9'8'#9'QB'
-                'LAST_NAME'#9'33'#9#917#960#943#952#949#964#959
-                'NATIONAL_ID'#9'13'#9#932#945#965#964#972#964#951#964#945)
+                'LAST_NAME'#9'33'#9#917#964#945#953#961#949#943#945
+                'NATIONAL_ID'#9'13'#9#913#961'. '#917#947#947#961#945#966#942#962#9'F')
               IniAttributes.Delimiter = ';;'
               IniAttributes.UnicodeIniFile = False
               TitleColor = clBtnFace
@@ -2168,6 +2167,8 @@ object V_SeminarFRM: TV_SeminarFRM
               OnTitleButtonClick = AllCompGRDTitleButtonClick
               OnDblClick = AllPersonsGRDDblClick
               OnKeyDown = AllPersonsGRDKeyDown
+              ExplicitLeft = 0
+              ExplicitTop = 83
             end
             object RzSizePanel4: TRzSizePanel
               Left = 1
@@ -2966,10 +2967,6 @@ object V_SeminarFRM: TV_SeminarFRM
         Caption = #928#953#963#964#959#960#959#953#951#964#953#954#940
         ImageIndex = 5
         TabVisible = False
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object RzPanel23: TRzPanel
           Left = 0
           Top = 0
@@ -3366,6 +3363,7 @@ object V_SeminarFRM: TV_SeminarFRM
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       ParentFont = False
       TabOrder = 3
+      OnClick = PrintRBtnClick
     end
   end
   object RzPanel22: TRzPanel
@@ -5672,16 +5670,9 @@ object V_SeminarFRM: TV_SeminarFRM
       FieldName = 'SERIAL_QB'
     end
     object Co_CompaniesInSQLLAST_NAME: TWideStringField
-      DisplayLabel = #917#960#943#952#949#964#959
+      DisplayLabel = #917#964#945#953#961#949#943#945
       DisplayWidth = 17
       FieldName = 'LAST_NAME'
-      FixedChar = True
-      Size = 30
-    end
-    object Co_CompaniesInSQLFIRST_NAME: TWideStringField
-      DisplayLabel = #908#957#959#956#945
-      DisplayWidth = 15
-      FieldName = 'FIRST_NAME'
       FixedChar = True
       Size = 30
     end
@@ -5690,6 +5681,14 @@ object V_SeminarFRM: TV_SeminarFRM
       DisplayWidth = 10
       FieldName = 'NATIONAL_ID'
       FixedChar = True
+    end
+    object Co_CompaniesInSQLFIRST_NAME: TWideStringField
+      DisplayLabel = #908#957#959#956#945
+      DisplayWidth = 15
+      FieldName = 'FIRST_NAME'
+      Visible = False
+      FixedChar = True
+      Size = 30
     end
     object Co_CompaniesInSQLFK_SEMINAR_SERIAL: TIntegerField
       FieldName = 'FK_SEMINAR_SERIAL'
@@ -5798,14 +5797,14 @@ object V_SeminarFRM: TV_SeminarFRM
       FieldName = 'SERIAL_QB'
     end
     object Co_companiesOutSQLLAST_NAME: TWideStringField
-      DisplayLabel = #917#960#943#952#949#964#959
+      DisplayLabel = #917#964#945#953#961#949#943#945
       DisplayWidth = 33
       FieldName = 'LAST_NAME'
       FixedChar = True
       Size = 30
     end
     object Co_companiesOutSQLNATIONAL_ID: TWideStringField
-      DisplayLabel = #932#945#965#964#972#964#951#964#945
+      DisplayLabel = #913#961'. '#917#947#947#961#945#966#942#962
       DisplayWidth = 13
       FieldName = 'NATIONAL_ID'
       FixedChar = True

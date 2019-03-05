@@ -15,6 +15,7 @@ object M_mainFRM: TM_mainFRM
   Position = poScreenCenter
   WindowState = wsMaximized
   OnActivate = FormActivate
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object PanelButtonsPNL: TRzSizePanel
@@ -7553,6 +7554,10 @@ object M_mainFRM: TM_mainFRM
       object Backup1: TMenuItem
         Caption = 'Backup'
         OnClick = Backup1Click
+      end
+      object FixCustomer1: TMenuItem
+        Caption = 'FixCustomer'
+        OnClick = FixCustomer1Click
       end
     end
     object Help1: TMenuItem

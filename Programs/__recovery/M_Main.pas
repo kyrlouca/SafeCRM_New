@@ -87,6 +87,7 @@ type
     N13: TMenuItem;
     N14: TMenuItem;
     Backup1: TMenuItem;
+    FixCustomer1: TMenuItem;
     procedure BitBtn1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Countries2Click(Sender: TObject);
@@ -117,8 +118,11 @@ type
     procedure PDF1Click(Sender: TObject);
     procedure Backup1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
+    procedure FixCustomer1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
+        cn:TIBCConnection;
   public
     { Public declarations }
     Global_UserID:String;
@@ -138,7 +142,7 @@ uses G_generalProcs, M_params, M_Company, M_Student, M_Venue, M_seminarType,
   G_SFCommonProcs, SN_Login, SN_User, M_payment, l_listInvoices,
   v_SeminarPictureTemplate, R_SeminarListingRevenues, t_test2, R_presencePerDay,
   SN_ModifyPassword, S_updateStatus, S_LoadDocs, m_FixMaleFemale, S_LoadPDF,
-  S_backupData;
+  S_backupData, G_KyrSQL;
 
 procedure TM_mainFRM.Backup1Click(Sender: TObject);
 begin
@@ -184,6 +188,27 @@ begin
   gpShowModal(TL_SeminarFRM);
 end;
 
+procedure TM_mainFRM.FixCustomer1Click(Sender: TObject);
+var
+  str:string;
+  qr : TksQuery;
+  Pserial:Integer;
+begin
+SHowMessage('hell');
+str:=
+' update person pe'
+  +'  SET pe.FK_COMPANY_SERIAL = null'
+  +'  WHERE'
+  +'  pe.SERIAL_NUMBER= :SERIAL'
+  +'  AND pe.FK_COMPANY_SERIAL IS NOT null'
+  +'  AND not EXISTS (SELECT * FROM PERSON co WHERE co.SERIAL_NUMBER=pe.FK_COMPANY_SERIAL)';
+
+
+
+  Pserial:=888;
+  ksExecSQLVar(cn,str,[Pserial]);
+  end;
+
 procedure TM_mainFRM.FixMaleFemale1Click(Sender: TObject);
 begin
 gpShowModal(TM_FixMaleFemaleFRM);
@@ -198,6 +223,12 @@ begin
   end;
 
   LoginBTN.SetFocus;
+
+end;
+
+procedure TM_mainFRM.FormCreate(Sender: TObject);
+begin
+  cn:=  U_databaseFRM.DataConnection;
 
 end;
 

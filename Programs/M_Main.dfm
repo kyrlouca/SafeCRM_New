@@ -2,7 +2,7 @@ object M_mainFRM: TM_mainFRM
   Left = 0
   Top = 0
   Caption = 'EnaSimple'
-  ClientHeight = 420
+  ClientHeight = 528
   ClientWidth = 837
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -179,13 +179,14 @@ object M_mainFRM: TM_mainFRM
   end
   object ButtonsPNL: TPanel
     Left = 0
-    Top = 375
+    Top = 483
     Width = 837
     Height = 45
     Align = alBottom
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 1
+    ExplicitTop = 375
     object Panel1: TPanel
       Left = 700
       Top = 2
@@ -275,18 +276,19 @@ object M_mainFRM: TM_mainFRM
     Left = 0
     Top = 83
     Width = 837
-    Height = 292
+    Height = 400
     Margins.Top = 0
     Margins.Bottom = 0
     Align = alClient
     SizeBarWidth = 1
     TabOrder = 2
     VisualStyle = vsClassic
+    ExplicitHeight = 292
     object Image1: TImage
       Left = 0
       Top = 0
       Width = 837
-      Height = 292
+      Height = 400
       Align = alClient
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D494844520000033C0000

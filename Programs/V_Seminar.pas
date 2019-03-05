@@ -481,6 +481,7 @@ type
     procedure AttendGRDDblClick(Sender: TObject);
     procedure wwDBGrid4DblClick(Sender: TObject);
     procedure RzBitBtn2Click(Sender: TObject);
+    procedure PrintRBtnClick(Sender: TObject);
   private
     { Private declarations }
     cn: TIBCConnection;
@@ -1490,6 +1491,11 @@ begin
 end;
 
 
+
+procedure TV_SeminarFRM.PrintRBtnClick(Sender: TObject);
+begin
+PrintDocs();
+end;
 
 procedure TV_SeminarFRM.PageControlPCChanging(Sender: TObject;
   var AllowChange: Boolean);

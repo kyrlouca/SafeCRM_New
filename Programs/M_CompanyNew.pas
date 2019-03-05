@@ -208,6 +208,9 @@ type
     ExcludedPersonsSQLIS_COMPANY: TWideStringField;
     ExcludedPersonsSQLCOMPANY_NAME: TWideStringField;
     ExcludedPersonsSQLCOMPANY_SERIAL: TIntegerField;
+    Label39: TLabel;
+    wwIncrementalSearch1: TwwIncrementalSearch;
+    Label40: TLabel;
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);
@@ -232,6 +235,7 @@ type
     procedure AllPersonsGRDDblClick(Sender: TObject);
     procedure AllPersonsGRDTitleButtonClick(Sender: TObject;
       AFieldName: string);
+    procedure wwIncrementalSearch1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
     cn:TIBCConnection;
@@ -315,6 +319,15 @@ end;
 procedure TM_companyNewFRM.ToRightBTNClick(Sender: TObject);
 begin
 RemovePerson();
+end;
+
+procedure TM_companyNewFRM.wwIncrementalSearch1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+ if key=VK_DOWN  then begin
+  AllPersonsGRD.SetFocus;
+ end;
+
+
 end;
 
 procedure TM_companyNewFRM.SafeFLDClick(Sender: TObject);

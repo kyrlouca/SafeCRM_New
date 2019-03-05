@@ -1,9 +1,10 @@
 object M_companyNewFRM: TM_companyNewFRM
   Left = 365
   Top = 153
+  Width = 1278
+  Height = 834
+  AutoScroll = True
   Caption = '--'
-  ClientHeight = 795
-  ClientWidth = 1262
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -304,7 +305,7 @@ object M_companyNewFRM: TM_companyNewFRM
     Top = 92
     Width = 1262
     Height = 660
-    ActivePage = InfoTS
+    ActivePage = EmployeesTS
     Align = alClient
     MultiLine = True
     TabOrder = 3
@@ -1420,11 +1421,11 @@ object M_companyNewFRM: TM_companyNewFRM
             Width = 568
             Height = 570
             Selected.Strings = (
-              'SERIAL_NUMBER'#9'6'#9'A/A'
-              'LAST_NAME'#9'23'#9#917#960#943#952#949#964#959
-              'FIRST_NAME'#9'20'#9#168#927#957#959#956#945
-              'NATIONAL_ID'#9'17'#9#932#945#965#964#972#964#951#964#945
-              'PHONE_MOBILE'#9'15'#9#954#953#957#951#964#972)
+              'SERIAL_NUMBER'#9'6'#9'A/A'#9#9
+              'LAST_NAME'#9'23'#9#917#960#943#952#949#964#959#9#9
+              'FIRST_NAME'#9'20'#9#168#927#957#959#956#945#9#9
+              'NATIONAL_ID'#9'17'#9#932#945#965#964#972#964#951#964#945#9#9
+              'PHONE_MOBILE'#9'15'#9#954#953#957#951#964#972#9#9)
             IniAttributes.Delimiter = ';;'
             IniAttributes.UnicodeIniFile = False
             TitleColor = clBtnFace
@@ -1633,9 +1634,9 @@ object M_companyNewFRM: TM_companyNewFRM
           TabOrder = 3
           object AllPersonsGRD: TwwDBGrid
             Left = 1
-            Top = 57
+            Top = 121
             Width = 576
-            Height = 557
+            Height = 493
             Selected.Strings = (
               'SERIAL_NUMBER'#9'6'#9'A/A'
               'LAST_NAME'#9'20'#9#917#960#943#952#949#964#959
@@ -1673,24 +1674,69 @@ object M_companyNewFRM: TM_companyNewFRM
             OnTitleButtonClick = AllPersonsGRDTitleButtonClick
             OnDblClick = AllPersonsGRDDblClick
             OnKeyDown = AllPersonsGRDKeyDown
+            ExplicitTop = 57
+            ExplicitHeight = 557
           end
           object RzSizePanel2: TRzSizePanel
             Left = 1
             Top = 15
             Width = 576
-            Height = 42
+            Height = 106
             Align = alTop
             TabOrder = 1
+            object Label39: TLabel
+              Left = 8
+              Top = 35
+              Width = 61
+              Height = 14
+              Caption = #932#945#965#964#972#964#951#964#945
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Label40: TLabel
+              Left = 28
+              Top = 9
+              Width = 41
+              Height = 14
+              Caption = #917#960#943#952#949#964#959
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
             object PersonSearchFLD: TwwIncrementalSearch
-              Left = 5
-              Top = 14
-              Width = 121
+              Left = 75
+              Top = 7
+              Width = 209
               Height = 22
               DataSource = ExcludedPersonsSRC
               SearchField = 'LAST_NAME'
               ShowMatchText = True
               TabOrder = 0
               OnKeyDown = PersonSearchFLDKeyDown
+            end
+            object wwIncrementalSearch1: TwwIncrementalSearch
+              Left = 75
+              Top = 32
+              Width = 128
+              Height = 22
+              DataSource = ExcludedPersonsSRC
+              SearchField = 'NATIONAL_ID'
+              ShowMatchText = True
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 1
+              OnKeyDown = wwIncrementalSearch1KeyDown
             end
           end
         end

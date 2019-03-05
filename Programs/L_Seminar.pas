@@ -629,11 +629,16 @@ VAR
   isAllow:Boolean;
 begin
   isAllow:=TableSQL.FieldByName('status').AsString='P';
-  if not isAllow then begin;
+  if not isAllow then begin
     MessageDlg('Το Σεμινάριο ΔΕΝ επιτρέπεται να διαγραφεί.'+#13+#10+'Δεν είναι σε σταδιο Προετοιμασίας.', mtError, [mbOK], 0);
     exit;
   end;
-  DeleteSeminar();
+
+  If (MessageBox(0, 'Το Σεμινάριο θα ΔΙΑΓΡΑΦΕΙ !!', '', MB_ICONWARNING or MB_YESNO or MB_DEFBUTTON2)=mrYes) then begin
+    DeleteSeminar();
+  end;
+
+
 end;
 
 End.
