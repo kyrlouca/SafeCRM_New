@@ -117,7 +117,7 @@ object V_SeminarFRM: TV_SeminarFRM
       Width = 1073
       Height = 619
       Margins.Left = 30
-      ActivePage = SeminarTS
+      ActivePage = StudentsTS
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -2966,10 +2966,6 @@ object V_SeminarFRM: TV_SeminarFRM
         Caption = #928#953#963#964#959#960#959#953#951#964#953#954#940
         ImageIndex = 5
         TabVisible = False
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object RzPanel23: TRzPanel
           Left = 0
           Top = 0
@@ -3366,6 +3362,7 @@ object V_SeminarFRM: TV_SeminarFRM
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       ParentFont = False
       TabOrder = 3
+      OnClick = PrintRBtnClick
     end
   end
   object RzPanel22: TRzPanel
