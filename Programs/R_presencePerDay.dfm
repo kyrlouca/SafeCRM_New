@@ -249,6 +249,7 @@ object R_presencePErDayFRM: TR_presencePErDayFRM
   end
   object vtpip: TppDBPipeline
     DataSource = Vt1SRC
+    CloseDataSource = True
     OpenDataSource = False
     UserName = 'vtpip'
     Left = 408
