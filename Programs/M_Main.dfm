@@ -15,6 +15,7 @@ object M_mainFRM: TM_mainFRM
   Position = poScreenCenter
   WindowState = wsMaximized
   OnActivate = FormActivate
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object PanelButtonsPNL: TRzSizePanel
@@ -26,7 +27,7 @@ object M_mainFRM: TM_mainFRM
     Margins.Bottom = 0
     Align = alTop
     BorderOuter = fsGroove
-    Caption = 'Safe CRM - V1.24'
+    Caption = 'Safe CRM - V1.25'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 3947580
     Font.Height = -48
@@ -186,7 +187,6 @@ object M_mainFRM: TM_mainFRM
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 1
-    ExplicitTop = 375
     object Panel1: TPanel
       Left = 700
       Top = 2
@@ -283,7 +283,6 @@ object M_mainFRM: TM_mainFRM
     SizeBarWidth = 1
     TabOrder = 2
     VisualStyle = vsClassic
-    ExplicitHeight = 292
     object Image1: TImage
       Left = 0
       Top = 0
@@ -7553,6 +7552,10 @@ object M_mainFRM: TM_mainFRM
       object Backup1: TMenuItem
         Caption = 'Backup'
         OnClick = Backup1Click
+      end
+      object FixCustomer1: TMenuItem
+        Caption = 'FixCustomer'
+        OnClick = FixCustomer1Click
       end
     end
     object Help1: TMenuItem

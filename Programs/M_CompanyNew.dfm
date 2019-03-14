@@ -305,7 +305,7 @@ object M_companyNewFRM: TM_companyNewFRM
     Top = 92
     Width = 1262
     Height = 660
-    ActivePage = EmployeesTS
+    ActivePage = InfoTS
     Align = alClient
     MultiLine = True
     TabOrder = 3
@@ -1421,11 +1421,11 @@ object M_companyNewFRM: TM_companyNewFRM
             Width = 568
             Height = 570
             Selected.Strings = (
-              'SERIAL_NUMBER'#9'6'#9'A/A'#9#9
-              'LAST_NAME'#9'23'#9#917#960#943#952#949#964#959#9#9
-              'FIRST_NAME'#9'20'#9#168#927#957#959#956#945#9#9
-              'NATIONAL_ID'#9'17'#9#932#945#965#964#972#964#951#964#945#9#9
-              'PHONE_MOBILE'#9'15'#9#954#953#957#951#964#972#9#9)
+              'SERIAL_NUMBER'#9'6'#9'A/A'
+              'LAST_NAME'#9'23'#9#917#960#943#952#949#964#959
+              'FIRST_NAME'#9'20'#9#168#927#957#959#956#945
+              'NATIONAL_ID'#9'17'#9#932#945#965#964#972#964#951#964#945
+              'PHONE_MOBILE'#9'15'#9#954#953#957#951#964#972)
             IniAttributes.Delimiter = ';;'
             IniAttributes.UnicodeIniFile = False
             TitleColor = clBtnFace
@@ -1674,8 +1674,6 @@ object M_companyNewFRM: TM_companyNewFRM
             OnTitleButtonClick = AllPersonsGRDTitleButtonClick
             OnDblClick = AllPersonsGRDDblClick
             OnKeyDown = AllPersonsGRDKeyDown
-            ExplicitTop = 57
-            ExplicitHeight = 557
           end
           object RzSizePanel2: TRzSizePanel
             Left = 1

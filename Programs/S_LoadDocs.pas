@@ -782,7 +782,11 @@ end;
 procedure TS_LoadDocsFRM.CreateTextFile(Const seminarSerial, CompSerial:Integer; Const FileName :String);
 const
   SeminarSQL = 'select (sem.date_started-22) as Date_22, sem.* from seminar sem where serial_number = :Serial';
-//  CompanySQl = 'select *, EXTRACT (YEAR FROM COMPANY_REGISTRATION_DATE) AS Company_registration_year from Person where serial_number = :Serial';
+
+//  Seminar SQL = 'select sty.max_capacity, (sem.date_started-22) as Date_22, sem.* from seminar sem '
+//  + 'left outer join seminar_type sty on sem.fk_seminar =sty.serial_number '
+//  +' where sem.serial_number = :Serial ';
+
   CompanySQl = 'select pe.*, EXTRACT(YEAR FROM COMPANY_REGISTRATION_DATE) AS Company_registration_year from Person pe where serial_number = :Serial';
 
   VenueSQl = 'select * from Venue where serial_number = :Serial';

@@ -1454,6 +1454,12 @@ begin
 end;
 
 
+procedure TV_SeminarFRM.PrintRBtnClick(Sender: TObject);
+begin
+PrintDocs();
+end;
+
+
 procedure TV_SeminarFRM.N2Click(Sender: TObject);
 begin
 PrintDocs();
@@ -1492,10 +1498,6 @@ end;
 
 
 
-procedure TV_SeminarFRM.PrintRBtnClick(Sender: TObject);
-begin
-PrintDocs();
-end;
 
 procedure TV_SeminarFRM.PageControlPCChanging(Sender: TObject;
   var AllowChange: Boolean);

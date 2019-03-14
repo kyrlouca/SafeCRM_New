@@ -117,7 +117,7 @@ object V_SeminarFRM: TV_SeminarFRM
       Width = 1073
       Height = 619
       Margins.Left = 30
-      ActivePage = CompaniesTS
+      ActivePage = SeminarTS
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -2136,7 +2136,7 @@ object V_SeminarFRM: TV_SeminarFRM
                 'SERIAL_NUMBER'#9'10'#9'A/A'
                 'SERIAL_QB'#9'8'#9'QB'
                 'LAST_NAME'#9'33'#9#917#964#945#953#961#949#943#945
-                'NATIONAL_ID'#9'13'#9#913#961'. '#917#947#947#961#945#966#942#962#9'F')
+                'NATIONAL_ID'#9'13'#9#913#961'. '#917#947#947#961#945#966#942#962)
               IniAttributes.Delimiter = ';;'
               IniAttributes.UnicodeIniFile = False
               TitleColor = clBtnFace
@@ -2167,8 +2167,6 @@ object V_SeminarFRM: TV_SeminarFRM
               OnTitleButtonClick = AllCompGRDTitleButtonClick
               OnDblClick = AllPersonsGRDDblClick
               OnKeyDown = AllPersonsGRDKeyDown
-              ExplicitLeft = 0
-              ExplicitTop = 83
             end
             object RzSizePanel4: TRzSizePanel
               Left = 1
@@ -3589,7 +3587,7 @@ object V_SeminarFRM: TV_SeminarFRM
     Left = 210
     Top = 101
     Bitmap = {
-      494C010110008800D40310001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010110008800D80310001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
