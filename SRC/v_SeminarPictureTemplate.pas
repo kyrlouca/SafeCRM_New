@@ -486,8 +486,6 @@ begin
         exit;
       end;
 
-//        if aFieldName='PICTURE_TOP_R1' then
-//         img.Picture.LoadFromFile('C:\Data\DelphiProjects\Safe_CRM\pictures\SafetyLogo.png');
 
       BlobField := qr.FieldByName(aFieldName);
 

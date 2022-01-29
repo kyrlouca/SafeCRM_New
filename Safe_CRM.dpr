@@ -16,7 +16,6 @@ uses
   H_Help in 'SRC\H_Help.pas' {H_HelpFRM},
   G_SFCommonProcs in 'SRC\G_SFCommonProcs.pas',
   p_attendance in 'SRC\p_attendance.pas' {P_attendanceFRM},
-  M_Company in 'SRC\M_Company.pas' {M_CompanyFRM},
   L_Seminar in 'SRC\L_Seminar.pas' {L_SeminarFRM},
   V_SeminarStages in 'SRC\V_SeminarStages.pas' {V_SeminarStagesFRM},
   I_certificates in 'SRC\I_certificates.pas' {I_CertificatesFRM},
@@ -45,7 +44,6 @@ uses
   M_reminder in 'SRC\M_reminder.pas' {M_reminderFRM},
   R_seminarAttend in 'SRC\R_seminarAttend.pas' {R_seminarsAttendFRM},
   S_updateStatus in 'SRC\S_updateStatus.pas' {S_UpdateStatusFRM},
-  M_Instructor in 'SRC\M_Instructor.pas' {M_InstructorFRM},
   R_Reminders in 'SRC\R_Reminders.pas' {R_remindersFRM},
   R_AnadFIles in 'SRC\R_AnadFIles.pas' {R_AnadFilesFRM},
   m_FixMaleFemale in 'SRC\m_FixMaleFemale.pas' {M_FixMaleFemaleFRM},
@@ -57,24 +55,31 @@ uses
   t_test2 in 'SRC\t_test2.pas' {T_test2FRM},
   v_SeminarPictureTemplate in 'SRC\v_SeminarPictureTemplate.pas' {V_SeminarPictureTemplateFRM},
   V_SeminarCertificateTemplateNew in 'SRC\V_SeminarCertificateTemplateNew.pas' {V_SeminarCertificateTemplateNewFRM},
-  V_SeminarTypeCertificateTemplateNew in 'SRC\V_SeminarTypeCertificateTemplateNew.pas' {V_SeminarTypeCertificateTemplateNewFRM};
+  V_SeminarTypeCertificateTemplateNew in 'SRC\V_SeminarTypeCertificateTemplateNew.pas' {V_SeminarTypeCertificateTemplateNewFRM},
+  Vcl.Themes,
+  Vcl.Styles,
+  M_Test in 'M_Test.pas' {M_TestFRM},
+  T_test3 in 'SRC\T_test3.pas' {T_test3Frm},
+  B_single in 'SRC\B_single.pas' {B_SingleFRM};
 
 //  R_PendingCertificates in 'R_PendingCertificates.pas' {R_PendingCertificatesFRM};
 
 {$R *.res}
 
 begin
-ReportMemoryLeaksOnShutdown := DebugHook <> 0;
+  ReportMemoryLeaksOnShutdown := DebugHook <> 0;
 
   Application.Initialize;
      {$IFDEF DEBUG}
-    CodeSite.Enabled := True;
+    CodeSite.Enabled := false;
     CodeSite.Clear;
  {$ELSE}
     CodeSite.Enabled := False;
  {$ENDIF}
 
   Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Sky');
+  Application.Title := 'Safe haaaa';
   Application.CreateForm(TU_databaseFRM, U_databaseFRM);
   Application.CreateForm(TM_mainFRM, M_mainFRM);
   Application.CreateForm(TM_StudentFRM, M_StudentFRM);
@@ -88,6 +93,10 @@ ReportMemoryLeaksOnShutdown := DebugHook <> 0;
   Application.CreateForm(TV_SeminarCertificateTemplateNewFRM, V_SeminarCertificateTemplateNewFRM);
   Application.CreateForm(TV_SeminarPictureTemplateFRM, V_SeminarPictureTemplateFRM);
   Application.CreateForm(TV_SeminarTypeCertificateTemplateNewFRM, V_SeminarTypeCertificateTemplateNewFRM);
+  Application.CreateForm(TM_TestFRM, M_TestFRM);
+  Application.CreateForm(TT_test3Frm, T_test3Frm);
+  Application.CreateForm(TT_test3Frm, T_test3Frm);
+  Application.CreateForm(TB_SingleFRM, B_SingleFRM);
   //  Application.CreateForm(TV_SeminarTypeCertificateNewFRM, V_SeminarTypeCertificateNewFRM);
   //  Application.CreateForm(TV_SeminarTypeCertificateNewFRM1, V_SeminarTypeCertificateNewFRM1);
   Application.Run;

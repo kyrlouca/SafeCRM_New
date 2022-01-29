@@ -403,12 +403,12 @@ object S_loadPdfFRM: TS_loadPdfFRM
         Color = clBtnFace
         DitherColor = clWhite
         DitherStyle = wwdsDither
-        NumGlyphs = 0
         ShadeStyle = wwbsNormal
         TabOrder = 1
         TextOptions.Alignment = taCenter
         TextOptions.VAlignment = vaVCenter
         OnClick = wwButton1Click
+        ImageIndex = -1
       end
       object RzPanel2: TRzPanel
         Left = 0
@@ -427,6 +427,8 @@ object S_loadPdfFRM: TS_loadPdfFRM
           DataSource = TableSRC
           RepeatInterval.InitialDelay = 500
           RepeatInterval.Interval = 100
+          BackgroundOptions.IndentX = 0
+          BackgroundOptions.IndentY = 0
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -12

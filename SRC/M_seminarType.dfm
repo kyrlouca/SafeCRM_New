@@ -347,7 +347,6 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
             Align = alRight
             BorderOuter = fsNone
             TabOrder = 1
-            ExplicitLeft = 0
             object RzPanel3: TRzPanel
               Left = 0
               Top = 0
@@ -774,6 +773,8 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 DataSource = SeminarTypeSRC
                 RepeatInterval.InitialDelay = 500
                 RepeatInterval.Interval = 100
+                BackgroundOptions.IndentX = 0
+                BackgroundOptions.IndentY = 0
                 Align = alLeft
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clWindowText
@@ -1200,6 +1201,8 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 DataSource = SeminarSubjectSRC
                 RepeatInterval.InitialDelay = 500
                 RepeatInterval.Interval = 100
+                BackgroundOptions.IndentX = 0
+                BackgroundOptions.IndentY = 0
                 Align = alLeft
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clWindowText
@@ -1935,6 +1938,8 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
                 DataSource = SeminarReminderSRC
                 RepeatInterval.InitialDelay = 500
                 RepeatInterval.Interval = 100
+                BackgroundOptions.IndentX = 0
+                BackgroundOptions.IndentY = 0
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clWindowText
                 Font.Height = -12
@@ -4070,7 +4075,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
         DataType = ftInteger
         Name = 'SERIAL_NUMBER'
         ParamType = ptInput
-        Value = 56
+        Value = 51
       end>
     object seminarSubjectSQLSERIAL_NUMBER: TIntegerField
       DisplayLabel = 'A/A'
@@ -4180,7 +4185,7 @@ object M_SeminarTypeFRM: TM_SeminarTypeFRM
         DataType = ftInteger
         Name = 'SERIAL_NUMBER'
         ParamType = ptInput
-        Value = 56
+        Value = 51
       end>
     object SeminarReminderSQLSERIAL_NUMBER: TIntegerField
       DisplayLabel = 'A/A'

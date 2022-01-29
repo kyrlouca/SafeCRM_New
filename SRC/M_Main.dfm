@@ -7232,8 +7232,7 @@ object M_mainFRM: TM_mainFRM
         BB01D75E82B64FFBF11FB4AA436D1FE5BA540000000049454E44AE426082}
       Proportional = True
       Stretch = True
-      ExplicitLeft = 14
-      ExplicitTop = -3
+      ExplicitTop = 2
     end
     object LoginBTN: TRzBitBtn
       Left = 14
@@ -7455,6 +7454,15 @@ object M_mainFRM: TM_mainFRM
       TabOrder = 4
       OnClick = Button3Click
     end
+    object Test4Btn: TButton
+      Left = 424
+      Top = 344
+      Width = 75
+      Height = 25
+      Caption = 'Test3'
+      TabOrder = 5
+      OnClick = Test4BtnClick
+    end
   end
   object MainMenu1: TMainMenu
     OwnerDraw = True
@@ -7494,6 +7502,10 @@ object M_mainFRM: TM_mainFRM
       object N7: TMenuItem
         Caption = #932#953#956#959#955#972#947#953#945' '#954#945#953' '#928#955#951#961#969#956#941#962
         OnClick = N7Click
+      end
+      object test1: TMenuItem
+        Caption = 'test'
+        OnClick = test1Click
       end
     end
     object Reports1: TMenuItem

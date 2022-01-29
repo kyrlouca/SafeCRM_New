@@ -157,8 +157,8 @@ procedure TS_loadPdfFRM.wwButton1Click(Sender: TObject);
 VAR
   fileName:String;
 begin
-  FileName:='C:\Data\DelphiProjects\Safe_CRM\documents\H3.rtf';
-  FindHex(FileName);
+//  FileName:='C:\Data\DelphiProjects\Safe_CRM\documents\H3.rtf';
+//  FindHex(FileName);
 end;
 
 function TS_loadPdfFRM.FindHex(const FileName:String): Integer;
@@ -530,7 +530,7 @@ begin
     end;
   end;
 
-//  fileName:='C:\Data\DelphiProjects\Safe_CRM\documents\Mono_anadForms\temp.doc';
+
 
   str2:='Select * from word_docs wd where wd.Poly_mono = :poly';
   qr:= TksQuery.Create(cn,str2);

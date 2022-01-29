@@ -91,6 +91,8 @@ type
     Client1: TNetHTTPClient;
     Req1: TNetHTTPRequest;
     Button3: TButton;
+    test1: TMenuItem;
+    Test4Btn: TButton;
     procedure BitBtn1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Countries2Click(Sender: TObject);
@@ -125,6 +127,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Client1RequestCompleted(const Sender: TObject; const AResponse: IHTTPResponse);
+    procedure test1Click(Sender: TObject);
+    procedure Test4BtnClick(Sender: TObject);
   private
     { Private declarations }
         cn:TIBCConnection;
@@ -147,7 +151,7 @@ uses G_generalProcs, M_params, M_Company, M_Student, M_Venue, M_seminarType,
   G_SFCommonProcs, SN_Login, SN_User, M_payment, l_listInvoices,
   v_SeminarPictureTemplate, R_SeminarListingRevenues, t_test2, R_presencePerDay,
   SN_ModifyPassword, S_updateStatus, S_LoadDocs, m_FixMaleFemale, S_LoadPDF,
-  S_backupData, G_KyrSQL;
+  S_backupData, G_KyrSQL, M_Test, B_single;
 
 procedure TM_mainFRM.Backup1Click(Sender: TObject);
 begin
@@ -179,10 +183,11 @@ end;
 
 procedure TM_mainFRM.Button3Click(Sender: TObject);
 begin
-Req1.MethodString :='GET';
-req1.URL:='https://jsonplaceholder.typicode.com/todos/1';
-req1.Execute();
+//Req1.MethodString :='GET';
+//req1.URL:='https://jsonplaceholder.typicode.com/todos/1';
+//req1.Execute();
 
+  gpShowModal(TM_TestFRM);
 end;
 
 procedure TM_mainFRM.ChangePassword1Click(Sender: TObject);
@@ -234,7 +239,8 @@ end;
 
 procedure TM_mainFRM.FormActivate(Sender: TObject);
 begin
-  if Global_UserID='' then begin
+
+  if (Global_UserID='') And (1=2) then begin
     self.Menu:=nil;
    PanelButtonsPNL.Enabled:=false;
     exit;
@@ -383,6 +389,16 @@ end;
 procedure TM_mainFRM.SystemParameters1Click(Sender: TObject);
 begin
   gpShowModal(TM_paramsFRM);
+end;
+
+procedure TM_mainFRM.test1Click(Sender: TObject);
+begin
+                         gpShowModal(TM_TestFRM);
+end;
+
+procedure TM_mainFRM.Test4BtnClick(Sender: TObject);
+begin
+gpShowModal(TB_SingleFRM);
 end;
 
 procedure TM_mainFRM.UserSecurity1Click(Sender: TObject);
